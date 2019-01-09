@@ -28,33 +28,33 @@ public class UsuarioBean extends GenericBeanImplementation implements BeanInterf
 
  
     @Expose
-     String nombre;
+     private String nombre;
     @Expose
-     String ape1;
+     private String ape1;
     @Expose
-     String ape2;
+     private String ape2;
     @Expose
-     int telefono;
+     private int telefono;
     @Expose
-     String login;
+     private String login;
     @Expose(serialize = false)
-     String pass;
+     private String pass;
     @Expose
-     String email;
+     private String email;
     @Expose
-     String direccion;
+     private String direccion;
     @Expose
-     String poblacion;
+     private String poblacion;
     @Expose
-     String token;
+     private String token;
     @Expose
-     Boolean validado;
+     private Boolean validado;
     @Expose(serialize = false)
-     int id_tipousuario;
+     private int id_tipousuario;
     @Expose(deserialize = false)
-     TipousuarioBean obj_tipoUsuario;
+     private TipousuarioBean obj_tipoUsuario;
     @Expose(deserialize = false)
-     int link_factura;
+     private int link_factura;
 
     public String getNombre() {
         return nombre;
