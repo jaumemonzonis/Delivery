@@ -7,17 +7,23 @@ import net.daw.bean.beanImplementation.UsuarioBean;
 import net.daw.service.specificServiceImplementation_0.UsuarioService_0;
 import net.daw.service.specificServiceImplementation_1.FacturaService_1;
 import net.daw.service.specificServiceImplementation_1.LineaService_1;
+import net.daw.service.specificServiceImplementation_1.MunicipioService_1;
 import net.daw.service.specificServiceImplementation_1.ProductoService_1;
+import net.daw.service.specificServiceImplementation_1.RestauranteService_1;
 import net.daw.service.specificServiceImplementation_1.TipoproductoService_1;
 import net.daw.service.specificServiceImplementation_1.TipousuarioService_1;
 import net.daw.service.specificServiceImplementation_1.UsuarioService_1;
+import net.daw.service.specificServiceImplementation_1.ZonaService_1;
 import net.daw.service.specificServiceImplementation_2.CarritoService_2;
 import net.daw.service.specificServiceImplementation_2.FacturaService_2;
 import net.daw.service.specificServiceImplementation_2.LineaService_2;
+import net.daw.service.specificServiceImplementation_2.MunicipioService_2;
 import net.daw.service.specificServiceImplementation_2.ProductoService_2;
+import net.daw.service.specificServiceImplementation_2.RestauranteService_2;
 import net.daw.service.specificServiceImplementation_2.TipoproductoService_2;
 import net.daw.service.specificServiceImplementation_2.TipousuarioService_2;
 import net.daw.service.specificServiceImplementation_2.UsuarioService_2;
+import net.daw.service.specificServiceImplementation_2.ZonaService_2;
 
 public class ServiceFactory {
 
@@ -227,7 +233,84 @@ public class ServiceFactory {
                                 break;
                         }
                         break;
-
+                    case "restaurante":
+                        RestauranteService_1 oRestauranteService = new RestauranteService_1(oRequest);
+                        switch (op) {
+                            case "get":
+                                oReplyBean = oRestauranteService.get();
+                                break;
+                            case "create":
+                                oReplyBean = oRestauranteService.create();
+                                break;
+                            case "update":
+                                oReplyBean = oRestauranteService.update();
+                                break;
+                            case "remove":
+                                oReplyBean = oRestauranteService.remove();
+                                break;
+                            case "getcount":
+                                oReplyBean = oRestauranteService.getcount();
+                                break;
+                            case "getpage":
+                                oReplyBean = oRestauranteService.getpage();
+                                break;
+                            default:
+                                oReplyBean = new ReplyBean(500, "Operation doesn't exist");
+                                break;
+                        }
+                        break;
+                    case "zona":
+                        ZonaService_1 oZonaService = new ZonaService_1(oRequest);
+                        switch (op) {
+                            case "get":
+                                oReplyBean = oZonaService.get();
+                                break;
+                            case "create":
+                                oReplyBean = oZonaService.create();
+                                break;
+                            case "update":
+                                oReplyBean = oZonaService.update();
+                                break;
+                            case "remove":
+                                oReplyBean = oZonaService.remove();
+                                break;
+                            case "getcount":
+                                oReplyBean = oZonaService.getcount();
+                                break;
+                            case "getpage":
+                                oReplyBean = oZonaService.getpage();
+                                break;
+                            default:
+                                oReplyBean = new ReplyBean(500, "Operation doesn't exist");
+                                break;
+                        }
+                        break;
+                    case "municipio":
+                        MunicipioService_1 oMunicipioService = new MunicipioService_1(oRequest);
+                        switch (op) {
+                            case "get":
+                                oReplyBean = oMunicipioService.get();
+                                break;
+                            case "create":
+                                oReplyBean = oMunicipioService.create();
+                                break;
+                            case "update":
+                                oReplyBean = oMunicipioService.update();
+                                break;
+                            case "remove":
+                                oReplyBean = oMunicipioService.remove();
+                                break;
+                            case "getcount":
+                                oReplyBean = oMunicipioService.getcount();
+                                break;
+                            case "getpage":
+                                oReplyBean = oMunicipioService.getpage();
+                                break;
+                            default:
+                                oReplyBean = new ReplyBean(500, "Operation doesn't exist");
+                                break;
+                        }
+                        break;
                     default:
                         oReplyBean = new ReplyBean(500, "Object doesn't exist");
                         break;
@@ -353,6 +436,84 @@ public class ServiceFactory {
                                 break;
                         }
                         break;
+                    case "restaurante":
+                        RestauranteService_2 oRestauranteService = new RestauranteService_2(oRequest);
+                        switch (op) {
+                            case "get":
+                                oReplyBean = oRestauranteService.get();
+                                break;
+                            case "create":
+                                oReplyBean = oRestauranteService.create();
+                                break;
+                            case "update":
+                                oReplyBean = oRestauranteService.update();
+                                break;
+                            case "remove":
+                                oReplyBean = oRestauranteService.remove();
+                                break;
+                            case "getcount":
+                                oReplyBean = oRestauranteService.getcount();
+                                break;
+                            case "getpage":
+                                oReplyBean = oRestauranteService.getpage();
+                                break;
+                            default:
+                                oReplyBean = new ReplyBean(500, "Operation doesn't exist");
+                                break;
+                        }
+                        break;
+                    case "zona":
+                        ZonaService_2 oZonaService = new ZonaService_2(oRequest);
+                        switch (op) {
+                            case "get":
+                                oReplyBean = oZonaService.get();
+                                break;
+                            case "create":
+                                oReplyBean = oZonaService.create();
+                                break;
+                            case "update":
+                                oReplyBean = oZonaService.update();
+                                break;
+                            case "remove":
+                                oReplyBean = oZonaService.remove();
+                                break;
+                            case "getcount":
+                                oReplyBean = oZonaService.getcount();
+                                break;
+                            case "getpage":
+                                oReplyBean = oZonaService.getpage();
+                                break;
+                            default:
+                                oReplyBean = new ReplyBean(500, "Operation doesn't exist");
+                                break;
+                        }
+                        break;
+                    case "municipio":
+                        MunicipioService_2 oMunicipioService = new MunicipioService_2(oRequest);
+                        switch (op) {
+                            case "get":
+                                oReplyBean = oMunicipioService.get();
+                                break;
+                            case "create":
+                                oReplyBean = oMunicipioService.create();
+                                break;
+                            case "update":
+                                oReplyBean = oMunicipioService.update();
+                                break;
+                            case "remove":
+                                oReplyBean = oMunicipioService.remove();
+                                break;
+                            case "getcount":
+                                oReplyBean = oMunicipioService.getcount();
+                                break;
+                            case "getpage":
+                                oReplyBean = oMunicipioService.getpage();
+                                break;
+                            default:
+                                oReplyBean = new ReplyBean(500, "Operation doesn't exist");
+                                break;
+                        }
+                        break;
                     case "carrito":
                         CarritoService_2 oCarritoService = new CarritoService_2(oRequest);
                         switch (op) {
@@ -380,7 +541,7 @@ public class ServiceFactory {
                         oReplyBean = new ReplyBean(500, "Object doesn't exist");
                         break;
                 }
-         break;
+                break;
             case 0:
                 switch (ob) {
                     case "usuario":

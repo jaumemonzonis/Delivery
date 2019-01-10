@@ -17,12 +17,18 @@ import net.daw.dao.publicDaoInterface.DaoInterface;
 import net.daw.dao.specificDaoImplementation_0.FacturaDao_0;
 import net.daw.dao.specificDaoImplementation_0.TipousuarioDao_0;
 import net.daw.dao.specificDaoImplementation_0.UsuarioDao_0;
+import net.daw.dao.specificDaoImplementation_1.MunicipioDao_1;
+import net.daw.dao.specificDaoImplementation_1.RestauranteDao_1;
+import net.daw.dao.specificDaoImplementation_1.ZonaDao_1;
 import net.daw.dao.specificDaoImplementation_2.FacturaDao_2;
 import net.daw.dao.specificDaoImplementation_2.LineaDao_2;
+import net.daw.dao.specificDaoImplementation_2.MunicipioDao_2;
 import net.daw.dao.specificDaoImplementation_2.ProductoDao_2;
+import net.daw.dao.specificDaoImplementation_2.RestauranteDao_2;
 import net.daw.dao.specificDaoImplementation_2.TipoproductoDao_2;
 import net.daw.dao.specificDaoImplementation_2.TipousuarioDao_2;
 import net.daw.dao.specificDaoImplementation_2.UsuarioDao_2;
+import net.daw.dao.specificDaoImplementation_2.ZonaDao_2;
 
 /**
  *
@@ -33,12 +39,11 @@ public class DaoFactory {
     public static DaoInterface getDao(Connection oConnection, String ob, UsuarioBean oUsuarioBeanSession) throws Exception {
         DaoInterface oDao = null;
         int idSessionUserTipe;
-        if(oUsuarioBeanSession !=null){
+        if (oUsuarioBeanSession != null) {
             idSessionUserTipe = oUsuarioBeanSession.getObj_tipousuario().getId();
-        }else{
-           idSessionUserTipe = 0; 
+        } else {
+            idSessionUserTipe = 0;
         }
-        
 
         switch (idSessionUserTipe) {
             case 1:
@@ -60,6 +65,15 @@ public class DaoFactory {
                         break;
                     case "linea":
                         oDao = new LineaDao_1(oConnection, ob, oUsuarioBeanSession);
+                        break;
+                    case "restaurante":
+                        oDao = new RestauranteDao_1(oConnection, ob, oUsuarioBeanSession);
+                        break;
+                    case "zona":
+                        oDao = new ZonaDao_1(oConnection, ob, oUsuarioBeanSession);
+                        break;
+                    case "municipio":
+                        oDao = new MunicipioDao_1(oConnection, ob, oUsuarioBeanSession);
                         break;
                 }
                 break;
@@ -83,9 +97,18 @@ public class DaoFactory {
                     case "linea":
                         oDao = new LineaDao_2(oConnection, ob, oUsuarioBeanSession);
                         break;
+                    case "restaurante":
+                        oDao = new RestauranteDao_2(oConnection, ob, oUsuarioBeanSession);
+                        break;
+                    case "zona":
+                        oDao = new ZonaDao_2(oConnection, ob, oUsuarioBeanSession);
+                        break;
+                    case "municipio":
+                        oDao = new MunicipioDao_2(oConnection, ob, oUsuarioBeanSession);
+                        break;
                 }
                 break;
-                 case 0:
+            case 0:
                 switch (ob) {
                     case "usuario":
                         oDao = new UsuarioDao_0(oConnection, ob, oUsuarioBeanSession);

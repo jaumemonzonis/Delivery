@@ -10,9 +10,12 @@ import net.daw.bean.publicBeanInterface.BeanInterface;
 import net.daw.bean.beanImplementation.TipoproductoBean;
 import net.daw.bean.beanImplementation.LineaBean;
 import net.daw.bean.beanImplementation.FacturaBean;
+import net.daw.bean.beanImplementation.MunicipioBean;
 import net.daw.bean.beanImplementation.ProductoBean;
+import net.daw.bean.beanImplementation.RestauranteBean;
 import net.daw.bean.beanImplementation.TipousuarioBean;
 import net.daw.bean.beanImplementation.UsuarioBean;
+import net.daw.bean.beanImplementation.ZonaBean;
 
 /**
  *
@@ -41,11 +44,20 @@ public class BeanFactory {
             case "linea":
                 oBean = (BeanInterface) new LineaBean();
                 break;
+            case "restaurante":
+                oBean = (BeanInterface) new RestauranteBean();
+                break;
+            case "zona":
+                oBean = (BeanInterface) new ZonaBean();
+                break;
+            case "municipio":
+                oBean = (BeanInterface) new MunicipioBean();
+                break;
         }
         return oBean;
     }
-    
-     public static BeanInterface getBeanFromJson(String ob, Gson oGson, String strJsonFromClient) {
+
+    public static BeanInterface getBeanFromJson(String ob, Gson oGson, String strJsonFromClient) {
         BeanInterface oBean = null;
         switch (ob) {
             case "usuario":
@@ -66,7 +78,16 @@ public class BeanFactory {
             case "linea":
                 oBean = oGson.fromJson(strJsonFromClient, LineaBean.class);
                 break;
+            case "restaurante":
+                oBean = oGson.fromJson(strJsonFromClient, RestauranteBean.class);
+                break;
+            case "zona":
+                oBean = oGson.fromJson(strJsonFromClient, ZonaBean.class);
+                break;
+            case "municipio":
+                oBean = oGson.fromJson(strJsonFromClient, MunicipioBean.class);
+                break;
         }
         return oBean;
-}
+    }
 }
