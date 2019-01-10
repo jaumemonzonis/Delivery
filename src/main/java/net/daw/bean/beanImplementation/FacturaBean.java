@@ -33,23 +33,19 @@ import net.daw.helper.EncodingHelper;
 public class FacturaBean extends GenericBeanImplementation implements BeanInterface{
 
 @Expose
-    private Date fecha;
-@Expose
-    private double iva;
-  @Expose(serialize = false)
-    private int id_usuario;
-@Expose(deserialize = false)
-    private UsuarioBean obj_Usuario;
-  @Expose
-    private int link_linea;
-
-    public UsuarioBean getObj_Usuario() {
-        return obj_Usuario;
-    }
-
-    public void setObj_Usuario(UsuarioBean obj_Usuario) {
-        this.obj_Usuario = obj_Usuario;
-    }
+    Date fecha;
+    @Expose
+    double iva;
+    @Expose(serialize = false)
+    int id_usuario;
+    @Expose(deserialize = false)
+    UsuarioBean obj_Usuario;
+    @Expose(serialize = false)
+    int id_restaurante;
+    @Expose(deserialize = false)
+    RestauranteBean obj_Restaurante;
+    @Expose
+    int link_linea;
 
     public Date getFecha() {
         return fecha;
@@ -75,6 +71,30 @@ public class FacturaBean extends GenericBeanImplementation implements BeanInterf
         this.id_usuario = id_usuario;
     }
 
+    public UsuarioBean getObj_Usuario() {
+        return obj_Usuario;
+    }
+
+    public void setObj_Usuario(UsuarioBean obj_Usuario) {
+        this.obj_Usuario = obj_Usuario;
+    }
+
+    public int getId_restaurante() {
+        return id_restaurante;
+    }
+
+    public void setId_restaurante(int id_restaurante) {
+        this.id_restaurante = id_restaurante;
+    }
+
+    public RestauranteBean getObj_Restaurante() {
+        return obj_Restaurante;
+    }
+
+    public void setObj_Restaurante(RestauranteBean obj_Restaurante) {
+        this.obj_Restaurante = obj_Restaurante;
+    }
+
     public int getLink_linea() {
         return link_linea;
     }
@@ -82,37 +102,35 @@ public class FacturaBean extends GenericBeanImplementation implements BeanInterf
     public void setLink_linea(int link_linea) {
         this.link_linea = link_linea;
     }
-    
- @Override
-   public FacturaBean fill(ResultSet oResultSet, Connection oConnection, Integer expand,UsuarioBean oUsuarioBeanSession) throws SQLException, Exception {
+
+    @Override
+    public FacturaBean fill(ResultSet oResultSet, Connection oConnection, Integer expand, UsuarioBean oUsuarioBeanSession) throws SQLException, Exception {
         this.setId(oResultSet.getInt("id"));
-        //Timestamp LUL = oResultSet.getTimestamp("fecha");
-        //this.setFecha(LUL);
         this.setFecha(oResultSet.getDate("fecha"));
         this.setIva(oResultSet.getDouble("iva"));
+
         if (expand > 0) {
             DaoInterface oUsuarioDao = DaoFactory.getDao(oConnection, "usuario", oUsuarioBeanSession);
             this.setObj_Usuario((UsuarioBean) oUsuarioDao.get(oResultSet.getInt("id_usuario"), expand));
         }
         DaoInterface oLineaDao = DaoFactory.getDao(oConnection, "linea", oUsuarioBeanSession);
         this.setLink_linea(oLineaDao.getcountX(oResultSet.getInt("id")));
-//        if (oLineaDao.getClass() == LineaDao_1.class) {
-//            LineaDao_1 oLineaDao_1 = (LineaDao_1) oLineaDao;
-//            this.setLink_linea(oLineaDao_1.getcountxlinea(this.getId()));
-//        } else {
-//            LineaDao_2 oLineaDao_2 = (LineaDao_2) oLineaDao;
-//            this.setLink_linea(oLineaDao_2.getcountxlinea(this.getId()));
-//        }
-  
-       // this.setLink_linea(oLineaDao.getcountxlinea(this.getId()));
+
+        if (expand > 0) {
+            DaoInterface oRestauranteDao = DaoFactory.getDao(oConnection, "restaurante", oUsuarioBeanSession);
+            this.setObj_Restaurante((RestauranteBean) oRestauranteDao.get(oResultSet.getInt("id_restaurante"), expand));
+        }
+//   
+
         return this;
-}
-   @Override
+    }
+
+    @Override
     public String getPairs() {
 
         ZoneId defaultZoneId = ZoneId.systemDefault();
 
-        Instant instant = fecha.toInstant();
+        Instant instant = getFecha().toInstant();
 
         LocalDate localDate = instant.atZone(defaultZoneId).toLocalDate();
         //System.out.println("Local Date is: " + localDate);
@@ -120,41 +138,51 @@ public class FacturaBean extends GenericBeanImplementation implements BeanInterf
         String strPairs = "";
         strPairs += "id=" + id + ",";
         strPairs += "fecha=" + EncodingHelper.quotate(localDate.toString()) + ",";
-        strPairs += "iva=" + iva + ",";
-        strPairs += "id_usuario=" + id_usuario;
+        strPairs += "iva=" + getIva() + ",";
+        strPairs += "id_usuario=" + getId_usuario() + ",";
+        strPairs += "id_restaurante=" + getId_restaurante();
         strPairs += " WHERE id=" + id;
         return strPairs;
 
     }
-    
- @Override
+
+    @Override
     public String getColumns() {
         String strColumns = "";
         strColumns += "id,";
         strColumns += "fecha,";
         strColumns += "iva,";
-        strColumns += "id_usuario";
+        strColumns += "id_usuario,";
+        strColumns += "id_restaurante";
         return strColumns;
     }
-    
- @Override
+
+    @Override
     public String getValues() {
 
         ZoneId defaultZoneId = ZoneId.systemDefault();
-        
-        Instant instant = fecha.toInstant();
-        
+
+        Instant instant = getFecha().toInstant();
+
         LocalDate localDate = instant.atZone(defaultZoneId).toLocalDate();
         System.out.println("Local Date is: " + localDate);
         String strColumns = "";
         strColumns += "null,";
         strColumns += EncodingHelper.quotate(localDate.toString()) + ",";
-        strColumns += iva + ",";
-        if(getObj_Usuario() != null){
-        strColumns += this.getObj_Usuario().getId();
-        }else{
-            strColumns += this.getId_usuario();
+        strColumns += getIva() + ",";
+        if (getObj_Usuario() != null) {
+            strColumns += this.getObj_Usuario().getId() + ",";
+        } else {
+            strColumns += this.getId_usuario() + ",";
         }
+
+        if (getObj_Restaurante() != null) {
+            strColumns += this.getObj_Restaurante().getId();
+        } else {
+            strColumns += this.getId_restaurante();
+        }
+
         return strColumns;
     }
+
 }
