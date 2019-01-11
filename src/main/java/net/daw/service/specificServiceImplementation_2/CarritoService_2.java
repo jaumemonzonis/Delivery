@@ -245,12 +245,10 @@ public class CarritoService_2 {
             String direccion_cliente = ((UsuarioBean) sesion.getAttribute("user")).getPoblacion();
             //int dir_client= Integer.parseInt(direccion_cliente);  
             MunicipioDao_2 oMunicipioDao = new  MunicipioDao_2(oConnection, "municipio", oUsuarioBeanSession);
-            oFacturaBean.setId_restaurante(oMunicipioDao.getIdRestaurante(direccion_cliente));
-                
+            oFacturaBean.setId_restaurante(oMunicipioDao.getIdRestaurante(direccion_cliente));   
             }
 
             FacturaDao_2 oFacturaDao = new FacturaDao_2(oConnection, "factura", oUsuarioBeanSession);
-
             FacturaBean oFacturaBeanCreada = (FacturaBean) oFacturaDao.create(oFacturaBean);
             int id_factura = oFacturaBeanCreada.getId();
 

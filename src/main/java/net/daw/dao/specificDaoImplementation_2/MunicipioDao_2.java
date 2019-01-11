@@ -41,8 +41,8 @@ public class MunicipioDao_2 extends GenericDaoImplementation implements DaoInter
           ResultSet oResultSet = null;
         try {
             oPreparedStatement = oConnection.prepareStatement(strSQL_getIdRestaurante);
-            String poblaciocliente = EncodingHelper.quotate(poblacion_cliente);
-            oPreparedStatement.setString(1, poblaciocliente);
+            //String poblaciocliente = EncodingHelper.quotate(poblacion_cliente);
+            oPreparedStatement.setString(1, poblacion_cliente);
            oResultSet = oPreparedStatement.executeQuery();
            if (oResultSet.next()) {
                 iRes = oResultSet.getInt(1);
