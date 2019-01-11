@@ -27,6 +27,7 @@ public class ProductoService_1 extends GenericServiceImplementation implements S
 
     public ProductoService_1(HttpServletRequest oRequest) {
         super(oRequest);
+        this.oRequest=oRequest;
         ob = oRequest.getParameter("ob");
     }
 
@@ -55,7 +56,7 @@ public class ProductoService_1 extends GenericServiceImplementation implements S
         return oReplyBean;
     }
 
-    public ReplyBean loadimage() throws Exception {
+ public ReplyBean loadimage() throws Exception {
         ReplyBean oReplyBean = null;
         String name = "";
         String strMessage = "";
@@ -85,6 +86,6 @@ public class ProductoService_1 extends GenericServiceImplementation implements S
 
         return oReplyBean;
 
-    }
+}
 
 }
