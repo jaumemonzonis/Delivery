@@ -5,7 +5,6 @@
  */
 package net.daw.dao.specificDaoImplementation_2;
 
-
 import java.sql.Array;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -27,28 +26,54 @@ import net.daw.helper.SqlBuilder;
  *
  * @author jaume monzonis
  */
-public class MunicipioDao_2 extends GenericDaoImplementation implements DaoInterface{
-     public MunicipioDao_2(Connection oConnection, String ob,UsuarioBean oUsuarioBeanSession) {
+public class MunicipioDao_2 extends GenericDaoImplementation implements DaoInterface {
+
+    public MunicipioDao_2(Connection oConnection, String ob, UsuarioBean oUsuarioBeanSession) {
         super(oConnection, ob, oUsuarioBeanSession);
 
     }
     
+    
+    @Override
+    public int remove(int id) throws Exception {
+        throw new Exception("Error en Dao remove de " + ob + ": No autorizado");
+    }
+
+    @Override
+    public int getcount() throws Exception {
+        throw new Exception("Error en Dao getcount de " + ob + ": No autorizado");
+    }
+
+    @Override
+    public BeanInterface create(BeanInterface oBean) throws Exception {
+        throw new Exception("Error en Dao create de " + ob + ": No autorizado");
+    }
+
+    @Override
+    public int update(BeanInterface oBean) throws Exception {
+        throw new Exception("Error en Dao update de " + ob + ": No autorizado");
+    }
+
+    @Override
+    public ArrayList<BeanInterface> getpage(int iRpp, int iPage, HashMap<String, String> hmOrder, Integer expand) throws Exception {
+        throw new Exception("Error en Dao getpage de " + ob + ": No autorizado");
+
+    }
 
     public int getIdRestaurante(String poblacion_cliente) throws Exception {
         int iRes = 0;
         String strSQL_getIdRestaurante = "SELECT zona.id_restaurante FROM zona WHERE zona.id_municipio=(SELECT m.id from municipio m WHERE m.poblacion=?)";
         PreparedStatement oPreparedStatement = null;
-          ResultSet oResultSet = null;
+        ResultSet oResultSet = null;
         try {
             oPreparedStatement = oConnection.prepareStatement(strSQL_getIdRestaurante);
             //String poblaciocliente = EncodingHelper.quotate(poblacion_cliente);
             oPreparedStatement.setString(1, poblacion_cliente);
-           oResultSet = oPreparedStatement.executeQuery();
-           if (oResultSet.next()) {
+            oResultSet = oPreparedStatement.executeQuery();
+            if (oResultSet.next()) {
                 iRes = oResultSet.getInt(1);
             }
-           
-           
+
         } catch (SQLException e) {
             throw new Exception("Error en Dao getIdRestaurante de " + ob, e);
         } finally {
@@ -58,5 +83,5 @@ public class MunicipioDao_2 extends GenericDaoImplementation implements DaoInter
         }
         return iRes;
     }
-    
+
 }

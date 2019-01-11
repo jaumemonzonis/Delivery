@@ -28,8 +28,6 @@ public class ZonaBean extends GenericBeanImplementation implements BeanInterface
     private int id_municipio;
     @Expose(deserialize = false)
     private MunicipioBean obj_Municipio;
-    @Expose
-    private boolean emplazamiento;
 
     public int getId_restaurante() {
         return id_restaurante;
@@ -63,18 +61,9 @@ public class ZonaBean extends GenericBeanImplementation implements BeanInterface
         this.obj_Municipio = obj_Municipio;
     }
 
-    public boolean isEmplazamiento() {
-        return emplazamiento;
-    }
-
-    public void setEmplazamiento(boolean emplazamiento) {
-        this.emplazamiento = emplazamiento;
-    }
-
     @Override
     public ZonaBean fill(ResultSet oResultSet, Connection oConnection, Integer expand, UsuarioBean oUsuarioBeanSession) throws SQLException, Exception {
         this.setId(oResultSet.getInt("id"));
-        this.setEmplazamiento(oResultSet.getBoolean("emplazamiento"));
 
         if (expand > 0) {
             DaoInterface oRestauranteDao = DaoFactory.getDao(oConnection, "restaurante", oUsuarioBeanSession);
@@ -92,8 +81,7 @@ public class ZonaBean extends GenericBeanImplementation implements BeanInterface
         String strPairs = "";
         strPairs += "id=" + id + ",";
         strPairs += "id_restaurante=" + id_restaurante + ",";
-        strPairs += "id_municipio=" + id_municipio + ",";
-        strPairs += "emplazamiento=" + emplazamiento;
+        strPairs += "id_municipio=" + id_municipio;
         strPairs += " WHERE id=" + id;
         return strPairs;
     }
@@ -103,8 +91,7 @@ public class ZonaBean extends GenericBeanImplementation implements BeanInterface
         String strColumns = "";
         strColumns += "id,";
         strColumns += "id_restaurante,";
-        strColumns += "id_municipio,";
-        strColumns += "emplazamiento";
+        strColumns += "id_municipio";
         return strColumns;
     }
 
@@ -120,12 +107,10 @@ public class ZonaBean extends GenericBeanImplementation implements BeanInterface
         }
 
         if (getObj_Municipio() != null) {
-            strColumns += this.getObj_Municipio().getId() + ",";
+            strColumns += this.getObj_Municipio().getId();
         } else {
-            strColumns += this.getId_municipio() + ",";
+            strColumns += this.getId_municipio();
         }
-
-        strColumns += emplazamiento;
 
         return strColumns;
     }

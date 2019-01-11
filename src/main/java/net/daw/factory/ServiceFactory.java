@@ -442,15 +442,6 @@ public class ServiceFactory {
                             case "get":
                                 oReplyBean = oRestauranteService.get();
                                 break;
-                            case "create":
-                                oReplyBean = oRestauranteService.create();
-                                break;
-                            case "update":
-                                oReplyBean = oRestauranteService.update();
-                                break;
-                            case "remove":
-                                oReplyBean = oRestauranteService.remove();
-                                break;
                             case "getcount":
                                 oReplyBean = oRestauranteService.getcount();
                                 break;
@@ -462,58 +453,28 @@ public class ServiceFactory {
                                 break;
                         }
                         break;
-                    case "zona":
-                        ZonaService_2 oZonaService = new ZonaService_2(oRequest);
-                        switch (op) {
-                            case "get":
-                                oReplyBean = oZonaService.get();
-                                break;
-                            case "create":
-                                oReplyBean = oZonaService.create();
-                                break;
-                            case "update":
-                                oReplyBean = oZonaService.update();
-                                break;
-                            case "remove":
-                                oReplyBean = oZonaService.remove();
-                                break;
-                            case "getcount":
-                                oReplyBean = oZonaService.getcount();
-                                break;
-                            case "getpage":
-                                oReplyBean = oZonaService.getpage();
-                                break;
-                            default:
-                                oReplyBean = new ReplyBean(500, "Operation doesn't exist");
-                                break;
-                        }
-                        break;
-                    case "municipio":
-                        MunicipioService_2 oMunicipioService = new MunicipioService_2(oRequest);
-                        switch (op) {
-                            case "get":
-                                oReplyBean = oMunicipioService.get();
-                                break;
-                            case "create":
-                                oReplyBean = oMunicipioService.create();
-                                break;
-                            case "update":
-                                oReplyBean = oMunicipioService.update();
-                                break;
-                            case "remove":
-                                oReplyBean = oMunicipioService.remove();
-                                break;
-                            case "getcount":
-                                oReplyBean = oMunicipioService.getcount();
-                                break;
-                            case "getpage":
-                                oReplyBean = oMunicipioService.getpage();
-                                break;
-                            default:
-                                oReplyBean = new ReplyBean(500, "Operation doesn't exist");
-                                break;
-                        }
-                        break;
+//                    case "zona":
+//                        ZonaService_2 oZonaService = new ZonaService_2(oRequest);
+//                        switch (op) {
+//                            case "get":
+//                                oReplyBean = oZonaService.get();
+//                                break;
+//                            default:
+//                                oReplyBean = new ReplyBean(500, "Operation doesn't exist");
+//                                break;
+//                        }
+//                        break;
+//                    case "municipio":
+//                        MunicipioService_2 oMunicipioService = new MunicipioService_2(oRequest);
+//                        switch (op) {
+//                            case "get":
+//                                oReplyBean = oMunicipioService.get();
+//                                break;
+//                            default:
+//                                oReplyBean = new ReplyBean(500, "Operation doesn't exist");
+//                                break;
+//                        }
+//                        break;
                     case "carrito":
                         CarritoService_2 oCarritoService = new CarritoService_2(oRequest);
                         switch (op) {

@@ -100,6 +100,8 @@ CREATE TABLE IF NOT EXISTS `delivery`.`restaurante` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(255) NULL,
   `direccion` VARCHAR(255) NULL,
+  `poblacion` VARCHAR(255) NULL,
+
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -174,7 +176,6 @@ CREATE TABLE IF NOT EXISTS `delivery`.`zona` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `id_restaurante` INT NULL,
   `id_municipio` INT NULL,
-  `emplazamiento` TINYINT(1) NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_zona_restaurante1_idx` (`id_restaurante` ASC),
   INDEX `fk_zona_municipio1_idx` (`id_municipio` ASC),

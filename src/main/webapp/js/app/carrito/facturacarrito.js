@@ -55,6 +55,10 @@ moduleFactura.controller('facturaCarritoController', ['$scope', '$http', '$locat
         }
 
         $scope.pdf = function () {
+            
+            //en el futuro habrá que hacer una consulta a zona para saber el municipio del restaurante
+            
+            
             var usuario;
             var fecha;
             var lineasTotales;

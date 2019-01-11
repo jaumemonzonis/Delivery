@@ -22,6 +22,8 @@ public class RestauranteBean extends GenericBeanImplementation implements BeanIn
     private String nombre;
     @Expose
     private String direccion;
+    @Expose
+     String poblacion;
 
     public String getNombre() {
         return nombre;
@@ -44,6 +46,7 @@ public class RestauranteBean extends GenericBeanImplementation implements BeanIn
         this.setId(oResultSet.getInt("id"));
         this.setNombre(oResultSet.getString("nombre"));
         this.setDireccion(oResultSet.getString("direccion"));
+        this.setPoblacion(oResultSet.getString("poblacion"));
         return this;
     }
 
@@ -52,7 +55,8 @@ public class RestauranteBean extends GenericBeanImplementation implements BeanIn
         String strColumns = "";
         strColumns += "id,";
         strColumns += "nombre,";
-        strColumns += "direccion";
+        strColumns += "direccion,";
+        strColumns += "poblacion";
         return strColumns;
     }
 
@@ -61,7 +65,8 @@ public class RestauranteBean extends GenericBeanImplementation implements BeanIn
         String strColumns = "";
         strColumns += "null,";
         strColumns += EncodingHelper.quotate(nombre) + ",";
-        strColumns += EncodingHelper.quotate(direccion);
+        strColumns += EncodingHelper.quotate(direccion)+ ",";
+        strColumns += EncodingHelper.quotate(poblacion);
         return strColumns;
     }
 
@@ -69,9 +74,24 @@ public class RestauranteBean extends GenericBeanImplementation implements BeanIn
     public String getPairs() {
         String strPairs = "";
         strPairs += "id=" + id + ",";
-        strPairs += "nombre='" + nombre + "'";
-        strPairs += "direccion='" + direccion + "'";
+        strPairs += "nombre=" + EncodingHelper.quotate(nombre) + ",";
+        strPairs += "direccion=" + EncodingHelper.quotate(direccion) + ",";
+        strPairs += "poblacion=" + EncodingHelper.quotate(poblacion);
         strPairs += " WHERE id=" + id;
         return strPairs;
+    }
+
+    /**
+     * @return the poblacion
+     */
+    public String getPoblacion() {
+        return poblacion;
+    }
+
+    /**
+     * @param poblacion the poblacion to set
+     */
+    public void setPoblacion(String poblacion) {
+        this.poblacion = poblacion;
     }
 }
