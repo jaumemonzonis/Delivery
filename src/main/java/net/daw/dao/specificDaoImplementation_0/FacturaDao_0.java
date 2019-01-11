@@ -27,31 +27,41 @@ public class FacturaDao_0  extends GenericDaoImplementation implements DaoInterf
 
     }
  
- public int getcountXusuario(int idusuario) throws Exception {
-       String strSQL = "SELECT COUNT(id) FROM " + ob + " WHERE id_usuario=? ";
+ // public int getcountXusuario(int idusuario) throws Exception {
+//       String strSQL = "SELECT COUNT(id) FROM " + ob + " WHERE id_usuario=? ";
+//
+//        int res = 0;
+//        ResultSet oResultSet = null;
+//        PreparedStatement oPreparedStatement = null;
+//        try {
+//            oPreparedStatement = oConnection.prepareStatement(strSQL);
+//            oPreparedStatement.setInt(1, idusuario);
+//            oResultSet = oPreparedStatement.executeQuery();
+//            if (oResultSet.next()) {
+//                res = oResultSet.getInt(1);
+//            }
+//        } catch (SQLException e) {
+//            throw new Exception("Error en Dao get de " + ob, e);
+//        } finally {
+//            if (oResultSet != null) {
+//                oResultSet.close();
+//            }
+//            if (oPreparedStatement != null) {
+//                oPreparedStatement.close();
+//            }
+//        }
+//        return res;
+//    
+//    }
+ 
+ @Override
+    public int getcountX(int idajena) throws Exception {//hacer private, consultar desde el pojo y no poder preguntar desde fuera del servidor
+        //String strSQL = "";
 
-        int res = 0;
-        ResultSet oResultSet = null;
-        PreparedStatement oPreparedStatement = null;
-        try {
-            oPreparedStatement = oConnection.prepareStatement(strSQL);
-            oPreparedStatement.setInt(1, idusuario);
-            oResultSet = oPreparedStatement.executeQuery();
-            if (oResultSet.next()) {
-                res = oResultSet.getInt(1);
-            }
-        } catch (SQLException e) {
-            throw new Exception("Error en Dao get de " + ob, e);
-        } finally {
-            if (oResultSet != null) {
-                oResultSet.close();
-            }
-            if (oPreparedStatement != null) {
-                oPreparedStatement.close();
-            }
-        }
-        return res;
-    
+        strSQL_getcount = "SELECT COUNT(id) FROM " + ob + " WHERE id_usuario=" + idajena;
+
+        //se cambia la query y se llama al getcount normal para devolverlo
+        return super.getcount();
     }
  
  
@@ -65,10 +75,10 @@ public class FacturaDao_0  extends GenericDaoImplementation implements DaoInterf
         throw new Exception("Error en Dao remove de " + ob + ": No autorizado");
     }
 
-    @Override
-    public int getcount() throws Exception {
-        throw new Exception("Error en Dao getcount de " + ob + ": No autorizado");
-    }
+//    @Override
+//    public int getcount() throws Exception {
+//        throw new Exception("Error en Dao getcount de " + ob + ": No autorizado");
+//    }
 
     @Override
     public BeanInterface create(BeanInterface oBean) throws Exception {

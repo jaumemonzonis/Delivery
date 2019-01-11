@@ -130,8 +130,8 @@ public class ServiceFactory {
                             case "getpage":
                                 oReplyBean = oFacturaService.getpage();
                                 break;
-                            case "getpagexusuario":
-                                oReplyBean = oFacturaService.getpageXusuario();
+                            case "getpagex":
+                                oReplyBean = oFacturaService.getpageX();
                                 break;
                             case "getcountx":
                                 oReplyBean = oFacturaService.getcountX();
@@ -163,8 +163,8 @@ public class ServiceFactory {
                             case "getpage":
                                 oReplyBean = oLineaService.getpage();
                                 break;
-                            case "getlineafactura":
-                                oReplyBean = oLineaService.getLineaFactura();
+                            case "getpagex":
+                                oReplyBean = oLineaService.getpageX();
                                 break;
                             case "getcountx":
                                 oReplyBean = oLineaService.getcountX();
@@ -366,8 +366,8 @@ public class ServiceFactory {
                             case "getpage":
                                 oReplyBean = oFacturaService.getpage();
                                 break;
-                            case "getpagexusuario":
-                                oReplyBean = oFacturaService.getpageXusuario();
+                            case "getpagex":
+                                oReplyBean = oFacturaService.getpageX();
                                 break;
                             case "getcountx":
                                 oReplyBean = oFacturaService.getcountX();
@@ -390,8 +390,8 @@ public class ServiceFactory {
                             case "getpage":
                                 oReplyBean = oLineaService.getpage();
                                 break;
-                            case "getlineafactura":
-                                oReplyBean = oLineaService.getLineaFactura();
+                            case "getpagex":
+                                oReplyBean = oLineaService.getpageX();
                                 break;
                             case "getcountx":
                                 oReplyBean = oLineaService.getcountX();

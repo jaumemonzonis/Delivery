@@ -171,7 +171,7 @@ public class GenericServiceImplementation implements ServiceInterface {
         return oReplyBean;
     }
     
-    @Override
+     @Override
     public ReplyBean getcountX() throws Exception {
         ReplyBean oReplyBean;
         ConnectionInterface oConnectionPool = null;
@@ -180,7 +180,7 @@ public class GenericServiceImplementation implements ServiceInterface {
             Integer idajena = Integer.parseInt(oRequest.getParameter("idajena"));
             oConnectionPool = ConnectionFactory.getConnection(ConnectionConstants.connectionPool);
             oConnection = oConnectionPool.newConnection();
-            
+
             //LineaDao_1 oLineaDao = new LineaDao_1(oConnection, ob, oUsuarioBeanSession);
             DaoInterface oDao = DaoFactory.getDao(oConnection, ob, oUsuarioBeanSession);
             int registros = oDao.getcountX(idajena);
@@ -195,4 +195,29 @@ public class GenericServiceImplementation implements ServiceInterface {
         return oReplyBean;
 
     }
+
+    @Override
+    public ReplyBean getpageX() throws Exception {
+        ReplyBean oReplyBean;
+        ConnectionInterface oConnectionPool = null;
+        Connection oConnection;
+        try {
+            Integer idajena = Integer.parseInt(oRequest.getParameter("idajena"));
+            Integer iRpp = Integer.parseInt(oRequest.getParameter("rpp"));
+            Integer iPage = Integer.parseInt(oRequest.getParameter("page"));
+            oConnectionPool = ConnectionFactory.getConnection(ConnectionConstants.connectionPool);
+            oConnection = oConnectionPool.newConnection();
+            //FacturaDao_1 oFacturaDao = new FacturaDao_1(oConnection, ob, oUsuarioBeanSession);
+            DaoInterface oDao = DaoFactory.getDao(oConnection, ob, oUsuarioBeanSession);
+            ArrayList<BeanInterface> alOBean = oDao.getpageX(iRpp, iPage, idajena, 2);
+            Gson oGson = new Gson();
+            oReplyBean = new ReplyBean(200, oGson.toJson(alOBean));
+        } catch (Exception ex) {
+            throw new Exception("ERROR: Service level: getpageX method: " + ob + " object: " + ex.getMessage(), ex);
+        } finally {
+            oConnectionPool.disposeConnection();
+        }
+        return oReplyBean;
+    }
+
 }

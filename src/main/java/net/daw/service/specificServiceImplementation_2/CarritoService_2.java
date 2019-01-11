@@ -12,13 +12,16 @@ import javax.servlet.http.HttpSession;
 import net.daw.bean.beanImplementation.FacturaBean;
 import net.daw.bean.beanImplementation.ItemBean;
 import net.daw.bean.beanImplementation.LineaBean;
+import net.daw.bean.beanImplementation.MunicipioBean;
 import net.daw.bean.beanImplementation.ProductoBean;
 import net.daw.bean.beanImplementation.ReplyBean;
 import net.daw.bean.beanImplementation.UsuarioBean;
+import net.daw.bean.publicBeanInterface.BeanInterface;
 import net.daw.connection.publicinterface.ConnectionInterface;
 import net.daw.constant.ConnectionConstants;
 import net.daw.dao.specificDaoImplementation_2.FacturaDao_2;
 import net.daw.dao.specificDaoImplementation_2.LineaDao_2;
+import net.daw.dao.specificDaoImplementation_2.MunicipioDao_2;
 import net.daw.dao.specificDaoImplementation_2.ProductoDao_2;
 import net.daw.factory.ConnectionFactory;
 import net.daw.helper.EncodingHelper;
@@ -217,6 +220,10 @@ public class CarritoService_2 {
         //Obtenemos la sesion actual
         HttpSession sesion = oRequest.getSession();
         Connection oConnection = null;
+        
+        String id_rest= oRequest.getParameter("id_restaurante");
+        int id_restaurante= Integer.parseInt(id_rest);  
+        
         try {
 
             oConnectionPool = ConnectionFactory.getConnection(ConnectionConstants.connectionPool);
@@ -230,6 +237,17 @@ public class CarritoService_2 {
             oFacturaBean.setId_usuario(id);
             oFacturaBean.setFecha(fechaHoraAhora);
             oFacturaBean.setIva(21.0F);
+            
+            //Determinar el id_restaurante
+            if (id_restaurante !=0 ){
+             oFacturaBean.setId_restaurante(id_restaurante);
+            } else {
+            String direccion_cliente = ((UsuarioBean) sesion.getAttribute("user")).getPoblacion();
+            //int dir_client= Integer.parseInt(direccion_cliente);  
+            MunicipioDao_2 oMunicipioDao = new  MunicipioDao_2(oConnection, "municipio", oUsuarioBeanSession);
+            oFacturaBean.setId_restaurante(oMunicipioDao.getIdRestaurante(direccion_cliente));
+                
+            }
 
             FacturaDao_2 oFacturaDao = new FacturaDao_2(oConnection, "factura", oUsuarioBeanSession);
 

@@ -96,10 +96,15 @@ moduleCarrito.controller('carritoCarritoController', ['$scope', '$http', '$locat
 
         };
 
+         //opcion 1: local. el cliente selecciona el id_restaurante
+         //opcion 2: domicilio. el cliente selecciona el id_restaurante
+         //opcion 3: domicilio. el cliente elige predeterminado. id_restaurante=0
+        $scope.id_restaurante = 0; 
+
         $scope.buy = function () {
             $http({
                 method: 'GET',
-                url: 'json?ob=carrito&op=buy'
+                url: 'json?ob=carrito&op=buy&id_restaurante=' + $scope.id_restaurante
             }).then(function (response) {
                 $scope.status = response.status;
                 $scope.msg_factura = response.data.message;

@@ -27,5 +27,6 @@ public interface ServiceInterface {
     public ReplyBean getpage() throws Exception;
 
     public ReplyBean getcountX() throws Exception;
+    public ReplyBean getpageX() throws Exception;
     
 }
