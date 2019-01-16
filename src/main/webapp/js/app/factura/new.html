@@ -1,14 +1,24 @@
 <header-component></header-component>
+
+
 <div class="container-fluid">
-    <div class="row" style="margin-top: 70px">
+    
+      <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+
+                </div>
+    <div class="row">
         <div class="col-12">
-            <div class="row mt-5">
+           
+            <div class="row" ng-show="edited">
+                <div class="col-5 mx-auto container2 pl-3 pr-3">
+  <div class="row mt-5">
                 <div class="col-5 mx-auto">
-                    <h4 class="text-center mb-3"><i class="fas fa-edit fa-1x"></i> Nueva factura</h4>
+                    <h4 class="text-center mb-3"><i class="material-icons">
+                                add_circle_outline</i> 
+                        Crear factura</h4>
                 </div>
             </div>
-            <div class="row" ng-show="edited">
-                <div class="col-5 mx-auto">
 
                     <form name="userForm">
                         <div class="form-group">
@@ -90,4 +100,3 @@
         </div>
     </div>
 </div>
-<footer class="footer" ng-include="'js/app/footer.html'"></footer>

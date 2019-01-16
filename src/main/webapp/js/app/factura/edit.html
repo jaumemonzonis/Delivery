@@ -1,15 +1,22 @@
 <header-component></header-component>
+
+
 <div class="container-fluid">
-    <div class="row" style="margin-top: 70px">
+    
+      <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+
+                </div>
+    <div class="row">
         <div class="col-12">
-            <div class="row mt-5">
+           
+            <div class="row" ng-show="edited">
+                <div class="col-5 mx-auto container2 pl-3 pr-3">
+  <div class="row mt-5">
                 <div class="col-5 mx-auto">
-                    <h4 class="text-center mb-3"><i class="fas fa-edit fa-1x"></i> Editar factura</h4>
+                    <h4 class="text-center mb-3"><i class="material-icons">create</i> Editar factura</h4>
                 </div>
             </div>
-            <div class="row" ng-show="edited">
-                <div class="col-5 mx-auto">
-
                     <form name="userForm">
                         <div class="form-group">
                             <label>ID</label>
@@ -47,7 +54,7 @@
                                         <span class="input-group-text"
                                               data-toggle="modal"
                                               data-target="#cadd-location-modal">
-                                            <span class="fas fa-search"></span>
+                                           <span class="material-icons mr-2">account_circle</span>
                                         </span>
                                     </div>
                                     <input ng-model="obj_Usuario.id"
@@ -63,7 +70,9 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text">
                                             <a href="../usuario/view/{{obj_Usuario.id}}">
-                                                <span class="p-2 bd-highlight"><i class="fas fa-user"></i></span>
+                                               <span class="p-2 bd-highlight"><i class="material-icons">
+                                                        youtube_searched_for
+                                                    </i></span>
                                                 Usuario: {{obj_Usuario.nombre}}
                                             </a>
                                         </span>
@@ -91,4 +100,3 @@
         </div>
     </div>
 </div>
-<footer class="footer" ng-include="'js/app/footer.html'"></footer>

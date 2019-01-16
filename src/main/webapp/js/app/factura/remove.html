@@ -1,16 +1,57 @@
 <header-component></header-component>
+<div class="row menu_selection">
+    <div class="col-md-12 ml-sm-auto col-lg-12 px-4 d-flex justify-content-between ml-5">
+        <a href="tipousuario/plist" class="box first" >
+            <span class="icon-cont"><i class="fa fa-rocket"></i></span>
+            <h3>tipo usuario</h3>
+        </a>
+        <a href="usuario/plist" class="box first">
+            <span class="icon-cont"><i class="fa fa-rocket"></i></span>
+            <h3>usuario</h3>
+        </a>
+        <a href="factura/plist" class="box first" ng-class="{'active': isActive('/factura/plist')}">
+            <span class="icon-cont"><i class="fa fa-rocket"></i></span>
+            <h3>factura</h3>
+        </a>
+        <a href="producto/plist" class="box first">
+            <span class="icon-cont"><i class="fa fa-rocket"></i></span>
+            <h3>producto</h3>
+        </a>
+        <a href="tipoproducto/plist" class="box first">
+            <span class="icon-cont"><i class="fa fa-rocket"></i></span>
+            <h3>tipo producto</h3>
+        </a>
+        <a href="restaurante/plist" class="box first">
+            <span class="icon-cont"><i class="fa fa-rocket"></i></span>
+            <h3>restaurante</h3>
+        </a>
+        <a href="zona/plist" class="box first">
+            <span class="icon-cont"><i class="fa fa-rocket"></i></span>
+            <h3>zona</h3>
+        </a>
+        <a href="municipio/plist" class="box first">
+            <span class="icon-cont"><i class="fa fa-rocket"></i></span>
+            <h3>municipio</h3>
+        </a>
+    </div>
+
 <div class="container-fluid">
-  <div class="row" style="margin-top: 70px">
+    
+      <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+
+                </div>
+    
+  <div class="row">
     <div class="col-12">
-      <div class="row mt-5">
-        <div class="col-5 mx-auto">
-         <h4 class="text-center mb-3"><i class="fas fa-trash-alt fa-1x"></i> Borrar factura</h4>
-        </div>
-      </div>
+ 
       <div class="row">
-        <div class="col-5 mx-auto">
-            <div class="table-responsive" ng-show="(!visualizar)">
-                <table class="table table-striped table-sm">
+        <div class="col-5 mx-auto container2">
+            <div class="table-responsive pl-3 pr-3 " ng-show="(!visualizar)">
+                    <div class="col-5 mt-2 mx-auto">
+         <h3 class="text-center mb-3"><i class="material-icons">visibility</i>Borrar facturas</h3>
+        </div>
+                <table class="table table-sm">
                     <tr>
                         <th>ID</th><td>{{ajaxDataUsuarios.id}}</td>
                     </tr>
@@ -47,4 +88,3 @@
         </div>
     </div>
 </div>
-<footer class="footer" ng-include="'js/app/footer.html'"></footer>
