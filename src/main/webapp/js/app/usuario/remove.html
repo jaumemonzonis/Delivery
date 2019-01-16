@@ -1,37 +1,59 @@
 <header-component></header-component>
+
 <div class="container-fluid">
-    <div class="row" style="margin-top: 70px">
-        <div class="col-12">
-            <div class="row mt-5">
-                <div class="col-5 mx-auto">
-                    <h4 class="text-center mb-3"><i class="fas fa-trash-alt fa-1x"></i> Borrar usuario</h4>
+    
+      <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-5 mx-auto">
-                    <div class="table-responsive">
-                        <table class="table table-striped table-sm">
+    
+  <div class="row">
+    <div class="col-12">
+ 
+      <div class="row">
+        <div class="col-5 mx-auto container2">
+            <div class="table-responsive pl-3 pr-3 " ng-show="(!visualizar)">
+                    <div class="col-5 mt-2 mx-auto">
+         <h3 class="text-center mb-3"><i class="material-icons">visibility</i>Borrar usuarios</h3>
+        </div>
+                   <table class="table table-sm">
                             <tr>
                                 <th>ID</th><td>{{ajaxDataUsuarios.id}}</td>
-                            </tr>
-                            <tr>
-                                <th>DNI </th><td>{{ajaxDataUsuarios.dni}}</td>
                             </tr>
                             <tr>
                                 <th>Nombre</th><td>{{ajaxDataUsuarios.nombre}}</td>
                             </tr>
                             <tr>
-                                <th>Primer apellido</th><td>{{ajaxDataUsuarios.ape1}}</td>
+                                <th>Primer apellido </th><td>{{ajaxDataUsuarios.ape1}}</td>
                             </tr>
                             <tr>
                                 <th>Segundo apellido </th><td>{{ajaxDataUsuarios.ape2}}</td>
                             </tr>
-                            <tr>
-                                <th>Nombre usuario</th><td>{{ajaxDataUsuarios.login}}</td>
+                             <tr>
+                                <th>Telefono</th><td>{{ajaxDataUsuarios.telefono}}</td>
                             </tr>
                             <tr>
-                                <th>Tipo de usuario</th><td><a class="page-link" href="tipousuario/view/{{ajaxDataUsuarios.obj_tipoUsuario.id}}">{{ajaxDataUsuarios.obj_tipoUsuario.desc}}</a></td>
+                                <th>Login </th><td>{{ajaxDataUsuarios.login}}</td>
                             </tr>
+                            <tr>
+                                <th>Email</th><td>{{ajaxDataUsuarios.email}}</td>
+                            </tr>
+                            <tr>
+                                <th>Dirección</th><td>{{ajaxDataUsuarios.direccion}}</td>
+                            </tr>
+                            <tr>
+                                <th>Población</th><td>{{ajaxDataUsuarios.poblacion}}</td>
+                            </tr>
+                            <tr>
+                                <th>Token</th><td>{{ajaxDataUsuarios.token}}</td>
+                            </tr>
+                            <tr>
+                                <th>Validado</th><td>{{ajaxDataUsuarios.validado}}</td>
+                            </tr>
+                            <tr>
+                                <th>Tipo de usuario</th><td><a class="text-secondary" href="tipousuario/view/{{ajaxDataUsuarios.obj_tipoUsuario.id}}">{{ajaxDataUsuarios.obj_tipoUsuario.desc}}</a></td>
+                            </tr>
+
                         </table>
                     </div>
                     <div ng-show="msgopcioneliminar">
@@ -55,4 +77,3 @@
         </div>
     </div>
 </div>
-<footer class="footer" ng-include="'js/app/footer.html'"></footer>

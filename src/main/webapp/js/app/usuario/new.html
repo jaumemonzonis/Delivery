@@ -1,67 +1,102 @@
 <header-component></header-component>
-<div class="container-fluid mb-5">
-    <div class="row" style="margin-top: 80px">
+
+
+<div class="container-fluid">
+    
+      <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+
+                </div>
+    <div class="row">
         <div class="col-12">
-            <div class="row">
-                <div class="mx-auto col-4 text-center">
-                    <h3>Nuevo usuario</h3>
+           
+            <div class="row" ng-show="edited">
+                <div class="col-5 mx-auto container2 pl-3 pr-3">
+  <div class="row mt-5">
+                <div class="col-5 mx-auto">
+                    <h4 class="text-center mb-3"><i class="material-icons">create</i> Crear usuarios</h4>
                 </div>
             </div>
-            <div class="row" ng-show="edited">
-                <div class="col-4 mx-auto">
-                    <ng-form name="userForm" class="form" ng-show="result == null">
+                    <form name="userForm">
                         <div class="form-group">
                             <label>ID</label>
                             <input type="text" class="form-control" id="id" name="id" ng-disabled="true" ng-model="id" />
                         </div>
-                        <div class="form-group" ng-class="{ 'has-error' : userForm.dni.$invalid && !userForm.dni.$pristine }">
-                            <label>DNI</label>
-                            <input type="text" class="form-control" id="dni" name="dni" ng-model="dni" ng-required="true" ng-pattern="/^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]$/"  placeholder="Dni"
-                                   />
-                            <div ng-show="userForm.dni.$error.pattern && !userForm.dni.$pristine" class="alert alert-danger" role="alert">
-                                Formato dni no valido
-                            </div>
-                        </div>
                         <div class="form-group">
                             <label>Nombre</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" ng-model="nombre" ng-required="true"  placeholder="Nombre"/>
+                            <input type="text" class="form-control" id="nombre" name="nombre" ng-model="nombre" ng-required="true" />
                             <div ng-show="!userForm.nombre.$valid && !userForm.nombre.$pristine" class="alert alert-danger" role="alert">
                                 Nombre obligatorio
                             </div>
                         </div>
                         <div class="form-group">
                             <label>Primer apellido</label>
-                            <input type="text" class="form-control" id="ape1" name="ape1" ng-model="ape1" ng-required="true"  placeholder="Primer apellido"/>
+                            <input type="text" class="form-control" id="ape1" name="ape1" ng-model="ape1" ng-required="true" />
                             <div ng-show="!userForm.ape1.$valid && !userForm.ape1.$pristine" class="alert alert-danger" role="alert">
                                 Primer apellido obligatorio
                             </div>
                         </div>
                         <div class="form-group">
                             <label>Segundo apellido</label>
-                            <input type="text" class="form-control" id="ape2" name="ape2" ng-model="ape2" ng-required="true"  placeholder="Segundo apellido"/>
+                            <input type="text" class="form-control" id="ape2" name="ape2" ng-model="ape2" ng-required="true" />
                             <div ng-show="!userForm.ape2.$valid && !userForm.ape2.$pristine" class="alert alert-danger" role="alert">
                                 Segundo apellido obligatorio
                             </div>
                         </div>
+                         <div class="form-group">
+                            <label>Telefono</label>
+                            <input type="number" ng-minlength="9" maxlength="9"  class="form-control" id="telefono" name="telefono" ng-model="telefono" ng-required="true" />
+                            <div ng-show="!userForm.telefono.$valid && !userForm.telefono.$pristine" class="alert alert-danger" role="alert">
+                                Telefono obligatorio
+                            </div>
+                             <div ng-show="userForm.telefono.$error.minlength" class="alert alert-danger" role="alert">
+                                La longitud del telefono es demasiado corta
+                            </div>
+                             <div ng-show="userForm.telefono.$error.maxlength" class="alert alert-danger" role="alert">
+                                La longitud del telenfono es demasiado larga
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label>Login</label>
-                            <input type="text" class="form-control" id="login2" name="login2" ng-model="login2" ng-minlength="4" ng-required="true"  placeholder="Login"/>
-                            <div ng-show="userForm.login2.$error.minlength" class="alert alert-danger" role="alert">
+                            <input type="text" class="form-control" id="login" name="login" ng-model="login" ng-minlength="4" ng-required="true" />
+                            <div ng-show="userForm.login.$error.minlength && !userForm.login.$pristine" class="alert alert-danger" role="alert">
                                 La longitud del login es demasiado corta
                             </div>
-                            <div ng-show="!userForm.login2.$valid  && !userForm.login2.$pristine" class="alert alert-danger" role="alert">
+                            <div ng-show="!userForm.login.$valid && !userForm.login.$pristine" class="alert alert-danger" role="alert">
                                 Login obligatorio
                             </div>
                         </div>
                         <div class="form-group">
                             <label>Contraseña</label>
-                            <input type="password" class="form-control" ng-class="{' is-invalid': userForm.pass.$invalid && !userForm.pass.$pristine}"  placeholder="Contraseña"
+                            <input type="password" class="form-control" ng-class="{' is-invalid': userForm.pass.$invalid && !userForm.pass.$pristine}"
                                    id="pass" name="pass" ng-model="pass" ng-minlength="4" ng-required="true"/>
                             <div ng-show="userForm.pass.$error.minlength" class="alert alert-danger" role="alert">
                                 La longitud de la constraseña es demasiado corta
                             </div>
                         </div>
-                        <label for="obj_tipoUsuario">Tipo de usuario:</label>
+                        
+                         <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" class="form-control" id="email" name="email" ng-model="email" ng-required="true" />
+                            <div ng-show="!userForm.email.$valid && !userForm.email.$pristine" class="alert alert-danger" role="alert">
+                                Email obligatorio
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label>Dirección</label>
+                            <input type="text" class="form-control" id="direccion" name="direccion" ng-model="direccion" ng-required="true" />
+                            <div ng-show="!userForm.direccion.$valid && !userForm.direccion.$pristine" class="alert alert-danger" role="alert">
+                                Dirección obligatoria
+                            </div>
+                        </div>
+                          <div class="form-group">
+                            <label>Población</label>
+                            <input type="text" class="form-control" id="poblacion" name="poblacion" ng-model="poblacion" ng-required="true" />
+                            <div ng-show="!userForm.poblacion.$valid && !userForm.poblacion.$pristine" class="alert alert-danger" role="alert">
+                                Población obligatoria
+                            </div>
+                        </div>  
+                        <label for="obj_tipousuario">Tipo de usuario:</label>
                         <div class="form-group row ml-3">
                             <tipousuario-selection 
                                 class="modal fade" 
@@ -76,15 +111,15 @@
                                         <span class="input-group-text"
                                               data-toggle="modal"
                                               data-target="#cadd-location-modal">
-                                            <span class="fas fa-search"></span>
+                                           <span class="material-icons mr-2">account_circle</span>
                                         </span>
                                     </div>
                                     <input ng-model="obj_tipoUsuario.id"
                                            ng-change="tipoUsuarioRefresh(this, true)"
                                            aria-describedby="basic-addon2"
                                            class="form-control col-sm-2"
-                                           id="obj_tipoUsuario"
-                                           name="obj_tipoUsuario"
+                                           id="obj_tipousuario"
+                                           name="obj_tipousuario"
                                            type="text"
                                            ng-required
                                            ng-model-options="{debounce: 1000}"
@@ -92,24 +127,27 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text">
                                             <a href="../tipousuario/view/{{obj_tipoUsuario.id}}">
-                                                <span class="p-2 bd-highlight"><i class="fas fa-users fa-1x"></i></span>
+                                                 <span class="p-2 bd-highlight"><i class="material-icons">
+                                                        youtube_searched_for
+                                                    </i></span>
                                                 Tipo de usuario: {{obj_tipoUsuario.desc}}
                                             </a>
                                         </span>
                                     </div>
                                 </div>
-                                <div ng-show="!userForm.obj_tipoUsuario.$valid">Tipo de usuario no válido</div>
+                                <div ng-show="!userForm.obj_tipousuario.$valid">Tipo de usuario no válido</div>
                             </div>
                         </div>
+                                             
                         <div class="d-flex justify-content-between flex-wrap">
-                            <button ng-click="update()" type="button" class="btn btn-primary btn-block" ng-disabled="userForm.$invalid">Nuevo</button>
+                            <button ng-click="update()" type="button" class="btn btn-primary btn-block" ng-disabled="userForm.$invalid">Editar</button>
                             <button type="button" class="btn btn-primary btn-block" onclick="window.history.back()">Volver</button>
                         </div>
-                    </ng-form>
+
                 </div>
             </div>
             <div class="row" ng-show="!edited">
-                <div class="col-4 mx-auto">
+                <div class="col-5 mx-auto">
                     <div class="alert alert-success" role="alert">
                         <p class="text-center mt-2"> Usuario creado correctamente.<p> 
                     </div>
@@ -119,4 +157,3 @@
         </div>
     </div>
 </div>
-<footer class="footer" ng-include="'js/app/footer.html'"></footer>

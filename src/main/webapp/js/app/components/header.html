@@ -1,5 +1,5 @@
 <!-- Fixed navbar -->
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <a class="navbar-brand" href="home">WILDCART</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -15,8 +15,8 @@
             <li class="nav-item" ng-show="c.limpiar && c.tipousuarioID==1" ng-class="{'active': c.isActive('/usuario/plist')}">
                 <a class="nav-link" href="usuario/plist"><i class="fas fa-user fa-1x"></i> Usuario</a>
             </li>
-            <li class="nav-item" ng-show="c.limpiar && c.tipousuarioID==1" ng-class="{'active': c.isActive('/factura/plist')}">
-                <a class="nav-link" href="factura/plist"><i class="fas far fa-file fa-1x"></i> Factura</a>
+            <li class="nav-item"ng-show="c.limpiar && c.tipousuarioID==1" ng-class="{'active': c.isActive('/factura/plist')}">
+                <a  class="nav-link" href="factura/plist"><i class="fas far fa-file fa-1x"></i> Factura</a>
             </li>
             <li class="nav-item"  ng-show=" c.limpiar && c.tipousuarioID==1" ng-class="{'active': isActive('/producto/plist')}">
                 <a class="nav-link" href="producto/plist"><i class="fas fas fa-cube fa-1x"></i> Producto</a>

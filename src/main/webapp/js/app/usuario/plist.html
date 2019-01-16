@@ -1,118 +1,182 @@
 <header-component></header-component>
-<div class="container-fluid contain">
-    <div class="row row_etiquetas">
+<div class="container-fluid">
 
-        <h1 class="titulo_imagen">USUARIOS</h1>
-        <h4 class="subtitulo_imagen">LISTA</h4>
+    <div class="row">
+        <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4">
 
 
-        <div class="btn-group rpp">
-            <p class="rpp_texto">REGISTROS POR PAGINA:</p>
-            <select class="form-control" 
-                    ng-change="update()" 
-                    ng-model="rpp">
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="20">20</option>
-                <option value="50">50</option>
-            </select>
-        </div>      
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-11 col-md-11 mx-auto container2">
-        <div class="table-responsive">
-            <table class="table">
-                <thead>
-                    <tr class="fila_inicial">
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Apellido 1</th>
-                        <th>Apellido 2</th>
-                        <th>Telefono</th>
-                        <th>Telefono</th>
-                        <th>Telefono</th>
-                        <th>Telefono</th>
-                        <th>Telefono</th>
-                        <th>Telefono</th>
-                        <th>Telefono</th>
-                        <th>Telefono</th>
-                        <th>Salary</th>
-                        <th class="text-right">Acciones</th>
+            <div class="col-md-12 ml-sm-auto col-lg-12 mt-3">
+                <div class="btn-toolbar mb-2 mb-md-0 float-left">
+                    <div class="btn-group" style="width:200px; margin-left:-5%;">
+                        <p class="mt-2" style="width:230px;">Registros por pagina:</p>
+                        <select class="form-control" 
+                                ng-change="update()" 
+                                ng-model="rpp">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                        </select>
+                    </div>
+
+                    <button type="button" class="btn btn-just-icon btn-sm mt-3" ng-click="resetOrder()">
+                        <i class="material-icons">cached</i>
+                    </button>
+                </div>
+                <div class="float-right" style="margin-right:-1%;">
+                    <a href="{{ob}}/new/" class="btn btn-outline-secondary btn-sm active float-right" role="button" aria-pressed="true"><i class="material-icons">
+                            add_circle_outline</i> Crear nuevo usuario</a>
+
+                </div>
+            </div>
+
+
+
+
+            <div class="table-responsive container2 mb-2 pl-3 pr-3 pt-3">
+                <table class="table table-sm">
+                    <tr>
+                        <th>
+                            <p>ID</p>
+                            <div class="order" ng-click="ordena('id', 'asc')">
+                                <i class="material-icons">
+                                    swap_vert
+                                </i>
+                            </div>
+
+                        </th>
+                        <th>
+                            <p>NOMBRE</p>
+                            <div class="order" ng-click="ordena('id', 'asc')">
+                                <i class="material-icons">
+                                    swap_vert
+                                </i>
+                            </div>
+
+                        </th>
+                        <th>
+                            <p>PRIMER APELLIDO</p>
+                            <div class="order" ng-click="ordena('id', 'asc')">
+                                <i class="material-icons">
+                                    swap_vert
+                                </i>
+                            </div>
+
+                        </th>
+
+                        <th>
+                            <p>SEGUNDO APELLIDO</p>
+                            <div class="order" ng-click="ordena('id', 'asc')">
+                                <i class="material-icons">
+                                    swap_vert
+                                </i>
+                            </div> 
+                        </th>
+                        <th>
+                            <p>TELEFONO</p>
+                            <div class="order" ng-click="ordena('id', 'asc')">
+                                <i class="material-icons">
+                                    swap_vert
+                                </i>
+                            </div> 
+                        </th>
+                        <th>
+                            <p>LOGIN</p>
+                            <div class="order" ng-click="ordena('id', 'asc')">
+                                <i class="material-icons">
+                                    swap_vert
+                                </i>
+                            </div> 
+                        </th>
+                        <th>
+                            <p>EMAIL</p>
+                            <div class="order" ng-click="ordena('id', 'asc')">
+                                <i class="material-icons">
+                                    swap_vert
+                                </i>
+                            </div> 
+                        </th>
+                        <th>
+                            <p>DIRECCION</p>
+                            <div class="order" ng-click="ordena('id', 'asc')">
+                                <i class="material-icons">
+                                    swap_vert
+                                </i>
+                            </div> 
+                        </th>
+                        <th>
+                            <p>POBLACION</p>
+                            <div class="order" ng-click="ordena('id', 'asc')">
+                                <i class="material-icons">
+                                    swap_vert
+                                </i>
+                            </div> 
+                        </th>
+                           <th>
+                            <p>TIPO USUARIO</p>
+                            <div class="order" ng-click="ordena('id', 'asc')">
+                                <i class="material-icons">
+                                    swap_vert
+                                </i>
+                            </div> 
+                        </th>
+                        <th> 
+                            <p style="margin-left: 5%">ACCIONES</p> 
+                        </th>
                     </tr>
-                </thead>
-                <tbody>
-
                     <tr ng-repeat="fila in ajaxDataUsuarios">
                         <td>{{fila.id}}</td>
-                        <td>{{fila.dni}}</td>
                         <td>{{fila.nombre}}</td>
                         <td>{{fila.ape1}}</td>
                         <td>{{fila.ape2}}</td>
+                        <td>{{fila.telefono}}</td>
                         <td>{{fila.login}}</td>
-
-                        <td class="td-actions text-right">
-                            <button type="button" rel="tooltip" class="btn btn-just-icon btn-sm" data-original-title="" title="" ng-click="factura(fila.id)" ng-disabled="{{fila.link_factura}}== 0">{{fila.link_factura}}
+                        <td>{{fila.email}}</td>
+                        <td>{{fila.direccion}}</td>
+                        <td>{{fila.poblacion}}</td>
+                        <td><a class="text-secondary" href="tipousuario/view/{{fila.obj_tipoUsuario.id}}">{{fila.obj_tipoUsuario.desc}}</a></td>
+                        <td><button type="button" rel="tooltip" class="btn btn-just-icon btn-sm" data-original-title="" title="" ng-click="factura(fila.id)" ng-disabled="{{fila.link_factura}}== 0">{{fila.link_factura}}
                             </button>
-
-
-                            <button type="button" rel="tooltip" class="btn  btn-just-icon btn-sm" data-original-title="" title="" ng-click="view(fila.id)">
+                            <button type="button" rel="tooltip" class="btn btn-just-icon btn-sm" ng-click="view(fila.id)">
                                 <i class="material-icons">visibility</i>
                             </button>
-                            <button type="button" rel="tooltip" class="btn btn-just-icon btn-sm" data-original-title="" title="" ng-click="edit(fila.id)">
+                            <button type="button" rel="tooltip" class="btn btn-just-icon btn-sm" ng-click="edit(fila.id)">
                                 <i class="material-icons">create</i>
                             </button>
-                            <button type="button" rel="tooltip" class="btn btn-just-icon btn-sm" data-original-title="" title="" ng-click="remove(fila.id)">
+                            <button type="button" rel="tooltip" class="btn btn-just-icon btn-sm" ng-click="remove(fila.id)">
                                 <i class="material-icons">delete_forever</i>
-                            </button>
+                            </button></td>
                     </tr>
-                </tbody>
-            </table>
-        </div>
+                </table>
 
-
-
-
-
-
-
-
-
-        <div class="row rpp_pag mx-auto">
-
+            </div>
+            <div class="col-md-12 ml-sm-auto col-lg-12 mb-5">  
+                <div class="row d-flex justify-content-center flex-wrap align-items-center">
                     <nav aria-label="paginacion">
-<ul class="pagination">
+                        <ul class="pagination">
                             <li class="page-item">
-                                <a class="page-link text-secondary bg-light" ng-show="page > 2" href="{{ob}}/plist/{{rpp}}/1/{{orderURLCliente}}">First</a>
+                                <a class="page-link text-secondary bg-light" ng-show="page > 2" href="{{ob}}/plist/{{rpp}}/1/{{order}}/{{align}}">First</a>
                             </li>
                             <li class="page-item">
-                                <a class="page-link text-secondary bg-light" ng-show="page > 1" href="{{ob}}/plist/{{rpp}}/{{page - 1}}/{{orderURLCliente}}">Previous</a>
+                                <a class="page-link text-secondary bg-light" ng-show="page > 1" href="{{ob}}/plist/{{rpp}}/{{page - 1}}/{{order}}/{{align}}">Previous</a>
                             </li>
                             <li class="page-item" ng-class="{'active':(p == page), 'disabled': p === '...'}" ng-repeat="p in list2 track by $index">
-                                <a class="page-link text-secondary" href="{{ob}}/plist/{{rpp}}/{{p}}/{{orderURLCliente}}">{{p}}</a>
+                                <a class="page-link text-secondary" href="{{ob}}/plist/{{rpp}}/{{p}}/{{order}}/{{align}}">{{p}}</a>
                             </li>
                             <li class="page-item">
-                                <a class="page-link text-secondary bg-light" ng-show="page != totalPages" href="{{ob}}/plist/{{rpp}}/{{page--1}}/{{orderURLCliente}}">Next</a>
+                                <a class="page-link text-secondary bg-light" ng-show="page != totalPages" href="{{ob}}/plist/{{rpp}}/{{page--1}}/{{order}}/{{align}}">Next</a>
                             </li>
                             <li class="page-item">
-                                <a class="page-link text-secondary bg-light" ng-show="page != totalPages-1 && page != totalPages" href="{{ob}}/plist/{{rpp}}/{{totalPages}}/{{orderURLCliente}}">Last</a>
+                                <a class="page-link text-secondary bg-light" ng-show="page != totalPages - 1 && page != totalPages" href="{{ob}}/plist/{{rpp}}/{{totalPages}}/{{order}}/{{align}}">Last</a>
                             </li>
-</ul>
+                        </ul>
                     </nav>
+                </div>
 
 
 
-        </div>
-
-
+            </div>
+        </main>
     </div>
-
 </div>
 
-
-
-
-</div>
-
-
-<footer class="footer" ng-include="'js/app/footer.html'"></footer>

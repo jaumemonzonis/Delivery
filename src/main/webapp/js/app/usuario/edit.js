@@ -32,12 +32,17 @@ moduleUsuario.controller("usuarioEditController", [
             url: 'json?ob='+$scope.ob+'&op=get&id=' + $scope.id
         }).then(function (response) {
             $scope.id = response.data.message.id;
-            $scope.dni = response.data.message.dni;
             $scope.nombre = response.data.message.nombre;
             $scope.ape1 = response.data.message.ape1;
             $scope.ape2 = response.data.message.ape2;
             $scope.login = response.data.message.login;
             $scope.pass = 'pass';
+            $scope.telefono = response.data.message.telefono;
+            $scope.poblacion = response.data.message.poblacion;
+            $scope.direccion = response.data.message.direccion;
+            $scope.email = response.data.message.email;
+            
+            
             $scope.obj_tipoUsuario = {
                 id: response.data.message.obj_tipoUsuario.id,
                 desc: response.data.message.obj_tipoUsuario.desc
@@ -51,13 +56,16 @@ moduleUsuario.controller("usuarioEditController", [
            
             var json = {
                 id: $scope.id,
-                dni: $scope.dni,
                 nombre: $scope.nombre,
                 ape1: $scope.ape1,
                 ape2: $scope.ape2,
+                telefono: $scope.telefono,
                 login: $scope.login,
                 pass: $scope.pass,
-                id_tipoUsuario: $scope.obj_tipoUsuario.id
+                email: $scope.email,
+                direccion: $scope.direccion,
+                poblacion: $scope.poblacion,
+                id_tipousuario: $scope.obj_tipoUsuario.id
             }
             $http({
                 method: 'GET',

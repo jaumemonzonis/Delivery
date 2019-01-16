@@ -34,14 +34,17 @@ moduleUsuario.controller("usuarioNewController", [
         $scope.update = function () {
    
             var json = {
-                id: null,
-                dni: $scope.dni,
+              id: $scope.id,
                 nombre: $scope.nombre,
                 ape1: $scope.ape1,
                 ape2: $scope.ape2,
-                login: $scope.login2,
-                 pass: forge_sha256($scope.pass),
-               id_tipoUsuario: $scope.obj_tipoUsuario.id
+                telefono: $scope.telefono,
+                login: $scope.login,
+                pass: $scope.pass,
+                email: $scope.email,
+                direccion: $scope.direccion,
+                poblacion: $scope.poblacion,
+                id_tipousuario: $scope.obj_tipoUsuario.id
             }
             $http({
                 method: 'GET',

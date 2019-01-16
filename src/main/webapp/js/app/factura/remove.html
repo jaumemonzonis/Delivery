@@ -1,39 +1,4 @@
 <header-component></header-component>
-<div class="row menu_selection">
-    <div class="col-md-12 ml-sm-auto col-lg-12 px-4 d-flex justify-content-between ml-5">
-        <a href="tipousuario/plist" class="box first" >
-            <span class="icon-cont"><i class="fa fa-rocket"></i></span>
-            <h3>tipo usuario</h3>
-        </a>
-        <a href="usuario/plist" class="box first">
-            <span class="icon-cont"><i class="fa fa-rocket"></i></span>
-            <h3>usuario</h3>
-        </a>
-        <a href="factura/plist" class="box first" ng-class="{'active': isActive('/factura/plist')}">
-            <span class="icon-cont"><i class="fa fa-rocket"></i></span>
-            <h3>factura</h3>
-        </a>
-        <a href="producto/plist" class="box first">
-            <span class="icon-cont"><i class="fa fa-rocket"></i></span>
-            <h3>producto</h3>
-        </a>
-        <a href="tipoproducto/plist" class="box first">
-            <span class="icon-cont"><i class="fa fa-rocket"></i></span>
-            <h3>tipo producto</h3>
-        </a>
-        <a href="restaurante/plist" class="box first">
-            <span class="icon-cont"><i class="fa fa-rocket"></i></span>
-            <h3>restaurante</h3>
-        </a>
-        <a href="zona/plist" class="box first">
-            <span class="icon-cont"><i class="fa fa-rocket"></i></span>
-            <h3>zona</h3>
-        </a>
-        <a href="municipio/plist" class="box first">
-            <span class="icon-cont"><i class="fa fa-rocket"></i></span>
-            <h3>municipio</h3>
-        </a>
-    </div>
 
 <div class="container-fluid">
     
@@ -62,7 +27,10 @@
                         <th>IVA</th><td>{{ajaxDataUsuarios.iva}}</td>
                     </tr>
                     <tr>
-                        <th>Usuario</th><td><a class="page-link" href="usuario/view/{{ajaxDataUsuarios.obj_usuario.id}}">{{ajaxDataUsuarios.obj_usuario.nombre}} {{ajaxDataUsuarios.obj_usuario.ape1}} {{ajaxDataUsuarios.obj_usuario.ape2}}</a></td>
+                        <th>Usuario</th><td><a class="text-secondary" href="usuario/view/{{ajaxDataUsuarios.obj_Usuario.id}}">{{ajaxDataUsuarios.obj_Usuario.nombre}} {{ajaxDataUsuarios.obj_Usuario.ape1}} {{ajaxDataUsuarios.obj_Usuario.ape2}}</a></td>
+                    </tr>
+                    <tr>
+                        <th>Restaurante</th><td><a class="text-secondary" href="restaurante/view/{{ajaxDataUsuarios.obj_Restaurante.id}}">{{ajaxDataUsuarios.obj_Restaurante.nombre}}</a></td>
                     </tr>
                     
                 </table>

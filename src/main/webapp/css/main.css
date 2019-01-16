@@ -143,25 +143,27 @@ height: auto;
 
 
 /* tabla */
+.table > tbody > tr > td{
+    vertical-align: middle;
+}
 
 .table {
     width: 100%;
     max-width: 100%;
     text-align: center;
     background-color: transparent;
-
+    vertical-align: middle;
 }
 
 th {
     font-size: 14px;
     color:  #A62B21;
-    text-align: center;
-    vertical-align: middle;
+     text-align: center !important;
 }
 
 th p{
  float:left;
-padding-left: 0%; 
+padding-left: 35%; 
 }
 
 
@@ -283,8 +285,4 @@ color: #A62B21 !important;
 .box h3 .label_restaurante{
    left: 12%; 
     
-}
-
-.activeheader{
-    color: red !important;
 }
