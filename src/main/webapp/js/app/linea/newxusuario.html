@@ -1,16 +1,26 @@
 <header-component></header-component>
-<div class="container-fluid">
-    <div class="row" style="margin-top: 70px">
-        <div class="col-12">
-            <div class="row mt-5">
-                <div class="col-5 mx-auto">
-                    <h4 class="text-center mb-3"><i class="fas fa-edit fa-1x"></i> Crear linea</h4>
-                </div>
-            </div>
-            <div class="row" ng-show="edited">
-                <div class="col-5 mx-auto">
 
-                    <form name="userForm">
+
+<div class="container-fluid">
+
+    <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+        <h4 class="text-center mb-3"><i class="fas fa-plus-circle fa-1x"></i> Nueva linea de la factura nº {{id_factura}}</h4>
+    </div>
+    <div class="row">
+        <div class="col-12">
+
+            <div class="row">
+                <div class="col-5 mx-auto container2 pl-3 pr-3">
+                    <div class="row mt-5">
+                        <div class="col-5 mx-auto">
+                            <h4 class="text-center mb-3"><i class="material-icons">
+                                    add_circle_outline</i> 
+                                Crear linea</h4>
+                        </div>
+                    </div>
+                    <form name="userForm" ng-show="!visualizar">
+                        <form name="userForm">
                         <div class="form-group">
                             <label>ID</label>
                             <input type="text" class="form-control" id="id" name="id" ng-disabled="true" ng-model="id" />
@@ -37,7 +47,9 @@
                                         <span class="input-group-text"
                                               data-toggle="modal"
                                               data-target="#cadd-location-modal">
-                                            <span class="fas fa-search"></span>
+                                            <i class="material-icons">
+                                                fastfood
+                                            </i>
                                         </span>
                                     </div>
                                     <input ng-model="obj_Producto.id"
@@ -53,7 +65,9 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text">
                                             <a href="../producto/view/{{obj_Producto.id}}">
-                                                <span class="p-2 bd-highlight"><i class="fas fa-user"></i></span>
+                                            <span class="p-2 bd-highlight"><i class="material-icons">
+                                                        youtube_searched_for
+                                                    </i></span>
                                                 Producto: {{obj_Producto.desc}}
                                             </a>
                                         </span>
@@ -62,20 +76,21 @@
                                 <div ng-show="!userForm.obj_Producto.$valid">Producto no válido</div>
                             </div>
                         </div>
-        
-                        
-                        
+
+                       
+
+
                         <div class="d-flex justify-content-between flex-wrap">
                             <button ng-click="update()" type="button" class="btn btn-primary btn-block" ng-disabled="userForm.$invalid">Crear</button>
                             <button type="button" class="btn btn-primary btn-block" onclick="window.history.back()">Volver</button>
                         </div>
 
-                </div>
-            </div>
-            <div class="row" ng-show="!edited">
+                        </form>
+           
+            <div class="row" ng-show="visualizar">
                 <div class="col-5 mx-auto">
                     <div class="alert alert-success" role="alert">
-                        <p class="text-center mt-2"> Linea creada correctamente.<p> 
+                        <p class="text-center mt-2"> Linea modificada correctamente.<p> 
                     </div>
                     <button type="button" class="btn btn-primary btn-block mt-2" onclick="window.history.back()">Volver</button>
                 </div>
@@ -83,4 +98,5 @@
         </div>
     </div>
 </div>
-<footer class="footer" ng-include="'js/app/footer.html'"></footer>
+    </div>
+    

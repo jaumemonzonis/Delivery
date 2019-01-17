@@ -9,7 +9,7 @@ moduleFactura.controller("facturaEditController", [
     'sessionService',
     function ($scope, $http, $routeParams, toolService, $window, sessionService) {
 
-        $scope.edited = true;
+        $scope.visualizar = false;
         $scope.ob = "factura";
 
         $scope.obj = null;
@@ -19,19 +19,25 @@ moduleFactura.controller("facturaEditController", [
         $scope.title = "Edición de factura";
         $scope.icon = "fa-file-text-o";
 
-
-//        if (sessionService.getUserName() !== "") {
-//            $scope.loggeduser = sessionService.getUserName();
-//            $scope.loggeduserid = sessionService.getId();
-//            $scope.logged = true;
-//            $scope.tipousuarioID = sessionService.getTypeUserID();
-//        }
-
         if (!$routeParams.id) {
             $scope.id = 1;
         } else {
             $scope.id = $routeParams.id;
         }
+
+        $http({
+            method: 'GET',
+            url: 'json?ob=usuario&op=get&id=' + $scope.id
+        }).then(function (response) {
+            $scope.status = response.status;
+            $scope.nombre2 = response.data.message.nombre;
+            $scope.ape1 = response.data.message.ape1;
+        }, function (response) {
+            $scope.status = response.status;
+
+        });
+
+
 
         $http({
             method: "GET",
@@ -40,9 +46,9 @@ moduleFactura.controller("facturaEditController", [
             console.log(response);
             $scope.id = response.data.message.id;
             $scope.iva = response.data.message.iva;
-            $scope.obj_Usuario = {
-                id: response.data.message.obj_Usuario.id,
-                nombre: response.data.message.obj_Usuario.nombre
+            $scope.obj_Restaurante = {
+                id: response.data.message.obj_Restaurante.id,
+                restaurante: response.data.message.obj_Restaurante.nombre
             }
 
             $scope.ajaxFecha = response.data.message.fecha;
@@ -64,7 +70,7 @@ moduleFactura.controller("facturaEditController", [
                     $scope.fecha = $scope.ajaxFecha;
                     break;
             }
-            
+
             $scope.myDate = new Date($scope.fecha);
 
 
@@ -81,7 +87,8 @@ moduleFactura.controller("facturaEditController", [
                 id: $scope.id,
                 fecha: $scope.myDate,
                 iva: $scope.iva,
-                id_usuario: $scope.obj_Usuario.id
+                id_usuario: $scope.id,
+                id_restaurante: $scope.restaurante
 
             }
             $http({
@@ -92,7 +99,7 @@ moduleFactura.controller("facturaEditController", [
                 url: 'json?ob=' + $scope.ob + '&op=update',
                 params: {json: JSON.stringify(json)}
             }).then(function () {
-                $scope.edited = false;
+                $scope.visualizar = true;
             })
         }
 

@@ -18,7 +18,7 @@ moduleLinea.controller('lineanewxusuarioController', ['$scope', '$http', '$locat
 
         $scope.ob = "linea";
         $scope.id = null;
-        $scope.edited = true;
+        $scope.visualizar = false;
         $scope.isActive = toolService.isActive;
 
         $scope.obj_Producto = {
@@ -55,7 +55,7 @@ moduleLinea.controller('lineanewxusuarioController', ['$scope', '$http', '$locat
                 url: 'json?ob=' + $scope.ob + '&op=create',
                 params: {json: JSON.stringify(json)}
             }).then(function () {
-                $scope.edited = false;
+                $scope.visualizar = true;
             })
         }
         

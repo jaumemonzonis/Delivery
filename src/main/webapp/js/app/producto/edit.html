@@ -1,15 +1,23 @@
 <header-component></header-component>
-<div class="container-fluid mb-5">
-    <div class="row" style="margin-top: 80px">
+
+
+<div class="container-fluid">
+
+    <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+
+    </div>
+    <div class="row">
         <div class="col-12">
-            <div class="row">
-                <div class="mx-auto col-5 text-center">
-                    <h3>Editar producto</h3>
-                </div>
-            </div>
+
             <div class="row" ng-show="edited">
-                <div class="col-5 mx-auto">
-                    <ng-form name="userForm" class="form" ng-show="result == null">
+                <div class="col-5 mx-auto container2 pl-3 pr-3">
+                    <div class="row mt-5">
+                        <div class="col-5 mx-auto">
+                            <h4 class="text-center mb-3"><i class="material-icons">create</i> Editar producto</h4>
+                        </div>
+                    </div>
+                    <form name="userForm">
                         <div class="form-group">
                             <label>ID</label>
                             <input type="text" class="form-control" id="id" name="id" ng-disabled="true" ng-model="id" />
@@ -69,13 +77,15 @@
                                         <span class="input-group-text"
                                               data-toggle="modal"
                                               data-target="#cadd-location-modal">
-                                            <span class="fas fa-search"></span>
+                                            <i class="material-icons">
+                                                fastfood
+                                            </i>
                                         </span>
                                     </div>
                                     <input ng-model="obj_tipoProducto.id"
                                            ng-change="tipoProductoRefresh(this, true)"
                                            aria-describedby="basic-addon2"
-                                           class="form-control col-sm-2"
+                                           class="form-control col-sm-2 ml-2"
                                            id="obj_tipoProducto"
                                            name="obj_tipoProducto"
                                            type="text"
@@ -85,7 +95,9 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text">
                                             <a href="../tipoproducto/view/{{obj_tipoProducto.id}}">
-                                                <span class="p-2 bd-highlight"><i class="fas fa-users fa-1x"></i></span>
+                                                <span class="p-2 bd-highlight"><i class="material-icons">
+                                                        youtube_searched_for
+                                                    </i></span>
                                                 Tipo de producto: {{obj_tipoProducto.desc}}
                                             </a>
                                         </span>
@@ -94,11 +106,12 @@
                                 <div ng-show="!userForm.obj_tipoProducto.$valid">Tipo de producto no válido</div>
                             </div>
                         </div>
+
                         <div class="d-flex justify-content-between flex-wrap">
                             <button ng-click="update()" type="button" class="btn btn-primary btn-block" ng-disabled="userForm.$invalid">Editar</button>
                             <button type="button" class="btn btn-primary btn-block" onclick="window.history.back()">Volver</button>
                         </div>
-                    </ng-form>
+
                 </div>
             </div>
             <div class="row" ng-show="!edited">
@@ -112,4 +125,3 @@
         </div>
     </div>
 </div>
-<footer class="footer" ng-include="'js/app/footer.html'"></footer>

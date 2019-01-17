@@ -41,7 +41,8 @@ moduleFactura.controller('facturanewxusuarioController', ['$scope', '$http', '$l
                 id: null,
                 fecha: $scope.myDate,
                 iva: $scope.iva,
-                id_usuario: $scope.id_usuario
+                id_usuario: $scope.id_usuario,
+                id_restaurante: $scope.restaurante
             };
 
             $http({
