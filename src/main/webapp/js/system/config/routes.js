@@ -144,6 +144,33 @@ wildcart.config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/carrito/plist/:rpp?/:page?/:order?', {templateUrl: 'js/app/carrito/plist.html', controller: 'carritoPlistController', resolve: { auth: autenticacionUsuario } });
         $routeProvider.when('/carrito/carrito/:rpp?/:page?/:order?', {templateUrl: 'js/app/carrito/carrito.html', controller: 'carritoCarritoController', resolve: { auth: autenticacionUsuario } });
         $routeProvider.when('/carrito/facturacarrito/:id?', {templateUrl: 'js/app/carrito/facturacarrito.html', controller: 'facturaCarritoController', resolve: { auth: autenticacionUsuario } });
+        
+        //RESTAURANTE
+        $routeProvider.when('/restaurante/new', {templateUrl: 'js/app/restaurante/new.html', controller: 'restauranteNewController', resolve: { auth: autenticacionAdministrador } });
+        $routeProvider.when('/restaurante/edit/:id', {templateUrl: 'js/app/restaurante/edit.html', controller: 'restauranteEditController', resolve: { auth: autenticacionAdministrador } });
+        $routeProvider.when('/restaurante/remove/:id', {templateUrl: 'js/app/restaurante/remove.html', controller: 'restauranteRemoveController', resolve: { auth: autenticacionAdministrador } });
+        $routeProvider.when('/restaurante/plist/:rpp?/:page?/:order?', {templateUrl: 'js/app/restaurante/plist.html', controller: 'restaurantePlistController', resolve: { auth: autenticacionAdministrador } });
+        $routeProvider.when('/restaurante/view/:id?', {templateUrl: 'js/app/restaurante/view.html', controller: 'restauranteViewController'});
+
+        //MUNICIPIO
+        $routeProvider.when('/municipio/new', {templateUrl: 'js/app/municipio/new.html', controller: 'municipioNewController', resolve: { auth: autenticacionAdministrador } });
+        $routeProvider.when('/municipio/edit/:id', {templateUrl: 'js/app/municipio/edit.html', controller: 'municipioEditController', resolve: { auth: autenticacionAdministrador } });
+        $routeProvider.when('/municipio/remove/:id', {templateUrl: 'js/app/municipio/remove.html', controller: 'municipioRemoveController', resolve: { auth: autenticacionAdministrador } });
+        $routeProvider.when('/municipio/plist/:rpp?/:page?/:order?', {templateUrl: 'js/app/municipio/plist.html', controller: 'municipioPlistController', resolve: { auth: autenticacionAdministrador } });
+        $routeProvider.when('/municipio/view/:id?', {templateUrl: 'js/app/municipio/view.html', controller: 'municipioViewController'});
+
+
+
+        //zona
+        $routeProvider.when('/zona/plist/:rpp?/:page?/:order?', {templateUrl: 'js/app/zona/plist.html', controller: 'zonaPlistController', resolve: { auth: autenticacionAdministrador } });
+        $routeProvider.when('/zona/view/:id', {templateUrl: 'js/app/zona/view.html', controller: 'zonaViewController'});
+        $routeProvider.when('/zona/remove/:id', {templateUrl: 'js/app/zona/remove.html', controller: 'zonaRemoveController', resolve: { auth: autenticacionAdministrador } });
+        $routeProvider.when('/zona/edit/:id', {templateUrl: 'js/app/zona/edit.html', controller: 'zonaEditController', resolve: { auth: autenticacionAdministrador } });
+        $routeProvider.when('/zona/new', {templateUrl: 'js/app/zona/new.html', controller: 'zonaNewController', resolve: { auth: autenticacionAdministrador } });
+        $routeProvider.when('/zona/plistxusuario/:rpp?/:page?/:id?/:order?', {templateUrl: 'js/app/zona/plistxusuario.html', controller: 'zonaplistxusuarioController'});
+        $routeProvider.when('/zona/newxusuario/:id', {templateUrl: 'js/app/zona/newxusuario.html', controller: 'zonanewxusuarioController', resolve: { auth: autenticacionAdministrador } });
+
+
 
         $routeProvider.otherwise({redirectTo: '/'});
     }]);

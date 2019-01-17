@@ -9,7 +9,7 @@ moduleFactura.controller("lineaEditController", [
     'sessionService',
     function ($scope, $http, $routeParams, toolService, $window, sessionService) {
 
-        $scope.edited = true;
+        $scope.visualizar = false;
         $scope.ob = "linea";
 
         $scope.obj = null;
@@ -74,7 +74,7 @@ moduleFactura.controller("lineaEditController", [
                 url: 'json?ob=' + $scope.ob + '&op=update',
                 params: {json: JSON.stringify(json)}
             }).then(function () {
-                $scope.edited = false;
+                $scope.visualizar= true;
             })
         }
 

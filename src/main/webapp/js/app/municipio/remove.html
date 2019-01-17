@@ -1,0 +1,48 @@
+<header-component></header-component>
+
+<div class="container-fluid">
+    
+      <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+
+                </div>
+    
+  <div class="row">
+    <div class="col-12">
+ 
+      <div class="row">
+        <div class="col-5 mx-auto container2">
+            <div class="table-responsive pl-3 pr-3 " ng-show="(!visualizar)">
+                    <div class="col-5 mt-2 mx-auto">
+         <h3 class="text-center mb-3"><i class="material-icons">visibility</i>Borrar municipio</h3>
+        </div>
+             <table class="table table-sm">
+                    <tr>
+                        <th>ID</th><td>{{ajaxDataUsuarios.id}}</td>
+                    </tr>
+                    <tr>
+                        <th>Población</th><td>{{ajaxDataUsuarios.poblacion}}</td>
+                    </tr>             
+                </table>
+                    </div>
+                    <div ng-show="msgopcioneliminar">
+                        <h6 style="text-align: center">¿Estas seguro de eliminar el registro?</h6>
+                        <button class="btn btn-primary btn-block" ng-click="eliminar('eliminar')">Si</button>
+                        <button class="btn btn-danger btn-block" ng-click="eliminar('noeliminar')">No</button>
+                    </div>
+
+                    <div class="alert alert-success btn-block" style="margin-top: 20px;" ng-show="eliminarok">
+                         <p>Registro eliminado</p>
+                    </div>
+
+                    <div class="alert alert-danger btn-block" style="margin-top: 20px;" ng-show="eliminarerror">
+                        Registro no eliminado
+                    </div>
+                    <button type="button" class="btn btn-primary btn-block" ng-click="volver()">Volver</button>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

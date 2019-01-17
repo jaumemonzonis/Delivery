@@ -17,7 +17,10 @@ moduleService.service('toolService', ['$location', function ($location) {
                 producto: 'producto',
                 tipoproducto: 'tipoproducto',
                 factura: 'factura',
-                linea: 'linea'
+                linea: 'linea',
+                zona: 'zona',
+                municipio:'municipio',
+                restaurante:'restaurante'
             }
         }
 

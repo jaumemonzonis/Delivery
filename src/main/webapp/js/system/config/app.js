@@ -11,6 +11,9 @@ var wildcart = angular.module('MyApp', [
     'facturaControllers',
     'productoControllers',
     'lineaControllers',
+    'restauranteControllers',
+    'zonaControllers',
+    'municipioControllers',
     'carritoControllers',
     'ngMaterial',
     'Directives'
@@ -50,5 +53,8 @@ var moduleProducto = angular.module ('productoControllers',[]);
 var moduleFactura = angular.module ('facturaControllers',[]);
 var moduleTipoproducto = angular.module('tipoproductoControllers',[]);
 var moduleLinea = angular.module('lineaControllers',[]);
+var moduleRestaurante = angular.module('restauranteControllers',[]);
+var moduleZona = angular.module('zonaControllers',[]);
+var moduleMunicipio = angular.module('municipioControllers',[]);
 var moduleCarrito = angular.module('carritoControllers',[]);
 var moduloDirectivas = angular.module('Directives', []);
