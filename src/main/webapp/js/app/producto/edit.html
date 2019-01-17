@@ -1,8 +1,5 @@
 <header-component></header-component>
-
-
 <div class="container-fluid">
-
     <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 
 
@@ -10,14 +7,21 @@
     <div class="row">
         <div class="col-12">
 
-            <div class="row" ng-show="edited">
-                <div class="col-5 mx-auto container2 pl-3 pr-3">
-                    <div class="row mt-5">
-                        <div class="col-5 mx-auto">
-                            <h4 class="text-center mb-3"><i class="material-icons">create</i> Editar producto</h4>
-                        </div>
+            <div class="col-5 mx-auto container2 pl-3 pr-3">
+                <div class="row mt-4">
+                    <div class=" mx-auto">
+                        <h4 class="text-center mb-3"><i class="material-icons">add_circle_outline</i> Editar producto</h4>
                     </div>
-                    <form name="userForm">
+                </div>
+
+
+
+                <div class=" mx-auto">
+                    <div class="alert alert-success" role="alert" ng-show="(visualizar)">
+                        Producto editado correctamente.
+                    </div>
+                    <form name="userForm" ng-show="(!visualizar)">
+
                         <div class="form-group">
                             <label>ID</label>
                             <input type="text" class="form-control" id="id" name="id" ng-disabled="true" ng-model="id" />
@@ -108,18 +112,23 @@
                         </div>
 
                         <div class="d-flex justify-content-between flex-wrap">
-                            <button ng-click="update()" type="button" class="btn btn-primary btn-block" ng-disabled="userForm.$invalid">Editar</button>
-                            <button type="button" class="btn btn-primary btn-block" onclick="window.history.back()">Volver</button>
-                        </div>
 
-                </div>
-            </div>
-            <div class="row" ng-show="!edited">
-                <div class="col-5 mx-auto">
-                    <div class="alert alert-success" role="alert">
-                        <p class="text-center mt-2"> Producto modificado correctamente.<p> 
+
+
+
+
+
+
+
+                            <button ng-click="update()" type="button" class="btn btn-primary btn-block" ng-disabled="userForm.$invalid">Editar producto</button>
+
+                    </form> 
+                    <div class="alert alert-success" role="alert" ng-show="(error)">
+                        Error al editar el producto.
                     </div>
-                    <button type="button" class="btn btn-primary btn-block mt-2" onclick="window.history.back()">Volver</button>
+                    <button type="button" class="btn btn-primary btn-block mt-2" ng-click="volver()">Volver</button>
+
+
                 </div>
             </div>
         </div>
