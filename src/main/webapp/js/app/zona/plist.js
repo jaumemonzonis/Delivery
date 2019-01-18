@@ -5,7 +5,7 @@ moduleZona.controller('zonaPlistController', ['$scope', '$http', '$location', 't
     function ($scope, $http, $location, toolService, $routeParams, sessionService) {
         $scope.ob = "zona";
 
-        
+
         if (!$routeParams.order) {
             $scope.orderURLServidor = "";
             $scope.orderURLCliente = "";
@@ -13,6 +13,13 @@ moduleZona.controller('zonaPlistController', ['$scope', '$http', '$location', 't
             $scope.orderURLServidor = "&order=" + $routeParams.order;
             $scope.orderURLCliente = $routeParams.order;
         }
+
+        if (!$routeParams.id) {
+            $scope.id = 1;
+        } else {
+            $scope.id = $routeParams.id;
+        }
+
 
         if (!$routeParams.rpp) {
             $scope.rpp = "10";
@@ -45,7 +52,7 @@ moduleZona.controller('zonaPlistController', ['$scope', '$http', '$location', 't
         //getcount
         $http({
             method: 'GET',
-            url: 'json?ob=' + $scope.ob + '&op=getcount'
+            url: 'json?ob=zona&op=getcountx&idajena=' + $routeParams.id
         }).then(function (response) {
             $scope.status = response.status;
             $scope.ajaxDataUsuariosNumber = response.data.message;
@@ -62,7 +69,7 @@ moduleZona.controller('zonaPlistController', ['$scope', '$http', '$location', 't
 
         $http({
             method: 'GET',
-            url: 'json?ob=' + $scope.ob + '&op=getpage&rpp=' + $scope.rpp + '&page=' + $scope.page + $scope.orderURLServidor
+            url: 'json?ob=zona&op=getpagex&idajena=' + $scope.id + '&rpp=' + $scope.rpp + '&page=' + $scope.page + $scope.orderURLServidor
         }).then(function (response) {
             $scope.status = response.status;
             $scope.ajaxDataUsuarios = response.data.message;

@@ -280,6 +280,12 @@ public class ServiceFactory {
                             case "getpage":
                                 oReplyBean = oZonaService.getpage();
                                 break;
+                            case "getpagex":
+                                oReplyBean = oZonaService.getpageX();
+                                break;
+                            case "getcountx":
+                                oReplyBean = oZonaService.getcountX();
+                                break;
                             default:
                                 oReplyBean = new ReplyBean(500, "Operation doesn't exist");
                                 break;

@@ -5,7 +5,7 @@ moduleRestaurante.controller('restaurantePlistController', ['$scope', '$http', '
     function ($scope, $http, $location, toolService, $routeParams, sessionService) {
         $scope.ob = "restaurante";
 
-        
+
         if (!$routeParams.order) {
             $scope.orderURLServidor = "";
             $scope.orderURLCliente = "";
@@ -94,7 +94,9 @@ moduleRestaurante.controller('restaurantePlistController', ['$scope', '$http', '
             }
         }
 
-  
+        $scope.zona = function (id) {
+            $location.url(`zona/plist/10/1/${id}`);
+        }
         $scope.resetOrder = function () {
             $location.url($scope.ob + `/plist/` + $scope.rpp + `/` + $scope.page);
         }

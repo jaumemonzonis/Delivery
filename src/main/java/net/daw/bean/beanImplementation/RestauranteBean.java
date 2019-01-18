@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import net.daw.bean.genericBeanImplementation.GenericBeanImplementation;
 import net.daw.bean.publicBeanInterface.BeanInterface;
+import net.daw.dao.publicDaoInterface.DaoInterface;
+import net.daw.factory.DaoFactory;
 import net.daw.helper.EncodingHelper;
 
 /**
@@ -24,6 +26,8 @@ public class RestauranteBean extends GenericBeanImplementation implements BeanIn
     private String direccion;
     @Expose
      String poblacion;
+    @Expose(deserialize = false)
+      int link_zona;
 
     public String getNombre() {
         return nombre;
@@ -47,6 +51,10 @@ public class RestauranteBean extends GenericBeanImplementation implements BeanIn
         this.setNombre(oResultSet.getString("nombre"));
         this.setDireccion(oResultSet.getString("direccion"));
         this.setPoblacion(oResultSet.getString("poblacion"));
+        
+        DaoInterface oZonaDao = DaoFactory.getDao(oConnection, "zona", oUsuarioBeanSession);
+        this.setLink_zona(oZonaDao.getcountX(oResultSet.getInt("id")));
+        
         return this;
     }
 
@@ -93,5 +101,19 @@ public class RestauranteBean extends GenericBeanImplementation implements BeanIn
      */
     public void setPoblacion(String poblacion) {
         this.poblacion = poblacion;
+    }
+
+    /**
+     * @return the link_zona
+     */
+    public int getLink_zona() {
+        return link_zona;
+    }
+
+    /**
+     * @param link_zona the link_zona to set
+     */
+    public void setLink_zona(int link_zona) {
+        this.link_zona = link_zona;
     }
 }
