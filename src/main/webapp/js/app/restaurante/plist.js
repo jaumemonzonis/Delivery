@@ -94,6 +94,7 @@ moduleRestaurante.controller('restaurantePlistController', ['$scope', '$http', '
             }
         }
 
+  
         $scope.resetOrder = function () {
             $location.url($scope.ob + `/plist/` + $scope.rpp + `/` + $scope.page);
         }

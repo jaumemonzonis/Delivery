@@ -30,10 +30,10 @@ moduleZona.controller("zonaNewController", [
 
 
             var json = {
-                id: null,
+                id: $scope.id,
                 nombre: $scope.nombre,
-                direccion: $scope.direccion,
-                poblacion: $scope.poblacion
+                id_restaurante: $scope.obj_Restaurante.restaurante,
+                id_municipio: $scope.obj_Municipio.municipio
             }
 
             $http({
@@ -41,7 +41,7 @@ moduleZona.controller("zonaNewController", [
                 header: {
                     'Content-Type': 'application/json;charset=utf-8'
                 },
-                url: 'json?ob=restaurante&op=create',
+                url: 'json?ob=zona&op=create',
                 params: {json: JSON.stringify(json)}
             }).then(function () {
                 $scope.visualizar = true;

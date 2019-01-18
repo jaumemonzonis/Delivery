@@ -7,7 +7,7 @@ moduleZona.controller("zonaEditController", [
     "toolService",
     'sessionService',
     '$window',
-    function ($scope, $http, $routeParams, toolService, sessionService,$window) {
+    function ($scope, $http, $routeParams, toolService, sessionService, $window) {
 
         $scope.visualizar = false;
         $scope.logged = false;
@@ -22,20 +22,28 @@ moduleZona.controller("zonaEditController", [
         $scope.activar = true;
         $scope.ajaxData = "";
 
-   
+
 
         $http({
             method: "GET",
-            url: 'json?ob=restaurante&op=get&id=' + $scope.id
+            url: 'json?ob=zona&op=get&id=' + $scope.id
         }).then(function (response) {
             console.log(response);
 
             $scope.id = response.data.message.id;
             $scope.nombre = response.data.message.nombre;
-            $scope.direccion = response.data.message.direccion;
-            $scope.poblacion = response.data.message.poblacion;
+//            $scope.restaurante = response.data.message.id_restaurante;
+//            $scope.municipio = response.data.message.id_municipio;
 
-
+            $scope.obj_Restaurante = {
+                id: response.data.message.obj_Restaurante.id,
+                restaurante: response.data.message.obj_Restaurante.nombre
+            }
+             $scope.obj_Municipio = {
+                id: response.data.message.obj_Municipio.id,
+                municipio: response.data.message.obj_Municipio.poblacion
+            }
+            
         }), function (response) {
             console.log(response);
         };
@@ -47,8 +55,8 @@ moduleZona.controller("zonaEditController", [
             var json = {
                 id: $scope.id,
                 nombre: $scope.nombre,
-                direccion: $scope.direccion,
-                poblacion: $scope.poblacion
+                id_restaurante: $scope.obj_Restaurante.restaurante,
+                id_municipio: $scope.obj_Municipio.municipio
 
             }
 
@@ -57,15 +65,15 @@ moduleZona.controller("zonaEditController", [
                 header: {
                     'Content-Type': 'application/json;charset=utf-8'
                 },
-                url: 'json?ob=restaurante&op=update',
+                url: 'json?ob=zona&op=update',
                 params: {json: JSON.stringify(json)}
             }).then(function () {
-                  $scope.visualizar = true;
+                $scope.visualizar = true;
             })
         }
 
 
-          $scope.volver = function () {
+        $scope.volver = function () {
             $window.history.back();
         }
         $scope.close = function () {

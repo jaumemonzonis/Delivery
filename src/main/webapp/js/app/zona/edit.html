@@ -10,7 +10,7 @@
          <div class="col-5 mx-auto container2 pl-3 pr-3">
           <div class="row mt-4">
                 <div class=" mx-auto">
-                    <h4 class="text-center mb-3"><i class="material-icons">add_circle_outline</i> Editar restaurante</h4>
+                    <h4 class="text-center mb-3"><i class="material-icons">add_circle_outline</i> Editar zona</h4>
                 </div>
             </div>
         
@@ -18,7 +18,7 @@
      
         <div class=" mx-auto">
                <div class="alert alert-success" role="alert" ng-show="(visualizar)">
-                Restaurante editado correctamente.
+                Zona editada correctamente.
             </div>
           <form name="userForm" ng-show="(!visualizar)">
             <div class="form-group">
@@ -26,32 +26,26 @@
               <input type="text" class="form-control" id="id" name="id" ng-disabled="true" ng-model="id" />
             </div>
            <div class="form-group">
-              <label>Nombre</label>
-              <input type="text" class="form-control" id="nombre" name="nombre" ng-model="nombre" ng-required="true" placeholder="Nombre" />
-              <div ng-show="!userForm.nombre.$valid && !userForm.nombre.$pristine" class="alert alert-danger" role="alert">
-                Nombre obligatorio
+              <label>Restaurante</label>
+              <input type="text" class="form-control" id="restaurante" name="restaurante" ng-model="obj_Restaurante.restaurante" ng-required="true"/>
+              <div ng-show="!userForm.restaurante.$valid && !userForm.restaurante.$pristine" class="alert alert-danger" role="alert">
+               Restaurante obligatorio
               </div>
             </div>
               <div class="form-group">
-              <label>Dirección</label>
-              <input type="text" class="form-control" id="direccion" name="direccion" ng-model="direccion" ng-required="true" placeholder="Dirección" />
-              <div ng-show="!userForm.poblacion.$valid && !userForm.poblacion.$pristine" class="alert alert-danger" role="alert">
-                Dirección obligatoria
+              <label>Municipio</label>
+              <input type="text" class="form-control" id="municipio" name="municipio" ng-model="obj_Municipio.municipio" ng-required="true" />
+              <div ng-show="!userForm.municipio.$valid && !userForm.municipio.$pristine" class="alert alert-danger" role="alert">
+               Municipio obligatorio
               </div>
             </div>
-            <div class="form-group">
-              <label>Población</label>
-              <input type="text" class="form-control" id="poblacion" name="poblacion" ng-model="poblacion" ng-required="true" placeholder="Población" />
-              <div ng-show="!userForm.poblacion.$valid && !userForm.poblacion.$pristine" class="alert alert-danger" role="alert">
-                Población obligatoria
-              </div>
-            </div>
+         
    
-            <button ng-click="update()" type="button" class="btn btn-primary btn-block" ng-disabled="userForm.$invalid">Editar municipio</button>
+            <button ng-click="update()" type="button" class="btn btn-primary btn-block" ng-disabled="userForm.$invalid">Editar zona</button>
          
           </form> 
              <div class="alert alert-success" role="alert" ng-show="(error)">
-                Error al editar el restaurante.
+                Error al editar la zona.
             </div>
             <button type="button" class="btn btn-primary btn-block mt-2" ng-click="volver()">Volver</button>
 
