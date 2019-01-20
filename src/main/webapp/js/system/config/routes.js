@@ -166,7 +166,7 @@ wildcart.config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/zona/view/:id', {templateUrl: 'js/app/zona/view.html', controller: 'zonaViewController'});
         $routeProvider.when('/zona/remove/:id', {templateUrl: 'js/app/zona/remove.html', controller: 'zonaRemoveController', resolve: { auth: autenticacionAdministrador } });
         $routeProvider.when('/zona/edit/:id', {templateUrl: 'js/app/zona/edit.html', controller: 'zonaEditController', resolve: { auth: autenticacionAdministrador } });
-        $routeProvider.when('/zona/new', {templateUrl: 'js/app/zona/new.html', controller: 'zonaNewController', resolve: { auth: autenticacionAdministrador } });
+        $routeProvider.when('/zona/new/:id', {templateUrl: 'js/app/zona/new.html', controller: 'zonaNewController', resolve: { auth: autenticacionAdministrador } });
 //        $routeProvider.when('/zona/plistxusuario/:rpp?/:page?/:id?/:order?', {templateUrl: 'js/app/zona/plistxusuario.html', controller: 'zonaplistxusuarioController'});
         $routeProvider.when('/zona/newxusuario/:id', {templateUrl: 'js/app/zona/newxusuario.html', controller: 'zonanewxusuarioController', resolve: { auth: autenticacionAdministrador } });
 

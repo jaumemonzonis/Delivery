@@ -217,10 +217,10 @@ color: #A62B21 !important;
 }
 
 .box {
-  width: 15%;
+  width: 20%;
   height: 180px;
   margin: 0.2%;
-  padding: 15px;
+  padding: 5px;
   box-sizing: border-box;
   display: inline-block;
   background: #036C81;

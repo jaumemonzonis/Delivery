@@ -32,8 +32,6 @@ moduleZona.controller("zonaEditController", [
 
             $scope.id = response.data.message.id;
             $scope.nombre = response.data.message.nombre;
-//            $scope.restaurante = response.data.message.id_restaurante;
-//            $scope.municipio = response.data.message.id_municipio;
 
             $scope.obj_Restaurante = {
                 id: response.data.message.obj_Restaurante.id,
@@ -55,8 +53,8 @@ moduleZona.controller("zonaEditController", [
             var json = {
                 id: $scope.id,
                 nombre: $scope.nombre,
-                id_restaurante: $scope.obj_Restaurante.restaurante,
-                id_municipio: $scope.obj_Municipio.municipio
+                id_restaurante: $scope.obj_Restaurante.id,
+                id_municipio: $scope.obj_Municipio.id
 
             }
 

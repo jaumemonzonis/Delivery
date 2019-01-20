@@ -6,7 +6,8 @@
                 </div>
   <div class="row">
     <div class="col-12">
-
+<h1 class="h2 mt-3"><i class="fas far fa-file fa-1x"></i> 
+                Zona {{restaurante}}</h1>
          <div class="col-5 mx-auto container2 pl-3 pr-3">
           <div class="row mt-4">
                 <div class=" mx-auto">
@@ -25,16 +26,10 @@
               <label>ID</label>
               <input type="text" class="form-control" id="id" name="id" ng-disabled="true" ng-model="id" />
             </div>
-           <div class="form-group">
-              <label>Restaurante</label>
-              <input type="text" class="form-control" id="restaurante" name="restaurante" ng-model="obj_Restaurante.restaurante" ng-required="true"/>
-              <div ng-show="!userForm.restaurante.$valid && !userForm.restaurante.$pristine" class="alert alert-danger" role="alert">
-               Restaurante obligatorio
-              </div>
-            </div>
+
               <div class="form-group">
               <label>Municipio</label>
-              <input type="text" class="form-control" id="municipio" name="municipio" ng-model="obj_Municipio.municipio" ng-required="true" />
+              <input type="text" class="form-control" id="obj_Municipio.id" name="obj_Municipio.id" ng-model="obj_Municipio.id" ng-required="true" />
               <div ng-show="!userForm.municipio.$valid && !userForm.municipio.$pristine" class="alert alert-danger" role="alert">
                Municipio obligatorio
               </div>

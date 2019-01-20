@@ -52,7 +52,7 @@ moduleZona.controller('zonaPlistController', ['$scope', '$http', '$location', 't
         //getcount
         $http({
             method: 'GET',
-            url: 'json?ob=zona&op=getcountx&idajena=' + $routeParams.id
+            url: 'json?ob=zona&op=getcountx&idajena=' + $scope.id
         }).then(function (response) {
             $scope.status = response.status;
             $scope.ajaxDataUsuariosNumber = response.data.message;
@@ -66,6 +66,19 @@ moduleZona.controller('zonaPlistController', ['$scope', '$http', '$location', 't
             $scope.ajaxDataUsuariosNumber = response.data.message || 'Request failed';
             $scope.status = response.status;
         });
+        
+         $http({
+            method: 'GET',
+            url: 'json?ob=restaurante&op=get&id=' + $scope.id
+        }).then(function (response) {
+            $scope.status = response.status;
+            $scope.restaurante = response.data.message.nombre;
+        }, function (response) {
+            $scope.status = response.status;
+            $scope.ajaxDataUsuarios = response.data.message || 'Request failed';
+        });
+
+
 
         $http({
             method: 'GET',
