@@ -1,5 +1,8 @@
+
+
 html *{
     font-family: 'Convergence', sans-serif;
+    box-sizing: border-box;
 
 }
 
@@ -34,11 +37,6 @@ border: 10px #F9B157 solid;
 height: auto;
 
 }
-
-
-
-
-
 
 
 /* botones acciones */
@@ -139,8 +137,15 @@ height: auto;
      line-height: 29px; 
 }
 
+.btn-outline-secondary {
+    border-color: #A62B21 !important;
+    color: #A62B21 !important;
+}
 
-
+.btn-rojo{
+    
+  background-color: #A62B21 !important;  
+}
 
 /* tabla */
 .table > tbody > tr > td{
@@ -285,4 +290,37 @@ color: #A62B21 !important;
 .box h3 .label_restaurante{
    left: 12%; 
     
+}
+
+
+/* navbar */
+.navbar{
+    height: 70px !important;
+}
+.material-icons.md-36 { font-size: 36px; }
+
+.nav_user{
+    margin-top: 4% !important;
+}
+
+.nav_logosecundary{
+    padding-top: 28% !important;
+}
+
+.collapse{
+    color: white !important;
+}
+
+.navegador{
+    background-color: #F9B157;
+}
+
+.btn-login {
+     background-color:#A62B21 !important;
+     color:#A62B21 !important;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active {
+     color:white !important;
+     background-color:#A62B21 !important;
 }
