@@ -8,7 +8,7 @@ moduleProducto.controller("productoNewController", [
     'sessionService',
     function ($scope, $http, $routeParams, toolService, sessionService) {
 
-        $scope.edited = true;
+       $scope.visualizar = false;
         $scope.logged = false;
 
         if (!$routeParams.id) {
@@ -77,7 +77,7 @@ moduleProducto.controller("productoNewController", [
                 url: 'json?ob=producto&op=create',
                 params: {json: JSON.stringify(json)}
             }).then(function () {
-                $scope.edited = false;
+               $scope.visualizar = true;
             })
         }
 
