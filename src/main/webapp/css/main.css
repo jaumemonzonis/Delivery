@@ -197,7 +197,17 @@ width: 21% !important;
 color: #F9B157 !important;
 }
 
+.form-size{
+    font-size: 70% !important; 
+  width: 25% !important;  
+   color: #A62B21 !important;
+   border: 1px solid #F9B157 !important;
+   margin-right: 12% !important;
+}
 
+.reseticon{
+    margin-left: -5% !important;
+}
 
 .pagination{
 color: #F9B157 !important;

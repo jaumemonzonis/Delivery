@@ -72,12 +72,15 @@ moduleFactura.controller("facturaEditController", [
             }
 
             $scope.myDate = new Date($scope.fecha);
-
+          
 
 
         }), function (response) {
             console.log(response);
         };
+
+
+
 
         $scope.isActive = toolService.isActive;
 

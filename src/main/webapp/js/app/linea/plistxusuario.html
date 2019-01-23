@@ -11,10 +11,10 @@
                 
 
                 <div class="col-md-12 ml-sm-auto col-lg-12 mt-3">
-                    <div class="btn-toolbar mb-2 mb-md-0 float-left">
-                        <div class="btn-group" style="width:200px; margin-left:-5%;">
-                            <p class="mt-2" style="width:230px;">Registros por pagina:</p>
-                            <select class="form-control" 
+                   <div class="btn-toolbar mb-2 mb-md-0 float-left">
+                        <div class="btn-group" style="width:270px; margin-left: -5%;">
+                            <p class="mt-2" style="width:200px;">Registros por pagina:</p>
+                            <select class="form-control form-size" 
                                     ng-change="update()" 
                                     ng-model="rpp">
                                 <option value="5">5</option>
@@ -24,7 +24,7 @@
                             </select>
                         </div>
 
-                        <button type="button" class="btn btn-just-icon btn-sm mt-3" ng-click="resetOrder()">
+                        <button type="button" class="btn btn-just-icon btn-sm mt-3 reseticon" ng-click="resetOrder()">
                             <i class="material-icons">cached</i>
                         </button>
                     </div>

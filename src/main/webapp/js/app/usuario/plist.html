@@ -8,22 +8,22 @@
 
             <div class="col-md-12 ml-sm-auto col-lg-12 mt-3">
                 <div class="btn-toolbar mb-2 mb-md-0 float-left">
-                    <div class="btn-group" style="width:200px; margin-left:-5%;">
-                        <p class="mt-2" style="width:230px;">Registros por pagina:</p>
-                        <select class="form-control" 
-                                ng-change="update()" 
-                                ng-model="rpp">
-                            <option value="5">5</option>
-                            <option value="10">10</option>
-                            <option value="20">20</option>
-                            <option value="50">50</option>
-                        </select>
-                    </div>
+                        <div class="btn-group" style="width:270px; margin-left: -5%;">
+                            <p class="mt-2" style="width:200px;">Registros por pagina:</p>
+                            <select class="form-control form-size" 
+                                    ng-change="update()" 
+                                    ng-model="rpp">
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                            </select>
+                        </div>
 
-                    <button type="button" class="btn btn-just-icon btn-sm mt-3" ng-click="resetOrder()">
-                        <i class="material-icons">cached</i>
-                    </button>
-                </div>
+                        <button type="button" class="btn btn-just-icon btn-sm mt-3 reseticon" ng-click="resetOrder()">
+                            <i class="material-icons">cached</i>
+                        </button>
+                    </div>
                 <div class="float-right" style="margin-right:-1%;">
                     <a href="{{ob}}/new/" class="btn btn-rojo btn-sm active float-right" role="button" aria-pressed="true"><i class="material-icons">
                             add_circle_outline</i> Crear nuevo usuario</a>

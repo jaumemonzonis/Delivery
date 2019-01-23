@@ -38,7 +38,7 @@
 
                 <button ng-click="guardar()" ng-show="!mensaje" type="button" class="btn btn-success" ng-disabled="userForm.$invalid">Enviar</button>
             </form>
-            <a href="javascript:window.history.back();"> <button class="btn btn-danger">Volver</button> </a>
+            <a href="javascript:window.history.back();"> <button class="btn btn-danger mb-3">Volver</button> </a>
             <div class="alert alert-success" ng-model="resultado" ng-show="mensaje">
                 Datos actualizados correctamente.
             </div>
@@ -48,4 +48,3 @@
         </main>
     </div>
 </div>
-<footer class="footer" ng-include="'js/app/footer.html'"></footer>

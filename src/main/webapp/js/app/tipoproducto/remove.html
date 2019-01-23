@@ -29,8 +29,8 @@
                     </div>
                     <div ng-show="msgopcioneliminar">
                         <h6 style="text-align: center">¿Estas seguro de eliminar el registro?</h6>
-                        <button class="btn btn-primary btn-block" ng-click="eliminar('eliminar')">Si</button>
-                        <button class="btn btn-danger btn-block" ng-click="eliminar('noeliminar')">No</button>
+                        <button class="btn btn-primary btn-block mb-3" ng-click="eliminar('eliminar')">Si</button>
+                        <button class="btn btn-danger btn-block mb-3" ng-click="eliminar('noeliminar')">No</button>
                     </div>
 
                     <div class="alert alert-success btn-block" style="margin-top: 20px;" ng-show="eliminarok">
@@ -40,7 +40,7 @@
                     <div class="alert alert-danger btn-block" style="margin-top: 20px;" ng-show="eliminarerror">
                         Registro no eliminado
                     </div>
-                    <button type="button" class="btn btn-primary btn-block" ng-click="volver()">Volver</button>
+                    <button type="button" class="btn btn-primary btn-block mb-3" ng-click="volver()">Volver</button>
 
 
                 </div>
