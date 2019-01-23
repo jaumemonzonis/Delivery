@@ -1,5 +1,5 @@
-moduloDirectivas.component('navComponent', {
-    templateUrl: 'js/app/components/nav.html',
+moduloDirectivas.component('homeadmComponent', {
+    templateUrl: 'js/app/components/homeadm.html',
     bindings: {
     },
     controllerAs: 'c',
@@ -9,14 +9,14 @@ moduloDirectivas.component('navComponent', {
 
 function js(toolService, sessionService, $http, $route) {
     var self = this;
+    
+    self.loggeduser="administrador";
 
-    if (sessionService.getUserName()===null){
-     self.loggeduser = "ADMINISTRADOR";   
-    }else{
-    self.loggeduser = sessionService.getUserName();}
+    if (sessionService.getUserName()!==null){
+    self.loggeduser = sessionService.getUserName();
     
-    
-    
+    }
+
     self.loggeduserid = sessionService.getId();
     self.logged = sessionService.isSessionActive();
     self.tipousuarioID = sessionService.getTypeUserID();

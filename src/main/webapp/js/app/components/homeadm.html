@@ -1,0 +1,112 @@
+
+<div class="row menu_selection">
+    <div class="col-md-12 ml-sm-auto col-lg-12 px-4 d-flex justify-content-between ml-5">
+        <a href="tipousuario/plist" class="box first" >
+            <span class="icon-cont"><i class="material-icons">
+                    group
+                </i></span>
+            <h3>tipo usuario</h3>
+        </a>
+        <a href="usuario/plist" class="box first">
+            <span class="icon-cont"><i class="material-icons">account_circle</i></span>
+            <h3>usuario</h3>
+        </a>
+        <a href="producto/plist" class="box first">
+            <span class="icon-cont"><i class="material-icons">
+local_pizza
+</i></span>
+            <h3>producto</h3>
+        </a>
+        <a href="tipoproducto/plist" class="box first">
+            <span class="icon-cont"> <i class="material-icons">
+                    fastfood
+                </i></span>
+            <h3>tipo producto</h3>
+        </a>
+        <a href="restaurante/plist" class="box first">
+            <span class="icon-cont"><i class="fa fa-cutlery"></i></span>
+            <h3>restaurante</h3>
+        </a>
+        <a href="municipio/plist" class="box first">
+            <span class="icon-cont"><i class="material-icons">
+                    place
+                </i></span>
+            <h3>municipio</h3>
+        </a>
+        <a href="administrador/plist" class="box first" ng-show="{{c.logged}}">
+            <span class="icon-cont"><i class="material-icons">
+perm_identity
+</i></span>
+            <h3 class="h3_admin">{{c.loggeduser}}</h3>
+        </a>
+        <a href="administrador/plist" class="box first" ng-show="{{!c.logged}}">
+            <span class="icon-cont"><i class="material-icons">
+perm_identity
+</i></span>
+            <h3 class="h3_admin2">administrador</h3>
+        </a>
+    </div>
+    <div class="col-md-12 ml-sm-auto col-lg-12 px-4 d-flex justify-content-between ml-5">
+        <a href="tipousuario/new" class="box_second color_second" >   
+            <h3>crear tipo usuario</h3>
+        </a>
+        <a href="usuario/new" class="box_second color_second">
+            <h3>crear usuario</h3>
+        </a>
+        <a href="producto/new" class="box_second color_second">
+            <h3>crear producto</h3>
+        </a>
+        <a href="tipoproducto/new" class="box_second color_second">
+            <h3>crear tipo producto</h3>
+        </a>
+        <a href="restaurante/new" class="box_second color_second">
+            <h3>crear restaurante</h3>
+        </a>
+        <a href="municipio/new" class="box_second color_second">
+            <h3>crear municipio</h3>
+        </a>
+        <a href="usuario/view/{{c.loggeduserid}}" class="box_second color_second">
+            <h3>PERFIL</h3>
+        </a>
+    </div>
+    <div class="col-md-12 ml-sm-auto col-lg-12 px-4 d-flex justify-content-between ml-5">
+        <div class="box_transparent"></div>
+        <a href="factura/new" class="box_second color_third">
+            <h3>crear factura</h3>
+        </a>
+        <div class="box_transparent"></div>
+        <div class="box_transparent"></div>
+        <a href="zona/newhome" class="box_second color_third">
+            <h3>crear zona</h3>
+        </a>
+        <div class="box_transparent"></div>
+        <a href="usuario/editpass/{{c.loggeduserid}}" class="box_second color_third">
+            <h3>contraseña</h3>
+        </a>
+    </div>
+    <div class="col-md-12 ml-sm-auto col-lg-12 px-4 d-flex justify-content-between ml-5">
+        <div class="box_transparent"></div>
+        <a href="linea/new" class="box_second color_four">
+            <h3>crear linea</h3>
+        </a>
+        <div class="box_transparent"></div>
+        <div class="box_transparent"></div>
+        <div class="box_transparent"></div>
+        <div class="box_transparent"></div>
+        <a href="factura/plistxusuario/10/1/{{c.loggeduserid}}" class="box_second color_four">
+            <h3>facturas</h3>
+        </a>
+    </div>
+    <div class="col-md-12 ml-sm-auto col-lg-12 px-4 d-flex justify-content-between ml-5">
+        <div class="box_transparent"></div>
+        <div class="box_transparent"></div>
+        <div class="box_transparent"></div>
+        <div class="box_transparent"></div>
+        <div class="box_transparent"></div>
+        <div class="box_transparent"></div>
+        <a href="usuario/logout" class="box_second color_five" ng-show="c.logged">
+            <h3>logout</h3>
+        </a>
+    </div>
+
+</div>

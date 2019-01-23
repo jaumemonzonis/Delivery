@@ -1,0 +1,24 @@
+<header-component></header-component>
+<nav-component></nav-component>
+<div class="row menu_selection">
+
+    <div class="col-md-12 ml-sm-auto col-lg-12 px-4 d-flex justify-content-between ml-5">
+        <div class="box_transparent"></div>
+        <a href="usuario/login" class="box_second color_five" ng-show="!loggeado">
+            <h3>login</h3>
+        </a>
+        <a href="usuario/view/{{loggeduserid}}" class="box_second color_second">
+            <h3>PERFIL</h3>
+        </a>
+        <a href="usuario/editpass/{{loggeduserid}}" class="box_second color_third">
+            <h3>contraseña</h3>
+        </a>
+        <a href="factura/plistxusuario/10/1/{{loggeduserid}}" class="box_second color_four">
+            <h3>facturas</h3>
+        </a>
+        <a href="usuario/logout" class="box_second color_five">
+            <h3>logout</h3>
+        </a>
+        <div class="box_transparent"></div>
+    </div>
+</div>

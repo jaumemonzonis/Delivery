@@ -234,6 +234,34 @@ color: #A62B21 !important;
   box-shadow: 0 0 5px rgba(0,0,0,0.4);
   cursor: pointer;
 }
+
+.box_second {
+  width: 20%;
+  height:85px;
+  margin: 0.2%;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  cursor: pointer;
+}
+
+
+.box_transparent {
+  width: 20%;
+  height:85px;
+  margin: 0.2%;
+  padding: 5px;
+  box-sizing: border-box;
+  display: inline-block;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+
+}
+
+
+
 .box .icon-cont {
   border: 6px solid rgba(255,255,255,0.3);
   border-radius: 50%;
@@ -242,7 +270,7 @@ color: #A62B21 !important;
   margin: 20px auto;
   display: block; 
   text-align: center;
-  
+  background: #036C81;
   position: absolute;
   top: 10px;
   left: 0;
@@ -251,6 +279,8 @@ color: #A62B21 !important;
   
   box-shadow: 0 0 0 0px rgba(255,255,255,0.5), 0 0 0 0px rgba(3, 108, 129, 0.5);
 }
+
+
 .box .icon-cont i {
   color: #fff;
   opacity: 0.6;
@@ -287,12 +317,47 @@ color: #A62B21 !important;
   z-index: 4;
 }
 
-.box h3 .label_restaurante{
-   left: 12%; 
-    
+.box_second h3 {
+  color: #fff;
+  font-weight: 100;
+  font-size: 80%;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 1px solid rgba(255,255,255,0);
+  
+  position: absolute;
+  top: 37%;
+  width: 70%;
+  left: 15%;
+  z-index: 4;
 }
 
+.color_second{
+    background: #1E7787;
+}
 
+.color_third{
+    background: #398998;
+}
+.color_four{
+    background: #6199A4;
+}
+.color_five{
+    background: #FFBC68;
+}
+.box h3 .label_restaurante{
+   left: 12%;    
+}
+.h3_admin{
+   font-size: 15px !important;
+     left: 15% !important;
+}
+
+.h3_admin2{
+   font-size: 15px !important;
+     left: 10% !important;
+}
 /* navbar */
 .navbar{
     height: 70px !important;

@@ -92,85 +92,87 @@ wildcart.config(['$routeProvider', function ($routeProvider) {
         //USUARIO
         $routeProvider.when('/usuario/plist/:rpp?/:page?/:order?', {templateUrl: 'js/app/usuario/plist.html', controller: 'usuarioPlistController', resolve: {auth: autenticacionAdministrador}});
         $routeProvider.when('/usuario/view/:id', {templateUrl: 'js/app/usuario/view.html', controller: 'usuarioViewController'});
-        $routeProvider.when('/usuario/new', {templateUrl: 'js/app/usuario/new.html', controller: 'usuarioNewController', resolve: { auth: autenticacionAdministrador } });
-        $routeProvider.when('/usuario/edit/:id', {templateUrl: 'js/app/usuario/edit.html', controller: 'usuarioEditController', resolve: { auth: autenticacionAdministrador } });
-        $routeProvider.when('/usuario/remove/:id', {templateUrl: 'js/app/usuario/remove.html', controller: 'usuarioRemoveController', resolve: { auth: autenticacionAdministrador } });
-        
+        $routeProvider.when('/usuario/new', {templateUrl: 'js/app/usuario/new.html', controller: 'usuarioNewController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/usuario/edit/:id', {templateUrl: 'js/app/usuario/edit.html', controller: 'usuarioEditController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/usuario/remove/:id', {templateUrl: 'js/app/usuario/remove.html', controller: 'usuarioRemoveController', resolve: {auth: autenticacionAdministrador}});
+
         $routeProvider.when('/usuario/editpass/:id', {templateUrl: 'js/app/usuario/editpass.html', controller: 'usuarioEditpassController'});
-        
+
         $routeProvider.when('/usuario/login', {templateUrl: 'js/app/usuario/login.html', controller: 'usuarioLoginController'});
         $routeProvider.when('/usuario/logout', {templateUrl: 'js/app/usuario/logout.html', controller: 'usuarioLogoutController'});
 
         //TIPOUSUARIO
-        $routeProvider.when('/tipousuario/plist/:rpp?/:page?/:order?', {templateUrl: 'js/app/tipousuario/plist.html', controller: 'tipousuarioPlistController', resolve: { auth: autenticacionAdministrador } });
-        $routeProvider.when('/tipousuario/view/:id', {templateUrl: 'js/app/tipousuario/view.html', controller: 'tipousuarioViewController', resolve: { auth: autenticacionAdministrador } });
-        $routeProvider.when('/tipousuario/edit/:id?', {templateUrl: 'js/app/tipousuario/edit.html', controller: 'tipousuarioEditController', resolve: { auth: autenticacionAdministrador } });
-        $routeProvider.when('/tipousuario/remove/:id', {templateUrl: 'js/app/tipousuario/remove.html', controller: 'tipousuarioRemoveController', resolve: { auth: autenticacionAdministrador } });
-        $routeProvider.when('/tipousuario/new', {templateUrl: 'js/app/tipousuario/new.html', controller: 'tipousuarioNewController', resolve: { auth: autenticacionAdministrador } });
+        $routeProvider.when('/tipousuario/plist/:rpp?/:page?/:order?', {templateUrl: 'js/app/tipousuario/plist.html', controller: 'tipousuarioPlistController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/tipousuario/view/:id', {templateUrl: 'js/app/tipousuario/view.html', controller: 'tipousuarioViewController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/tipousuario/edit/:id?', {templateUrl: 'js/app/tipousuario/edit.html', controller: 'tipousuarioEditController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/tipousuario/remove/:id', {templateUrl: 'js/app/tipousuario/remove.html', controller: 'tipousuarioRemoveController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/tipousuario/new', {templateUrl: 'js/app/tipousuario/new.html', controller: 'tipousuarioNewController', resolve: {auth: autenticacionAdministrador}});
 
         //TIPOPRODUCTO
-        $routeProvider.when('/tipoproducto/plist/:rpp?/:page?/:order?', {templateUrl: 'js/app/tipoproducto/plist.html', controller: 'tipoproductoPlistController', resolve: { auth: autenticacionAdministrador } });
-        $routeProvider.when('/tipoproducto/remove/:id', {templateUrl: 'js/app/tipoproducto/remove.html', controller: 'tipoproductoRemoveController', resolve: { auth: autenticacionAdministrador } });
-        $routeProvider.when('/tipoproducto/view/:id?', {templateUrl: 'js/app/tipoproducto/view.html', controller: 'tipoproductoViewController', resolve: { auth: autenticacionAdministrador } });
-        $routeProvider.when('/tipoproducto/new', {templateUrl: 'js/app/tipoproducto/new.html', controller: 'tipoproductoNewController', resolve: { auth: autenticacionAdministrador } });
-        $routeProvider.when('/tipoproducto/edit/:id', {templateUrl: 'js/app/tipoproducto/edit.html', controller: 'tipoproductoEditController', resolve: { auth: autenticacionAdministrador } });
+        $routeProvider.when('/tipoproducto/plist/:rpp?/:page?/:order?', {templateUrl: 'js/app/tipoproducto/plist.html', controller: 'tipoproductoPlistController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/tipoproducto/remove/:id', {templateUrl: 'js/app/tipoproducto/remove.html', controller: 'tipoproductoRemoveController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/tipoproducto/view/:id?', {templateUrl: 'js/app/tipoproducto/view.html', controller: 'tipoproductoViewController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/tipoproducto/new', {templateUrl: 'js/app/tipoproducto/new.html', controller: 'tipoproductoNewController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/tipoproducto/edit/:id', {templateUrl: 'js/app/tipoproducto/edit.html', controller: 'tipoproductoEditController', resolve: {auth: autenticacionAdministrador}});
 
         //PRODUCTO
-        $routeProvider.when('/producto/new', {templateUrl: 'js/app/producto/new.html', controller: 'productoNewController', resolve: { auth: autenticacionAdministrador } });
-        $routeProvider.when('/producto/edit/:id', {templateUrl: 'js/app/producto/edit.html', controller: 'productoEditController', resolve: { auth: autenticacionAdministrador } });
-        $routeProvider.when('/producto/remove/:id', {templateUrl: 'js/app/producto/remove.html', controller: 'productoRemoveController', resolve: { auth: autenticacionAdministrador } });
-        $routeProvider.when('/producto/plist/:rpp?/:page?/:order?', {templateUrl: 'js/app/producto/plist.html', controller: 'productoPlistController', resolve: { auth: autenticacionAdministrador } });
+        $routeProvider.when('/producto/new', {templateUrl: 'js/app/producto/new.html', controller: 'productoNewController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/producto/edit/:id', {templateUrl: 'js/app/producto/edit.html', controller: 'productoEditController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/producto/remove/:id', {templateUrl: 'js/app/producto/remove.html', controller: 'productoRemoveController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/producto/plist/:rpp?/:page?/:order?', {templateUrl: 'js/app/producto/plist.html', controller: 'productoPlistController', resolve: {auth: autenticacionAdministrador}});
         $routeProvider.when('/producto/view/:id?', {templateUrl: 'js/app/producto/view.html', controller: 'productoViewController'});
 
         //LINEA
-        $routeProvider.when('/linea/plist/:rpp?/:page?/:order?', {templateUrl: 'js/app/linea/plist.html', controller: 'lineaPlistController', resolve: { auth: autenticacionAdministrador } });
+        $routeProvider.when('/linea/plist/:rpp?/:page?/:order?', {templateUrl: 'js/app/linea/plist.html', controller: 'lineaPlistController', resolve: {auth: autenticacionAdministrador}});
         $routeProvider.when('/linea/view/:id', {templateUrl: 'js/app/linea/view.html', controller: 'lineaViewController'});
-        $routeProvider.when('/linea/remove/:id', {templateUrl: 'js/app/linea/remove.html', controller: 'lineaRemoveController', resolve: { auth: autenticacionAdministrador } });
-        $routeProvider.when('/linea/edit/:id', {templateUrl: 'js/app/linea/edit.html', controller: 'lineaEditController', resolve: { auth: autenticacionAdministrador } });
-        $routeProvider.when('/linea/new', {templateUrl: 'js/app/linea/new.html', controller: 'lineaNewController', resolve: { auth: autenticacionAdministrador } });
+        $routeProvider.when('/linea/remove/:id', {templateUrl: 'js/app/linea/remove.html', controller: 'lineaRemoveController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/linea/edit/:id', {templateUrl: 'js/app/linea/edit.html', controller: 'lineaEditController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/linea/new', {templateUrl: 'js/app/linea/new.html', controller: 'lineaNewController', resolve: {auth: autenticacionAdministrador}});
         $routeProvider.when('/linea/plistxusuario/:rpp?/:page?/:id?/:order?', {templateUrl: 'js/app/linea/plistxusuario.html', controller: 'lineaplistxusuarioController'});
-        $routeProvider.when('/linea/newxusuario/:id', {templateUrl: 'js/app/linea/newxusuario.html', controller: 'lineanewxusuarioController', resolve: { auth: autenticacionAdministrador } });
+        $routeProvider.when('/linea/newxusuario/:id', {templateUrl: 'js/app/linea/newxusuario.html', controller: 'lineanewxusuarioController', resolve: {auth: autenticacionAdministrador}});
 
         //FACTURA
-        $routeProvider.when('/factura/plist/:rpp?/:page?/:order?', {templateUrl: 'js/app/factura/plist.html', controller: 'facturaPlistController', resolve: { auth: autenticacionAdministrador } });
+        $routeProvider.when('/factura/plist/:rpp?/:page?/:order?', {templateUrl: 'js/app/factura/plist.html', controller: 'facturaPlistController', resolve: {auth: autenticacionAdministrador}});
         $routeProvider.when('/factura/plistxusuario/:rpp?/:page?/:id?/:order?', {templateUrl: 'js/app/factura/plistxusuario.html', controller: 'facturaplistxusuarioController'});
-        $routeProvider.when('/factura/remove/:id', {templateUrl: 'js/app/factura/remove.html', controller: 'facturaRemoveController', resolve: { auth: autenticacionAdministrador } });
+        $routeProvider.when('/factura/remove/:id', {templateUrl: 'js/app/factura/remove.html', controller: 'facturaRemoveController', resolve: {auth: autenticacionAdministrador}});
         $routeProvider.when('/factura/view/:id?', {templateUrl: 'js/app/factura/view.html', controller: 'facturaViewController'});
-        $routeProvider.when('/factura/new', {templateUrl: 'js/app/factura/new.html', controller: 'facturaNewController', resolve: { auth: autenticacionAdministrador } });
-        $routeProvider.when('/factura/edit/:id', {templateUrl: 'js/app/factura/edit.html', controller: 'facturaEditController', resolve: { auth: autenticacionAdministrador } });
-        $routeProvider.when('/factura/newxusuario/:id', {templateUrl: 'js/app/factura/newxusuario.html', controller: 'facturanewxusuarioController', resolve: { auth: autenticacionAdministrador } });
+        $routeProvider.when('/factura/new', {templateUrl: 'js/app/factura/new.html', controller: 'facturaNewController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/factura/edit/:id', {templateUrl: 'js/app/factura/edit.html', controller: 'facturaEditController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/factura/newxusuario/:id', {templateUrl: 'js/app/factura/newxusuario.html', controller: 'facturanewxusuarioController', resolve: {auth: autenticacionAdministrador}});
 
         //CARRITO
-        $routeProvider.when('/carrito/plist/:rpp?/:page?/:order?', {templateUrl: 'js/app/carrito/plist.html', controller: 'carritoPlistController', resolve: { auth: autenticacionUsuario } });
-        $routeProvider.when('/carrito/carrito/:rpp?/:page?/:order?', {templateUrl: 'js/app/carrito/carrito.html', controller: 'carritoCarritoController', resolve: { auth: autenticacionUsuario } });
-        $routeProvider.when('/carrito/facturacarrito/:id?', {templateUrl: 'js/app/carrito/facturacarrito.html', controller: 'facturaCarritoController', resolve: { auth: autenticacionUsuario } });
-        
+        $routeProvider.when('/carrito/plist/:rpp?/:page?/:order?', {templateUrl: 'js/app/carrito/plist.html', controller: 'carritoPlistController', resolve: {auth: autenticacionUsuario}});
+        $routeProvider.when('/carrito/carrito/:rpp?/:page?/:order?', {templateUrl: 'js/app/carrito/carrito.html', controller: 'carritoCarritoController', resolve: {auth: autenticacionUsuario}});
+        $routeProvider.when('/carrito/facturacarrito/:id?', {templateUrl: 'js/app/carrito/facturacarrito.html', controller: 'facturaCarritoController', resolve: {auth: autenticacionUsuario}});
+
         //RESTAURANTE
-        $routeProvider.when('/restaurante/new', {templateUrl: 'js/app/restaurante/new.html', controller: 'restauranteNewController', resolve: { auth: autenticacionAdministrador } });
-        $routeProvider.when('/restaurante/edit/:id', {templateUrl: 'js/app/restaurante/edit.html', controller: 'restauranteEditController', resolve: { auth: autenticacionAdministrador } });
-        $routeProvider.when('/restaurante/remove/:id', {templateUrl: 'js/app/restaurante/remove.html', controller: 'restauranteRemoveController', resolve: { auth: autenticacionAdministrador } });
-        $routeProvider.when('/restaurante/plist/:rpp?/:page?/:order?', {templateUrl: 'js/app/restaurante/plist.html', controller: 'restaurantePlistController', resolve: { auth: autenticacionAdministrador } });
+        $routeProvider.when('/restaurante/new', {templateUrl: 'js/app/restaurante/new.html', controller: 'restauranteNewController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/restaurante/edit/:id', {templateUrl: 'js/app/restaurante/edit.html', controller: 'restauranteEditController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/restaurante/remove/:id', {templateUrl: 'js/app/restaurante/remove.html', controller: 'restauranteRemoveController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/restaurante/plist/:rpp?/:page?/:order?', {templateUrl: 'js/app/restaurante/plist.html', controller: 'restaurantePlistController', resolve: {auth: autenticacionAdministrador}});
         $routeProvider.when('/restaurante/view/:id?', {templateUrl: 'js/app/restaurante/view.html', controller: 'restauranteViewController'});
 
         //MUNICIPIO
-        $routeProvider.when('/municipio/new', {templateUrl: 'js/app/municipio/new.html', controller: 'municipioNewController', resolve: { auth: autenticacionAdministrador } });
-        $routeProvider.when('/municipio/edit/:id', {templateUrl: 'js/app/municipio/edit.html', controller: 'municipioEditController', resolve: { auth: autenticacionAdministrador } });
-        $routeProvider.when('/municipio/remove/:id', {templateUrl: 'js/app/municipio/remove.html', controller: 'municipioRemoveController', resolve: { auth: autenticacionAdministrador } });
-        $routeProvider.when('/municipio/plist/:rpp?/:page?/:order?', {templateUrl: 'js/app/municipio/plist.html', controller: 'municipioPlistController', resolve: { auth: autenticacionAdministrador } });
+        $routeProvider.when('/municipio/new', {templateUrl: 'js/app/municipio/new.html', controller: 'municipioNewController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/municipio/edit/:id', {templateUrl: 'js/app/municipio/edit.html', controller: 'municipioEditController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/municipio/remove/:id', {templateUrl: 'js/app/municipio/remove.html', controller: 'municipioRemoveController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/municipio/plist/:rpp?/:page?/:order?', {templateUrl: 'js/app/municipio/plist.html', controller: 'municipioPlistController', resolve: {auth: autenticacionAdministrador}});
         $routeProvider.when('/municipio/view/:id?', {templateUrl: 'js/app/municipio/view.html', controller: 'municipioViewController'});
 
 
 
         //zona
-        $routeProvider.when('/zona/plist/:rpp?/:page?/:id?/:order?', {templateUrl: 'js/app/zona/plist.html', controller: 'zonaPlistController', resolve: { auth: autenticacionAdministrador } });
+        $routeProvider.when('/zona/plist/:rpp?/:page?/:id?/:order?', {templateUrl: 'js/app/zona/plist.html', controller: 'zonaPlistController', resolve: {auth: autenticacionAdministrador}});
         $routeProvider.when('/zona/view/:id', {templateUrl: 'js/app/zona/view.html', controller: 'zonaViewController'});
-        $routeProvider.when('/zona/remove/:id', {templateUrl: 'js/app/zona/remove.html', controller: 'zonaRemoveController', resolve: { auth: autenticacionAdministrador } });
-        $routeProvider.when('/zona/edit/:id', {templateUrl: 'js/app/zona/edit.html', controller: 'zonaEditController', resolve: { auth: autenticacionAdministrador } });
-        $routeProvider.when('/zona/new/:id', {templateUrl: 'js/app/zona/new.html', controller: 'zonaNewController', resolve: { auth: autenticacionAdministrador } });
+        $routeProvider.when('/zona/remove/:id', {templateUrl: 'js/app/zona/remove.html', controller: 'zonaRemoveController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/zona/edit/:id', {templateUrl: 'js/app/zona/edit.html', controller: 'zonaEditController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/zona/new/:id', {templateUrl: 'js/app/zona/new.html', controller: 'zonaNewController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/zona/newhome', {templateUrl: 'js/app/zona/newhome.html', controller: 'zonaNewhomeController', resolve: {auth: autenticacionAdministrador}});
 //        $routeProvider.when('/zona/plistxusuario/:rpp?/:page?/:id?/:order?', {templateUrl: 'js/app/zona/plistxusuario.html', controller: 'zonaplistxusuarioController'});
-        $routeProvider.when('/zona/newxusuario/:id', {templateUrl: 'js/app/zona/newxusuario.html', controller: 'zonanewxusuarioController', resolve: { auth: autenticacionAdministrador } });
+        $routeProvider.when('/zona/newxusuario/:id', {templateUrl: 'js/app/zona/newxusuario.html', controller: 'zonanewxusuarioController', resolve: {auth: autenticacionAdministrador}});
 
-
-
+        //administrador
+        $routeProvider.when('/administrador/plist', {templateUrl: 'js/app/administrador/plist.html', controller: 'administradorPlistController', resolve: {auth: autenticacionAdministrador}});
+        
         $routeProvider.otherwise({redirectTo: '/'});
     }]);

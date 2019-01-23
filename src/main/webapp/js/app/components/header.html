@@ -12,26 +12,6 @@
             <li class="nav-item hvr-pop btn-login" ng-class="{'active': c.isActive('usuario/login')}" ng-show="!c.logged">     
                 <a href="usuario/login" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Login</a>
             </li>
-            <li class="nav-item nav_userlogo"  ng-show="c.logged">
-                <a class="nav-link waves-effect waves-lightr"  href="usuario/view/{{c.loggeduserid}}">
-                    <i class="material-icons md-36">&#xE853;</i>
-                </a>
-            </li>
-            <li class="nav-item nav_user nav_logocolor"  ng-show="c.logged">
-                 <a href="usuario/view/{{c.loggeduserid}}" class="nav-item nav_user"><span> {{c.loggeduser}}</span></a>
-            
-            </li>
-            <li class="nav-item"  ng-show="c.logged">
-                <a class="nav-link waves-effect waves-light nav_logosecundary" href="usuario/editpass/{{c.loggeduserid}}">
-                    <i class="material-icons">vpn_key</i>
-                </a>
-            </li>
-            <li class="nav-item"  ng-show="c.logged">
-                <a class="nav-link waves-effect waves-light nav_logosecundary" href="factura/plistxusuario/10/1/{{c.loggeduserid}}">
-                    <i class="material-icons">description</i>
-                </a>
-            </li>
-
             <li class="nav-item" ng-show="c.logged">
                 <a class="nav-link waves-effect waves-light nav_logosecundary" href="usuario/logout">
                     <i class="material-icons">input</i>

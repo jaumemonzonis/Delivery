@@ -1,0 +1,61 @@
+<header-component></header-component>
+<nav-component></nav-component>
+<div class="container-fluid">
+     <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+
+                </div>
+  <div class="row">
+    <div class="col-12">
+<h1 class="h2 mt-3"><i class="fas far fa-file fa-1x"></i> 
+                Zona</h1>
+         <div class="col-5 mx-auto container2 pl-3 pr-3">
+          <div class="row mt-4">
+                <div class=" mx-auto">
+                    <h4 class="text-center mb-3"><i class="material-icons">add_circle_outline</i> Crear zona</h4>
+                </div>
+            </div>
+        
+        
+     
+        <div class=" mx-auto">
+               <div class="alert alert-success" role="alert" ng-show="(visualizar)">
+                Zona creada correctamente.
+            </div>
+          <form name="userForm" ng-show="(!visualizar)">
+            <div class="form-group">
+              <label>ID</label>
+              <input type="text" class="form-control" id="id" name="id" ng-disabled="true" ng-model="id" />
+            </div>
+
+              <div class="form-group">
+              <label>Municipio</label>
+              <input type="text" class="form-control" id="obj_Municipio.id" name="obj_Municipio.id" ng-model="obj_Municipio.id" ng-required="true" />
+              <div ng-show="!userForm.municipio.$valid && !userForm.municipio.$pristine" class="alert alert-danger" role="alert">
+               Municipio obligatorio
+              </div>
+            </div>
+          <div class="form-group">
+              <label>Restaurante</label>
+              <input type="text" class="form-control" id="restaurante" name="restaurante" ng-model="restaurante" ng-required="true" />
+              <div ng-show="!userForm.restaurante.$valid && !userForm.restaurante.$pristine" class="alert alert-danger" role="alert">
+               Restaurante obligatorio
+              </div>
+            </div>
+         
+   
+            <button ng-click="update()" type="button" class="btn btn-primary btn-block" ng-disabled="userForm.$invalid">Crear zona</button>
+         
+          </form> 
+             <div class="alert alert-success" role="alert" ng-show="(error)">
+                Error al crear la zona.
+            </div>
+            <button type="button" class="btn btn-primary btn-block mt-2" ng-click="volver()">Volver</button>
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      

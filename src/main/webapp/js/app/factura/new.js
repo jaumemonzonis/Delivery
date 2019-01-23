@@ -9,45 +9,30 @@ moduleFactura.controller("facturaNewController", [
     'sessionService',
     function ($scope, $http, $routeParams, toolService, $window, sessionService) {
 
-        $scope.edited = true;
+    
+        
         $scope.ob = "factura";
         $scope.id = null;
-        $scope.obj = null;
+        $scope.visualizar = false;
+        $scope.isActive = toolService.isActive;
 
-        $scope.op = 'create';
-        $scope.result = null;
-        $scope.title = "Crear factura";
-        $scope.icon = "fa-file-text-o";
-
-//
-//        if (sessionService.getUserName() !== "") {
-//            $scope.loggeduser = sessionService.getUserName();
-//            $scope.loggeduserid = sessionService.getId();
-//            $scope.logged = true;
-//            $scope.tipousuarioID = sessionService.getTypeUserID();
-//        }
-
-
-
-        $scope.obj_Usuario = {
+        $scope.obj_Producto = {
             id: null,
-            nombre: null
-
+            desc: null
         }
 
         $scope.myDate = new Date();
-        $scope.isActive = toolService.isActive;
 
         $scope.update = function () {
 
-            
             var json = {
                 id: null,
                 fecha: $scope.myDate,
                 iva: $scope.iva,
-                id_usuario: $scope.obj_Usuario.id
+                id_usuario: $scope.usuario,
+                id_restaurante: $scope.restaurante
+            };
 
-            }
             $http({
                 method: 'GET',
                 header: {
@@ -56,43 +41,14 @@ moduleFactura.controller("facturaNewController", [
                 url: 'json?ob=' + $scope.ob + '&op=create',
                 params: {json: JSON.stringify(json)}
             }).then(function () {
-                $scope.edited = false;
+                $scope.visualizar = true;
             })
         }
 
-        $scope.usuarioRefresh = function (f, consultar) {
-            var form = f;
-            if (consultar) {
-                $http({
-                    method: 'GET',
-                    url: 'json?ob=usuario&op=get&id=' + $scope.obj_usuario.id
-                }).then(function (response) {
-                    $scope.obj_usuario = response.data.message;
-                    form.userForm.obj_usuario.$setValidity('valid', true);
-                }, function (response) {
-                    form.userForm.obj_usuario.$setValidity('valid', false);
-                });
-            } else {
-                form.userForm.obj_usuario.$setValidity('valid', true);
-            }
-        }
-
-        $scope.back = function () {
-            window.history.back();
-        };
-        $scope.close = function () {
-            $location.path('/home');
-        };
-        $scope.plist = function () {
-            $location.path('/' + $scope.ob + '/plist');
-        };
-
-
-
+        
         $scope.volver = function () {
             $window.history.back();
-        }
-
+        };
 
 
     }

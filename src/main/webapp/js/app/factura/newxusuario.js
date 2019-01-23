@@ -22,17 +22,7 @@ moduleFactura.controller('facturanewxusuarioController', ['$scope', '$http', '$l
 
         $scope.isActive = toolService.isActive;
         
-           $http({
-            method: 'GET',
-            url: 'json?ob=usuario&op=get&id=' + $scope.id_usuario
-        }).then(function (response) {
-            $scope.status = response.status;
-            $scope.nombre2 = response.data.message.nombre;
-            $scope.ape1 = response.data.message.ape1;
-        }, function (response) {
-            $scope.status = response.status;
-            
-        });
+    
 
         $scope.update = function () {
             $scope.visualizar = false;
