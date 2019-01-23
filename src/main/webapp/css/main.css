@@ -286,6 +286,7 @@ color: #A62B21 !important;
   opacity: 0.6;
   font-size: 2.5em;
   line-height: 75px;
+  margin-top: -10%;
 }
 .box:hover .icon-cont {
   animation: shady 4s linear infinite;
@@ -362,6 +363,7 @@ color: #A62B21 !important;
 .navbar{
     height: 70px !important;
 }
+
 .material-icons.md-36 { font-size: 36px; }
 
 .nav_user{
@@ -381,11 +383,11 @@ color: #A62B21 !important;
 }
 
 .btn-login {
-     background-color:#A62B21 !important;
-     color:#A62B21 !important;
+    
+     
 }
 
-.btn-primary:not(:disabled):not(.disabled).active {
+.btn-primary {
      color:white !important;
      background-color:#A62B21 !important;
 }
