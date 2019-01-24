@@ -33,12 +33,18 @@ moduleRestaurante.controller("restauranteEditController", [
             $scope.id = response.data.message.id;
             $scope.nombre = response.data.message.nombre;
             $scope.direccion = response.data.message.direccion;
-            $scope.poblacion = response.data.message.poblacion;
+             $scope.obj_Municipio = {
+                poblacion: response.data.message.obj_Restaurante.poblacion
+            }
 
 
         }), function (response) {
             console.log(response);
         };
+        
+        
+    
+        
 
         $scope.isActive = toolService.isActive;
 
@@ -48,7 +54,7 @@ moduleRestaurante.controller("restauranteEditController", [
                 id: $scope.id,
                 nombre: $scope.nombre,
                 direccion: $scope.direccion,
-                poblacion: $scope.poblacion
+                poblacion: $scope.obj_Municipio.poblacion
 
             }
 

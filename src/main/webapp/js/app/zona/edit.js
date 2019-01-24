@@ -37,11 +37,11 @@ moduleZona.controller("zonaEditController", [
                 id: response.data.message.obj_Restaurante.id,
                 restaurante: response.data.message.obj_Restaurante.nombre
             }
-             $scope.obj_Municipio = {
+            $scope.obj_Municipio = {
                 id: response.data.message.obj_Municipio.id,
                 municipio: response.data.message.obj_Municipio.poblacion
             }
-            
+
         }), function (response) {
             console.log(response);
         };
@@ -69,7 +69,23 @@ moduleZona.controller("zonaEditController", [
                 $scope.visualizar = true;
             })
         }
-
+        $scope.municipioRefresh = function (f, consultar) {
+            var form = f;
+            if (consultar) {
+                $http({
+                    method: 'GET',
+                    url: 'json?ob=municipio&op=get&id=' + $scope.obj_Municipio.id
+                }).then(function (response) {
+                    $scope.obj_Municipio = response.data.message;
+                     $scope.obj_Municipio.municipio= response.data.message.poblacion;
+                    form.userForm.obj_municipio.$setValidity('valid', true);
+                }, function (response) {
+                    form.userForm.obj_municipio.$setValidity('valid', false);
+                });
+            } else {
+                form.userForm.obj_municipio.$setValidity('valid', true);
+            }
+        }
 
         $scope.volver = function () {
             $window.history.back();
