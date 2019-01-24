@@ -212,6 +212,12 @@ width: 21% !important;
 color: #F9B157 !important;
 }
 
+.selectMunicipio{
+    width: 100% !important;
+    color: #495057 !important;
+}
+
+
 .form-size{
     font-size: 70% !important; 
   width: 25% !important;  

@@ -7,7 +7,7 @@ moduleRestaurante.controller("restauranteEditController", [
     "toolService",
     'sessionService',
     '$window',
-    function ($scope, $http, $routeParams, toolService, sessionService,$window) {
+    function ($scope, $http, $routeParams, toolService, sessionService, $window) {
 
         $scope.visualizar = false;
         $scope.logged = false;
@@ -22,7 +22,7 @@ moduleRestaurante.controller("restauranteEditController", [
         $scope.activar = true;
         $scope.ajaxData = "";
 
-   
+
 
         $http({
             method: "GET",
@@ -33,18 +33,30 @@ moduleRestaurante.controller("restauranteEditController", [
             $scope.id = response.data.message.id;
             $scope.nombre = response.data.message.nombre;
             $scope.direccion = response.data.message.direccion;
-             $scope.obj_Municipio = {
-                poblacion: response.data.message.obj_Restaurante.poblacion
-            }
+////            $scope.municipio.poblacion = response.data.message.poblacion;
+//            
+//            $scope.municipio = {
+//                id: response.data.message.municipio.id,
+//                poblacion: response.data.message.municipio.poblacion
+//            }
 
 
         }), function (response) {
             console.log(response);
         };
-        
-        
-    
-        
+
+        $http({
+            method: 'GET',
+            url: 'json?ob=municipio&op=getpage&rpp=1000&page=1'
+        }).then(function (response) {
+            $scope.status = response.status;
+            $scope.municipios = response.data.message;
+        }, function (response) {
+            $scope.status = response.status;
+            $scope.municipios = response.data.message || 'Request failed';
+        });
+
+       
 
         $scope.isActive = toolService.isActive;
 
@@ -54,8 +66,7 @@ moduleRestaurante.controller("restauranteEditController", [
                 id: $scope.id,
                 nombre: $scope.nombre,
                 direccion: $scope.direccion,
-                poblacion: $scope.obj_Municipio.poblacion
-
+                poblacion: $scope.municipio
             }
 
             $http({
@@ -66,12 +77,12 @@ moduleRestaurante.controller("restauranteEditController", [
                 url: 'json?ob=restaurante&op=update',
                 params: {json: JSON.stringify(json)}
             }).then(function () {
-                  $scope.visualizar = true;
+                $scope.visualizar = true;
             })
         }
 
 
-          $scope.volver = function () {
+        $scope.volver = function () {
             $window.history.back();
         }
         $scope.close = function () {
