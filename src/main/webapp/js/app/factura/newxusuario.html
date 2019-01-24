@@ -42,15 +42,49 @@
                                 IVA obligatorio
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label>Restaurante</label>
-                            <input type="text" class="form-control" id="restaurante" name="restaurante" ng-model="restaurante" ng-required="true" placeholder="restaurante" />
-                            <div ng-show="!userForm.restaurante.$valid && !userForm.restaurante.$pristine" class="alert alert-danger" role="alert">
-                                restaurante obligatorio
+                 
+                           <label for="obj_restaurante">Restaurante:</label>
+                        <div class="form-group row ml-3">
+                            <restaurante-selection 
+                                class="modal fade" 
+                                id="cadd-location-modal" 
+                                obj="obj_Restaurante"
+                                on-tipousuario-set="restauranteRefresh(this,false)">                          
+                            </restaurante-selection>
+
+                            <div class="control">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"
+                                              data-toggle="modal"
+                                              data-target="#cadd-location-modal">
+                                            <span class="material-icons mr-2">youtube_searched_for</span>
+                                        </span>
+                                    </div>
+                                    <input ng-model="obj_Restaurante.id"
+                                           ng-change="restauranteRefresh(this, true)"
+                                           aria-describedby="basic-addon2"
+                                           class="form-control col-sm-2"
+                                           id="obj_restaurante"
+                                           name="obj_restaurante"
+                                           type="text"
+                                           ng-required
+                                           ng-model-options="{debounce: 1000}"
+                                           maxlength="2" />
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <a href="/wildcart/restaurante/view/{{obj_Restaurante.id}}">
+                                               <span class="p-2 bd-highlight"><i class="material-icons">
+                                                       account_circle
+                                                    </i></span>
+                                                Restaurante: {{obj_Restaurante.nombre}}
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div ng-show="!userForm.obj_restaurante.$valid">Restaurante no válido</div>
                             </div>
                         </div>
-
-                       
 
 
                         <div class="d-flex justify-content-between flex-wrap">

@@ -25,9 +25,12 @@ moduleFactura.controller("facturaEditController", [
             $scope.id = $routeParams.id;
         }
 
+
+        $scope.tipousuarioID=sessionService.getTypeUserID();
+
         $http({
             method: 'GET',
-            url: 'json?ob=usuario&op=get&id=' + $scope.id
+            url: 'json?ob=usuario&op=get&id=' + $scope.tipousuarioID
         }).then(function (response) {
             $scope.status = response.status;
             $scope.nombre2 = response.data.message.nombre;
@@ -44,11 +47,13 @@ moduleFactura.controller("facturaEditController", [
             url: 'json?ob=' + $scope.ob + '&op=get&id=' + $scope.id
         }).then(function (response) {
             console.log(response);
-            $scope.id = response.data.message.id;
+//            $scope.id = response.data.message.id;
             $scope.iva = response.data.message.iva;
+            
             $scope.obj_Restaurante = {
                 id: response.data.message.obj_Restaurante.id,
-                restaurante: response.data.message.obj_Restaurante.nombre
+                nombre: response.data.message.obj_Restaurante.nombre,
+                poblacion: response.data.message.obj_Restaurante.poblacion
             }
 
             $scope.ajaxFecha = response.data.message.fecha;
@@ -90,8 +95,8 @@ moduleFactura.controller("facturaEditController", [
                 id: $scope.id,
                 fecha: $scope.myDate,
                 iva: $scope.iva,
-                id_usuario: $scope.id,
-                id_restaurante: $scope.restaurante
+                id_usuario: $scope.tipousuarioID,
+                id_restaurante: $scope.obj_Restaurante.id
 
             }
             $http({
@@ -106,20 +111,21 @@ moduleFactura.controller("facturaEditController", [
             })
         }
 
-        $scope.usuarioRefresh = function (f, consultar) {
+        $scope.restauranteRefresh = function (f, consultar) {
             var form = f;
             if (consultar) {
                 $http({
                     method: 'GET',
-                    url: 'json?ob=usuario&op=get&id=' + $scope.obj_Usuario.id
+                    url: 'json?ob=restaurante&op=get&id=' + $scope.obj_Restaurante.id
                 }).then(function (response) {
-                    $scope.obj_usuario = response.data.message;
-                    form.userForm.obj_usuario.$setValidity('valid', true);
+                    $scope.obj_Restaurante = response.data.message;
+                    $scope.obj_Restaurante.nombre = response.data.message.nombre;
+                    form.userForm.obj_restaurante.$setValidity('valid', true);
                 }, function (response) {
-                    form.userForm.obj_usuario.$setValidity('valid', false);
+                    form.userForm.obj_restaurante.$setValidity('valid', false);
                 });
             } else {
-                form.userForm.obj_usuario.$setValidity('valid', true);
+                form.userForm.obj_restaurante.$setValidity('valid', true);
             }
         }
 

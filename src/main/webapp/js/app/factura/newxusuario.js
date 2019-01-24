@@ -9,20 +9,34 @@ moduleFactura.controller('facturanewxusuarioController', ['$scope', '$http', '$l
 //            $scope.logged = true;
 //            $scope.tipousuarioID = sessionService.getTypeUserID();
 //        }
-        
+
         if (!$routeParams.id) {
-            $scope.id_usuario= 0;  
+            $scope.id_usuario = 0;
         } else {
-            $scope.id_usuario= $routeParams.id;
+            $scope.id_usuario = $routeParams.id;
         }
-        
+        $scope.obj_Restaurante = {
+            id: null,
+            nombre: null,
+            poblacion: null
+        }
         $scope.ob = "factura";
         $scope.id = null;
         $scope.myDate = new Date();
 
         $scope.isActive = toolService.isActive;
-        
-    
+
+        $http({
+            method: 'GET',
+            url: 'json?ob=usuario&op=get&id=' + $scope.id_usuario
+        }).then(function (response) {
+            $scope.status = response.status;
+            $scope.nombre2 = response.data.message.nombre;
+            $scope.ape1 = response.data.message.ape1;
+        }, function (response) {
+            $scope.status = response.status;
+
+        });
 
         $scope.update = function () {
             $scope.visualizar = false;
@@ -32,7 +46,7 @@ moduleFactura.controller('facturanewxusuarioController', ['$scope', '$http', '$l
                 fecha: $scope.myDate,
                 iva: $scope.iva,
                 id_usuario: $scope.id_usuario,
-                id_restaurante: $scope.restaurante
+                id_restaurante: $scope.obj_Restaurante.id
             };
 
             $http({
@@ -51,6 +65,24 @@ moduleFactura.controller('facturanewxusuarioController', ['$scope', '$http', '$l
             }
         }
 
+
+        $scope.restauranteRefresh = function (f, consultar) {
+            var form = f;
+            if (consultar) {
+                $http({
+                    method: 'GET',
+                    url: 'json?ob=restaurante&op=get&id=' + $scope.obj_Restaurante.id
+                }).then(function (response) {
+                    $scope.obj_Restaurante = response.data.message;
+                    $scope.obj_Restaurante.nombre = response.data.message.nombre;
+                    form.userForm.obj_restaurante.$setValidity('valid', true);
+                }, function (response) {
+                    form.userForm.obj_restaurante.$setValidity('valid', false);
+                });
+            } else {
+                form.userForm.obj_restaurante.$setValidity('valid', true);
+            }
+        }
         $scope.volver = function () {
             $window.history.back();
         };

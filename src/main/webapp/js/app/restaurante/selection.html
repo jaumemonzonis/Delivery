@@ -1,0 +1,72 @@
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Seleccionar un restaurante</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+
+
+           <div class="table-responsive container2 pl-3 pr-3">
+                    <table class="table table-sm">
+                    <tr>
+                         <th>
+                                <p>ID</p>
+                                <div class="order" ng-click="ordena('id', 'asc')">
+                                    <i class="material-icons">
+                                        swap_vert
+                                    </i>
+                                </div>
+
+                            </th>
+                          <th>
+                                <p>NOMBRE</p>
+                                <div class="order" ng-click="ordena('id', 'asc')">
+                                    <i class="material-icons">
+                                        swap_vert
+                                    </i>
+                                </div>
+
+                            </th>
+                              <th>
+                                <p>POBLACION</p>
+                                <div class="order" ng-click="ordena('id', 'asc')">
+                                    <i class="material-icons">
+                                        swap_vert
+                                    </i>
+                                </div>
+
+                            </th>
+                         <th>
+                                <p>SELECCION</p>
+                      
+
+                            </th>
+                    </tr>
+                    <tr ng-repeat="fila in c.data">
+                        <td>{{fila.id}}</td>    
+                        <td>{{fila.nombre}}</td>
+                        <td>{{fila.poblacion}}</td>
+                        <td>
+                            <div role="toolbar">
+                                <div class="btn-group">
+                                    <a class="btn btn-default btn-xs" ng-click="c.save(fila.id,fila.nombre,fila.poblacion)" data-dismiss="modal">
+                                        <i class="fa fa-reply" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" ng-click="c.newVariableAndValue.name = '';c.newVariableAndValue.value = ''">Reset</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" ng-click="c.save()">Save</button>
+        </div>
+    </div>
+</div>
