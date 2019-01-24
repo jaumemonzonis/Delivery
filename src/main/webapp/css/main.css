@@ -40,11 +40,13 @@ height: auto;
 
 
 /* botones acciones */
+
 .order{
     color: #F9B157;
     background-color: white !important;
     border: none;
-    height: 10px;  
+    height: 10px; 
+
 }
 .btn-toolbar{
     
@@ -147,9 +149,26 @@ height: auto;
   background-color: #A62B21 !important;  
 }
 
+
+.hover-ajena:hover {
+    color: #F9B157 !important;
+}
+
+
+
 /* tabla */
 .table > tbody > tr > td{
     vertical-align: middle;
+    max-width: 100px;
+}
+
+.table th{
+    border-top: none !important;
+    vertical-align: middle;
+}
+
+.table .ver{
+     border-top: 1px solid #dee2e6 !important;
 }
 
 .table {
@@ -166,10 +185,6 @@ th {
      text-align: center !important;
 }
 
-th p{
- float:left;
-padding-left: 35%; 
-}
 
 
 td{
@@ -225,7 +240,12 @@ color: #A62B21 !important;
     margin-right: -9%;
 }
 
-
+.text-pagination {
+    color: #21778F !important;
+}
+.text-pagination:hover {
+    color: #A62B21 !important;
+}
 
 .menu_selection{
     margin-top: 1% !important;

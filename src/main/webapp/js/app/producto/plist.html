@@ -38,66 +38,77 @@
                     <table class="table table-sm">
                         <tr>
                             <th>
-                                <p>ID</p>
-                                <div class="order" ng-click="ordena('id', 'asc')">
+                                <div>
+                                <p class="float-left">ID</p>
+                                <div class="order float-right " ng-click="ordena('id', 'asc')">
                                     <i class="material-icons">
                                         swap_vert
                                     </i>
                                 </div>
-
+                                </div>
                             </th>
                             <th>
-                                 <p>CODIGO</p>
-                                <div class="order" ng-click="ordena('id', 'asc')">
+                                <div>
+                                <p class="float-left">CODIGO</p>
+                                <div class="order float-right " ng-click="ordena('id', 'asc')">
                                     <i class="material-icons">
                                         swap_vert
                                     </i>
                                 </div>
-                              
+                                </div>
                             </th>
                             <th>
-                                <p>DESCRIPCION</p>
-                                <div class="order" ng-click="ordena('id', 'asc')">
+                                <div>
+                                <p class="float-left">DESCRIPCION</p>
+                                <div class="order float-right " ng-click="ordena('id', 'asc')">
                                     <i class="material-icons">
                                         swap_vert
                                     </i>
+                                </div>
                                 </div>
                            
                             </th>
 
                             <th>
-                                 <p>EXISTENCIAS</p>
-                                <div class="order" ng-click="ordena('id', 'asc')">
+                                 <div>
+                                <p class="float-left">EXISTENCIAS</p>
+                                <div class="order float-right " ng-click="ordena('id', 'asc')">
                                     <i class="material-icons">
                                         swap_vert
                                     </i>
                                 </div>
-                            
+                                </div>
                             </th>
                               <th>
-                                 <p>PRECIO</p>
-                                <div class="order" ng-click="ordena('id', 'asc')">
+                                 <div>
+                                <p class="float-left">PRECIO</p>
+                                <div class="order float-right " ng-click="ordena('id', 'asc')">
                                     <i class="material-icons">
                                         swap_vert
                                     </i>
                                 </div>
-                            
-                            </th>
-                              <th>
-                                 <p>FOTO</p>
-                                <div class="order" ng-click="ordena('id', 'asc')">
-                                    <i class="material-icons">
-                                        swap_vert
-                                    </i>
                                 </div>
                             
                             </th>
                               <th>
-                                 <p>TIPO PRODUCTO</p>
-                                <div class="order" ng-click="ordena('id', 'asc')">
+                                 <div>
+                                <p class="float-left">FOTO</p>
+                                <div class="order float-right " ng-click="ordena('id', 'asc')">
                                     <i class="material-icons">
                                         swap_vert
                                     </i>
+                                </div>
+                                </div>
+                            
+                            </th>
+                              <th>
+                                  <div>
+                                <p class="float-left">TIPO PRODUCTO</p>
+                                <div class="order float-right " ng-click="ordena('id', 'asc')">
+                                    <i class="material-icons">
+                                        swap_vert
+                                    </i>
+                                </div>
                                 </div>
                             
                             </th>
@@ -112,7 +123,7 @@
                             <td>{{fila.existencias}}</td>
                             <td>{{fila.precio}}</td>
                             <td>{{fila.foto}}</td>
-                             <td><a class="text-secondary" href="tipoproducto/view/{{fila.obj_tipoProducto.id}}">{{fila.obj_tipoProducto.desc}}</a></td>
+                             <td><a class="hover-ajena" href="tipoproducto/view/{{fila.obj_tipoProducto.id}}">{{fila.obj_tipoProducto.desc}}</a></td>
                             <td><button type="button" rel="tooltip" class="btn btn-just-icon btn-sm" ng-click="view(fila.id)">
                                     <i class="material-icons">visibility</i>
                                 </button>
@@ -131,19 +142,19 @@
                         <nav aria-label="paginacion">
                             <ul class="pagination">
                                 <li class="page-item">
-                                    <a class="page-link text-secondary bg-light" ng-show="page > 2" href="{{ob}}/plist/{{rpp}}/1/{{order}}/{{align}}">First</a>
+                                    <a class="page-link text-pagination bg-light" ng-show="page > 2" href="{{ob}}/plist/{{rpp}}/1/{{order}}/{{align}}">First</a>
                                 </li>
                                 <li class="page-item">
-                                    <a class="page-link text-secondary bg-light" ng-show="page > 1" href="{{ob}}/plist/{{rpp}}/{{page - 1}}/{{order}}/{{align}}">Previous</a>
+                                    <a class="page-link text-pagination bg-light" ng-show="page > 1" href="{{ob}}/plist/{{rpp}}/{{page - 1}}/{{order}}/{{align}}">Previous</a>
                                 </li>
                                 <li class="page-item" ng-class="{'active':(p == page), 'disabled': p === '...'}" ng-repeat="p in list2 track by $index">
-                                    <a class="page-link text-secondary" href="{{ob}}/plist/{{rpp}}/{{p}}/{{order}}/{{align}}">{{p}}</a>
+                                    <a class="page-link text-pagination" href="{{ob}}/plist/{{rpp}}/{{p}}/{{order}}/{{align}}">{{p}}</a>
                                 </li>
                                 <li class="page-item">
-                                    <a class="page-link text-secondary bg-light" ng-show="page != totalPages" href="{{ob}}/plist/{{rpp}}/{{page--1}}/{{order}}/{{align}}">Next</a>
+                                    <a class="page-link text-pagination bg-light" ng-show="page != totalPages" href="{{ob}}/plist/{{rpp}}/{{page--1}}/{{order}}/{{align}}">Next</a>
                                 </li>
                                 <li class="page-item">
-                                    <a class="page-link text-secondary bg-light" ng-show="page != totalPages - 1 && page != totalPages" href="{{ob}}/plist/{{rpp}}/{{totalPages}}/{{order}}/{{align}}">Last</a>
+                                    <a class="page-link text-pagination bg-light" ng-show="page != totalPages - 1 && page != totalPages" href="{{ob}}/plist/{{rpp}}/{{totalPages}}/{{order}}/{{align}}">Last</a>
                                 </li>
                             </ul>
                         </nav>

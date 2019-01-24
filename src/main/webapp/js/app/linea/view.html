@@ -1,7 +1,7 @@
 <header-component></header-component>
 <nav-component></nav-component>
 <div class="container-fluid">
-      <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3">
                 </div>
   <div class="row">
     <div class="col-12">
@@ -15,16 +15,16 @@
         </div>
                <table class="table table-sm">
                     <tr>
-                        <th>ID</th><td>{{ajaxDataUsuarios.id}}</td>
+                        <th class="ver">ID</th><td>{{ajaxDataUsuarios.id}}</td>
                     </tr>
                     <tr>
-                        <th>Cantidad</th><td>{{ajaxDataUsuarios.cantidad}}</td>
+                        <th class="ver">Cantidad</th><td>{{ajaxDataUsuarios.cantidad}}</td>
                     </tr>
                     <tr>
-                        <th>Producto</th><td><a class="text-secondary" href="producto/view/{{ajaxDataUsuarios.obj_Producto.id}}">{{ajaxDataUsuarios.obj_Producto.desc}}</a></td>
+                        <th class="ver">Producto</th><td><a class="hover-ajena" href="producto/view/{{ajaxDataUsuarios.obj_Producto.id}}">{{ajaxDataUsuarios.obj_Producto.desc}}</a></td>
                     </tr>
                     <tr>
-                        <th>Factura</th><td><a class="text-secondary" href="factura/view/{{ajaxDataUsuarios.obj_Factura.id}}">{{ajaxDataUsuarios.obj_Factura.id}}</a></td>
+                        <th class="ver">Factura</th><td><a class="hover-ajena" href="factura/view/{{ajaxDataUsuarios.obj_Factura.id}}">{{ajaxDataUsuarios.obj_Factura.id}}</a></td>
                     </tr>
  
                 </table>

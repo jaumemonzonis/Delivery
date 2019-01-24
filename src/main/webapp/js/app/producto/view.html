@@ -4,7 +4,7 @@
 
 <div class="container-fluid">
     
-      <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3">
 
 
                 </div>
@@ -21,25 +21,25 @@
         </div>
                <table class="table table-sm">
                     <tr>
-                        <th>ID</th><td>{{ajaxDataUsuarios.id}}</td>
+                        <th class="ver">ID</th><td>{{ajaxDataUsuarios.id}}</td>
                     </tr>
                     <tr>
-                        <th>Codigo</th><td>{{ajaxDataUsuarios.codigo}}</td>
+                        <th class="ver">Codigo</th><td>{{ajaxDataUsuarios.codigo}}</td>
                     </tr>
                     <tr>
-                        <th>Descripción</th><td>{{ajaxDataUsuarios.desc}}</td>
+                        <th class="ver">Descripción</th><td>{{ajaxDataUsuarios.desc}}</td>
                     </tr>
                     <tr>
-                        <th>Existencias</th><td>{{ajaxDataUsuarios.existencias}}</td>
+                        <th class="ver">Existencias</th><td>{{ajaxDataUsuarios.existencias}}</td>
                     </tr>
                     <tr>
-                        <th>Precio </th><td>{{miFormato(ajaxDataUsuarios.precio)}}</td>
+                        <th class="ver">Precio </th><td>{{miFormato(ajaxDataUsuarios.precio)}}</td>
                     </tr>
                     <tr>
-                        <th>Foto </th> <td><image style="width:50xp;height:50px" src="http://localhost:8081/images_server/{{ajaxDataUsuarios.foto}}"/></td>
+                        <th class="ver">Foto </th> <td><image style="width:50xp;height:50px" src="http://localhost:8081/images_server/{{ajaxDataUsuarios.foto}}"/></td>
                     </tr>
            <tr>
-                    <th>Tipo producto </th><td><a class="text-secondary" href="tipoproducto/view/{{ajaxDataUsuarios.obj_tipoProducto.id}}">{{ajaxDataUsuarios.obj_tipoProducto.desc}}</a></td>
+                    <th class="ver">Tipo producto </th><td><a class="hover-ajena" href="tipoproducto/view/{{ajaxDataUsuarios.obj_tipoProducto.id}}">{{ajaxDataUsuarios.obj_tipoProducto.desc}}</a></td>
                     </tr>
                     
                 </table>
@@ -54,4 +54,3 @@
       </div>
     </div>
   </div>
-<footer class="footer" ng-include="'js/app/footer.html'"></footer>

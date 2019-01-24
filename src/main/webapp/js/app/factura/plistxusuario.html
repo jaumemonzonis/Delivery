@@ -92,7 +92,7 @@
                         <td>{{fila.id}}</td>
                         <td>{{fila.fecha}}</td>
                         <td>{{fila.iva}}</td>
-                        <td><a class="text-secondary" href="restaurante/view/{{fila.obj_Restaurante.id}}">{{fila.obj_Restaurante.nombre}}</a></td>
+                        <td><a class="hover-ajena" href="restaurante/view/{{fila.obj_Restaurante.id}}">{{fila.obj_Restaurante.nombre}}</a></td>
                         <td><button type="button" rel="tooltip" class="btn btn-just-icon btn-sm" data-original-title="" title="" ng-click="linea(fila.id)" ng-disabled="{{fila.link_linea}}== 0">{{fila.link_linea}}
                             </button>
                             <button type="button" rel="tooltip" class="btn btn-just-icon btn-sm" ng-click="view(fila.id)">
@@ -113,19 +113,19 @@
                     <nav aria-label="paginacion">
                         <ul class="pagination">
                             <li class="page-item">
-                                <a class="page-link text-secondary bg-light" ng-show="page > 2" href="{{ob}}/plistxusuario/{{rpp}}/1/{{id}}/{{order}}/{{align}}">First</a>
+                                <a class="page-link text-pagination bg-light" ng-show="page > 2" href="{{ob}}/plistxusuario/{{rpp}}/1/{{id}}/{{order}}/{{align}}">First</a>
                             </li>
                             <li class="page-item">
-                                <a class="page-link text-secondary bg-light" ng-show="page > 1" href="{{ob}}/plistxusuario/{{rpp}}/{{id}}/{{page - 1}}/{{order}}/{{align}}">Previous</a>
+                                <a class="page-link text-pagination bg-light" ng-show="page > 1" href="{{ob}}/plistxusuario/{{rpp}}/{{id}}/{{page - 1}}/{{order}}/{{align}}">Previous</a>
                             </li>
                             <li class="page-item" ng-class="{'active':(p == page), 'disabled': p === '...'}" ng-repeat="p in list2 track by $index">
-                                <a class="page-link text-secondary" href="{{ob}}/plistxusuario/{{rpp}}/{{p}}/{{id}}/{{order}}/{{align}}">{{p}}</a>
+                                <a class="page-link text-pagination" href="{{ob}}/plistxusuario/{{rpp}}/{{p}}/{{id}}/{{order}}/{{align}}">{{p}}</a>
                             </li>
                             <li class="page-item">
-                                <a class="page-link text-secondary bg-light" ng-show="page != totalPages" href="{{ob}}/plistxusuario/{{rpp}}/{{page--1}}/{{id}}/{{order}}/{{align}}">Next</a>
+                                <a class="page-link text-pagination bg-light" ng-show="page != totalPages" href="{{ob}}/plistxusuario/{{rpp}}/{{page--1}}/{{id}}/{{order}}/{{align}}">Next</a>
                             </li>
                             <li class="page-item">
-                                <a class="page-link text-secondary bg-light" ng-show="page != totalPages - 1 && page != totalPages" href="{{ob}}/plistxusuario/{{rpp}}/{{totalPages}}/{{id}}/{{order}}/{{align}}">Last</a>
+                                <a class="page-link text-pagination bg-light" ng-show="page != totalPages - 1 && page != totalPages" href="{{ob}}/plistxusuario/{{rpp}}/{{totalPages}}/{{id}}/{{order}}/{{align}}">Last</a>
                             </li>
                         </ul>
                     </nav>
