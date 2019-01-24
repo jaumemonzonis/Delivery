@@ -421,3 +421,9 @@ color: #A62B21 !important;
      color:white !important;
      background-color:#A62B21 !important;
 }
+
+/* ventana emergente */
+.modal-footer{
+    
+    border-top: none !important;
+}
