@@ -25,12 +25,16 @@ moduleFactura.controller("facturaEditController", [
             $scope.id = $routeParams.id;
         }
 
+        if (!$routeParams.id_usuario) {
+            $scope.id_usuario = 1;
+        } else {
+            $scope.id_usuario = $routeParams.id_usuario;
+        }
 
-        $scope.tipousuarioID=sessionService.getTypeUserID();
 
         $http({
             method: 'GET',
-            url: 'json?ob=usuario&op=get&id=' + $scope.tipousuarioID
+            url: 'json?ob=usuario&op=get&id=' + $scope.id_usuario
         }).then(function (response) {
             $scope.status = response.status;
             $scope.nombre2 = response.data.message.nombre;
@@ -49,7 +53,7 @@ moduleFactura.controller("facturaEditController", [
             console.log(response);
 //            $scope.id = response.data.message.id;
             $scope.iva = response.data.message.iva;
-            
+
             $scope.obj_Restaurante = {
                 id: response.data.message.obj_Restaurante.id,
                 nombre: response.data.message.obj_Restaurante.nombre,
@@ -77,7 +81,7 @@ moduleFactura.controller("facturaEditController", [
             }
 
             $scope.myDate = new Date($scope.fecha);
-          
+
 
 
         }), function (response) {
@@ -95,7 +99,7 @@ moduleFactura.controller("facturaEditController", [
                 id: $scope.id,
                 fecha: $scope.myDate,
                 iva: $scope.iva,
-                id_usuario: $scope.tipousuarioID,
+                id_usuario: $scope.id_usuario,
                 id_restaurante: $scope.obj_Restaurante.id
 
             }

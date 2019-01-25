@@ -65,7 +65,7 @@ moduleFactura.controller('facturaplistxusuarioController', ['$scope', '$http', '
         }
 
         $scope.edit = function (id) {
-            $location.url($scope.ob + `/edit/${id}`);
+            $location.url($scope.ob + `/edit/${id}/`+$scope.id);
         }
 
         $scope.ordena = function (order, align) {
