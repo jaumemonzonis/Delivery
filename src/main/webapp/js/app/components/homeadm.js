@@ -10,12 +10,8 @@ moduloDirectivas.component('homeadmComponent', {
 function js(toolService, sessionService, $http, $route) {
     var self = this;
     
-    self.loggeduser="administrador";
-
-    if (sessionService.getUserName()!==null){
+  
     self.loggeduser = sessionService.getUserName();
-    
-    }
 
     self.loggeduserid = sessionService.getId();
     self.logged = sessionService.isSessionActive();

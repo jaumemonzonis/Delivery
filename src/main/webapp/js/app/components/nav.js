@@ -10,10 +10,8 @@ moduloDirectivas.component('navComponent', {
 function js(toolService, sessionService, $http, $route) {
     var self = this;
 
-    if (sessionService.getUserName()===null){
-     self.loggeduser = "ADMINISTRADOR";   
-    }else{
-    self.loggeduser = sessionService.getUserName();}
+  
+    self.loggeduser = sessionService.getUserName();
     
     
     

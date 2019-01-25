@@ -433,3 +433,7 @@ color: #A62B21 !important;
     
     border-top: none !important;
 }
+
+.active{
+    opacity: 0.8 !important;
+}
