@@ -1,6 +1,6 @@
 'use strict'
 
-var wildcart = angular.module('MyApp', [
+var delivery = angular.module('MyApp', [
     'ngRoute',
     'services',
     'components',

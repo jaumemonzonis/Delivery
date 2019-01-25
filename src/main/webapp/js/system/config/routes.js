@@ -84,7 +84,7 @@ var autenticacionUsuario = function ($q, $location, $http, sessionService) {
 
 
 
-wildcart.config(['$routeProvider', function ($routeProvider) {
+delivery.config(['$routeProvider', function ($routeProvider) {
 
         //HOOME
         $routeProvider.when('/', {templateUrl: 'js/app/common/home.html', controller: 'homeController'});
