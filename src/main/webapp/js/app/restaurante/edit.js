@@ -29,16 +29,16 @@ moduleRestaurante.controller("restauranteEditController", [
             url: 'json?ob=restaurante&op=get&id=' + $scope.id
         }).then(function (response) {
             console.log(response);
-
+          
             $scope.id = response.data.message.id;
             $scope.nombre = response.data.message.nombre;
             $scope.direccion = response.data.message.direccion;
-////            $scope.municipio.poblacion = response.data.message.poblacion;
+//            $scope.municipio.poblacion = response.data.message.poblacion;
 //            
-//            $scope.municipio = {
-//                id: response.data.message.municipio.id,
-//                poblacion: response.data.message.municipio.poblacion
-//            }
+            $scope.municipio = {
+                id: response.data.message.municipio.id,
+                poblacion: response.data.message.municipio.poblacion
+            }
 
 
         }), function (response) {
