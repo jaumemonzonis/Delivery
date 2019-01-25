@@ -33,63 +33,24 @@
                                 Cantidad obligatoria
                             </div>
                         </div>
-                             <div class="form-group">
+                    
+                        <div class="form-group">
                             <label>Factura</label>
-                            <input type="text" class="form-control" id="factura" name="factura" ng-model="factura" ng-required="true" placeholder="factura"/>
-                            <div ng-show="!userForm.factura.$valid && !userForm.factura.$pristine" class="alert alert-danger" role="alert">
-                                Factura obligatoria
-                            </div>
-                        </div>
-                        <label for="obj_Producto">Producto:</label>
-                        <div class="form-group row" style="padding-left:15px;">
-                            <producto-selection 
-                                class="modal fade" 
-                                id="cadd-location-modal" 
-                                obj="obj_Producto"
-                                on-usuario-set="productoRefresh(this,false)">                          
-                            </producto-selection>
-
-                            <div class="control">
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"
-                                              data-toggle="modal"
-                                              data-target="#cadd-location-modal">
-                                            <i class="material-icons">
-                                                fastfood
-                                            </i>
-                                        </span>
-                                    </div>
-                                    <input ng-model="obj_Producto.id"
-                                           ng-change="productoRefresh(this, true)"
-                                           aria-describedby="basic-addon2"
-                                           class="form-control col-sm-2"
-                                           id="obj_Producto"
-                                           name="obj_Producto"
-                                           type="text"
-                                           ng-required
-                                           ng-model-options="{debounce: 1000}"
-                                           maxlength="3" />
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">
-                                            <a href="../producto/view/{{obj_Producto.id}}">
-                                            <span class="p-2 bd-highlight"><i class="material-icons">
-                                                        youtube_searched_for
-                                                    </i></span>
-                                                Producto: {{obj_Producto.desc}}
-                                            </a>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div ng-show="!userForm.obj_Producto.$valid">Producto no válido</div>
-                            </div>
-                        </div>
-
+                            <select ng-model="factura" class="form-control selectMunicipio">  
+                                <option ng-repeat="factura in facturas" value="{{factura.id}}" selected="selected">{{factura.id}}</option>  
+                            </select>
+                          </div>
+                             <div class="form-group">
+                            <label>Producto</label>
+                            <select ng-model="producto" class="form-control selectMunicipio">  
+                                <option ng-repeat="producto in productos" value="{{producto.id}}" selected="selected">{{producto.desc}}</option>  
+                            </select>
+                          </div>
                        
 
 
                         <div class="d-flex justify-content-between flex-wrap">
-                            <button ng-click="update()" type="button" class="btn btn-primary btn-block" ng-disabled="userForm.$invalid">Crear</button>
+                            <button ng-click="update()" type="button" class="btn btn-primary btn-block mb-3" ng-disabled="userForm.$invalid">Crear</button>
                             <button type="button" class="btn btn-primary btn-block mb-3" onclick="window.history.back()">Volver</button>
                         </div>
 

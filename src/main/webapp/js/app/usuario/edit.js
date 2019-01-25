@@ -10,11 +10,11 @@ moduleUsuario.controller("usuarioEditController", [
         $scope.edited = true;
         $scope.logged = false;
 
-       if (!$routeParams.id) {
+        if (!$routeParams.id) {
             $scope.id = 1;
         } else {
             $scope.id = $routeParams.id;
-} 
+        }
 
         $scope.mostrar = false;
         $scope.activar = true;
@@ -29,7 +29,7 @@ moduleUsuario.controller("usuarioEditController", [
 
         $http({
             method: "GET",
-            url: 'json?ob='+$scope.ob+'&op=get&id=' + $scope.id
+            url: 'json?ob=' + $scope.ob + '&op=get&id=' + $scope.id
         }).then(function (response) {
             $scope.id = response.data.message.id;
             $scope.nombre = response.data.message.nombre;
@@ -41,8 +41,8 @@ moduleUsuario.controller("usuarioEditController", [
             $scope.poblacion = response.data.message.poblacion;
             $scope.direccion = response.data.message.direccion;
             $scope.email = response.data.message.email;
-            
-            
+
+
             $scope.obj_tipoUsuario = {
                 id: response.data.message.obj_tipoUsuario.id,
                 desc: response.data.message.obj_tipoUsuario.desc
@@ -50,10 +50,21 @@ moduleUsuario.controller("usuarioEditController", [
         }), function () {
         };
 
+        $http({
+            method: 'GET',
+            url: 'json?ob=municipio&op=getpage&rpp=1000&page=1'
+        }).then(function (response) {
+            $scope.status = response.status;
+            $scope.municipios = response.data.message;
+        }, function (response) {
+            $scope.status = response.status;
+            $scope.municipios = response.data.message || 'Request failed';
+        });
+
         $scope.isActive = toolService.isActive;
 
         $scope.update = function () {
-           
+
             var json = {
                 id: $scope.id,
                 nombre: $scope.nombre,
@@ -64,7 +75,7 @@ moduleUsuario.controller("usuarioEditController", [
                 pass: $scope.pass,
                 email: $scope.email,
                 direccion: $scope.direccion,
-                poblacion: $scope.poblacion,
+                 poblacion: $scope.municipio,
                 id_tipousuario: $scope.obj_tipoUsuario.id
             }
             $http({
@@ -96,7 +107,7 @@ moduleUsuario.controller("usuarioEditController", [
                 form.userForm.obj_tipousuario.$setValidity('valid', true);
             }
         }
-        
+
         $scope.back = function () {
             window.history.back();
         };
@@ -104,7 +115,7 @@ moduleUsuario.controller("usuarioEditController", [
             $location.path('/home');
         };
         $scope.plist = function () {
-            $location.path('/'+$scope.ob+'/plist');
+            $location.path('/' + $scope.ob + '/plist');
         };
 
 

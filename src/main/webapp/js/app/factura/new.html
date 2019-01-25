@@ -43,27 +43,25 @@
                                 IVA obligatorio
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label>Restaurante</label>
-                            <input type="text" class="form-control" id="restaurante" name="restaurante" ng-model="restaurante" ng-required="true" placeholder="restaurante" />
-                            <div ng-show="!userForm.restaurante.$valid && !userForm.restaurante.$pristine" class="alert alert-danger" role="alert">
-                                restaurante obligatorio
-                            </div>
-                        </div>
                        <div class="form-group">
-                            <label>Usuario</label>
-                            <input type="text" class="form-control" id="usuario" name="usuario" ng-model="usuario" ng-required="true" placeholder="usuario" />
-                            <div ng-show="!userForm.usuario.$valid && !userForm.usuario.$pristine" class="alert alert-danger" role="alert">
-                                Usuario obligatorio
-                            </div>
-                        </div>
+                            <label>Restaurante</label>
+                            <select ng-model="restaurante" class="form-control selectMunicipio">  
+                                <option ng-repeat="restaurante in restaurantes" value="{{restaurante.id}}" selected="selected">{{restaurante.nombre}}</option>  
+                            </select>
+                          </div>
+                        <div class="form-group">
+                            <label>Usuarios</label>
+                            <select ng-model="usuario" class="form-control selectMunicipio">  
+                                <option ng-repeat="usuario in usuarios" value="{{usuario.id}}" selected="selected">{{usuario.nombre}}{{usuario.ape1}}</option>  
+                            </select>
+                          </div>
 
                        
 
 
                         <div class="d-flex justify-content-between flex-wrap">
-                            <button ng-click="update()" type="button" class="btn btn-primary btn-block" ng-disabled="userForm.$invalid">Crear</button>
-                            <button type="button" class="btn btn-primary btn-block" onclick="window.history.back()">Volver</button>
+                            <button ng-click="update()" type="button" class="btn btn-primary btn-block mb-3" ng-disabled="userForm.$invalid">Crear</button>
+                            <button type="button" class="btn btn-primary btn-block mb-3" onclick="window.history.back()">Volver</button>
                         </div>
 
                         </form>
@@ -73,7 +71,7 @@
                     <div class="alert alert-success" role="alert">
                         <p class="text-center mt-2"> Linea creada correctamente.<p> 
                     </div>
-                    <button type="button" class="btn btn-primary btn-block mt-2" onclick="window.history.back()">Volver</button>
+                    <button type="button" class="btn btn-primary btn-block mt-2 mb-3" onclick="window.history.back()">Volver</button>
                 </div>
             </div>
         </div>

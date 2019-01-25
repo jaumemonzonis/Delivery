@@ -9,8 +9,8 @@ moduleFactura.controller("facturaNewController", [
     'sessionService',
     function ($scope, $http, $routeParams, toolService, $window, sessionService) {
 
-    
-        
+
+
         $scope.ob = "factura";
         $scope.id = null;
         $scope.visualizar = false;
@@ -20,6 +20,29 @@ moduleFactura.controller("facturaNewController", [
             id: null,
             desc: null
         }
+        $http({
+            method: 'GET',
+            url: 'json?ob=restaurante&op=getpage&rpp=1000&page=1'
+        }).then(function (response) {
+            $scope.status = response.status;
+            $scope.restaurantes = response.data.message;
+        }, function (response) {
+            $scope.status = response.status;
+            $scope.restaurantes = response.data.message || 'Request failed';
+        });
+
+        $http({
+            method: 'GET',
+            url: 'json?ob=usuario&op=getpage&rpp=1000&page=1'
+        }).then(function (response) {
+            $scope.status = response.status;
+            $scope.usuarios = response.data.message;
+        }, function (response) {
+            $scope.status = response.status;
+            $scope.usuarios = response.data.message || 'Request failed';
+        });
+
+
 
         $scope.myDate = new Date();
 
@@ -45,7 +68,7 @@ moduleFactura.controller("facturaNewController", [
             })
         }
 
-        
+
         $scope.volver = function () {
             $window.history.back();
         };

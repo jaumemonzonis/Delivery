@@ -13,9 +13,9 @@ moduleUsuario.controller("usuarioNewController", [
         $scope.obj_tipoUsuario = {
             id: null,
             desc: null
-}
+        }
         $scope.id = null;
-        
+
         $scope.mostrar = false;
         $scope.activar = true;
         $scope.ajaxData = "";
@@ -27,14 +27,23 @@ moduleUsuario.controller("usuarioNewController", [
         $scope.title = "Nuevo de usuario";
         $scope.icon = "fa-file-text-o";
 
-
+        $http({
+            method: 'GET',
+            url: 'json?ob=municipio&op=getpage&rpp=1000&page=1'
+        }).then(function (response) {
+            $scope.status = response.status;
+            $scope.municipios = response.data.message;
+        }, function (response) {
+            $scope.status = response.status;
+            $scope.municipios = response.data.message || 'Request failed';
+        });
 
         $scope.isActive = toolService.isActive;
 
         $scope.update = function () {
-   
+
             var json = {
-              id: $scope.id,
+                id: $scope.id,
                 nombre: $scope.nombre,
                 ape1: $scope.ape1,
                 ape2: $scope.ape2,
@@ -43,7 +52,7 @@ moduleUsuario.controller("usuarioNewController", [
                 pass: $scope.pass,
                 email: $scope.email,
                 direccion: $scope.direccion,
-                poblacion: $scope.poblacion,
+                 poblacion: $scope.municipio,
                 id_tipousuario: $scope.obj_tipoUsuario.id
             }
             $http({
@@ -57,6 +66,8 @@ moduleUsuario.controller("usuarioNewController", [
                 $scope.edited = false;
             })
         }
+
+
 
         $scope.tipoUsuarioRefresh = function (f, consultar) {
             var form = f;
@@ -75,7 +86,7 @@ moduleUsuario.controller("usuarioNewController", [
                 form.userForm.obj_tipousuario.$setValidity('valid', true);
             }
         }
-        
+
         $scope.back = function () {
             window.history.back();
         };
@@ -83,7 +94,7 @@ moduleUsuario.controller("usuarioNewController", [
             $location.path('/home');
         };
         $scope.plist = function () {
-            $location.path('/'+$scope.ob+'/plist');
+            $location.path('/' + $scope.ob + '/plist');
         };
 
 //

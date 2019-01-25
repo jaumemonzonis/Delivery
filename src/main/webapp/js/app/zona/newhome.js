@@ -19,7 +19,27 @@ moduleZona.controller("zonaNewhomeController", [
         $scope.activar = true;
         $scope.ajaxData = "";
 
-     
+      $http({
+            method: 'GET',
+            url: 'json?ob=municipio&op=getpage&rpp=1000&page=1'
+        }).then(function (response) {
+            $scope.status = response.status;
+            $scope.municipios = response.data.message;
+        }, function (response) {
+            $scope.status = response.status;
+            $scope.municipios = response.data.message || 'Request failed';
+        });
+        
+         $http({
+            method: 'GET',
+            url: 'json?ob=restaurante&op=getpage&rpp=1000&page=1'
+        }).then(function (response) {
+            $scope.status = response.status;
+            $scope.restaurantes = response.data.message;
+        }, function (response) {
+            $scope.status = response.status;
+            $scope.restaurantes = response.data.message || 'Request failed';
+        });
 
 
         $scope.isActive = toolService.isActive;
@@ -32,7 +52,7 @@ moduleZona.controller("zonaNewhomeController", [
                 id: null,
                 nombre: $scope.nombre,
                 id_restaurante: $scope.restaurante,
-                id_municipio: $scope.obj_Municipio.id
+                id_municipio: $scope.municipio
             }
 
             $http({

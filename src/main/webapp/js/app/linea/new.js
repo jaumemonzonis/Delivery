@@ -20,10 +20,27 @@ moduleLinea.controller("lineaNewController", [
         $scope.visualizar = false;
         $scope.isActive = toolService.isActive;
 
-        $scope.obj_Producto = {
-            id: null,
-            desc: null
-        }
+        $http({
+            method: 'GET',
+            url: 'json?ob=factura&op=getpage&rpp=1000&page=1'
+        }).then(function (response) {
+            $scope.status = response.status;
+            $scope.facturas = response.data.message;
+        }, function (response) {
+            $scope.status = response.status;
+            $scope.facturas = response.data.message || 'Request failed';
+        });
+        
+         $http({
+            method: 'GET',
+            url: 'json?ob=producto&op=getpage&rpp=1000&page=1'
+        }).then(function (response) {
+            $scope.status = response.status;
+            $scope.productos = response.data.message;
+        }, function (response) {
+            $scope.status = response.status;
+            $scope.productos = response.data.message || 'Request failed';
+        });
 
      
 
@@ -33,7 +50,7 @@ moduleLinea.controller("lineaNewController", [
                 id: null,
                 cantidad: $scope.cantidad,
                 id_factura: $scope.factura,
-                id_producto: $scope.obj_Producto.id
+                id_producto: $scope.producto
             };
 
             $http({
@@ -48,22 +65,7 @@ moduleLinea.controller("lineaNewController", [
             })
         }
         
-        $scope.productoRefresh = function (f, consultar) {
-            var form = f;
-            if (consultar) {
-                $http({
-                    method: 'GET',
-                    url: 'json?ob=producto&op=get&id=' + $scope.obj_Producto.id
-                }).then(function (response) {
-                    $scope.obj_Producto = response.data.message;
-                    form.userForm.obj_Producto.$setValidity('valid', true);
-                }, function (response) {
-                    form.userForm.obj_Producto.$setValidity('valid', false);
-                });
-            } else {
-                form.userForm.obj_Producto.$setValidity('valid', true);
-            }
-        };
+
         
         $scope.volver = function () {
             $window.history.back();
