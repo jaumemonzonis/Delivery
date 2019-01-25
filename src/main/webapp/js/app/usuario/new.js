@@ -7,7 +7,7 @@ moduleUsuario.controller("usuarioNewController", [
     "toolService",
     "sessionService",
     function ($scope, $http, $routeParams, toolService, sessionService) {
-        $scope.edited = true;
+        $scope.visualizar = false;
         $scope.logged = false;
 
         $scope.obj_tipoUsuario = {
@@ -52,7 +52,7 @@ moduleUsuario.controller("usuarioNewController", [
                 pass: $scope.pass,
                 email: $scope.email,
                 direccion: $scope.direccion,
-                 poblacion: $scope.municipio,
+                poblacion: $scope.municipio,
                 id_tipousuario: $scope.obj_tipoUsuario.id
             }
             $http({
@@ -63,7 +63,7 @@ moduleUsuario.controller("usuarioNewController", [
                 url: 'json?ob=usuario&op=create',
                 params: {json: JSON.stringify(json)}
             }).then(function () {
-                $scope.edited = false;
+                $scope.visualizar = true;
             })
         }
 

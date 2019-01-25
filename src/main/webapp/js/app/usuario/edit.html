@@ -11,14 +11,18 @@
     <div class="row">
         <div class="col-12">
            
-            <div class="row" ng-show="edited">
+    
                 <div class="col-5 mx-auto container2 pl-3 pr-3">
   <div class="row mt-5">
                 <div class="col-5 mx-auto">
                     <h4 class="text-center mb-3"><i class="material-icons">create</i> Editar usuarios</h4>
                 </div>
             </div>
-                    <form name="userForm">
+                      <div class=" mx-auto">
+                    <div class="alert alert-success" role="alert" ng-show="(visualizar)">
+                        Usuario editado correctamente.
+                    </div>
+                    <form name="userForm" ng-show="(!visualizar)">
                         <div class="form-group">
                             <label>ID</label>
                             <input type="text" class="form-control" id="id" name="id" ng-disabled="true" ng-model="id" />
@@ -141,17 +145,16 @@
                                              
                         <div class="d-flex justify-content-between flex-wrap">
                             <button ng-click="update()" type="button" class="btn btn-primary btn-block mb-3" ng-disabled="userForm.$invalid">Editar</button>
-                            <button type="button" class="btn btn-primary btn-block mb-3" onclick="window.history.back()">Volver</button>
+                            
                         </div>
 
-                </div>
-            </div>
-            <div class="row" ng-show="!edited">
-                <div class="col-5 mx-auto">
-                    <div class="alert alert-success" role="alert">
-                        <p class="text-center mt-2"> Usuario modificada correctamente.<p> 
+                   </form> 
+                    <div class="alert alert-success" role="alert" ng-show="(error)">
+                        Error al editar la población.
                     </div>
-                    <button type="button" class="btn btn-primary btn-block mt-2" onclick="window.history.back()">Volver</button>
+ <button type="button" class="btn btn-primary btn-block mb-3" onclick="window.history.back()">Volver</button>
+
+
                 </div>
             </div>
         </div>

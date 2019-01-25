@@ -7,7 +7,7 @@ moduleUsuario.controller("usuarioEditController", [
     "toolService",
     "sessionService",
     function ($scope, $http, $routeParams, toolService, sessionService) {
-        $scope.edited = true;
+         $scope.visualizar = false;
         $scope.logged = false;
 
         if (!$routeParams.id) {
@@ -86,7 +86,7 @@ moduleUsuario.controller("usuarioEditController", [
                 url: 'json?ob=usuario&op=update',
                 params: {json: JSON.stringify(json)}
             }).then(function () {
-                $scope.edited = false;
+                 $scope.visualizar = true;
             })
         }
 
