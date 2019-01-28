@@ -19,6 +19,7 @@ import net.daw.helper.EncodingHelper;
 import net.daw.dao.specificDaoImplementation_1.TipousuarioDao_1;
 import net.daw.dao.specificDaoImplementation_2.FacturaDao_2;
 import net.daw.factory.DaoFactory;
+import net.daw.helper.TokenGenerator;
 
 /**
  *
@@ -47,7 +48,7 @@ public class UsuarioBean extends GenericBeanImplementation implements BeanInterf
      private String poblacion;
     @Expose
      private String token;
-    @Expose
+    @Expose(serialize = false)
      private Boolean validado;
     @Expose(serialize = false)
      private int id_tipousuario;
@@ -224,12 +225,17 @@ public class UsuarioBean extends GenericBeanImplementation implements BeanInterf
         strColumns += EncodingHelper.quotate(getApe2()) + ",";
         strColumns += telefono + ",";
         strColumns += EncodingHelper.quotate(getLogin()) + ",";
-        strColumns += EncodingHelper.quotate("DA8AB09AB4889C6208116A675CAD0B13E335943BD7FC418782D054B32FDFBA04") + ",";
+        strColumns += EncodingHelper.quotate(getPass()) + ",";
         strColumns += EncodingHelper.quotate(getEmail()) + ",";
         strColumns += EncodingHelper.quotate(getDireccion()) + ",";
         strColumns += EncodingHelper.quotate(getPoblacion()) + ",";
-        strColumns += EncodingHelper.quotate(getToken()) + ",";
-        strColumns += validado + ","; 
+        strColumns += EncodingHelper.quotate(TokenGenerator.nextToken()) + ",";
+        strColumns += validado + ",";
+        
+        if(this.id_tipousuario!=1 && this.id_tipousuario!=2 && this.id_tipousuario!=3){
+            this.id_tipousuario=0;
+        }
+        
         strColumns += id_tipousuario;
         return strColumns;
     }
@@ -246,8 +252,8 @@ public class UsuarioBean extends GenericBeanImplementation implements BeanInterf
         strPairs += "email=" + EncodingHelper.quotate(getEmail()) + ",";
         strPairs += "direccion=" + EncodingHelper.quotate(getDireccion()) + ",";
         strPairs += "poblacion=" + EncodingHelper.quotate(getPoblacion()) + ",";
-        strPairs += "token=" + EncodingHelper.quotate(getToken()) + ",";
-        strPairs += "validado=" + validado + ",";
+//        strPairs += "token=" + EncodingHelper.quotate(getToken()) + ",";
+//        strPairs += "validado=" + validado + ",";
         strPairs += "id_tipousuario=" + id_tipousuario;
         strPairs += " WHERE id=" + id;
         return strPairs;

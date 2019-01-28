@@ -515,14 +515,17 @@ public class ServiceFactory {
                         UsuarioService_0 oUsuarioService = new UsuarioService_0(oRequest);
                         switch (op) {
 
+                            case "create":
+                                oReplyBean = oUsuarioService.create();
+                                break;
                             case "login":
                                 oReplyBean = oUsuarioService.login();
                                 break;
                             case "check":
                                 oReplyBean = oUsuarioService.check();
                                 break;
-                            default:
-                                oReplyBean = new ReplyBean(500, "Operation doesn't exist");
+                            case "activar":
+                                oReplyBean = oUsuarioService.activar();
                                 break;
                         }
                         break;
