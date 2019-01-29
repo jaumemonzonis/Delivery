@@ -7,12 +7,11 @@
                 </div>
   <div class="row">
     <div class="col-12">
-<h1 class="h2 mt-3"><i class="fas far fa-file fa-1x"></i> 
-                Zona {{restaurante}}</h1>
+
          <div class="col-5 mx-auto container2 pl-3 pr-3">
           <div class="row mt-4">
                 <div class=" mx-auto">
-                    <h4 class="text-center mb-3"><i class="material-icons">add_circle_outline</i> Crear zona</h4>
+                    <h4 class="text-center mb-3"><i class="material-icons">add_circle_outline</i> Creación zona del restaurante {{restaurante}}</h4>
                 </div>
             </div>
         
@@ -23,12 +22,9 @@
                 Zona creada correctamente.
             </div>
           <form name="userForm" ng-show="(!visualizar)">
-            <div class="form-group">
-              <label>ID</label>
-              <input type="text" class="form-control" id="id" name="id" ng-disabled="true" ng-model="id" />
-            </div>
+        
 
-              <label for="obj_municipio">Municipio:</label>
+              <label for="obj_municipio">MUNICIPIO:</label>
                         <div class="form-group row ml-3">
                             <municipio-selection 
                                 class="modal fade" 
@@ -62,7 +58,7 @@
                                                <span class="p-2 bd-highlight"><i class="material-icons">
                                                        account_circle
                                                     </i></span>
-                                                Población: {{obj_Municipio.poblacion}}
+                                                MUNICIPIO: {{obj_Municipio.poblacion}}
                                             </a>
                                         </span>
                                     </div>

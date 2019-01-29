@@ -1,7 +1,7 @@
 'use strict'
 
-moduleLinea.controller('lineaplistxusuarioController', ['$scope', '$http', '$location', 'toolService', '$routeParams', 'sessionService',
-    function ($scope, $http, $location, toolService, $routeParams, sessionService) {
+moduleLinea.controller('lineaplistxusuarioController', ['$scope', '$http', '$location', 'toolService', '$routeParams', 'sessionService','$window',
+    function ($scope, $http, $location, toolService, $routeParams, sessionService,$window) {
 
         $scope.ob = "linea";
         $scope.totalPages = 1;
@@ -97,6 +97,7 @@ moduleLinea.controller('lineaplistxusuarioController', ['$scope', '$http', '$loc
         }).then(function (response) {
             $scope.status = response.status;
             $scope.ajaxDataUsuarios = response.data.message;
+           
             
         }, function (response) {
             $scope.status = response.status;
@@ -109,6 +110,8 @@ moduleLinea.controller('lineaplistxusuarioController', ['$scope', '$http', '$loc
         }).then(function (response) {
             $scope.status = response.status;
             $scope.idfactura = response.data.message.id;
+             $scope.nombre= response.data.message.obj_Usuario.nombre;
+            $scope.ape1= response.data.message.obj_Usuario.ape1;
           
         }, function (response) {
             $scope.status = response.status;
@@ -143,7 +146,9 @@ moduleLinea.controller('lineaplistxusuarioController', ['$scope', '$http', '$loc
 
         $scope.isActive = toolService.isActive;
 
-
+ $scope.volver = function () {
+            $window.history.back();
+        };
 
     }
 ]);

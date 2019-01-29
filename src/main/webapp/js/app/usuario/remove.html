@@ -14,8 +14,8 @@
       <div class="row">
         <div class="col-5 mx-auto container2">
             <div class="table-responsive pl-3 pr-3 " ng-show="(!visualizar)">
-                    <div class="col-5 mt-2 mx-auto">
-         <h3 class="text-center mb-3"><i class="material-icons">visibility</i>Borrar usuarios</h3>
+                    <div class="col-8 mt-2 mx-auto">
+         <h3 class="text-center mb-3"><i class="material-icons">delete_forever</i>Borrar usuarios</h3>
         </div>
                    <table class="table table-sm">
                             <tr>
@@ -45,12 +45,7 @@
                             <tr>
                                 <th class="ver">Población</th><td>{{ajaxDataUsuarios.poblacion}}</td>
                             </tr>
-                            <tr>
-                                <th class="ver">Token</th><td>{{ajaxDataUsuarios.token}}</td>
-                            </tr>
-                            <tr>
-                                <th class="ver">Validado</th><td>{{ajaxDataUsuarios.validado}}</td>
-                            </tr>
+                        
                             <tr>
                                 <th class="ver">Tipo de usuario</th><td><a class="hover-ajena" href="tipousuario/view/{{ajaxDataUsuarios.obj_tipoUsuario.id}}">{{ajaxDataUsuarios.obj_tipoUsuario.desc}}</a></td>
                             </tr>

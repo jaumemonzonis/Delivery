@@ -56,7 +56,8 @@
 
                         </th>
                         <th>
-                            <p>PRIMER APELLIDO</p>
+                            <p>PRIMER</p>
+                            <p>APELLIDO</p>
                             <div class="order" ng-click="ordena('id', 'asc')">
                                 <i class="material-icons">
                                     swap_vert
@@ -66,7 +67,8 @@
                         </th>
 
                         <th>
-                            <p>SEGUNDO APELLIDO</p>
+                            <p>SEGUNDO</p>
+                            <p>APELLIDO</p>
                             <div class="order" ng-click="ordena('id', 'asc')">
                                 <i class="material-icons">
                                     swap_vert
@@ -132,7 +134,7 @@
                         <td>{{fila.ape2}}</td>
                         <td>{{fila.telefono}}</td>
                         <td>{{fila.login}}</td>
-                        <td>{{fila.email}}</td>
+                        <td style="width: 200px">{{fila.email}}</td>
                         <td>{{fila.direccion}}</td>
                         <td>{{fila.poblacion}}</td>
                         <td><a class="hover-ajena" href="tipousuario/view/{{fila.obj_tipoUsuario.id}}">{{fila.obj_tipoUsuario.desc}}</a></td>

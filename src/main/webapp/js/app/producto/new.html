@@ -11,7 +11,7 @@
             <div class="col-5 mx-auto container2 pl-3 pr-3">
                 <div class="row mt-4">
                     <div class=" mx-auto">
-                        <h4 class="text-center mb-3"><i class="material-icons">add_circle_outline</i> Crear producto</h4>
+                        <h4 class="text-center mb-3"><i class="material-icons">add_circle_outline</i> Creación de producto</h4>
                     </div>
                 </div>
 
@@ -23,10 +23,7 @@
                     </div>
                     <form name="userForm" ng-show="(!visualizar)">
 
-                        <div class="form-group">
-                            <label>ID</label>
-                            <input type="text" class="form-control" id="id" name="id" ng-disabled="true" ng-model="id" />
-                        </div>
+                     
                         <div class="form-group">
                             <label>Codigo</label>
                             <input type="text" class="form-control" id="codigo" name="codigo" ng-model="codigo" ng-required="true" />
@@ -63,7 +60,7 @@
                              </div>-->
                             <input type="file" file-model="foto"/>
                         </div>
-                        <label for="obj_tipoProducto">Tipo de producto:</label>
+                        <label for="obj_tipoProducto">TIPO DE PRODUCTO:</label>
                         <div class="form-group row ml-3">
                             <tipoproducto-selection 
                                 class="modal fade" 
@@ -99,7 +96,7 @@
                                                 <span class="p-2 bd-highlight"><i class="material-icons">
                                                         fastfood
                                                     </i></span>
-                                                Tipo de producto: {{obj_tipoProducto.desc}}
+                                               TIPO DE PRODUCTO: {{obj_tipoProducto.desc}}
                                             </a>
                                         </span>
                                     </div>

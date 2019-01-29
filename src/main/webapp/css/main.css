@@ -165,6 +165,10 @@ height: auto;
 .table th{
     border-top: none !important;
     vertical-align: middle;
+    text-transform: uppercase;
+}
+.form-group>label{
+    text-transform: uppercase; 
 }
 
 .table .ver{
@@ -194,8 +198,9 @@ td{
     font-size:14px;
     color: #3c4858;
 }
-
-
+h4, h3{
+    text-transform: uppercase;
+}
 
 
 
