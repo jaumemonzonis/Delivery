@@ -29,6 +29,9 @@ public interface DaoInterface {
 
     public int getcountX(int idajena) throws Exception;
 
-    public ArrayList<BeanInterface> getpageX(int iRpp, int iPage, int idajena, Integer expand) throws Exception;
+    public ArrayList<BeanInterface> getpageX(int iRpp, int iPage, int idajena,HashMap<String, String> hmOrder,Integer expand) throws Exception; 
+
+
+
 
 }

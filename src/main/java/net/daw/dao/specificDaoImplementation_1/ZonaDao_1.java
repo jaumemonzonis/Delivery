@@ -7,6 +7,7 @@ package net.daw.dao.specificDaoImplementation_1;
 
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.HashMap;
 import net.daw.bean.beanImplementation.UsuarioBean;
 import net.daw.bean.publicBeanInterface.BeanInterface;
 import net.daw.dao.genericDaoImplementation.GenericDaoImplementation;
@@ -33,9 +34,9 @@ public class ZonaDao_1 extends GenericDaoImplementation implements DaoInterface{
     }
     
     @Override
-    public ArrayList<BeanInterface> getpageX(int iRpp, int iPage, int idajena, Integer expand) throws Exception {
+    public ArrayList<BeanInterface> getpageX(int iRpp, int iPage, int idajena, HashMap<String, String> hmOrder, Integer expand) throws Exception {
         strSQL_WhereGetpagex = " WHERE id_restaurante=?";
-        return super.getpageX(iRpp, iPage, idajena, expand);
+      return super.getpageX(iRpp, iPage, idajena, hmOrder, expand);
 
     }
 }

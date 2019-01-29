@@ -205,11 +205,12 @@ public class GenericServiceImplementation implements ServiceInterface {
             Integer idajena = Integer.parseInt(oRequest.getParameter("idajena"));
             Integer iRpp = Integer.parseInt(oRequest.getParameter("rpp"));
             Integer iPage = Integer.parseInt(oRequest.getParameter("page"));
+            HashMap<String, String> hmOrder = ParameterCook.getOrderParams(oRequest.getParameter("order"));
             oConnectionPool = ConnectionFactory.getConnection(ConnectionConstants.connectionPool);
             oConnection = oConnectionPool.newConnection();
             //FacturaDao_1 oFacturaDao = new FacturaDao_1(oConnection, ob, oUsuarioBeanSession);
             DaoInterface oDao = DaoFactory.getDao(oConnection, ob, oUsuarioBeanSession);
-            ArrayList<BeanInterface> alOBean = oDao.getpageX(iRpp, iPage, idajena, 2);
+             ArrayList<BeanInterface> alOBean = oDao.getpageX(iRpp, iPage, idajena, hmOrder, 2);
             Gson oGson = new Gson();
             oReplyBean = new ReplyBean(200, oGson.toJson(alOBean));
         } catch (Exception ex) {

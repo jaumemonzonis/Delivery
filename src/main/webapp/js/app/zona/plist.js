@@ -38,7 +38,7 @@ moduleZona.controller('zonaPlistController', ['$scope', '$http', '$location', 't
         }
 
 
-        $scope.ordena = function (order, align) {
+         $scope.ordena = function (order, align) {
             if ($scope.orderURLServidor == "") {
                 $scope.orderURLServidor = "&order=" + order + "," + align;
                 $scope.orderURLCliente = order + "," + align;
@@ -46,7 +46,7 @@ moduleZona.controller('zonaPlistController', ['$scope', '$http', '$location', 't
                 $scope.orderURLServidor = $scope.orderURLServidor + "-" + order + "," + align;
                 $scope.orderURLCliente = $scope.orderURLCliente + "-" + order + "," + align;
             }
-            $location.url($scope.ob + `/plist/` + $scope.rpp + `/` + $scope.page + `/` + $scope.orderURLCliente);
+           $location.url($scope.ob + `/plist/` + $scope.rpp + `/` + $scope.page + `/` + $scope.id + `/` + $scope.orderURLCliente);
         }
 
         //getcount

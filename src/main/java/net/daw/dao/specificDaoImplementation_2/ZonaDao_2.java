@@ -48,5 +48,20 @@ public class ZonaDao_2 extends GenericDaoImplementation implements DaoInterface{
         throw new Exception("Error en Dao getpage de " + ob + ": No autorizado");
 
     }
+ @Override
+    public int getcountX(int idajena) throws Exception {//hacer private, consultar desde el pojo y no poder preguntar desde fuera del servidor
+        //String strSQL = "";
 
+        strSQL_getcount = "SELECT COUNT(id) FROM " + ob + " WHERE id_restaurante=" + idajena;
+
+        //se cambia la query y se llama al getcount normal para devolverlo
+        return super.getcount();
+    }
+    
+    @Override
+    public ArrayList<BeanInterface> getpageX(int iRpp, int iPage, int idajena, HashMap<String, String> hmOrder, Integer expand) throws Exception {
+        strSQL_WhereGetpagex = " WHERE id_restaurante=?";
+         return super.getpageX(iRpp, iPage, idajena,hmOrder, expand);
+
+    }
 }
