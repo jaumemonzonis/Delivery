@@ -23,7 +23,7 @@ public class UserActivationEmail {
         String pass = "eatit2019";
         //http://localhost:8081/cercahuerta/json?ob=usuario&op=activar&token=2V5lCaun1BtWNChMXGm3uVCMT2iH1ggn4WnYDbCwNnW3gIUeke5A7wumEyCOgGjBL8fzbP4sEOhWfWsePc8SeTgTXlYu48YZYNZ6jAG4vwdY16XbRPyNxSoaCS4UxtvPTWYIGWgBFLXOS2EIg76vkFRJdRQyh8Mv363VpD1ovh1bkYZFk0VyfbiZVCgRv5CiFxtcuTJRqgIhlVW93f4iAX6srC58ybc45w3wPDEdGQ38Oonznl2UN8mgLIszFjij
         //Hacer pagina confirmación en cliente, que lleve a servidor
-        String link = "json?ob=usuario&op=activar&token=" + token;//Esto está mal, no se puede acceder desde el email
+        String link = "http://localhost:8081/delivery/json?ob=usuario&op=activar&token=" + token;//Esto está mal, no se puede acceder desde el email
         //Con lo de localhost/127.0.0.1 los enlaces no funcionan
         //String link2 = "127.0.0.1:8081/cercahuerta/json?ob=usuario&op=activar&token=" + token;
         //http://localhost:8081/cercahuerta/json?ob=usuario&op=activar&token=M8RXoweslPc7SJJixdX1xcnSoiuntThHPbd2JkOdZdToF6XKroNR5OIplc0tB6iX1mQsnMsHSdXrar0jeflyNxHkQzx3gbauZPR3R3Buqb6HxkBerMO0WlSs1NejhyYp69BxE0EU9l77j57T975Qrmrzjzrl4LVhXondrQVMuLppkgo6E97DKZ3XhZBMokFNkCHQSTAF0pmZLPv7bkSqBBJpXnwuaT42YmSQMiO3DxBmKJXwDQM5JGLXlBUJ221P

@@ -1,0 +1,118 @@
+<header-component></header-component>
+<nav-component></nav-component>
+
+
+<div class="container-fluid">
+    
+      <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3">
+
+
+                </div>
+    <div class="row">
+        <div class="col-12">
+           
+    
+                <div class="col-5 mx-auto container2 pl-3 pr-3">
+  <div class="row mt-5">
+                <div class="col-8 mx-auto">
+                    <h4 class="text-center mb-3"><i class="material-icons">add_circle_outline</i> registrate</h4>
+                </div>
+            </div>
+                      <div class=" mx-auto">
+                    <div class="alert alert-success" role="alert" ng-show="(visualizar)">
+                        Usuario creado correctamente.
+                    </div>
+                    <form name="userForm" ng-show="(!visualizar)">
+                  
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" ng-model="nombre" ng-required="true" />
+                            <div ng-show="!userForm.nombre.$valid && !userForm.nombre.$pristine" class="alert alert-danger" role="alert">
+                                Nombre obligatorio
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Primer apellido</label>
+                            <input type="text" class="form-control" id="ape1" name="ape1" ng-model="ape1" ng-required="true" />
+                            <div ng-show="!userForm.ape1.$valid && !userForm.ape1.$pristine" class="alert alert-danger" role="alert">
+                                Primer apellido obligatorio
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Segundo apellido</label>
+                            <input type="text" class="form-control" id="ape2" name="ape2" ng-model="ape2" ng-required="true" />
+                            <div ng-show="!userForm.ape2.$valid && !userForm.ape2.$pristine" class="alert alert-danger" role="alert">
+                                Segundo apellido obligatorio
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label>Telefono</label>
+                            <input type="number" ng-minlength="9" maxlength="9"  class="form-control" id="telefono" name="telefono" ng-model="telefono" ng-required="true" />
+                            <div ng-show="!userForm.telefono.$valid && !userForm.telefono.$pristine" class="alert alert-danger" role="alert">
+                                Telefono obligatorio
+                            </div>
+                             <div ng-show="userForm.telefono.$error.minlength" class="alert alert-danger" role="alert">
+                                La longitud del telefono es demasiado corta
+                            </div>
+                             <div ng-show="userForm.telefono.$error.maxlength" class="alert alert-danger" role="alert">
+                                La longitud del telenfono es demasiado larga
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Login</label>
+                            <input type="text" class="form-control" id="login" name="login" ng-model="login" ng-minlength="4" ng-required="true" />
+                            <div ng-show="userForm.login.$error.minlength && !userForm.login.$pristine" class="alert alert-danger" role="alert">
+                                La longitud del login es demasiado corta
+                            </div>
+                            <div ng-show="!userForm.login.$valid && !userForm.login.$pristine" class="alert alert-danger" role="alert">
+                                Login obligatorio
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Contraseña</label>
+                            <input type="password" class="form-control" ng-class="{' is-invalid': userForm.pass.$invalid && !userForm.pass.$pristine}"
+                                   id="pass" name="pass" ng-model="pass" ng-minlength="4" ng-required="true"/>
+                            <div ng-show="userForm.pass.$error.minlength" class="alert alert-danger" role="alert">
+                                La longitud de la constraseña es demasiado corta
+                            </div>
+                        </div>
+                        
+                         <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" class="form-control" id="email" name="email" ng-model="email" ng-required="true" />
+                            <div ng-show="!userForm.email.$valid && !userForm.email.$pristine" class="alert alert-danger" role="alert">
+                                Email obligatorio
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label>Dirección</label>
+                            <input type="text" class="form-control" id="direccion" name="direccion" ng-model="direccion" ng-required="true" />
+                            <div ng-show="!userForm.direccion.$valid && !userForm.direccion.$pristine" class="alert alert-danger" role="alert">
+                                Dirección obligatoria
+                            </div>
+                        </div>
+                         <!--  <div class="form-group">
+                            <label>Municipio</label>
+                            <select ng-model="municipio" class="form-control selectMunicipio">  
+                                <option ng-repeat="municipio in municipios track by $index" value="{{municipio.poblacion}}" selected="selected">{{municipio.poblacion}}</option>  
+                            </select>
+                          </div>
+                      -->
+                                             
+                      <div class="d-flex justify-content-between flex-wrap">
+                            <button ng-click="update()" type="button" class="btn btn-primary btn-block mb-3" ng-disabled="userForm.$invalid">REGISTRATE</button>
+                            
+                        </div>
+
+                   </form> 
+                    <div class="alert alert-success" role="alert" ng-show="(error)">
+                        Error al editar el usuario
+                    </div>
+ <button type="button" class="btn btn-primary btn-block mb-3" onclick="window.history.back()">Volver</button>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,7 +1,7 @@
 "use strict";
 
-moduleUsuario.controller("usuarioNewController", [
-    "$scope",
+moduleUsuario.controller("usuarioRegistrarseController", [
+       "$scope",
     "$http",
     "$routeParams",
     "toolService",
@@ -27,16 +27,16 @@ moduleUsuario.controller("usuarioNewController", [
         $scope.title = "Nuevo de usuario";
         $scope.icon = "fa-file-text-o";
 
-        $http({
-            method: 'GET',
-            url: 'json?ob=municipio&op=getpage&rpp=1000&page=1'
-        }).then(function (response) {
-            $scope.status = response.status;
-            $scope.municipios = response.data.message;
-        }, function (response) {
-            $scope.status = response.status;
-            $scope.municipios = response.data.message || 'Request failed';
-        });
+//        $http({
+//            method: 'GET',
+//            url: 'json?ob=municipio&op=getpage&rpp=1000&page=1'
+//        }).then(function (response) {
+//            $scope.status = response.status;
+//            $scope.municipios = response.data.message;
+//        }, function (response) {
+//            $scope.status = response.status;
+//            $scope.municipios = response.data.message || 'Request failed';
+//        });
 
         $scope.isActive = toolService.isActive;
 
@@ -52,8 +52,8 @@ moduleUsuario.controller("usuarioNewController", [
                 pass: forge_sha256($scope.pass),
                 email: $scope.email,
                 direccion: $scope.direccion,
-                poblacion: $scope.municipio
-//                id_tipousuario: "0"
+                poblacion: "Valencia",
+                id_tipousuario: "0"
             }
             $http({
                 method: 'GET',
@@ -67,26 +67,6 @@ moduleUsuario.controller("usuarioNewController", [
             })
         }
 
-
-
-        $scope.tipoUsuarioRefresh = function (f, consultar) {
-            var form = f;
-            if (consultar) {
-                $http({
-                    method: 'GET',
-                    url: 'json?ob=tipousuario&op=get&id=' + $scope.obj_tipoUsuario.id
-                }).then(function (response) {
-                    $scope.obj_tipoUsuario = response.data.message;
-                    form.userForm.obj_tipousuario.$setValidity('valid', true);
-                }, function (response) {
-                    //$scope.status = response.status;
-                    form.userForm.obj_tipousuario.$setValidity('valid', false);
-                });
-            } else {
-                form.userForm.obj_tipousuario.$setValidity('valid', true);
-            }
-        }
-
         $scope.back = function () {
             window.history.back();
         };
@@ -97,13 +77,7 @@ moduleUsuario.controller("usuarioNewController", [
             $location.path('/' + $scope.ob + '/plist');
         };
 
-//
-//         if (sessionService.getUserName() !== "") {
-//            $scope.loggeduser = sessionService.getUserName();
-//            $scope.loggeduserid = sessionService.getId();
-//            $scope.logged = true;
-//            $scope.tipousuarioID = sessionService.getTypeUserID();
-//        }
+
 
 
     }

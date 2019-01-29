@@ -47,9 +47,12 @@ public class UsuarioDao_0  extends GenericDaoImplementation implements DaoInterf
 
     @Override
     public BeanInterface create(BeanInterface oBean) throws Exception {
+        
+        UsuarioBean oUsuarioBeanIf = (UsuarioBean) oBean;
+        
         UsuarioBean oBeanActivation;
-        int id = oBean.getId();
-        if (id == 0) {
+        int idtipousuario = oUsuarioBeanIf.getId_tipousuario();
+        if (idtipousuario == 0) {
             try {
                 oBeanActivation = (UsuarioBean) super.create(oBean);
                 String email = oBeanActivation.getEmail();
@@ -162,7 +165,7 @@ public class UsuarioDao_0  extends GenericDaoImplementation implements DaoInterf
     public int activarUsuario(String token) throws Exception {
         int iResult = 0;
         strSQL_update = "UPDATE " + ob + " SET ";
-        strSQL_update += "id_tipoUsuario=2,activo=1 ";
+        strSQL_update += "id_tipousuario=2,validado=1 ";
         strSQL_update += "WHERE token=?";
         PreparedStatement oPreparedStatement = null;
         try {

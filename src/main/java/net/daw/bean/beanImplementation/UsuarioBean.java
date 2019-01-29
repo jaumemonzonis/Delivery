@@ -230,7 +230,7 @@ public class UsuarioBean extends GenericBeanImplementation implements BeanInterf
         strColumns += EncodingHelper.quotate(getDireccion()) + ",";
         strColumns += EncodingHelper.quotate(getPoblacion()) + ",";
         strColumns += EncodingHelper.quotate(TokenGenerator.nextToken()) + ",";
-        strColumns += validado + ",";
+        strColumns += 0 + ",";
         
         if(this.id_tipousuario!=1 && this.id_tipousuario!=2 && this.id_tipousuario!=3){
             this.id_tipousuario=0;

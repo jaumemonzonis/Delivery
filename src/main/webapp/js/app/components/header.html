@@ -9,6 +9,9 @@
     <div class="collapse navbar-collapse mr-2" id="navbarSupportedContent-333">
 
         <ul class="navbar-nav ml-auto nav-flex-icons">
+             <li class="nav-item hvr-pop btn-login" ng-class="{'active': c.isActive('usuario/registrarse')}" ng-show="!c.logged">     
+                <a href="usuario/registrarse" class="btn btn-lg" role="button" aria-pressed="true">Registrarse</a>
+            </li>
             <li class="nav-item hvr-pop btn-login" ng-class="{'active': c.isActive('usuario/login')}" ng-show="!c.logged">     
                 <a href="usuario/login" class="btn btn-lg" role="button" aria-pressed="true">Login</a>
             </li>
