@@ -46,10 +46,10 @@ public class UserActivationEmail {
             message.setFrom(new InternetAddress(from));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
 
-            message.setSubject("confirme su alta en Eat It");
-            message.setText("Bienvenido a Cerca de la Huerta " + nombre
-                    + ",<br> Haz click en <a href='" + link + "'>este sin lo de localhost enlace</a> para confirmar tu cuenta"
-                    //+ "<br> Haz click en <a href='" + link2 + "'>este otro enlace</a> a ver si va o que"
+            message.setSubject("confirme su alta en EAT IT");
+            message.setText("Bienvenido a la hamburguesería <span style='color:blue;'>EAT IT</span> " + nombre + ","
+                    + ",<br> Para finalizar su alta como usuario accede a este <a href='" + link + "'>enlace</a> "
+                    + "<br><p style='font-size:11px;'>El equipo de Eat It</p>"
                     + "<br><br><small>Mensaje automático; por favor, no responda este correo</small>",
                     "utf-8", "html");
             // Transport.send(message);
@@ -91,10 +91,11 @@ public class UserActivationEmail {
             message.setFrom(new InternetAddress(from));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
 
-            message.setSubject("Su cuenta en Cerca de la Huerta ha sido confirmada");
-            message.setText("Enahorabuena " + nombre
-                    + "<br> Haz click en <a href='#'>este enlace</a> para entrar en Cerca de la Huerta"
-                    + "<br>Ya puedes empezar a disfrutar de tus ventajas como usuario registrado"
+            message.setSubject("Alta EAT IT correcta");
+            message.setText("Hola " + nombre + " !!!"
+                    + "<br>Te damos la bienvenida a <span style='color:blue;'>EAT IT</span>."
+                    + "<br>Realiza tu pedido entrando en el siguiente <a href='#'>este enlace</a>"
+                    + "<br><p style='font-size:11px;'>El equipo de Eat It</p>"
                     + "<br><br><small>Mensaje automático; por favor, no responda este correo</small>",
                     "utf-8", "html");
             // Transport.send(message);
