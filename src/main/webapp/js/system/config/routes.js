@@ -162,15 +162,15 @@ delivery.config(['$routeProvider', function ($routeProvider) {
 
 
 
-        //zona
-        $routeProvider.when('/zona/plist/:rpp?/:page?/:id?/:order?', {templateUrl: 'js/app/zona/plist.html', controller: 'zonaPlistController', resolve: {auth: autenticacionAdministrador}});
-        $routeProvider.when('/zona/view/:id', {templateUrl: 'js/app/zona/view.html', controller: 'zonaViewController'});
-        $routeProvider.when('/zona/remove/:id', {templateUrl: 'js/app/zona/remove.html', controller: 'zonaRemoveController', resolve: {auth: autenticacionAdministrador}});
-        $routeProvider.when('/zona/edit/:id', {templateUrl: 'js/app/zona/edit.html', controller: 'zonaEditController', resolve: {auth: autenticacionAdministrador}});
-        $routeProvider.when('/zona/new/:id', {templateUrl: 'js/app/zona/new.html', controller: 'zonaNewController', resolve: {auth: autenticacionAdministrador}});
-        $routeProvider.when('/zona/newhome', {templateUrl: 'js/app/zona/newhome.html', controller: 'zonaNewhomeController', resolve: {auth: autenticacionAdministrador}});
+        //area
+        $routeProvider.when('/area/plist/:rpp?/:page?/:id?/:order?', {templateUrl: 'js/app/area/plist.html', controller: 'areaPlistController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/area/view/:id', {templateUrl: 'js/app/area/view.html', controller: 'areaViewController'});
+        $routeProvider.when('/area/remove/:id', {templateUrl: 'js/app/area/remove.html', controller: 'areaRemoveController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/area/edit/:id', {templateUrl: 'js/app/area/edit.html', controller: 'areaEditController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/area/new/:id', {templateUrl: 'js/app/area/new.html', controller: 'areaNewController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/area/newhome', {templateUrl: 'js/app/area/newhome.html', controller: 'areaNewhomeController', resolve: {auth: autenticacionAdministrador}});
 //        $routeProvider.when('/zona/plistxusuario/:rpp?/:page?/:id?/:order?', {templateUrl: 'js/app/zona/plistxusuario.html', controller: 'zonaplistxusuarioController'});
-        $routeProvider.when('/zona/newxusuario/:id', {templateUrl: 'js/app/zona/newxusuario.html', controller: 'zonanewxusuarioController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/area/newxusuario/:id', {templateUrl: 'js/app/area/newxusuario.html', controller: 'areanewxusuarioController', resolve: {auth: autenticacionAdministrador}});
 
         //administrador
         $routeProvider.when('/administrador/plist', {templateUrl: 'js/app/administrador/plist.html', controller: 'administradorPlistController', resolve: {auth: autenticacionAdministrador}});

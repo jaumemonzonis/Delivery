@@ -1,6 +1,6 @@
 "use strict";
 
-moduleZona.controller("zonaEditController", [
+moduleArea.controller("areaEditController", [
     "$scope",
     "$http",
     "$routeParams",
@@ -26,17 +26,14 @@ moduleZona.controller("zonaEditController", [
 
         $http({
             method: "GET",
-            url: 'json?ob=zona&op=get&id=' + $scope.id
+            url: 'json?ob=area&op=get&id=' + $scope.id
         }).then(function (response) {
             console.log(response);
 
             $scope.id = response.data.message.id;
             $scope.nombre = response.data.message.nombre;
 
-            $scope.obj_Restaurante = {
-                id: response.data.message.obj_Restaurante.id,
-                restaurante: response.data.message.obj_Restaurante.nombre
-            }
+          
             $scope.obj_Municipio = {
                 id: response.data.message.obj_Municipio.id,
                 municipio: response.data.message.obj_Municipio.poblacion
@@ -53,7 +50,6 @@ moduleZona.controller("zonaEditController", [
             var json = {
                 id: $scope.id,
                 nombre: $scope.nombre,
-                id_restaurante: $scope.obj_Restaurante.id,
                 id_municipio: $scope.obj_Municipio.id
 
             }
@@ -63,7 +59,7 @@ moduleZona.controller("zonaEditController", [
                 header: {
                     'Content-Type': 'application/json;charset=utf-8'
                 },
-                url: 'json?ob=zona&op=update',
+                url: 'json?ob=area&op=update',
                 params: {json: JSON.stringify(json)}
             }).then(function () {
                 $scope.visualizar = true;

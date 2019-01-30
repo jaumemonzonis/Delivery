@@ -15,6 +15,7 @@ import net.daw.bean.beanImplementation.ProductoBean;
 import net.daw.bean.beanImplementation.RestauranteBean;
 import net.daw.bean.beanImplementation.TipousuarioBean;
 import net.daw.bean.beanImplementation.UsuarioBean;
+import net.daw.bean.beanImplementation.AreaBean;
 import net.daw.bean.beanImplementation.Restaurante_municipioBean;
 
 /**
@@ -53,6 +54,9 @@ public class BeanFactory {
             case "municipio":
                 oBean = (BeanInterface) new MunicipioBean();
                 break;
+            case "area":
+                oBean = (BeanInterface) new AreaBean();
+                break;
         }
         return oBean;
     }
@@ -86,6 +90,9 @@ public class BeanFactory {
                 break;
             case "municipio":
                 oBean = oGson.fromJson(strJsonFromClient, MunicipioBean.class);
+                break;
+            case "area":
+                oBean = oGson.fromJson(strJsonFromClient, AreaBean.class);
                 break;
         }
         return oBean;

@@ -13,7 +13,7 @@ var delivery = angular.module('MyApp', [
     'lineaControllers',
     'administradorControllers',
     'restauranteControllers',
-    'zonaControllers',
+    'areaControllers',
     'municipioControllers',
     'carritoControllers',
     'ngMaterial',
@@ -56,7 +56,7 @@ var moduleAdministrador = angular.module ('administradorControllers',[]);
 var moduleTipoproducto = angular.module('tipoproductoControllers',[]);
 var moduleLinea = angular.module('lineaControllers',[]);
 var moduleRestaurante = angular.module('restauranteControllers',[]);
-var moduleZona = angular.module('zonaControllers',[]);
+var moduleArea = angular.module('areaControllers',[]);
 var moduleMunicipio = angular.module('municipioControllers',[]);
 var moduleCarrito = angular.module('carritoControllers',[]);
 var moduloDirectivas = angular.module('Directives', []);

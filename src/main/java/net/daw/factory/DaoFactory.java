@@ -17,9 +17,11 @@ import net.daw.dao.publicDaoInterface.DaoInterface;
 import net.daw.dao.specificDaoImplementation_0.FacturaDao_0;
 import net.daw.dao.specificDaoImplementation_0.TipousuarioDao_0;
 import net.daw.dao.specificDaoImplementation_0.UsuarioDao_0;
+import net.daw.dao.specificDaoImplementation_1.AreaDao_1;
 import net.daw.dao.specificDaoImplementation_1.MunicipioDao_1;
 import net.daw.dao.specificDaoImplementation_1.RestauranteDao_1;
 import net.daw.dao.specificDaoImplementation_1.Restaurante_municipioDao_1;
+import net.daw.dao.specificDaoImplementation_2.AreaDao_2;
 import net.daw.dao.specificDaoImplementation_2.FacturaDao_2;
 import net.daw.dao.specificDaoImplementation_2.LineaDao_2;
 import net.daw.dao.specificDaoImplementation_2.MunicipioDao_2;
@@ -75,6 +77,9 @@ public class DaoFactory {
                     case "municipio":
                         oDao = new MunicipioDao_1(oConnection, ob, oUsuarioBeanSession);
                         break;
+                    case "area":
+                        oDao = new AreaDao_1(oConnection, ob, oUsuarioBeanSession);
+                        break;
                 }
                 break;
             case 2:
@@ -105,6 +110,9 @@ public class DaoFactory {
                         break;
                     case "municipio":
                         oDao = new MunicipioDao_2(oConnection, ob, oUsuarioBeanSession);
+                        break;
+                    case "area":
+                        oDao = new AreaDao_2(oConnection, ob, oUsuarioBeanSession);
                         break;
                 }
                 break;

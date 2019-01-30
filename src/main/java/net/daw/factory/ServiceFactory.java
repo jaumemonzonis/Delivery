@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import net.daw.bean.beanImplementation.ReplyBean;
 import net.daw.bean.beanImplementation.UsuarioBean;
 import net.daw.service.specificServiceImplementation_0.UsuarioService_0;
+import net.daw.service.specificServiceImplementation_1.AreaService_1;
 import net.daw.service.specificServiceImplementation_1.FacturaService_1;
 import net.daw.service.specificServiceImplementation_1.LineaService_1;
 import net.daw.service.specificServiceImplementation_1.MunicipioService_1;
@@ -311,6 +312,38 @@ public class ServiceFactory {
                                 break;
                             case "getpage":
                                 oReplyBean = oMunicipioService.getpage();
+                                break;
+                            default:
+                                oReplyBean = new ReplyBean(500, "Operation doesn't exist");
+                                break;
+                        }
+                        break;
+                         case "area":
+                        AreaService_1 oAreaService = new AreaService_1(oRequest);
+                        switch (op) {
+                            case "get":
+                                oReplyBean = oAreaService.get();
+                                break;
+                            case "create":
+                                oReplyBean = oAreaService.create();
+                                break;
+                            case "update":
+                                oReplyBean = oAreaService.update();
+                                break;
+                            case "remove":
+                                oReplyBean = oAreaService.remove();
+                                break;
+                            case "getcount":
+                                oReplyBean = oAreaService.getcount();
+                                break;
+                            case "getpage":
+                                oReplyBean = oAreaService.getpage();
+                                break;
+                            case "getpagex":
+                                oReplyBean = oAreaService.getpageX();
+                                break;
+                            case "getcountx":
+                                oReplyBean = oAreaService.getcountX();
                                 break;
                             default:
                                 oReplyBean = new ReplyBean(500, "Operation doesn't exist");

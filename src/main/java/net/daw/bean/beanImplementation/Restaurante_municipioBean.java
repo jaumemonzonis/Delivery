@@ -5,6 +5,7 @@
  */
 package net.daw.bean.beanImplementation;
 
+
 import com.google.gson.annotations.Expose;
 import java.sql.Connection;
 import java.sql.ResultSet;

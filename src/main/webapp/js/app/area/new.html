@@ -11,7 +11,7 @@
          <div class="col-5 mx-auto container2 pl-3 pr-3">
           <div class="row mt-4">
                 <div class=" mx-auto">
-                    <h4 class="text-center mb-3"><i class="material-icons">add_circle_outline</i> Creación zona del restaurante {{restaurante}}</h4>
+                    <h4 class="text-center mb-3"><i class="material-icons">add_circle_outline</i> Creación area</h4>
                 </div>
             </div>
         
@@ -19,10 +19,16 @@
      
         <div class=" mx-auto">
                <div class="alert alert-success" role="alert" ng-show="(visualizar)">
-                Zona creada correctamente.
+                Area creada correctamente.
             </div>
           <form name="userForm" ng-show="(!visualizar)">
-        
+           <div class="form-group">
+                            <label>Nombre</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" ng-model="nombre" ng-required="true" />
+                            <div ng-show="!userForm.nombre.$valid && !userForm.nombre.$pristine" class="alert alert-danger" role="alert">
+                                Nombre obligatorio
+                            </div>
+                        </div>
 
               <label for="obj_municipio">MUNICIPIO:</label>
                         <div class="form-group row ml-3">
@@ -70,11 +76,11 @@
    
          
    
-            <button ng-click="update()" type="button" class="btn btn-primary btn-block" ng-disabled="userForm.$invalid">Crear zona</button>
+            <button ng-click="update()" type="button" class="btn btn-primary btn-block" ng-disabled="userForm.$invalid">Crear area</button>
          
           </form> 
              <div class="alert alert-success" role="alert" ng-show="(error)">
-                Error al crear la zona.
+                Error al crear el area.
             </div>
             <button type="button" class="btn btn-primary btn-block mt-2 mb-3" ng-click="volver()">Volver</button>
 

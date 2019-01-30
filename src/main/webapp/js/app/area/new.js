@@ -1,6 +1,6 @@
 "use strict";
 
-moduleZona.controller("zonaNewController", [
+moduleArea.controller("areaNewController", [
     "$scope",
     "$http",
     "$routeParams",
@@ -24,15 +24,7 @@ moduleZona.controller("zonaNewController", [
         $scope.activar = true;
         $scope.ajaxData = "";
 
-        $http({
-            method: "GET",
-            url: 'json?ob=restaurante&op=get&id=' + $scope.id_restaurante
-        }).then(function (response) {
-
-            $scope.restaurante = response.data.message.nombre;
-        }), function (response) {
-            console.log(response);
-        };
+   
         
          $scope.obj_Municipio = {
                 id: null,
@@ -46,10 +38,9 @@ moduleZona.controller("zonaNewController", [
 
 
             var json = {
-                id: null,
-                nombre: $scope.nombre,
-                id_restaurante: $scope.id_restaurante,
-                id_municipio: $scope.obj_Municipio.id
+                id: null, 
+                id_municipio: $scope.obj_Municipio.id,
+                nombre: $scope.nombre
             }
 
             $http({
@@ -57,7 +48,7 @@ moduleZona.controller("zonaNewController", [
                 header: {
                     'Content-Type': 'application/json;charset=utf-8'
                 },
-                url: 'json?ob=zona&op=create',
+                url: 'json?ob=area&op=create',
                 params: {json: JSON.stringify(json)}
             }).then(function () {
                 $scope.visualizar = true;

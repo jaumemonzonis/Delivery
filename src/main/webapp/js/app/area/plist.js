@@ -1,9 +1,9 @@
 
 'use strict'
 
-moduleZona.controller('zonaPlistController', ['$scope', '$http', '$location', 'toolService', '$routeParams', 'sessionService',
+moduleArea.controller('areaPlistController', ['$scope', '$http', '$location', 'toolService', '$routeParams', 'sessionService',
     function ($scope, $http, $location, toolService, $routeParams, sessionService) {
-        $scope.ob = "zona";
+        $scope.ob = "area";
 
 
         if (!$routeParams.order) {
@@ -52,7 +52,7 @@ moduleZona.controller('zonaPlistController', ['$scope', '$http', '$location', 't
         //getcount
         $http({
             method: 'GET',
-            url: 'json?ob=zona&op=getcountx&idajena=' + $scope.id
+            url: 'json?ob=area&op=getcount'
         }).then(function (response) {
             $scope.status = response.status;
             $scope.ajaxDataUsuariosNumber = response.data.message;
@@ -67,22 +67,13 @@ moduleZona.controller('zonaPlistController', ['$scope', '$http', '$location', 't
             $scope.status = response.status;
         });
         
-         $http({
-            method: 'GET',
-            url: 'json?ob=restaurante&op=get&id=' + $scope.id
-        }).then(function (response) {
-            $scope.status = response.status;
-            $scope.restaurante = response.data.message.nombre;
-        }, function (response) {
-            $scope.status = response.status;
-            $scope.ajaxDataUsuarios = response.data.message || 'Request failed';
-        });
+       
 
 
 
         $http({
             method: 'GET',
-            url: 'json?ob=zona&op=getpagex&idajena=' + $scope.id + '&rpp=' + $scope.rpp + '&page=' + $scope.page + $scope.orderURLServidor
+            url: 'json?ob=area&op=getpage&rpp=' + $scope.rpp + '&page=' + $scope.page + $scope.orderURLServidor
         }).then(function (response) {
             $scope.status = response.status;
             $scope.ajaxDataUsuarios = response.data.message;

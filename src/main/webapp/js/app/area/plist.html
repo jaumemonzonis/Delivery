@@ -5,10 +5,7 @@
     <div class="row">
         <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4">
 
-            <h1 class="h2 mt-3"><i class="material-icons md-36">
-                    public
-                </i> 
-                Zona {{restaurante}}</h1>
+          
             <div class="col-md-12 ml-sm-auto col-lg-12 mt-3">
                 <div class="btn-toolbar mb-2 mb-md-0 float-left">
                     <div class="btn-group" style="width:270px; margin-left: -5%;">
@@ -29,7 +26,7 @@
                 </div>
                   <div class="float-right create_btn_margin">
                     <a href="{{ob}}/new/{{id}}" class="btn btn-rojo btn-sm float-right" role="button" aria-pressed="true"><i class="material-icons">
-                            add_circle_outline</i> Crear nueva zona</a>
+                            add_circle_outline</i> Crear nueva area</a>
 
                 </div>
             </div>
@@ -59,6 +56,15 @@
                             </div>
 
                         </th>
+                          <th>
+                            <p>NOMBRE</p>
+                            <div class="order" ng-click="ordena('id', 'desc')">
+                                <i class="material-icons">
+                                    swap_vert
+                                </i>
+                            </div>
+
+                        </th>
 
                         <th> 
                             <p style="margin-left: 5%">ACCIONES</p> 
@@ -67,6 +73,7 @@
                     <tr ng-repeat="fila in ajaxDataUsuarios">
                         <td>{{fila.id}}</td>
                         <td><a class="hover-ajena" href="municipio/view/{{fila.obj_Municipio.id}}">{{fila.obj_Municipio.poblacion}}</a></td>
+                        <td>{{fila.nombre}}</td>
                         <td><button type="button" rel="tooltip" class="btn btn-just-icon btn-sm" ng-click="view(fila.id)">
                                 <i class="material-icons">visibility</i>
                             </button>

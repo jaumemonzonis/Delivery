@@ -1,9 +1,9 @@
 'use strict'
 
-moduleZona.controller("zonaViewController", ['$scope', '$http', '$routeParams', '$window', 'sessionService',
+moduleArea.controller("areaViewController", ['$scope', '$http', '$routeParams', '$window', 'sessionService',
     function ($scope, $http, $routeParams, $window, sessionService) {
 
-        $scope.ob = "zona";
+        $scope.ob = "area";
 
         
         if (!$routeParams.id) {

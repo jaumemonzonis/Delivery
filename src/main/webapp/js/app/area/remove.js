@@ -1,9 +1,9 @@
 'use strict'
 
-moduleZona.controller("zonaRemoveController", ['$scope', '$http', '$routeParams', '$window', 'sessionService',
+moduleArea.controller("areaRemoveController", ['$scope', '$http', '$routeParams', '$window', 'sessionService',
     function ($scope, $http, $routeParams, $window, sessionService) {
 
-        $scope.ob = "zona";
+        $scope.ob = "area";
         $scope.tabla = true;
         $scope.msgopcioneliminar = true;
 
