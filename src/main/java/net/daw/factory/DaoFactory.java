@@ -19,7 +19,7 @@ import net.daw.dao.specificDaoImplementation_0.TipousuarioDao_0;
 import net.daw.dao.specificDaoImplementation_0.UsuarioDao_0;
 import net.daw.dao.specificDaoImplementation_1.MunicipioDao_1;
 import net.daw.dao.specificDaoImplementation_1.RestauranteDao_1;
-import net.daw.dao.specificDaoImplementation_1.ZonaDao_1;
+import net.daw.dao.specificDaoImplementation_1.Restaurante_municipioDao_1;
 import net.daw.dao.specificDaoImplementation_2.FacturaDao_2;
 import net.daw.dao.specificDaoImplementation_2.LineaDao_2;
 import net.daw.dao.specificDaoImplementation_2.MunicipioDao_2;
@@ -28,7 +28,7 @@ import net.daw.dao.specificDaoImplementation_2.RestauranteDao_2;
 import net.daw.dao.specificDaoImplementation_2.TipoproductoDao_2;
 import net.daw.dao.specificDaoImplementation_2.TipousuarioDao_2;
 import net.daw.dao.specificDaoImplementation_2.UsuarioDao_2;
-import net.daw.dao.specificDaoImplementation_2.ZonaDao_2;
+import net.daw.dao.specificDaoImplementation_2.Restaurante_municipioDao_2;
 
 /**
  *
@@ -69,8 +69,8 @@ public class DaoFactory {
                     case "restaurante":
                         oDao = new RestauranteDao_1(oConnection, ob, oUsuarioBeanSession);
                         break;
-                    case "zona":
-                        oDao = new ZonaDao_1(oConnection, ob, oUsuarioBeanSession);
+                    case "restaurante_municipio":
+                        oDao = new Restaurante_municipioDao_1(oConnection, ob, oUsuarioBeanSession);
                         break;
                     case "municipio":
                         oDao = new MunicipioDao_1(oConnection, ob, oUsuarioBeanSession);
@@ -100,8 +100,8 @@ public class DaoFactory {
                     case "restaurante":
                         oDao = new RestauranteDao_2(oConnection, ob, oUsuarioBeanSession);
                         break;
-                    case "zona":
-                        oDao = new ZonaDao_2(oConnection, ob, oUsuarioBeanSession);
+                    case "restaurante_municipio":
+                        oDao = new Restaurante_municipioDao_2(oConnection, ob, oUsuarioBeanSession);
                         break;
                     case "municipio":
                         oDao = new MunicipioDao_2(oConnection, ob, oUsuarioBeanSession);

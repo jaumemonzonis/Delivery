@@ -62,7 +62,7 @@ public class MunicipioDao_2 extends GenericDaoImplementation implements DaoInter
 
     public int getIdRestaurante(String poblacion_cliente) throws Exception {
         int iRes = 0;
-        String strSQL_getIdRestaurante = "SELECT zona.id_restaurante FROM zona WHERE zona.id_municipio=(SELECT m.id from municipio m WHERE m.poblacion=?)";
+        String strSQL_getIdRestaurante = "SELECT restaurante_municipio.id_restaurante FROM restaurante_municipio WHERE restaurante_municipio.id_municipio=(SELECT m.id from municipio m WHERE m.poblacion=?)";
         PreparedStatement oPreparedStatement = null;
         ResultSet oResultSet = null;
         try {

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package net.daw.service.specificServiceImplementation_2;
+package net.daw.service.specificServiceImplementation_1;
 
 import javax.servlet.http.HttpServletRequest;
 import net.daw.service.genericServiceImplementation.GenericServiceImplementation;
@@ -13,12 +13,12 @@ import net.daw.service.publicServiceInterface.ServiceInterface;
  *
  * @author jaume monzonis
  */
-public class ZonaService_2 extends GenericServiceImplementation implements ServiceInterface {
+public class Restaurante_municipioService_1 extends GenericServiceImplementation implements ServiceInterface {
 
     HttpServletRequest oRequest;
     String ob = null;
 
-    public ZonaService_2(HttpServletRequest oRequest) {
+    public Restaurante_municipioService_1(HttpServletRequest oRequest) {
         super(oRequest);
         ob = oRequest.getParameter("ob");
     }

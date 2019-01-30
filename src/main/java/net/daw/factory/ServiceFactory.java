@@ -13,7 +13,7 @@ import net.daw.service.specificServiceImplementation_1.RestauranteService_1;
 import net.daw.service.specificServiceImplementation_1.TipoproductoService_1;
 import net.daw.service.specificServiceImplementation_1.TipousuarioService_1;
 import net.daw.service.specificServiceImplementation_1.UsuarioService_1;
-import net.daw.service.specificServiceImplementation_1.ZonaService_1;
+import net.daw.service.specificServiceImplementation_1.Restaurante_municipioService_1;
 import net.daw.service.specificServiceImplementation_2.CarritoService_2;
 import net.daw.service.specificServiceImplementation_2.FacturaService_2;
 import net.daw.service.specificServiceImplementation_2.LineaService_2;
@@ -23,7 +23,7 @@ import net.daw.service.specificServiceImplementation_2.RestauranteService_2;
 import net.daw.service.specificServiceImplementation_2.TipoproductoService_2;
 import net.daw.service.specificServiceImplementation_2.TipousuarioService_2;
 import net.daw.service.specificServiceImplementation_2.UsuarioService_2;
-import net.daw.service.specificServiceImplementation_2.ZonaService_2;
+import net.daw.service.specificServiceImplementation_2.Restaurante_municipioService_2;
 
 public class ServiceFactory {
 
@@ -259,32 +259,32 @@ public class ServiceFactory {
                                 break;
                         }
                         break;
-                    case "zona":
-                        ZonaService_1 oZonaService = new ZonaService_1(oRequest);
+                    case "restaurante_municipio":
+                        Restaurante_municipioService_1 oRestaurante_municipioService = new Restaurante_municipioService_1(oRequest);
                         switch (op) {
                             case "get":
-                                oReplyBean = oZonaService.get();
+                                oReplyBean = oRestaurante_municipioService.get();
                                 break;
                             case "create":
-                                oReplyBean = oZonaService.create();
+                                oReplyBean = oRestaurante_municipioService.create();
                                 break;
                             case "update":
-                                oReplyBean = oZonaService.update();
+                                oReplyBean = oRestaurante_municipioService.update();
                                 break;
                             case "remove":
-                                oReplyBean = oZonaService.remove();
+                                oReplyBean = oRestaurante_municipioService.remove();
                                 break;
                             case "getcount":
-                                oReplyBean = oZonaService.getcount();
+                                oReplyBean = oRestaurante_municipioService.getcount();
                                 break;
                             case "getpage":
-                                oReplyBean = oZonaService.getpage();
+                                oReplyBean = oRestaurante_municipioService.getpage();
                                 break;
                             case "getpagex":
-                                oReplyBean = oZonaService.getpageX();
+                                oReplyBean = oRestaurante_municipioService.getpageX();
                                 break;
                             case "getcountx":
-                                oReplyBean = oZonaService.getcountX();
+                                oReplyBean = oRestaurante_municipioService.getcountX();
                                 break;
                             default:
                                 oReplyBean = new ReplyBean(500, "Operation doesn't exist");

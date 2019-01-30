@@ -52,8 +52,8 @@ public class RestauranteBean extends GenericBeanImplementation implements BeanIn
         this.setDireccion(oResultSet.getString("direccion"));
         this.setPoblacion(oResultSet.getString("poblacion"));
         
-        DaoInterface oZonaDao = DaoFactory.getDao(oConnection, "zona", oUsuarioBeanSession);
-        this.setLink_zona(oZonaDao.getcountX(oResultSet.getInt("id")));
+        DaoInterface oRestaurante_municipioServiceDao = DaoFactory.getDao(oConnection, "restaurante_municipio", oUsuarioBeanSession);
+        this.setLink_zona(oRestaurante_municipioServiceDao.getcountX(oResultSet.getInt("id")));
         
         return this;
     }

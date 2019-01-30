@@ -18,7 +18,7 @@ import net.daw.factory.DaoFactory;
  *
  * @author jaume monzonis
  */
-public class ZonaBean extends GenericBeanImplementation implements BeanInterface {
+public class Restaurante_municipioBean extends GenericBeanImplementation implements BeanInterface {
 
     @Expose(serialize = false)
     private int id_restaurante;
@@ -62,7 +62,7 @@ public class ZonaBean extends GenericBeanImplementation implements BeanInterface
     }
 
     @Override
-    public ZonaBean fill(ResultSet oResultSet, Connection oConnection, Integer expand, UsuarioBean oUsuarioBeanSession) throws SQLException, Exception {
+    public Restaurante_municipioBean fill(ResultSet oResultSet, Connection oConnection, Integer expand, UsuarioBean oUsuarioBeanSession) throws SQLException, Exception {
         this.setId(oResultSet.getInt("id"));
 
         if (expand > 0) {
