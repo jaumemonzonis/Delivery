@@ -23,14 +23,16 @@ public class AreaBean extends GenericBeanImplementation implements BeanInterface
 
     @Expose
     String nombre;
+    @Expose(deserialize = false)
+     int link_area;
 
     @Override
     public AreaBean fill(ResultSet oResultSet, Connection oConnection, Integer expand, UsuarioBean oUsuarioBeanSession) throws SQLException, Exception {
 
         this.setId(oResultSet.getInt("id"));
-
-
         this.setNombre(oResultSet.getString("nombre"));
+        DaoInterface oMunicipioDao = DaoFactory.getDao(oConnection, "municipio", oUsuarioBeanSession);
+        this.setLink_area(oMunicipioDao.getcountX(oResultSet.getInt("id")));
         return this;
     }
 
@@ -57,11 +59,10 @@ public class AreaBean extends GenericBeanImplementation implements BeanInterface
         String strColumns = "";
         strColumns += "null,";
         strColumns += EncodingHelper.quotate(getNombre());
-        
+
         return strColumns;
     }
 
-  
     /**
      * @return the nombre
      */
@@ -74,5 +75,19 @@ public class AreaBean extends GenericBeanImplementation implements BeanInterface
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    /**
+     * @return the link_area
+     */
+    public int getLink_area() {
+        return link_area;
+    }
+
+    /**
+     * @param link_area the link_area to set
+     */
+    public void setLink_area(int link_area) {
+        this.link_area = link_area;
     }
 }

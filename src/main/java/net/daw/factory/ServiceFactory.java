@@ -313,12 +313,18 @@ public class ServiceFactory {
                             case "getpage":
                                 oReplyBean = oMunicipioService.getpage();
                                 break;
+                            case "getpagex":
+                                oReplyBean = oMunicipioService.getpageX();
+                                break;
+                            case "getcountx":
+                                oReplyBean = oMunicipioService.getcountX();
+                                break;
                             default:
                                 oReplyBean = new ReplyBean(500, "Operation doesn't exist");
                                 break;
                         }
                         break;
-                         case "area":
+                    case "area":
                         AreaService_1 oAreaService = new AreaService_1(oRequest);
                         switch (op) {
                             case "get":

@@ -1,9 +1,20 @@
-
 'use strict'
 
-moduleArea.controller('areaPlistController', ['$scope', '$http', '$location', 'toolService', '$routeParams', 'sessionService',
-    function ($scope, $http, $location, toolService, $routeParams, sessionService) {
-        $scope.ob = "area";
+moduleMunicipio.controller('municipioplistxusuarioController', ['$scope','$http', '$location', 'toolService', '$routeParams', 'sessionService','$window',
+    function ($scope, $http, $location, toolService, $routeParams, sessionService,$window) {
+
+        $scope.ob = "municipio";
+        $scope.totalPages = 1;
+
+        $scope.tipousuarioID = sessionService.getTypeUserID();
+        console.log($scope.tipousuarioID);
+
+
+        if (!$routeParams.id) {
+            $scope.id = 1;
+        } else {
+            $scope.id = $routeParams.id;
+        }
 
 
         if (!$routeParams.order) {
@@ -13,13 +24,6 @@ moduleArea.controller('areaPlistController', ['$scope', '$http', '$location', 't
             $scope.orderURLServidor = "&order=" + $routeParams.order;
             $scope.orderURLCliente = $routeParams.order;
         }
-
-        if (!$routeParams.id) {
-            $scope.id = 1;
-        } else {
-            $scope.id = $routeParams.id;
-        }
-
 
         if (!$routeParams.rpp) {
             $scope.rpp = "10";
@@ -36,10 +40,24 @@ moduleArea.controller('areaPlistController', ['$scope', '$http', '$location', 't
                 $scope.page = 1;
             }
         }
+      
 
-        $scope.municipio = function (id) {
-            $location.url(`municipio/plistxusuario/10/1/${id}`);
+        $scope.resetOrder = function () {
+            $location.url($scope.ob + `/plistxusuario/` + $scope.rpp + `/` + $scope.page + `/` + $scope.id);
         }
+
+        $scope.view = function (id) {
+            $location.url($scope.ob + `/view/${id}`);
+        }
+
+        $scope.remove = function (id) {
+            $location.url($scope.ob + `/remove/${id}`);
+        }
+
+        $scope.edit = function (id) {
+            $location.url($scope.ob + `/edit/${id}/` + $scope.id);
+        }
+
         $scope.ordena = function (order, align) {
             if ($scope.orderURLServidor == "") {
                 $scope.orderURLServidor = "&order=" + order + "," + align;
@@ -48,16 +66,22 @@ moduleArea.controller('areaPlistController', ['$scope', '$http', '$location', 't
                 $scope.orderURLServidor = $scope.orderURLServidor + "-" + order + "," + align;
                 $scope.orderURLCliente = $scope.orderURLCliente + "-" + order + "," + align;
             }
-            $location.url($scope.ob + `/plist/` + $scope.rpp + `/` + $scope.page + `/` + $scope.id + `/` + $scope.orderURLCliente);
+            $location.url($scope.ob + `/plistxusuario/` + $scope.rpp + `/` + $scope.page + `/` + $scope.id + `/` + $scope.orderURLCliente);
         }
 
+
+        $scope.vacio = false;
         //getcount
         $http({
             method: 'GET',
-            url: 'json?ob=area&op=getcount'
+            url: 'json?ob=municipio&op=getcountx&idajena=' + $routeParams.id
         }).then(function (response) {
             $scope.status = response.status;
             $scope.ajaxDataUsuariosNumber = response.data.message;
+//            if ($scope.ajaxDataUsuariosNumber === 0) {
+//                $scope.vacio=true;
+//            }
+
             $scope.totalPages = Math.ceil($scope.ajaxDataUsuariosNumber / $scope.rpp);
             if ($scope.page > $scope.totalPages) {
                 $scope.page = $scope.totalPages;
@@ -75,18 +99,34 @@ moduleArea.controller('areaPlistController', ['$scope', '$http', '$location', 't
 
         $http({
             method: 'GET',
-            url: 'json?ob=area&op=getpage&rpp=' + $scope.rpp + '&page=' + $scope.page + $scope.orderURLServidor
+            url: 'json?ob=municipio&op=getpagex&idajena=' + $routeParams.id + '&rpp=' + $scope.rpp + '&page=' + $scope.page + $scope.orderURLServidor
         }).then(function (response) {
             $scope.status = response.status;
             $scope.ajaxDataUsuarios = response.data.message;
+
         }, function (response) {
             $scope.status = response.status;
             $scope.ajaxDataUsuarios = response.data.message || 'Request failed';
         });
 
+        $http({
+            method: 'GET',
+            url: 'json?ob=area&op=get&id=' + $scope.id
+        }).then(function (response) {
+            $scope.status = response.status;
+            $scope.nombre2 = response.data.message.nombre;
+
+        }, function (response) {
+            $scope.status = response.status;
+
+        });
+
         $scope.update = function () {
-            $location.url($scope.ob + `/plist/` + $scope.rpp + `/` + $scope.page + '/' + $scope.orderURLCliente);
+            $location.url($scope.ob + `/plistxusuario/` + $scope.rpp + `/` + $scope.page + `/` + $scope.id + `/` + $scope.orderURLCliente);
         }
+
+
+
 
         //paginacion neighbourhood
         function pagination2() {
@@ -107,24 +147,13 @@ moduleArea.controller('areaPlistController', ['$scope', '$http', '$location', 't
             }
         }
 
-        $scope.resetOrder = function () {
-            $location.url($scope.ob + `/plist/` + $scope.rpp + `/` + $scope.page);
-        }
-        $scope.view = function (id) {
-            $location.url($scope.ob + `/view/${id}`);
-        }
-
-        $scope.remove = function (id) {
-            $location.url($scope.ob + `/remove/${id}`);
-        }
-
-        $scope.edit = function (id) {
-            $location.url($scope.ob + `/edit/${id}`);
-        }
         $scope.isActive = toolService.isActive;
+        $scope.openModal = function () {
+
+        }
+        $scope.volver = function () {
+            $window.history.back();
+        };
 
     }
-
-
-
 ]);

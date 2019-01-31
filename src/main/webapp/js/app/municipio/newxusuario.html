@@ -1,0 +1,87 @@
+<header-component></header-component>
+<nav-component></nav-component>
+
+
+<div class="container-fluid">
+
+
+    <div class="row">
+        <div class="col-12">
+
+            <div class="row">
+                <div class="col-5 mx-auto container2 pl-3 pr-3 mt-3">
+                    <div class="row mt-5">
+                        <div class="col-12 mx-auto">
+                            <h4 class="text-center mb-3"><i class="material-icons">
+                                    add_circle_outline</i> 
+                                Nuevo municipio del area {{nombre2}}</h4>
+                        </div>
+                    </div>
+                    <form name="userForm" ng-show="!visualizar">
+              <label for="obj_municipio">MUNICIPIO:</label>
+                        <div class="form-group row ml-3">
+                            <municipio-selection 
+                                class="modal fade" 
+                                id="cadd-location-modal" 
+                                obj="obj_Municipio"
+                                on-tipousuario-set="municipioRefresh(this,false)">                          
+                            </municipio-selection>
+
+                            <div class="control">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"
+                                              data-toggle="modal"
+                                              data-target="#cadd-location-modal">
+                                            <span class="material-icons mr-2">youtube_searched_for</span>
+                                        </span>
+                                    </div>
+                                    <input ng-model="obj_Municipio.id"
+                                           ng-change="municipioRefresh(this, true)"
+                                           aria-describedby="basic-addon2"
+                                           class="form-control col-sm-2"
+                                           id="obj_municipio"
+                                           name="obj_municipio"
+                                           type="text"
+                                           ng-required
+
+                                           ng-model-options="{debounce: 1000}"
+                                           maxlength="20" />
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <a href="/delivery/municipio/view/{{obj_Municipio.id}}">
+                                                <span class="p-2 bd-highlight"><i class="material-icons">
+                                                        account_circle
+                                                    </i></span>
+                                                MUNICIPIO: {{obj_Municipio.poblacion}}
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div ng-show="!userForm.obj_municipio.$valid">Población: no válida</div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="d-flex justify-content-between flex-wrap">
+                            <button ng-click="update()" type="button" class="btn btn-primary btn-block mb-3" ng-disabled="userForm.$invalid">Crear municipio</button>
+                            <button type="button" class="btn btn-primary btn-block mb-3" onclick="window.history.back()">Volver</button>
+                        </div>
+
+                        </form>
+           
+            <div class="row" ng-show="visualizar">
+                <div class="col-5 mx-auto">
+                    <div class="alert alert-success" role="alert">
+                        <p class="text-center mt-2"> Municipio creado correctamente.<p> 
+                    </div>
+                    <button type="button" class="btn btn-primary btn-block mt-2 mb-3" onclick="window.history.back()">Volver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+    

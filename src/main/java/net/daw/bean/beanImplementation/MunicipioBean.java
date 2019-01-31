@@ -26,6 +26,7 @@ public class MunicipioBean extends GenericBeanImplementation implements BeanInte
      int id_area;
     @Expose(deserialize = false)
      AreaBean obj_area;
+  
 
     public String getPoblacion() {
         return poblacion;

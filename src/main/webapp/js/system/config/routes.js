@@ -134,7 +134,7 @@ delivery.config(['$routeProvider', function ($routeProvider) {
 
         //FACTURA
         $routeProvider.when('/factura/plist/:rpp?/:page?/:order?', {templateUrl: 'js/app/factura/plist.html', controller: 'facturaPlistController', resolve: {auth: autenticacionAdministrador}});
-        $routeProvider.when('/factura/plistxusuario/:rpp?/:page?/:id?/:order?', {templateUrl: 'js/app/factura/plistxusuario.html', controller: 'facturaplistxusuarioController'});
+        $routeProvider.when('/factura/plistxusuario/:rpp?/:page?/:id?/:order?', {templateUrl: 'js/app/factura/plistxusuario.html', controller: 'facturaplistxusuarioController', resolve: {auth: autenticacionAdministrador}});
         $routeProvider.when('/factura/remove/:id', {templateUrl: 'js/app/factura/remove.html', controller: 'facturaRemoveController', resolve: {auth: autenticacionAdministrador}});
         $routeProvider.when('/factura/view/:id?', {templateUrl: 'js/app/factura/view.html', controller: 'facturaViewController'});
         $routeProvider.when('/factura/new', {templateUrl: 'js/app/factura/new.html', controller: 'facturaNewController', resolve: {auth: autenticacionAdministrador}});
@@ -155,12 +155,12 @@ delivery.config(['$routeProvider', function ($routeProvider) {
 
         //MUNICIPIO
         $routeProvider.when('/municipio/new', {templateUrl: 'js/app/municipio/new.html', controller: 'municipioNewController', resolve: {auth: autenticacionAdministrador}});
-        $routeProvider.when('/municipio/edit/:id', {templateUrl: 'js/app/municipio/edit.html', controller: 'municipioEditController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/municipio/edit/:id?/:id_area?', {templateUrl: 'js/app/municipio/edit.html', controller: 'municipioEditController', resolve: {auth: autenticacionAdministrador}});
         $routeProvider.when('/municipio/remove/:id', {templateUrl: 'js/app/municipio/remove.html', controller: 'municipioRemoveController', resolve: {auth: autenticacionAdministrador}});
         $routeProvider.when('/municipio/plist/:rpp?/:page?/:order?', {templateUrl: 'js/app/municipio/plist.html', controller: 'municipioPlistController', resolve: {auth: autenticacionAdministrador}});
-        $routeProvider.when('/municipio/view/:id?', {templateUrl: 'js/app/municipio/view.html', controller: 'municipioViewController'});
-
-
+        $routeProvider.when('/municipio/view/:id?', {templateUrl: 'js/app/municipio/view.html', controller: 'municipioViewController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/municipio/plistxusuario/:rpp?/:page?/:id?/:order?', {templateUrl: 'js/app/municipio/plistxusuario.html', controller: 'municipioplistxusuarioController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/municipio/newxusuario/:id', {templateUrl: 'js/app/municipio/newxusuario.html', controller: 'municipionewxusuarioController', resolve: {auth: autenticacionAdministrador}});
 
         //area
         $routeProvider.when('/area/plist/:rpp?/:page?/:id?/:order?', {templateUrl: 'js/app/area/plist.html', controller: 'areaPlistController', resolve: {auth: autenticacionAdministrador}});
