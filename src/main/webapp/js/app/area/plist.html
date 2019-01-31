@@ -47,15 +47,6 @@
 
                         </th>
 
-                        <th>
-                            <p>MUNICIPIO</p>
-                            <div class="order" ng-click="ordena('id', 'desc')">
-                                <i class="material-icons">
-                                    swap_vert
-                                </i>
-                            </div>
-
-                        </th>
                           <th>
                             <p>NOMBRE</p>
                             <div class="order" ng-click="ordena('id', 'desc')">
@@ -72,7 +63,7 @@
                     </tr>
                     <tr ng-repeat="fila in ajaxDataUsuarios">
                         <td>{{fila.id}}</td>
-                        <td><a class="hover-ajena" href="municipio/view/{{fila.obj_Municipio.id}}">{{fila.obj_Municipio.poblacion}}</a></td>
+                 
                         <td>{{fila.nombre}}</td>
                         <td><button type="button" rel="tooltip" class="btn btn-just-icon btn-sm" ng-click="view(fila.id)">
                                 <i class="material-icons">visibility</i>

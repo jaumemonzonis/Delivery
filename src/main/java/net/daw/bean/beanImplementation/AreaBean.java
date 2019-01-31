@@ -21,10 +21,6 @@ import net.daw.helper.EncodingHelper;
  */
 public class AreaBean extends GenericBeanImplementation implements BeanInterface {
 
-    @Expose(serialize = false)
-    int id_municipio;
-    @Expose(deserialize = false)
-    MunicipioBean obj_Municipio;
     @Expose
     String nombre;
 
@@ -33,10 +29,6 @@ public class AreaBean extends GenericBeanImplementation implements BeanInterface
 
         this.setId(oResultSet.getInt("id"));
 
-        if (expand > 0) {
-            DaoInterface oMunicipioDao = DaoFactory.getDao(oConnection, "municipio", oUsuarioBeanSession);
-            this.setObj_Municipio((MunicipioBean) oMunicipioDao.get(oResultSet.getInt("id_municipio"), expand));
-        }
 
         this.setNombre(oResultSet.getString("nombre"));
         return this;
@@ -46,7 +38,6 @@ public class AreaBean extends GenericBeanImplementation implements BeanInterface
     public String getPairs() {
         String strPairs = "";
         strPairs += "id=" + id + ",";
-        strPairs += "id_municipio=" + getId_municipio() + ",";
         strPairs += "nombre=" + EncodingHelper.quotate(getNombre());
         strPairs += " WHERE id=" + id;
         return strPairs;
@@ -56,7 +47,6 @@ public class AreaBean extends GenericBeanImplementation implements BeanInterface
     public String getColumns() {
         String strColumns = "";
         strColumns += "id,";
-        strColumns += "id_municipio,";
         strColumns += "nombre";
         return strColumns;
     }
@@ -66,45 +56,12 @@ public class AreaBean extends GenericBeanImplementation implements BeanInterface
 
         String strColumns = "";
         strColumns += "null,";
-
-        if (getObj_Municipio() != null) {
-            strColumns += this.getObj_Municipio().getId() +",";
-        } else {
-            strColumns += this.getId_municipio()+",";
-        }
         strColumns += EncodingHelper.quotate(getNombre());
         
         return strColumns;
     }
 
-    /**
-     * @return the id_municipio
-     */
-    public int getId_municipio() {
-        return id_municipio;
-    }
-
-    /**
-     * @param id_municipio the id_municipio to set
-     */
-    public void setId_municipio(int id_municipio) {
-        this.id_municipio = id_municipio;
-    }
-
-    /**
-     * @return the obj_Municipio
-     */
-    public MunicipioBean getObj_Municipio() {
-        return obj_Municipio;
-    }
-
-    /**
-     * @param obj_Municipio the obj_Municipio to set
-     */
-    public void setObj_Municipio(MunicipioBean obj_Municipio) {
-        this.obj_Municipio = obj_Municipio;
-    }
-
+  
     /**
      * @return the nombre
      */

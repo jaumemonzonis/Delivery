@@ -22,10 +22,7 @@
                 Municipio editado correctamente.
             </div>
           <form name="userForm" ng-show="(!visualizar)">
-            <div class="form-group">
-              <label>ID</label>
-              <input type="text" class="form-control" id="id" name="id" ng-disabled="true" ng-model="id" />
-            </div>
+           
            
             <div class="form-group">
               <label>Población</label>
@@ -34,12 +31,53 @@
                 Población obligatoria
               </div>
             </div>
-   
+   <label for="obj_area">AREA:</label>
+                        <div class="form-group row ml-3">
+                            <area-selection 
+                                class="modal fade" 
+                                id="cadd-location-modal" 
+                                obj="obj_area"
+                                on-tipousuario-set="areaRefresh(this,false)">                          
+                            </area-selection>
+
+                            <div class="control">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"
+                                              data-toggle="modal"
+                                              data-target="#cadd-location-modal">
+                                            <span class="material-icons mr-2">youtube_searched_for</span>
+                                        </span>
+                                    </div>
+                                    <input ng-model="obj_area.id"
+                                           ng-change="areaRefresh(this, true)"
+                                           aria-describedby="basic-addon2"
+                                           class="form-control col-sm-2"
+                                           id="obj_area"
+                                           name="obj_area"
+                                           type="text"
+                                           ng-required
+                                           ng-model-options="{debounce: 1000}"
+                                           maxlength="2" />
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <a href="/delivery/area/view/{{obj_area.id}}">
+                                               <span class="p-2 bd-highlight"><i class="material-icons">
+                                                       account_circle
+                                                    </i></span>
+                                               AREA: {{obj_area.nombre}}
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div ng-show="!userForm.obj_area.$valid">Area no válida</div>
+                            </div>
+                        </div>
             <button ng-click="update()" type="button" class="btn btn-primary btn-block" ng-disabled="userForm.$invalid">guardar</button>
          
           </form> 
              <div class="alert alert-success" role="alert" ng-show="(error)">
-                Error al editar el municipio.
+                Error al editar el area.
             </div>
             <button type="button" class="btn btn-primary btn-block mt-2 mb-3" ng-click="volver()">Volver</button>
 

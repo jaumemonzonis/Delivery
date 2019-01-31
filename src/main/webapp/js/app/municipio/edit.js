@@ -32,6 +32,10 @@ moduleMunicipio.controller("municipioEditController", [
 
             $scope.id = response.data.message.id;
             $scope.poblacion = response.data.message.poblacion;
+            $scope.obj_area = {
+                id: response.data.message.obj_area.id,
+                nombre: response.data.message.obj_area.nombre
+            }
 
 
         }), function (response) {
@@ -45,6 +49,7 @@ moduleMunicipio.controller("municipioEditController", [
             var json = {
                 id: $scope.id,
                 poblacion: $scope.poblacion,
+                 id_area: $scope.obj_area.id
 
             }
 
@@ -60,7 +65,23 @@ moduleMunicipio.controller("municipioEditController", [
             })
         }
 
-
+  $scope.areaRefresh = function (f, consultar) {
+            var form = f;
+            if (consultar) {
+                $http({
+                    method: 'GET',
+                    url: 'json?ob=area&op=get&id=' + $scope.obj_area.id
+                }).then(function (response) {
+                    $scope.obj_area = response.data.message;
+                    //$scope.poblacion= response.data.message.poblacion;
+                    form.userForm.obj_area.$setValidity('valid', true);
+                }, function (response) {
+                    form.userForm.obj_area.$setValidity('valid', false);
+                });
+            } else {
+                form.userForm.obj_area.$setValidity('valid', true);
+            }
+        };
           $scope.volver = function () {
             $window.history.back();
         }

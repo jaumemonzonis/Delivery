@@ -101,7 +101,6 @@ CREATE TABLE IF NOT EXISTS `delivery`.`restaurante` (
   `nombre` VARCHAR(255) NULL,
   `direccion` VARCHAR(255) NULL,
   `poblacion` VARCHAR(255) NULL,
-
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -158,6 +157,17 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_unicode_ci;
 
+-- -----------------------------------------------------
+-- Table `delivery`.`area`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `delivery`.`area` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(255) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_unicode_ci;
+
 
 -- -----------------------------------------------------
 -- Table `delivery`.`municipio`
@@ -165,26 +175,35 @@ COLLATE = utf8_unicode_ci;
 CREATE TABLE IF NOT EXISTS `delivery`.`municipio` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `poblacion` VARCHAR(255) NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+  `id_area` INT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_municipio_area1_idx` (`id_area` ASC),
+  CONSTRAINT `fk_municipio_area1`
+    FOREIGN KEY (`id_area`)
+    REFERENCES `delivery`.`area` (`id`)
+    ON DELETE SET NULL
+    ON UPDATE CASCADE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_unicode_ci;
 
 
 -- -----------------------------------------------------
--- Table `delivery`.`zona`
+-- Table `delivery`.`restaurante_municipio`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `delivery`.`zona` (
+CREATE TABLE IF NOT EXISTS `delivery`.`restaurante_municipio` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `id_restaurante` INT NULL,
   `id_municipio` INT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_zona_restaurante1_idx` (`id_restaurante` ASC),
-  INDEX `fk_zona_municipio1_idx` (`id_municipio` ASC),
-  CONSTRAINT `fk_zona_restaurante1`
+  INDEX `fk_restaurante_municipio_restaurante1_idx` (`id_restaurante` ASC),
+  INDEX `fk_restaurante_municipio_municipio1_idx` (`id_municipio` ASC),
+  CONSTRAINT `fk_restaurante_municipio_restaurante1`
     FOREIGN KEY (`id_restaurante`)
     REFERENCES `delivery`.`restaurante` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_zona_municipio1`
+  CONSTRAINT `fk_restaurante_municipio_municipio1`
     FOREIGN KEY (`id_municipio`)
     REFERENCES `delivery`.`municipio` (`id`)
     ON DELETE NO ACTION
