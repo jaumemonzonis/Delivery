@@ -41,7 +41,7 @@ moduleProducto.controller('productoPlistController', ['$scope', '$http', '$locat
         }
 
 
-        $scope.ordena = function (order, align) {
+         $scope.ordena = function (order, align) {
             if ($scope.orderURLServidor == "") {
                 $scope.orderURLServidor = "&order=" + order + "," + align;
                 $scope.orderURLCliente = order + "," + align;
@@ -50,7 +50,7 @@ moduleProducto.controller('productoPlistController', ['$scope', '$http', '$locat
                 $scope.orderURLCliente = $scope.orderURLCliente + "-" + order + "," + align;
             }
             $location.url($scope.ob + `/plist/` + $scope.rpp + `/` + $scope.page + `/` + $scope.orderURLCliente);
-        }
+}
 
         //getcount
         $http({

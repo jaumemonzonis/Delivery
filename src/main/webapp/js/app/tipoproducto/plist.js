@@ -45,7 +45,8 @@ moduleTipoproducto.controller('tipoproductoPlistController', ['$scope', '$http',
                 $scope.orderURLCliente = $scope.orderURLCliente + "-" + order + "," + align;
             }
             $location.url($scope.ob + `/plist/` + $scope.rpp + `/` + $scope.page + `/` + $scope.orderURLCliente);
-        }
+}
+
 
         //getcount
         $http({
