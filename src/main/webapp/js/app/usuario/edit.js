@@ -7,7 +7,7 @@ moduleUsuario.controller("usuarioEditController", [
     "toolService",
     "sessionService",
     function ($scope, $http, $routeParams, toolService, sessionService) {
-         $scope.visualizar = false;
+        $scope.visualizar = false;
         $scope.logged = false;
 
         if (!$routeParams.id) {
@@ -38,7 +38,10 @@ moduleUsuario.controller("usuarioEditController", [
             $scope.login = response.data.message.login;
             $scope.pass = 'pass';
             $scope.telefono = response.data.message.telefono;
-            $scope.poblacion = response.data.message.poblacion;
+            $scope.obj_Municipio = {
+                id: null,
+                poblacion: response.data.message.poblacion
+            }
             $scope.direccion = response.data.message.direccion;
             $scope.email = response.data.message.email;
 
@@ -50,16 +53,7 @@ moduleUsuario.controller("usuarioEditController", [
         }), function () {
         };
 
-        $http({
-            method: 'GET',
-            url: 'json?ob=municipio&op=getpage&rpp=1000&page=1'
-        }).then(function (response) {
-            $scope.status = response.status;
-            $scope.municipios = response.data.message;
-        }, function (response) {
-            $scope.status = response.status;
-            $scope.municipios = response.data.message || 'Request failed';
-        });
+
 
         $scope.isActive = toolService.isActive;
 
@@ -75,7 +69,7 @@ moduleUsuario.controller("usuarioEditController", [
                 pass: $scope.pass,
                 email: $scope.email,
                 direccion: $scope.direccion,
-                 poblacion: $scope.municipio,
+                poblacion: $scope.obj_Municipio.poblacion,
                 id_tipousuario: $scope.obj_tipoUsuario.id
             }
             $http({
@@ -86,7 +80,7 @@ moduleUsuario.controller("usuarioEditController", [
                 url: 'json?ob=usuario&op=update',
                 params: {json: JSON.stringify(json)}
             }).then(function () {
-                 $scope.visualizar = true;
+                $scope.visualizar = true;
             })
         }
 
@@ -106,7 +100,26 @@ moduleUsuario.controller("usuarioEditController", [
             } else {
                 form.userForm.obj_tipousuario.$setValidity('valid', true);
             }
-        }
+        };
+
+
+        $scope.municipioRefresh = function (f, consultar) {
+            var form = f;
+            if (consultar) {
+                $http({
+                    method: 'GET',
+                    url: 'json?ob=municipio&op=get&id=' + $scope.obj_Municipio.id
+                }).then(function (response) {
+                    $scope.obj_Municipio = response.data.message;
+                    //$scope.poblacion= response.data.message.poblacion;
+                    form.userForm.obj_municipio.$setValidity('valid', true);
+                }, function (response) {
+                    form.userForm.obj_municipio.$setValidity('valid', false);
+                });
+            } else {
+                form.userForm.obj_municipio.$setValidity('valid', true);
+            }
+        };
 
         $scope.back = function () {
             window.history.back();

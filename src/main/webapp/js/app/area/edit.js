@@ -36,7 +36,7 @@ moduleArea.controller("areaEditController", [
           
             $scope.obj_Municipio = {
                 id: response.data.message.obj_Municipio.id,
-                municipio: response.data.message.obj_Municipio.poblacion
+                poblacion: response.data.message.obj_Municipio.poblacion
             }
 
         }), function (response) {
@@ -73,7 +73,7 @@ moduleArea.controller("areaEditController", [
                     url: 'json?ob=municipio&op=get&id=' + $scope.obj_Municipio.id
                 }).then(function (response) {
                     $scope.obj_Municipio = response.data.message;
-                     $scope.obj_Municipio.municipio= response.data.message.poblacion;
+                     //$scope.poblacion= response.data.message.poblacion;
                     form.userForm.obj_municipio.$setValidity('valid', true);
                 }, function (response) {
                     form.userForm.obj_municipio.$setValidity('valid', false);

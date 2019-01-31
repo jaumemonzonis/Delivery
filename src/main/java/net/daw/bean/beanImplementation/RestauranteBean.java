@@ -26,8 +26,8 @@ public class RestauranteBean extends GenericBeanImplementation implements BeanIn
     private String direccion;
     @Expose
      String poblacion;
-    @Expose(deserialize = false)
-      int link_zona;
+//    @Expose(deserialize = false)
+//      int link_area;
 
     public String getNombre() {
         return nombre;
@@ -52,8 +52,8 @@ public class RestauranteBean extends GenericBeanImplementation implements BeanIn
         this.setDireccion(oResultSet.getString("direccion"));
         this.setPoblacion(oResultSet.getString("poblacion"));
         
-        DaoInterface oRestaurante_municipioServiceDao = DaoFactory.getDao(oConnection, "restaurante_municipio", oUsuarioBeanSession);
-        this.setLink_zona(oRestaurante_municipioServiceDao.getcountX(oResultSet.getInt("id")));
+//        DaoInterface oRestaurante_municipioDao = DaoFactory.getDao(oConnection, "restaurante_municipio", oUsuarioBeanSession);
+//        this.setLink_area(oRestaurante_municipioDao.getcountX(oResultSet.getInt("id")));
         
         return this;
     }
@@ -102,18 +102,18 @@ public class RestauranteBean extends GenericBeanImplementation implements BeanIn
     public void setPoblacion(String poblacion) {
         this.poblacion = poblacion;
     }
-
-    /**
-     * @return the link_zona
-     */
-    public int getLink_zona() {
-        return link_zona;
-    }
-
-    /**
-     * @param link_zona the link_zona to set
-     */
-    public void setLink_zona(int link_zona) {
-        this.link_zona = link_zona;
-    }
+//
+//    /**
+//     * @return the link_area
+//     */
+//    public int getLink_area() {
+//        return link_area;
+//    }
+//
+//    /**
+//     * @param link_area the link_zona to set
+//     */
+//    public void setLink_area(int link_area) {
+//        this.link_area = link_area;
+//    }
 }

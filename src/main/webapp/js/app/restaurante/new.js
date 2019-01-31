@@ -20,16 +20,6 @@ moduleRestaurante.controller("restauranteNewController", [
         $scope.activar = true;
         $scope.ajaxData = "";
 
-        $http({
-            method: 'GET',
-            url: 'json?ob=municipio&op=getpage&rpp=1000&page=1'
-        }).then(function (response) {
-            $scope.status = response.status;
-            $scope.municipios = response.data.message;
-        }, function (response) {
-            $scope.status = response.status;
-            $scope.municipios = response.data.message || 'Request failed';
-        });
 
 
         $scope.isActive = toolService.isActive;
@@ -42,7 +32,7 @@ moduleRestaurante.controller("restauranteNewController", [
                 id: null,
                 nombre: $scope.nombre,
                 direccion: $scope.direccion,
-                poblacion: $scope.municipio
+                poblacion: $scope.obj_Municipio.poblacion 
             }
 
             $http({
@@ -58,6 +48,23 @@ moduleRestaurante.controller("restauranteNewController", [
         }
 
 
+ $scope.municipioRefresh = function (f, consultar) {
+            var form = f;
+            if (consultar) {
+                $http({
+                    method: 'GET',
+                    url: 'json?ob=municipio&op=get&id=' + $scope.obj_Municipio.id
+                }).then(function (response) {
+                    $scope.obj_Municipio = response.data.message;
+                     //$scope.poblacion= response.data.message.poblacion;
+                    form.userForm.obj_municipio.$setValidity('valid', true);
+                }, function (response) {
+                    form.userForm.obj_municipio.$setValidity('valid', false);
+                });
+            } else {
+                form.userForm.obj_municipio.$setValidity('valid', true);
+            }
+        }
 
         $scope.volver = function () {
             $window.history.back();

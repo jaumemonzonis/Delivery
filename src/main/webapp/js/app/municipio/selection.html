@@ -7,14 +7,31 @@
             </button>
         </div>
         <div class="modal-body">
+  <div class="col-md-12 ml-sm-auto col-lg-12 mt-3">
+                <div class="btn-toolbar mb-2 mb-md-0 float-left">
+                    <div class="btn-group" style="width:270px; margin-left: -5%;">
+                        <p class="mt-2" style="width:200px;">Registros por pagina:</p>
+                        <select class="form-control form-size" 
+                                ng-change="c.update(1)" 
+                                ng-model="c.rpp">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                        </select>
+                    </div>
 
+                    <button type="button" class="btn btn-just-icon btn-sm mt-3 reseticon" ng-click="c.resetOrder()">
+                        <i class="material-icons">cached</i>
+                    </button>
+                </div>
 
            <div class="table-responsive container2 pl-3 pr-3">
                     <table class="table table-sm">
                     <tr>
                          <th>
                                 <p>ID</p>
-                                <div class="order" ng-click="ordena('id', 'asc')">
+                                <div class="order" ng-click="c.ordena('id', 'asc')">
                                     <i class="material-icons">
                                         swap_vert
                                     </i>
@@ -23,7 +40,7 @@
                             </th>
                           <th>
                                 <p>POBLACION</p>
-                                <div class="order" ng-click="ordena('id', 'asc')">
+                                <div class="order" ng-click="c.ordena('id', 'asc')">
                                     <i class="material-icons">
                                         swap_vert
                                     </i>
@@ -54,6 +71,29 @@
 
             </div>
         </div>
+                   <div class="row justify-content-md-center">
+                <div class="col-md-auto">
+                    <nav aria-label="paginacion">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" ng-show="c.page > 2" ng-click="c.update(1)">First</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" ng-show="c.page > 1" ng-click="c.update(c.page - 1)">Previous</a>
+                            </li>
+                            <li class="page-item" ng-class="{'active':(p == c.page), 'disabled': (p == '...')}" ng-repeat="p in c.list2 track by $index" >
+                                <a class="page-link"  ng-click="c.update(p)">{{p}}</a>
+                            </li>
+                            <li class="page-item" ng-show="c.page != c.totalPages" >
+                                <a class="page-link" ng-click="c.update(c.page--1)" >Next</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" ng-show="c.page != c.totalPages - 1 && c.page != c.totalPages" ng-click="c.update(c.totalPages)">Last</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-danger" ng-click="c.newVariableAndValue.name = '';c.newVariableAndValue.value = ''">Reset</button>
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
