@@ -174,5 +174,9 @@ delivery.config(['$routeProvider', function ($routeProvider) {
         //administrador
         $routeProvider.when('/administrador/plist', {templateUrl: 'js/app/administrador/plist.html', controller: 'administradorPlistController', resolve: {auth: autenticacionAdministrador}});
 
+        //cliente
+        $routeProvider.when('/cliente/home_client', {templateUrl: 'js/app/cliente/home_client.html', controller: 'clientHomeController'});
+
+
         $routeProvider.otherwise({redirectTo: '/'});
     }]);

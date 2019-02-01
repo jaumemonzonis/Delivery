@@ -11,6 +11,7 @@ var delivery = angular.module('MyApp', [
     'facturaControllers',
     'productoControllers',
     'lineaControllers',
+    'clienteControllers',
     'administradorControllers',
     'restauranteControllers',
     'areaControllers',
@@ -60,3 +61,4 @@ var moduleArea = angular.module('areaControllers',[]);
 var moduleMunicipio = angular.module('municipioControllers',[]);
 var moduleCarrito = angular.module('carritoControllers',[]);
 var moduloDirectivas = angular.module('Directives', []);
+var moduleCliente = angular.module('clienteControllers',[]);
