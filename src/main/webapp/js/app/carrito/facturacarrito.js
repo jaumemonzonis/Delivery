@@ -95,7 +95,7 @@ moduleFactura.controller('facturaCarritoController', ['$scope', '$http', '$locat
                 doc.setDrawColor(255, 0, 0);
                 doc.rect(8, 10, 195, 70);
                 doc.rect(8, 10, 85, 70);
-//                doc.addImage(imgData, 'JPEG', 155, 12, 42, 40);
+                doc.addImage(imgData, 'JPEG', 155, 12, 42, 40);
                 doc.setFontSize(13);
                 doc.setFontType('bold');
                 doc.text(100, 20, 'LIZ CIMIENTOS SL');
