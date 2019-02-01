@@ -86,8 +86,9 @@ var autenticacionUsuario = function ($q, $location, $http, sessionService) {
 
 delivery.config(['$routeProvider', function ($routeProvider) {
 
-        //HOOME
+        //HOME
         $routeProvider.when('/', {templateUrl: 'js/app/common/home.html', controller: 'homeController'});
+        
 
         //USUARIO
         $routeProvider.when('/usuario/plist/:rpp?/:page?/:order?', {templateUrl: 'js/app/usuario/plist.html', controller: 'usuarioPlistController', resolve: {auth: autenticacionAdministrador}});
@@ -174,8 +175,8 @@ delivery.config(['$routeProvider', function ($routeProvider) {
         //administrador
         $routeProvider.when('/administrador/plist', {templateUrl: 'js/app/administrador/plist.html', controller: 'administradorPlistController', resolve: {auth: autenticacionAdministrador}});
 
-        //cliente
-        $routeProvider.when('/cliente/home_client', {templateUrl: 'js/app/cliente/home_client.html', controller: 'clientHomeController'});
+        
+       
 
 
         $routeProvider.otherwise({redirectTo: '/'});

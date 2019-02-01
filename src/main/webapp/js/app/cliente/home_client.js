@@ -1,14 +1,20 @@
+"use strict";
 
-'use strict'
+moduleCliente.controller("clienteHomeclienteontroller", [
+    "$scope",
+    "$http",
+    "$routeParams",
+    "toolService",
+    'sessionService',
+    function ($scope, $http, $routeParams, toolService, sessionService) {
 
-moduleClient.controller('clientHomeController', ['$scope', '$http', '$location', 'toolService', '$routeParams', 'sessionService', "$window",
-    function ($scope, $http, $location, toolService, $routeParams, sessionService, $window) {
+       
+
+  
 
 
+    
 
+       
 
-    }
-
-
-
-]);
+    }]);
