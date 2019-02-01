@@ -498,28 +498,18 @@ public class ServiceFactory {
                                 break;
                         }
                         break;
-//                    case "zona":
-//                        ZonaService_2 oZonaService = new ZonaService_2(oRequest);
-//                        switch (op) {
-//                            case "get":
-//                                oReplyBean = oZonaService.get();
-//                                break;
-//                            default:
-//                                oReplyBean = new ReplyBean(500, "Operation doesn't exist");
-//                                break;
-//                        }
-//                        break;
-//                    case "municipio":
-//                        MunicipioService_2 oMunicipioService = new MunicipioService_2(oRequest);
-//                        switch (op) {
-//                            case "get":
-//                                oReplyBean = oMunicipioService.get();
-//                                break;
-//                            default:
-//                                oReplyBean = new ReplyBean(500, "Operation doesn't exist");
-//                                break;
-//                        }
-//                        break;
+                    case "municipio":
+                        MunicipioService_2 oMunicipioService = new MunicipioService_2(oRequest);
+                        switch (op) {
+                            case "getIdRestaurante":
+                                oReplyBean = oMunicipioService.getIdRestaurante();
+                                break;
+                            case "getIdRestauranteArea":
+                                oReplyBean = oMunicipioService.getIdRestauranteArea();
+                                break;
+
+                        }
+                        break;
                     case "carrito":
                         CarritoService_2 oCarritoService = new CarritoService_2(oRequest);
                         switch (op) {

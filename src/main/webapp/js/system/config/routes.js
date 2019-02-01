@@ -144,7 +144,8 @@ delivery.config(['$routeProvider', function ($routeProvider) {
         //CARRITO
         $routeProvider.when('/carrito/plist/:rpp?/:page?/:order?', {templateUrl: 'js/app/carrito/plist.html', controller: 'carritoPlistController', resolve: {auth: autenticacionUsuario}});
         $routeProvider.when('/carrito/carrito/:rpp?/:page?/:order?', {templateUrl: 'js/app/carrito/carrito.html', controller: 'carritoCarritoController', resolve: {auth: autenticacionUsuario}});
-        $routeProvider.when('/carrito/facturacarrito/:id?', {templateUrl: 'js/app/carrito/facturacarrito.html', controller: 'facturaCarritoController', resolve: {auth: autenticacionUsuario}});
+        $routeProvider.when('/carrito/facturacarrito/:id?', {templateUrl: 'js/app/carrito/facturacarrito.html', controller: 'facturaCarritoController', resolve: { auth: autenticacionUsuario } });
+        $routeProvider.when('/carrito/restaurante/:id?', {templateUrl: 'js/app/carrito/restaurante.html', controller: 'restauranteCarritoController', resolve: {auth: autenticacionUsuario}});
 
         //RESTAURANTE
         $routeProvider.when('/restaurante/new', {templateUrl: 'js/app/restaurante/new.html', controller: 'restauranteNewController', resolve: {auth: autenticacionAdministrador}});
@@ -168,10 +169,10 @@ delivery.config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/area/remove/:id', {templateUrl: 'js/app/area/remove.html', controller: 'areaRemoveController', resolve: {auth: autenticacionAdministrador}});
         $routeProvider.when('/area/edit/:id', {templateUrl: 'js/app/area/edit.html', controller: 'areaEditController', resolve: {auth: autenticacionAdministrador}});
         $routeProvider.when('/area/new', {templateUrl: 'js/app/area/new.html', controller: 'areaNewController', resolve: {auth: autenticacionAdministrador}});
-  
+
 
         //administrador
         $routeProvider.when('/administrador/plist', {templateUrl: 'js/app/administrador/plist.html', controller: 'administradorPlistController', resolve: {auth: autenticacionAdministrador}});
-        
+
         $routeProvider.otherwise({redirectTo: '/'});
     }]);

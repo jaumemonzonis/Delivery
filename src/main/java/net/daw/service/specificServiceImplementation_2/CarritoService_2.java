@@ -237,16 +237,15 @@ public class CarritoService_2 {
             oFacturaBean.setId_usuario(id);
             oFacturaBean.setFecha(fechaHoraAhora);
             oFacturaBean.setIva(21.0F);
-            
-            //Determinar el id_restaurante
-            if (id_restaurante !=0 ){
-             oFacturaBean.setId_restaurante(id_restaurante);
-            } else {
-            String direccion_cliente = ((UsuarioBean) sesion.getAttribute("user")).getPoblacion();
-            //int dir_client= Integer.parseInt(direccion_cliente);  
-            MunicipioDao_2 oMunicipioDao = new  MunicipioDao_2(oConnection, "municipio", oUsuarioBeanSession);
-            oFacturaBean.setId_restaurante(oMunicipioDao.getIdRestaurante(direccion_cliente));   
-            }
+            oFacturaBean.setId_restaurante(id_restaurante);
+//            //Determinar el id_restaurante
+//            if (id_restaurante !=0 ){
+//             
+//            } else {
+//            String direccion_cliente = ((UsuarioBean) sesion.getAttribute("user")).getPoblacion();
+//            MunicipioDao_2 oMunicipioDao = new  MunicipioDao_2(oConnection, "municipio", oUsuarioBeanSession);
+//            oFacturaBean.setId_restaurante(oMunicipioDao.getIdRestaurante(direccion_cliente));   
+//            }
 
             FacturaDao_2 oFacturaDao = new FacturaDao_2(oConnection, "factura", oUsuarioBeanSession);
             FacturaBean oFacturaBeanCreada = (FacturaBean) oFacturaDao.create(oFacturaBean);
