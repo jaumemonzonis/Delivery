@@ -1,27 +1,49 @@
 <div class="body d-flex">
-    <div class="nav1"></div>
-    <div class="logo"></div>
+    <div class="nav1">
+
+        <input type="checkbox" id="menu-btn" name="Menu">
+        <label id="menu-lbl" for="menu-btn"></label>
+        <nav itemscope itemtype="http://schema.org/SiteNavigationElement">
+            <a class="label_white" href="#">PRODUCTOS</a>
+            <a class="label_white"  href="#">LOCALES</a>
+            <a class="label_white" href="#">NUESTRA EMPRESA</a>
+            <a class="label_white" href="#">CONTACTO</a>
+        </nav>
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="logo">
+        <img src="http://localhost:8081/images_server/Logo_resolution.png" height="82" width="82" class="img-fluid" alt="Responsive image"> 
+    </div>
     <div class="vacio flex-grow-1"></div>
     <div class="login">
         <div class="dropdown">
             <div class="icono_usuario"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="material-icons">account_user</i>
+                <i class="material-icons md-48">
+                    account_circle
+                </i> 
             </div>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <ul class="navbar-nav ml-auto nav-flex-icons">
-                    <li ng-class="{'active': c.isActive('usuario/registrarse')}" ng-show="!c.logged">     
-                        <a href="usuario/registrarse">Registrarse</a>
+                    <li  ng-show="!c.logged">     
+                        <a class="dropdown-item label_white label_registrarse" href="usuario/registrarse"><i class="fas fa-user"> </i>    REGISTRARSE</a>  
+                        <a class="dropdown-item label_white" href="usuario/login"><i class="fas fa-user"> </i>    LOGIN</a>
                     </li>
-                    <li  ng-class="{'active': c.isActive('usuario/login')}" ng-show="!c.logged">     
-                        <a href="usuario/login">Login</a>
-                    </li>
-              
+
                     <li ng-show="c.logged">
-                        <a class="dropdown-item" href="usuario/view/{{c.loggeduserid}}"><i class="fas fa-user"> </i> Perfil</a>
-                        <a class="dropdown-item" href="usuario/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
-                        <a class="dropdown-item" href="usuario/editpass/{{c.loggeduserid}}"><i class="fas fa-key"></i> Cambiar contraseña</a>
-                        <a class="dropdown-item" href="factura/plistxusuario/10/1/{{c.loggeduserid}}"><i class="fas far fa-file"></i> Ver facturas</a>
-                        <a class="dropdown-item" href="usuario/logout"><i class="fas far fa-file"></i> Logout</a>
+                        <a class="dropdown-item label_white" href="usuario/view/{{c.loggeduserid}}"><i class="fas fa-user"> </i>  PERFIL</a>
+
+                        <a class="dropdown-item label_white" href="factura/plistxusuario/10/1/{{c.loggeduserid}}"><i class="fas far fa-file"></i>  VER FACTURAS</a>
+                        <a class="dropdown-item label_white" href="usuario/logout"><i class="fas fa-sign-out-alt"></i>  LOGOUT</a>
                     </li>
                 </ul>
             </div>
