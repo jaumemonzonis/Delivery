@@ -43,7 +43,7 @@ moduleFactura.controller("lineaEditController", [
 
             $scope.obj_Producto = {
                 id: response.data.message.obj_Producto.id,
-                desc: response.data.message.obj_Producto.desc
+                nombre: response.data.message.obj_Producto.nombre
             }
             
              $scope.obj_Factura = {

@@ -6,7 +6,7 @@
         <div class="label prod2">BEBIDAS</div>
         <div class="label prod3">POSTRES</div>
     </div>
-    <div class="nav d-flex">
+    <div class="nav d-flex  justify-content-center">
 
         <div id="make-3D-space" ng-repeat="fila in ajaxData">
             <div id="product-card">
@@ -17,13 +17,13 @@
                     <div id="view_details">COMPRAR</div>
                     <div class="stats">        	
                         <div class="stats-container">
-                            <span class="product_price">{{fila.precio}}</span>
-                            <span class="product_name">CLASICA</span>    
-                            <p>Hamburguesa</p>                                            
+                            <span class="product_price">{{fila.precio}}€</span>
+                            <span class="product_name">{{fila.nombre}}</span>    
+                            <p>{{fila.obj_tipoProducto.desc}}</p>                                            
 
                             <div class="product-options">
 
-                                <span>Deliciosa........</span>
+                                <span>{{fila.desc}}</span>
                             </div>                       
                         </div>                         
                     </div>

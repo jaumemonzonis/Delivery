@@ -39,8 +39,8 @@
 
                             </th>
                           <th>
-                                <p>DESCRIPCION</p>
-                                <div class="order" ng-click="c.ordena('producto.desc', 'asc')">
+                                <p>NOMBRE</p>
+                                <div class="order" ng-click="c.ordena('nombre', 'asc')">
                                     <i class="material-icons">
                                         swap_vert
                                     </i>
@@ -64,12 +64,12 @@
                     </tr>
                     <tr ng-repeat="fila in c.data">
                         <td>{{fila.id}}</td>    
-                        <td>{{fila.desc}}</td>
+                        <td>{{fila.nombre}}</td>
                         <td>{{fila.obj_tipoProducto.desc}}</td>
                         <td>
                             <div role="toolbar">
                                 <div class="btn-group">
-                                    <a class="btn btn-default btn-xs" ng-click="c.save(fila.id,fila.desc)" data-dismiss="modal">
+                                    <a class="btn btn-default btn-xs" ng-click="c.save(fila.id,fila.nombre)" data-dismiss="modal">
                                         <i class="fa fa-reply" aria-hidden="true"></i>
                                     </a>
                                 </div>

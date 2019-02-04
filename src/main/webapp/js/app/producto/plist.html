@@ -57,6 +57,16 @@
                                 </div>
                                 </div>
                             </th>
+                              <th>
+                                <div>
+                                <p class="float-left">NOMBRE</p>
+                                <div class="order float-right " ng-click="ordena('nombre', 'asc')">
+                                    <i class="material-icons">
+                                        swap_vert
+                                    </i>
+                                </div>
+                                </div>
+                            </th>
                             <th>
                                 <div>
                                 <p class="float-left">DESCRIPCION</p>
@@ -119,6 +129,7 @@
                         <tr ng-repeat="fila in ajaxDataUsuarios">
                             <td>{{fila.id}}</td>
                             <td>{{fila.codigo}}</td>
+                            <td>{{fila.nombre}}</td>
                             <td>{{fila.desc}}</td>
                             <td>{{fila.existencias}}</td>
                             <td>{{fila.precio}}</td>

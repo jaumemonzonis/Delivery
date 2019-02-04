@@ -23,7 +23,8 @@ moduleLinea.controller('lineanewxusuarioController', ['$scope', '$http', '$locat
 
         $scope.obj_Producto = {
             id: null,
-            desc: null
+            nombre: null
+           
         }
 
         $http({

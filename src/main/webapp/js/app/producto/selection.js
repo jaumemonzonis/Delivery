@@ -52,8 +52,8 @@ self.update = function (p) {
 
 
 
-    self.save = function (id,desc) {
-        self.obj={id : id,desc : desc};
+    self.save = function (id,nombre) {
+        self.obj={id : id,nombre : nombre};
     };
 
 

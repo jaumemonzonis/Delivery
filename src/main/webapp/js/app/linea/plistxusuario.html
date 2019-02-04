@@ -77,7 +77,7 @@
                     <tr ng-repeat="fila in ajaxDataUsuarios">
                         <td>{{fila.id}}</td>
                         <td>{{fila.cantidad}}</td>
-                        <td><a class="hover-ajena" href="producto/view/{{fila.obj_Producto.id}}">{{fila.obj_Producto.desc}}</a></td>
+                        <td><a class="hover-ajena" href="producto/view/{{fila.obj_Producto.id}}">{{fila.obj_Producto.nombre}}</a></td>
                         <td>
                             <button type="button" rel="tooltip" class="btn btn-just-icon btn-sm" ng-click="view(fila.id)">
                                 <i class="material-icons">visibility</i>

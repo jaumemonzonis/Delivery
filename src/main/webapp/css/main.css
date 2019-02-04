@@ -468,7 +468,7 @@ select{
 
     display: grid;
     grid-template-columns: 7vw auto 7vw;
-    grid-template-rows:100vh 85vh 15vh;
+    grid-template-rows:100vh auto minmax( 15vh , auto );
 }
 
 .imgprincipal{
@@ -912,7 +912,7 @@ figure.menu.hover:before {
     height:500px;
     transform-style: preserve-3d;
     transition: transform 5s;   
-    top:80px;	
+    top:80px;
 
 }
 #product-front, #product-back{
@@ -952,35 +952,8 @@ figure.menu.hover:before {
          -o-transition:  100ms ease-out; 
             transition:  100ms ease-out;
 }
-div#product-card.flip-10{
-	 -webkit-transform: rotateY( -10deg );
-         -moz-transform: rotateY( -10deg );
-           -o-transform: rotateY( -10deg );
-              transform: rotateY( -10deg );
-			   transition:  50ms ease-out; 			
-}
-div#product-card.flip90{
-	 -webkit-transform: rotateY( 90deg );
-         -moz-transform: rotateY( 90deg );
-           -o-transform: rotateY( 90deg );
-              transform: rotateY( 90deg );
-			   transition:  100ms ease-in; 			
-}
-div#product-card.flip190{
-	 -webkit-transform: rotateY( 190deg );
-         -moz-transform: rotateY( 190deg );
-           -o-transform: rotateY( 190deg );
-              transform: rotateY( 190deg );
-			   transition:  100ms ease-out; 			
-}
-div#product-card.flip180{
-	 -webkit-transform: rotateY( 180deg );
-         -moz-transform: rotateY( 180deg );
-           -o-transform: rotateY( 180deg );
-              transform: rotateY( 180deg );
-			   transition:  150ms ease-out; 			
-}
-#product-card.animate{
+
+#product-card:hover{
 	top:5px;
 	left:5px;
 	width:335px;
@@ -1004,7 +977,7 @@ div#product-card.flip180{
          -o-transition: all 200ms ease-out; 
             transition: all 200ms ease-out;
 }
-#product-card.animate .stats-container{
+#product-card:hover .stats-container{
 	top:272px;
 	-webkit-transition: all 200ms ease-out; 
        -moz-transition: all 200ms ease-out; 
@@ -1035,7 +1008,7 @@ div#product-card.flip180{
 	background:#48daa1;
 	opacity:0;	
 }
-#product-card.animate .image_overlay{
+#product-card:hover .image_overlay{
 	opacity:0.7;	
 	-webkit-transition: all 200ms ease-out; 
        -moz-transition: all 200ms ease-out; 
@@ -1081,7 +1054,7 @@ div#product-card.flip180{
 	cursor:pointer;
 
 }
-#product-card.animate #view_details{
+#product-card:hover #view_details{
 	opacity:1;
 	width:152px;
 	font-size:15px;

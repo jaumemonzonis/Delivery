@@ -26,6 +26,8 @@ public class ProductoBean extends GenericBeanImplementation implements BeanInter
     @Expose
     private String codigo;
     @Expose
+    private String nombre;
+    @Expose
     private String desc;
     @Expose
     private int existencias;
@@ -106,13 +108,14 @@ public class ProductoBean extends GenericBeanImplementation implements BeanInter
 
         this.setId(oResultSet.getInt("id"));
         this.setCodigo(oResultSet.getString("codigo"));
+        this.setNombre(oResultSet.getString("nombre"));
         this.setDesc(oResultSet.getString("desc"));
         this.setExistencias(oResultSet.getInt("existencias"));
         this.setPrecio(oResultSet.getFloat("precio"));
         this.setFoto(oResultSet.getString("foto"));
         this.setId_tipoProducto(oResultSet.getInt("id_tipoproducto"));
         if (expand > 0) {
-             DaoInterface otipoproductoDao = DaoFactory.getDao(oConnection, "tipoproducto", oUsuarioBeanSession);
+            DaoInterface otipoproductoDao = DaoFactory.getDao(oConnection, "tipoproducto", oUsuarioBeanSession);
             //TipoproductoDao_1 otipoproductoDao = new TipoproductoDao_1(oConnection, "tipoproducto", oUsuarioBeanSession);
             this.setObj_tipoProducto((TipoproductoBean) otipoproductoDao.get(oResultSet.getInt("id_tipoproducto"), expand - 1));
         } else {
@@ -126,6 +129,7 @@ public class ProductoBean extends GenericBeanImplementation implements BeanInter
         String strPairs = "";
 
         strPairs += "codigo=" + EncodingHelper.quotate(codigo) + ",";
+        strPairs += "nombre=" + EncodingHelper.quotate(nombre) + ",";
         strPairs += "producto.desc=" + EncodingHelper.quotate(desc) + ",";
         strPairs += "existencias=" + existencias + ",";
         strPairs += "precio=" + precio + ",";
@@ -141,6 +145,7 @@ public class ProductoBean extends GenericBeanImplementation implements BeanInter
         String strColumns = "";
         strColumns += "id,";
         strColumns += "codigo,";
+        strColumns += "nombre,";
         strColumns += "producto.desc,";
         strColumns += "existencias,";
         strColumns += "precio,";
@@ -155,6 +160,7 @@ public class ProductoBean extends GenericBeanImplementation implements BeanInter
         String strColumns = "";
         strColumns += "null,";
         strColumns += EncodingHelper.quotate(codigo) + ",";
+        strColumns += EncodingHelper.quotate(nombre) + ",";
         strColumns += EncodingHelper.quotate(desc) + ",";
         strColumns += this.getExistencias() + ",";
         strColumns += this.getPrecio() + ",";
@@ -162,4 +168,19 @@ public class ProductoBean extends GenericBeanImplementation implements BeanInter
         strColumns += this.getId_tipoProducto();
         return strColumns;
     }
+
+    /**
+     * @return the nombre
+     */
+    public String getNombre() {
+        return nombre;
+    }
+
+    /**
+     * @param nombre the nombre to set
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
 }

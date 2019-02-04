@@ -31,6 +31,7 @@ moduleProducto.controller("productoEditController", [
 //            $scope.status = response.status;
             $scope.id = response.data.message.id;
             $scope.codigo = response.data.message.codigo;
+            $scope.nombre = response.data.message.nombre;
             $scope.desc = response.data.message.desc;
             $scope.existencias = response.data.message.existencias;
             $scope.precio = response.data.message.precio;
@@ -64,6 +65,7 @@ moduleProducto.controller("productoEditController", [
             var json = {
                 id: $scope.id,
                 codigo: $scope.codigo,
+                nombre: $scope.nombre,
                 desc: $scope.desc,
                 existencias: $scope.existencias,
                 precio: $scope.precio,

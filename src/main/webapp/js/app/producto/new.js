@@ -62,6 +62,7 @@ moduleProducto.controller("productoNewController", [
             var json = {
                 id: null,
                 codigo: $scope.codigo,
+                nombre: $scope.nombre,
                 desc: $scope.desc,
                 existencias: $scope.existencias,
                 precio: $scope.precio,
