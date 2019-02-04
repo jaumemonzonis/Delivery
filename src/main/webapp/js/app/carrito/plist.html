@@ -1,76 +1,44 @@
-<header-component></header-component>
-<div class="container-fluid">
-    <div class="row">
-               <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4" style="margin-top: 50px">
-            <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">Productos disponibles</h1>
-                <div class="btn-toolbar mb-2 mb-md-0">
-        
-                   <a href="carrito/carrito" class="btn-lg btn-light fas fa-shopping-cart red-bar" role="button" ng-if="ajaxDataAdd!='Carrito vacio'" ng-if="showRed"></a>
-                    
-                </div>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                     
-                    <div class="btn-group" style="width:400px;">
-                        <p class="mt-2" style="width:200px;">Selecciona RPP: </p>
-                        <select class="form-control" 
-                                ng-change="update()" 
-                                ng-model="rpp">
-                            <option value="5">5</option>
-                            <option value="10">10</option>
-                            <option value="20">20</option>
-                            <option value="50">50</option>
-                        </select>
+<headerclient-component></headerclient-component>
+<div class="body2">
+    <div class="imgproductos">
+        <div class="label prod1 top">HAMBUR</div>
+        <div class="label prod1">GUESAS</div>
+        <div class="label prod2">BEBIDAS</div>
+        <div class="label prod3">POSTRES</div>
+    </div>
+    <div class="nav d-flex">
+
+        <div id="make-3D-space" ng-repeat="fila in ajaxData">
+            <div id="product-card">
+                <div id="product-front">
+                    <div class="shadow"></div>
+                    <img src="/delivery/images/clasica.jpg" alt="" height="335" width="500" />
+                    <div class="image_overlay"></div>
+                    <div id="view_details">COMPRAR</div>
+                    <div class="stats">        	
+                        <div class="stats-container">
+                            <span class="product_price">{{fila.precio}}</span>
+                            <span class="product_name">CLASICA</span>    
+                            <p>Hamburguesa</p>                                            
+
+                            <div class="product-options">
+
+                                <span>Deliciosa........</span>
+                            </div>                       
+                        </div>                         
                     </div>
                 </div>
-            </div>
-            
-        
-                <div class="row d-flex justify-content-between flex-wrap align-items-center">
-                <nav aria-label="paginacion">
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" ng-show="page > 2" href="carrito/plist/{{rpp}}/1/{{order}}/{{align}}">First</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" ng-show="page > 1" href="carrito/plist/{{rpp}}/{{page - 1}}/{{order}}/{{align}}">Previous</a>
-                        </li>
-                        <li class="page-item" ng-class="{'active':(p == page), 'disabled': p === '...'}" ng-repeat="p in list2 track by $index">
-                            <a class="page-link" href="carrito/plist/{{rpp}}/{{p}}/{{order}}/{{align}}">{{p}}</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" ng-show="page != totalPages" href="carrito/plist/{{rpp}}/{{page--1}}/{{order}}/{{align}}">Next</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" ng-show="page != totalPages - 1 && page != totalPages" href="carrito/plist/{{rpp}}/{{totalPages}}/{{order}}/{{align}}">Last</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-          
-      
-          
-            <div class="row d-flex justify-content-center flex-wrap align-items-center ml-5">
-    <div ng-repeat="fila in ajaxData" class="contenido border border-secundary rounded">
-            <div class="arriba"><img src="http://localhost:8081/images_server/{{fila.foto}}" class="img-fluid img-thumbnail" style="width: 220px; height: 100px; margin-top: 3%;" alt="producto 1"></div>
-            <div class="centro">{{fila.desc}}</div>
-            <div class="abajo">
-            <a href="producto/view/{{fila.id}}" class="btn btn-light fas fa-eye" role="button"></a>
-                           <button type="button" ng-click="add(fila.id)" ng-click="showRed=true" class="btn btn-light fas fa-plus" ng-disabled="fila.existencias===existencias(fila.id)"></button>
-                           <button type="button" ng-click="reduce(fila.id)" class="btn btn-light fas fa-minus" ng-disabled="existencias(fila.id)===0"></button>
-                                      <span class="btn btn-light" ng-style="fila.existencias===existencias(fila.id) && {'background-color':'#dc3545'}">{{existencias(fila.id)}}</span>
-            </div>
-       
+            </div>	
+        </div>	
     </div>
+    <footer>
+        <div class="footer d-flex">
+            <div class="rrss tw"></div>
+            <div class="rrss fb"></div>
+            <div class="rrss in"></div>
+            <div class="label_footer">PROYECTO FINAL - DAW - JAUME MONZONIS LAZARO</div>
+
+        </div>
+
+    </footer>
 </div>
-            
-            
-            
-            
-            
-            
-        </main>
-        
-    </div>
-</div>
-<footer class="footer" ng-include="'js/app/footer.html'"></footer>
