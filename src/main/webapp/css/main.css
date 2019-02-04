@@ -523,6 +523,10 @@ select{
 .label.prod1.top{
     margin-top:22%;
 }
+.label.prod1.top_plistproductos{
+    margin-top:15%;
+}
+
 .label.prod1{
     color: #F9B157;
 }

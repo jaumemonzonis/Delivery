@@ -3,31 +3,31 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package net.daw.dao.specificDaoImplementation_2;
+package net.daw.dao.specificDaoImplementation_0;
 
-import net.daw.dao.specificDaoImplementation_1.*;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import net.daw.bean.beanImplementation.ProductoBean;
+import net.daw.bean.beanImplementation.TipousuarioBean;
 import net.daw.bean.beanImplementation.UsuarioBean;
 import net.daw.bean.publicBeanInterface.BeanInterface;
 import net.daw.dao.genericDaoImplementation.GenericDaoImplementation;
 import net.daw.dao.publicDaoInterface.DaoInterface;
-import net.daw.helper.SqlBuilder;
 
 /**
  *
- * @author a044531896d
+ * @author a045795512m
  */
-public class ProductoDao_2 extends GenericDaoImplementation implements DaoInterface {
+public class ProductoDao_0 extends GenericDaoImplementation implements DaoInterface {
 
-    public ProductoDao_2(Connection oConnection, String ob, UsuarioBean oUsuarioBeanSession) {
+    public ProductoDao_0(Connection oConnection, String ob, UsuarioBean oUsuarioBeanSession) {
         super(oConnection, ob, oUsuarioBeanSession);
 
+    }
+
+    @Override
+    public BeanInterface get(int id, Integer expand) throws Exception {
+        throw new Exception("Error en Dao get de " + ob + ": No autorizado");
     }
 
     @Override
@@ -41,10 +41,8 @@ public class ProductoDao_2 extends GenericDaoImplementation implements DaoInterf
     }
 
     @Override
-    public ArrayList<BeanInterface> getpageX(int iRpp, int iPage, int idajena, HashMap<String, String> hmOrder, Integer expand) throws Exception {
-        strSQL_WhereGetpagex = " WHERE id_tipoProducto=?";
-        return super.getpageX(iRpp, iPage, idajena, hmOrder, expand);
-
+    public int update(BeanInterface oBean) throws Exception {
+        throw new Exception("Error en Dao update de " + ob + ": No autorizado");
     }
 
 }

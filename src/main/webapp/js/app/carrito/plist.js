@@ -14,30 +14,30 @@ moduleCarrito.controller('carritoPlistController', ['$scope', '$http', '$locatio
 //        }
 
 
-        $http({
-            method: 'GET',
-            url: 'json?ob=carrito&op=show'
-        }).then(function (response) {
-            $scope.status = response.status;
-            $scope.ajaxDataAdd = response.data.message;
-        }, function (response) {
-            $scope.status = response.status;
-            $scope.ajaxDataAdd = response.data.message || 'Request failed';
-        });
+//        $http({
+//            method: 'GET',
+//            url: 'json?ob=carrito&op=show'
+//        }).then(function (response) {
+//            $scope.status = response.status;
+//            $scope.ajaxDataAdd = response.data.message;
+//        }, function (response) {
+//            $scope.status = response.status;
+//            $scope.ajaxDataAdd = response.data.message || 'Request failed';
+//        });
 
-        function show() {
-
-            $http({
-                method: 'GET',
-                url: 'json?ob=carrito&op=show'
-            }).then(function (response) {
-                $scope.status = response.status;
-                $scope.ajaxDataAdd = response.data.message;
-            }, function (response) {
-                $scope.status = response.status;
-                $scope.ajaxDataAdd = response.data.message || 'Request failed';
-            });
-        }
+//        function show() {
+//
+//            $http({
+//                method: 'GET',
+//                url: 'json?ob=carrito&op=show'
+//            }).then(function (response) {
+//                $scope.status = response.status;
+//                $scope.ajaxDataAdd = response.data.message;
+//            }, function (response) {
+//                $scope.status = response.status;
+//                $scope.ajaxDataAdd = response.data.message || 'Request failed';
+//            });
+//        }
 
         if (!$routeParams.order) {
             $scope.orderURLServidor = "";
@@ -64,8 +64,13 @@ moduleCarrito.controller('carritoPlistController', ['$scope', '$http', '$locatio
         }
 
         $scope.stock = false;
-        $scope.add = function (id) {
+        $scope.idTipousuario= sessionService.getTypeUserID();
+        $scope.comprar = function (id) {
 
+        if ($scope.idTipousuario!==2) {
+             $location.url('/usuario/login');
+            
+        } else {
             $http({
                 method: 'GET',
                 url: 'json?ob=carrito&op=add&prod=' + id
@@ -89,26 +94,24 @@ moduleCarrito.controller('carritoPlistController', ['$scope', '$http', '$locatio
 //            https://css-tricks.com/animations-the-angular-way/
             
             
-            
-            
-            
+    
             
         };
-
-        $scope.reduce = function (id) {
-
-            $http({
-                method: 'GET',
-                url: 'json?ob=carrito&op=reduce&prod=' + id
-            }).then(function (response) {
-                $scope.status = response.status;
-                $scope.ajaxDataAdd = response.data.message;
-                show();
-            }, function (response) {
-                $scope.status = response.status;
-                $scope.ajaxDataAdd = response.data.message || 'Request failed';
-            });
         };
+//        $scope.reduce = function (id) {
+//
+//            $http({
+//                method: 'GET',
+//                url: 'json?ob=carrito&op=reduce&prod=' + id
+//            }).then(function (response) {
+//                $scope.status = response.status;
+//                $scope.ajaxDataAdd = response.data.message;
+//                show();
+//            }, function (response) {
+//                $scope.status = response.status;
+//                $scope.ajaxDataAdd = response.data.message || 'Request failed';
+//            });
+//        };
 
 
         $scope.resetOrder = function () {
@@ -127,30 +130,17 @@ moduleCarrito.controller('carritoPlistController', ['$scope', '$http', '$locatio
             $location.url(`producto/plist/` + $scope.rpp + `/` + $scope.page + `/` + $scope.orderURLCliente);
         }
 
-        //getcount
-        $http({
-            method: 'GET',
-            url: 'json?ob=producto&op=getcount'
-        }).then(function (response) {
-            $scope.status = response.status;
-            $scope.ajaxDataNum = response.data.message;
-            $scope.totalPages = Math.ceil($scope.ajaxDataNum / $scope.rpp);
-            if ($scope.page > $scope.totalPages) {
-                $scope.page = $scope.totalPages;
-                $scope.update();
-            }
-            pagination2();
-        }, function (response) {
-            $scope.ajaxDataNum = response.data.message || 'Request failed';
-            $scope.status = response.status;
-        });
+        $scope.idTipoproducto = 1;
+   
 
-        $http({
+       $http({
             method: 'GET',
-            url: 'json?ob=producto&op=getpage&rpp=' + $scope.rpp + '&page=' + $scope.page + $scope.orderURLServidor
+           url: 'json?ob=producto&op=getpagex&rpp=' + $scope.rpp + '&page=' + $scope.page + '&idajena=' + $scope.idTipoproducto + $scope.orderURLServidor
         }).then(function (response) {
             $scope.status = response.status;
             $scope.ajaxData = response.data.message;
+           
+            
         }, function (response) {
             $scope.status = response.status;
             $scope.ajaxData = response.data.message || 'Request failed';

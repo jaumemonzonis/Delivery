@@ -127,9 +127,9 @@ public class DaoFactory {
 //                    case "tipoproducto":
 //                        oDao = new TipoproductoDao_2(oConnection, ob, oUsuarioBeanSession);
 //                        break;
-//                    case "producto":
-//                        oDao = new ProductoDao_2(oConnection, ob, oUsuarioBeanSession);
-//                        break;
+                    case "producto":
+                        oDao = new ProductoDao_2(oConnection, ob, oUsuarioBeanSession);
+                        break;
                     case "factura":
                         oDao = new FacturaDao_0(oConnection, ob, oUsuarioBeanSession);
                         break;

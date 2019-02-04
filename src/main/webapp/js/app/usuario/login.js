@@ -40,8 +40,8 @@ moduleUsuario.controller("usuarioLoginController", [
                     sessionService.setSessionActive();
                     sessionService.setUserName(response.data.message.nombre + " " + response.data.message.ape1);
                     $scope.loggeduser = sessionService.getUserName();
-                    $scope.loggeduserid = sessionService.setId(response.data.message.id);
-                    $scope.loggeduseridtipo = sessionService.setTypeUserID(response.data.message.obj_tipoUsuario.id);
+                    $scope.loggeduserid = sessionService.getId();
+                    $scope.loggeduseridtipo = response.data.message.obj_tipoUsuario.id;
 //                    $location.url('/administrador/homeadmin');
                     if ($scope.loggeduseridtipo !== 1) {
                         $location.url('/home');

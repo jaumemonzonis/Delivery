@@ -459,6 +459,9 @@ public class ServiceFactory {
                             case "getpage":
                                 oReplyBean = oProductoService.getpage();
                                 break;
+                            case "getpagex":
+                                oReplyBean = oProductoService.getpageX();
+                                break;
                             default:
                                 oReplyBean = new ReplyBean(500, "Operation doesn't exist");
                                 break;
@@ -555,6 +558,20 @@ public class ServiceFactory {
                                 break;
                             case "activar":
                                 oReplyBean = oUsuarioService.activar();
+                                break;
+                        }
+                        break;
+                    case "producto":
+                        ProductoService_2 oProductoService = new ProductoService_2(oRequest);
+                        switch (op) {
+                            case "getcount":
+                                oReplyBean = oProductoService.getcount();
+                                break;
+                            case "getpage":
+                                oReplyBean = oProductoService.getpage();
+                                break;
+                            default:
+                                oReplyBean = new ReplyBean(500, "Operation doesn't exist");
                                 break;
                         }
                         break;
