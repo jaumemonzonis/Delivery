@@ -10,15 +10,16 @@
 
                     <div class="col-md-12 ml-sm-auto col-lg-12 mt-3">
                         <div class="float-right create_btn_margin">
-                             <button type="button"  class="btn btn-amarillo btn-sm  float-left" role="button" aria-pressed="true" ng-click="empty()" ng-disabled="(alert)"><i class="material-icons">
+                            <button type="button"  class="btn btn-amarillo btn-sm  float-left" role="button" aria-pressed="true" ng-click="empty()" ng-disabled="(alert)"><i class="material-icons">
                                     delete_forever</i> VACIAR CARRITO</button>
-                              <button class="btn btn-rojo btn-sm  float-left" role="button" aria-pressed="true"  ng-disabled="(alert)" ng-click="seleccion_rest()"><i class="material-icons">
-                                    add_circle_outline</i> COMPRAR</button>
+                            <button class="btn btn-rojo btn-sm  float-left" role="button" aria-pressed="true"  ng-disabled="(alert)" ng-click="seleccion_rest()"><i class="material-icons">
+                                    shopping_cart
+                                </i> COMPRAR</button>
                         </div>
                     </div><div class="alert alert-success alerta_carrito_vacio" role="alert" ng-show="(alert)"> Carrito vacio</div>
-                   
+
                     <div class="table-responsive container2 mb-5 pl-3 pr-3" ng-if="ajaxData !== 'Carrito vacio'">
-                          
+
                         <table class="table table-sm">
                             <tr>
                                 <th>
@@ -60,15 +61,19 @@
                                 <td>{{fila.obj_producto.nombre}}</td>
                                 <td>{{miFormato(fila.obj_producto.precio)}}</td>
                                 <td>{{fila.obj_producto.foto}}</td>
-                                <td><button type="button" rel="tooltip" class="btn btn-just-icon btn-sm" ng-click="view(fila.id)">
-                                        <i class="material-icons">visibility</i>
-                                    </button>
-                                    <button type="button" rel="tooltip" class="btn btn-just-icon btn-sm" ng-click="edit(fila.id)">
-                                        <i class="material-icons">create</i>
-                                    </button>
-                                    <button type="button" rel="tooltip" class="btn btn-just-icon btn-sm" ng-click="remove(fila.id)">
-                                        <i class="material-icons">delete_forever</i>
-                                    </button></td>
+                                <td>  
+                                    <span class="btn btn-just-icon btn-sm" ng-style="fila.obj_producto.existencias === fila.cantidad && {'background-color':'#dc3545'}">{{fila.cantidad}}</span>
+                                    <button type="button" ng-click="add(fila.obj_producto.id)" class="btn btn-just-icon btn-sm" ng-disabled="fila.obj_producto.existencias === fila.cantidad"><i class="material-icons">
+                                            add
+                                        </i></button>
+                                    <button type="button" ng-click="reduce(fila.obj_producto.id)"v class="btn btn-just-icon btn-sm" ng-disabled="fila.cantidad === 0"><i class="material-icons">
+                                            remove
+                                        </i></button>
+
+
+                                </td>
+
+
                             </tr>
                         </table>
                     </div>

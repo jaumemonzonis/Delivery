@@ -1,10 +1,11 @@
 'use strict'
 
-moduleCarrito.controller('carritoPlistBurgerController', ['$scope', '$http', '$location', 'toolService', '$routeParams', 'sessionService',"$window",
+moduleCarrito.controller('carritoPlistBurgerController', ['$scope', '$http', '$location', 'toolService', '$routeParams', 'sessionService', "$window",
     function ($scope, $http, $location, toolService, $routeParams, sessionService, $window) {
 
         $scope.totalPages = 1;
         $scope.conectado = false;
+        $scope.alert = false;
 
 
         if (!$routeParams.order) {
@@ -31,7 +32,7 @@ moduleCarrito.controller('carritoPlistBurgerController', ['$scope', '$http', '$l
             }
         }
 
-        $scope.stock = false;
+
         $scope.idTipousuario = sessionService.getTypeUserID();
         $scope.comprar = function (id) {
 
@@ -44,14 +45,9 @@ moduleCarrito.controller('carritoPlistBurgerController', ['$scope', '$http', '$l
                     url: 'json?ob=carrito&op=add&prod=' + id
                 }).then(function (response) {
                     $scope.status = response.status;
-
-                    if ($scope.status == 400) {
-
-                        $scope.stock = true;
-                    }
-
                     $scope.ajaxDataAdd = response.data.message;
-                    show();
+                    $scope.alert = true;
+                    
                 }, function (response) {
                     $scope.status = response.status;
                     $scope.ajaxDataAdd = response.data.message || 'Request failed';
@@ -95,6 +91,8 @@ moduleCarrito.controller('carritoPlistBurgerController', ['$scope', '$http', '$l
         $scope.volver = function () {
             $window.history.back();
         }
+
+
 
     }
 

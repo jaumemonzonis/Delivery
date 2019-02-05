@@ -1,10 +1,11 @@
 'use strict'
 
-moduleCarrito.controller('carritoPlistPostreController', ['$scope', '$http', '$location', 'toolService', '$routeParams', 'sessionService',"$window",
+moduleCarrito.controller('carritoPlistPostreController', ['$scope', '$http', '$location', 'toolService', '$routeParams', 'sessionService', "$window",
     function ($scope, $http, $location, toolService, $routeParams, sessionService, $window) {
 
         $scope.totalPages = 1;
         $scope.conectado = false;
+        $scope.alert = false;
 
 
         if (!$routeParams.order) {
@@ -30,6 +31,21 @@ moduleCarrito.controller('carritoPlistPostreController', ['$scope', '$http', '$l
                 $scope.page = 1;
             }
         }
+
+        $http({
+            method: 'GET',
+            url: 'json?ob=carrito&op=show'
+        }).then(function (response) {
+            $scope.status = response.status;
+            $scope.ajaxData = response.data.message;
+            if ($scope.ajaxData === "Carrito vacio") {
+                $scope.alert = true;
+            }
+        }, function (response) {
+            $scope.status = response.status;
+            $scope.ajaxData = response.data.message || 'Request failed';
+        });
+
 
         $scope.stock = false;
         $scope.idTipousuario = sessionService.getTypeUserID();

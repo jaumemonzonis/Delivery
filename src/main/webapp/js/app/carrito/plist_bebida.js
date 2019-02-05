@@ -1,10 +1,11 @@
 'use strict'
 
-moduleCarrito.controller('carritoPlistBebidaController', ['$scope', '$http', '$location', 'toolService', '$routeParams', 'sessionService',"$window",
+moduleCarrito.controller('carritoPlistBebidaController', ['$scope', '$http', '$location', 'toolService', '$routeParams', 'sessionService', "$window",
     function ($scope, $http, $location, toolService, $routeParams, sessionService, $window) {
 
         $scope.totalPages = 1;
         $scope.conectado = false;
+         $scope.alert = false;
 
 
         if (!$routeParams.order) {
@@ -31,7 +32,20 @@ moduleCarrito.controller('carritoPlistBebidaController', ['$scope', '$http', '$l
             }
         }
 
-        $scope.stock = false;
+        $http({
+            method: 'GET',
+            url: 'json?ob=carrito&op=show'
+        }).then(function (response) {
+            $scope.status = response.status;
+            $scope.ajaxData = response.data.message;
+            if ($scope.ajaxData === "Carrito vacio") {
+                $scope.alert = true;
+            }
+        }, function (response) {
+            $scope.status = response.status;
+            $scope.ajaxData = response.data.message || 'Request failed';
+        });
+
         $scope.idTipousuario = sessionService.getTypeUserID();
         $scope.comprar = function (id) {
 
@@ -44,12 +58,6 @@ moduleCarrito.controller('carritoPlistBebidaController', ['$scope', '$http', '$l
                     url: 'json?ob=carrito&op=add&prod=' + id
                 }).then(function (response) {
                     $scope.status = response.status;
-
-                    if ($scope.status == 400) {
-
-                        $scope.stock = true;
-                    }
-
                     $scope.ajaxDataAdd = response.data.message;
                     show();
                 }, function (response) {
@@ -84,14 +92,14 @@ moduleCarrito.controller('carritoPlistBebidaController', ['$scope', '$http', '$l
 
 
         $scope.carrito = function () {
-    
-             $location.url(`carrito/carrito`);
+
+            $location.url(`carrito/carrito`);
         };
 
         $scope.isActive = toolService.isActive;
 
         $scope.avanzar = function () {
-              $location.url(`carrito/plist_postre`);
+            $location.url(`carrito/plist_postre`);
         };
         $scope.volver = function () {
             $window.history.back();

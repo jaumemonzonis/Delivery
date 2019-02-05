@@ -1,10 +1,11 @@
 'use strict'
 
-moduleCarrito.controller('carritoPlistVariosController', ['$scope', '$http', '$location', 'toolService', '$routeParams', 'sessionService',"$window",
+moduleCarrito.controller('carritoPlistVariosController', ['$scope', '$http', '$location', 'toolService', '$routeParams', 'sessionService', "$window",
     function ($scope, $http, $location, toolService, $routeParams, sessionService, $window) {
 
         $scope.totalPages = 1;
         $scope.conectado = false;
+        $scope.alert = false;
 
 
         if (!$routeParams.order) {
@@ -31,7 +32,22 @@ moduleCarrito.controller('carritoPlistVariosController', ['$scope', '$http', '$l
             }
         }
 
-        $scope.stock = false;
+        $http({
+            method: 'GET',
+            url: 'json?ob=carrito&op=show'
+        }).then(function (response) {
+            $scope.status = response.status;
+            $scope.ajaxData = response.data.message;
+            if ($scope.ajaxData === "Carrito vacio") {
+                $scope.alert = true;
+            }
+        }, function (response) {
+            $scope.status = response.status;
+            $scope.ajaxData = response.data.message || 'Request failed';
+        });
+
+
+
         $scope.idTipousuario = sessionService.getTypeUserID();
         $scope.comprar = function (id) {
 
@@ -84,14 +100,14 @@ moduleCarrito.controller('carritoPlistVariosController', ['$scope', '$http', '$l
 
 
         $scope.carrito = function () {
-           $location.url(`carrito/carrito`);
+            $location.url(`carrito/carrito`);
         };
 
         $scope.isActive = toolService.isActive;
 
         $scope.avanzar = function () {
-            
-             $location.url(`carrito/plist_bebida`);
+
+            $location.url(`carrito/plist_bebida`);
         };
         $scope.volver = function () {
             $window.history.back();

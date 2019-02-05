@@ -113,7 +113,7 @@ moduleCarrito.controller('carritoCarritoController', ['$scope', '$http', '$locat
         }
          $scope.seleccion_rest = function () {
             
-             $location.url(`carrito/restaurante/`);
+             $location.url(`carrito/restaurante`);
         };
 
     }
