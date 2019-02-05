@@ -1,55 +1,96 @@
-<header-component></header-component>
-<div class="container-fluid">
-    <div class="row">
-        <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4" style="margin-top: 50px">
-            <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">Selecciona restaurante</h1>
-            </div>
-
-
-            <div class="table-responsive" style="text-align: center;">
-            <table class="table table-sm">
-                 RESTAURANTE predeterminado
-                            <tr>
-                                <th class="ver">ID</th><td>{{prerest.id}}</td>
-                            </tr>
-                            <tr>
-                                <th class="ver">NOMBRE</th><td>{{prerest.nombre}}</td>
-                            </tr>
-                             <tr>  <button type="button" rel="tooltip" class="btn btn-just-icon btn-sm" ng-click="buy(prerest.id)">
-                                    <i class="material-icons">create</i>
-                                </button></tr>
-                        </table>
-                <table class="table table-striped table-sm tabla">
-                    <th>
-                        RESTAURANTE PLIST
-                    </th>          
-                    <tr ng-repeat="fila in plistrest track by $index">
-                        <td>{{fila.id}}</td>
-                        <td>{{fila.nombre}}</td>
-                        <td>  <button type="button" rel="tooltip" class="btn btn-just-icon btn-sm" ng-click="buy(fila.id)">
-                                    <i class="material-icons">create</i>
-                                </button></td>
-                    </tr>
-                </table>
-
-                <table class="table table-striped table-sm tabla">
-                    <th>
-                        RESTAURANTE AREA
-                    </th>      
-                    <tr ng-repeat="fila in arearest track by $index">
-                        <td>{{fila.id}}</td>
-                        <td>{{fila.nombre}}</td>
-                         <td>  <button type="button" rel="tooltip" class="btn btn-just-icon btn-sm" ng-click="buy(fila.id)">
-                                    <i class="material-icons">create</i>
-                                </button></td>
-                    </tr>
-                </table>
-            </div>
-        </main>
-
+<headerclient-component></headerclient-component>
+<div class="body_plist">
+    <div class="imgproductos">
+        <div class="label prod1 top_plistproductos">SELECCIONA</div>
+        <div class="label prod1">TU RESTAURANTE</div>
+        <div class="icon_cart"><img src="images/icon_cart.png" alt="añadir al carrito" class="img_cart"  ng-click="carrito()" ng-show="!alert"/></div>
     </div>
-</div>
-<footer class="footer" ng-include="'js/app/footer.html'"></footer>
+    <div class="nav d-flex  justify-content-center">
+      <div id="make-3D-space" ng-repeat="fila in arearest">
+            <div id="product-card">
+                <div id="product-front">
+                    <div class="shadow"></div>
+                    <img src="/delivery/images/clasica.jpg" alt="" height="335" width="500" />
+                    <div class="image_overlay"></div>
+                    <div id="view_details" ng-click="comprar(fila.id)">COMPRAR</div>
+                    <div class="stats">        	
+                        <div class="stats-container">
+                            <span class="product_price">{{fila.poblacion}}€</span>
+                            <span class="product_name">{{fila.nombre}}</span>    
+                            <p>{{fila.direccion}}</p>                                            
+
+                            <div class="product-options">
+
+                                <span>{{fila.desc}}</span>
+                            </div>                       
+                        </div>                         
+                    </div>
+                </div>
+            </div>	
+
+        </div>
+           <div id="make-3D-space" ng-repeat="fila in plistrest">
+            <div id="product-card">
+                <div id="product-front">
+                    <div class="shadow"></div>
+                    <img src="/delivery/images/clasica.jpg" alt="" height="335" width="500" />
+                    <div class="image_overlay"></div>
+                    <div id="view_details" ng-click="comprar(fila.id)">COMPRAR</div>
+                    <div class="stats">        	
+                        <div class="stats-container">
+                            <span class="product_price">{{fila.poblacion}}€</span>
+                            <span class="product_name">{{fila.nombre}}</span>    
+                            <p>{{fila.direccion}}</p>                                            
+
+                            <div class="product-options">
+
+                                <span>{{fila.desc}}</span>
+                            </div>                       
+                        </div>                         
+                    </div>
+                </div>
+            </div>	
+
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="flechas">
+            <div  ng-click="volver()" class="flecha_btn float-left mr-5"><i class="material-icons">
+                    arrow_back_ios
+                </i></div>
+            <div ng-click="avanzar()" class="flecha_btn float-right ml-5"><i class="material-icons">
+                    arrow_forward_ios
+                </i></div>
+        </div>
+    </div>    
+    <footer>
+        <div class="footer d-flex mt-3">
+            <div class="rrss tw"></div>
+            <div class="rrss fb"></div>
+            <div class="rrss in"></div>
+            <div class="label_footer">PROYECTO FINAL - DAW - JAUME MONZONIS LAZARO</div>
+
+        </div>
+
+    </footer>
+
 
 

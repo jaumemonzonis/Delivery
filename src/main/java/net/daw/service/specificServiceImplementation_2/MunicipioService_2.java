@@ -66,10 +66,11 @@ public class MunicipioService_2 extends GenericServiceImplementation implements 
         ConnectionInterface oConnectionPool = null;
         Connection oConnection;
             try {
+                Integer id = Integer.parseInt(oRequest.getParameter("id"));
                 oConnectionPool = ConnectionFactory.getConnection(ConnectionConstants.connectionPool);
                 oConnection = oConnectionPool.newConnection();
                 MunicipioDao_2 oMunicipioDao = new MunicipioDao_2(oConnection, ob, oUsuarioBeanSession);
-                ArrayList<BeanInterface> alBean = oMunicipioDao.getIdRestauranteArea();
+                ArrayList<BeanInterface> alBean = oMunicipioDao.getIdRestauranteArea(id);
                 Gson oGson = (new GsonBuilder()).excludeFieldsWithoutExposeAnnotation().create();
                 oReplyBean = new ReplyBean(200, oGson.toJson(alBean));
             } catch (Exception ex) {

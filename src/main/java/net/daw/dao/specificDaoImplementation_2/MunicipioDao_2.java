@@ -112,15 +112,16 @@ public class MunicipioDao_2 extends GenericDaoImplementation implements DaoInter
     }
 
  
-    public ArrayList<BeanInterface> getIdRestauranteArea() throws Exception {
+    public ArrayList<BeanInterface> getIdRestauranteArea(int id) throws Exception {
         ArrayList<BeanInterface> alBean;
         String pob = oUsuarioBeanSession.getPoblacion();
         int iRes = 0;
-        String strSQL_getIdRestaurante = "SELECT * FROM `restaurante` WHERE restaurante.id IN (SELECT restaurante_municipio.id_restaurante FROM `restaurante_municipio` WHERE restaurante_municipio.id_municipio IN (SELECT municipio.id FROM municipio WHERE municipio.id_area=(SELECT m.id_area from municipio m WHERE m.poblacion='" + pob + "')))";
+        String strSQL_getIdRestaurante = "SELECT * FROM `restaurante` WHERE restaurante.id IN (SELECT restaurante_municipio.id_restaurante FROM `restaurante_municipio` WHERE restaurante_municipio.id_municipio IN (SELECT municipio.id FROM municipio WHERE municipio.id_area=(SELECT m.id_area from municipio m WHERE m.poblacion='" + pob + "'))) AND restaurante.id <> ?";
         PreparedStatement oPreparedStatement = null;
         ResultSet oResultSet = null;
         try {
             oPreparedStatement = oConnection.prepareStatement(strSQL_getIdRestaurante);
+            oPreparedStatement.setInt(1, id);
             oResultSet = oPreparedStatement.executeQuery();
             alBean = new ArrayList<BeanInterface>();
             while (oResultSet.next()) {

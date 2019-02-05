@@ -18,9 +18,9 @@ moduleCarrito.controller('restauranteCarritoController', ['$scope', '$http', '$l
             $scope.status = response.status;
             $scope.plistrest = response.data.message || 'Request failed';
         });
+//SELECT * FROM `restaurante` WHERE restaurante.id IN (SELECT restaurante_municipio.id_restaurante FROM `restaurante_municipio` WHERE restaurante_municipio.id_municipio IN (SELECT municipio.id FROM municipio WHERE municipio.id_area=(SELECT m.id_area from municipio m WHERE m.poblacion='Museros'))) AND restaurante.id <> 0
 
-
-
+//        $scope.id_rest_predeterminado= "0";
 //POBLACION USUARIO COINCIDE CON RESTAURANTE. OPCION PREDETERMINADA
         $http({
             method: 'GET',
@@ -28,25 +28,34 @@ moduleCarrito.controller('restauranteCarritoController', ['$scope', '$http', '$l
         }).then(function (response) {
             $scope.status = response.status;
             $scope.prerest = response.data.message;
+            $scope.id_rest_predeterminado = response.data.message.id;
+            console.log("antes de llamada ajax area" + $scope.id_rest_predeterminado);
+            if ($scope.id_rest_predeterminado === "") {
+                $scope.id_rest_predeterminado = "0";
+            }
+            areaRest($scope.id_rest_predeterminado);
         }, function (response) {
             $scope.status = response.status;
             $scope.prerest = response.data.message || 'Request failed';
         });
 
+
 //RESTAURANTES DE LA MISMA AREA.
+        function areaRest (id_rest_predeterminado) {
+            $http({
+                method: 'GET',
+                url: 'json?ob=municipio&op=getIdRestauranteArea&id=' + id_rest_predeterminado
+            }).then(function (response) {
+                $scope.status = response.status;
+                $scope.arearest = response.data.message;
+            }, function (response) {
+                $scope.status = response.status;
+                $scope.arearest = response.data.message || 'Request failed';
+            });
 
-        $http({
-            method: 'GET',
-            url: `json?ob=municipio&op=getIdRestauranteArea`
-        }).then(function (response) {
-            $scope.status = response.status;
-            $scope.arearest = response.data.message;
-        }, function (response) {
-            $scope.status = response.status;
-            $scope.arearest = response.data.message || 'Request failed';
-        });
+        };
 
-
+        console.log("despues de llamada ajax area" + $scope.id_rest_predeterminado);
         $scope.buy = function (id_restaurante) {
             $http({
                 method: 'GET',

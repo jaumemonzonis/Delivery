@@ -6,6 +6,7 @@ moduleCarrito.controller('carritoPlistPostreController', ['$scope', '$http', '$l
         $scope.totalPages = 1;
         $scope.conectado = false;
         $scope.alert = false;
+        $scope.flecha = false;
 
 
         if (!$routeParams.order) {
@@ -40,6 +41,7 @@ moduleCarrito.controller('carritoPlistPostreController', ['$scope', '$http', '$l
             $scope.ajaxData = response.data.message;
             if ($scope.ajaxData === "Carrito vacio") {
                 $scope.alert = true;
+                $scope.flecha = true;
             }
         }, function (response) {
             $scope.status = response.status;
@@ -67,7 +69,7 @@ moduleCarrito.controller('carritoPlistPostreController', ['$scope', '$http', '$l
                     }
 
                     $scope.ajaxDataAdd = response.data.message;
-                    show();
+   
                 }, function (response) {
                     $scope.status = response.status;
                     $scope.ajaxDataAdd = response.data.message || 'Request failed';
