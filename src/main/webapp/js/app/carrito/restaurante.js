@@ -55,7 +55,7 @@ moduleCarrito.controller('restauranteCarritoController', ['$scope', '$http', '$l
 
         };
 
-        console.log("despues de llamada ajax area" + $scope.id_rest_predeterminado);
+
         $scope.buy = function (id_restaurante) {
             $http({
                 method: 'GET',

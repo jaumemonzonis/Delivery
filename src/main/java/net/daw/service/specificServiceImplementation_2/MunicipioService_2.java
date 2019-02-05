@@ -80,4 +80,5 @@ public class MunicipioService_2 extends GenericServiceImplementation implements 
             }
         return oReplyBean;
     }
+
 }

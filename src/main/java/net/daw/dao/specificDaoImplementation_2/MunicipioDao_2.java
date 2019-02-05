@@ -60,30 +60,9 @@ public class MunicipioDao_2 extends GenericDaoImplementation implements DaoInter
         throw new Exception("Error en Dao getpage de " + ob + ": No autorizado");
 
     }
+    
+ 
 
-//    public int getIdRestaurante(String poblacion_cliente) throws Exception {
-//        int iRes = 0;
-//        String strSQL_getIdRestaurante = "SELECT restaurante_municipio.id_restaurante FROM restaurante_municipio WHERE restaurante_municipio.id_municipio=(SELECT m.id from municipio m WHERE m.poblacion=?)";
-//        PreparedStatement oPreparedStatement = null;
-//        ResultSet oResultSet = null;
-//        try {
-//            oPreparedStatement = oConnection.prepareStatement(strSQL_getIdRestaurante);
-//            //String poblaciocliente = EncodingHelper.quotate(poblacion_cliente);
-//            oPreparedStatement.setString(1, poblacion_cliente);
-//            oResultSet = oPreparedStatement.executeQuery();
-//            if (oResultSet.next()) {
-//                iRes = oResultSet.getInt(1);
-//            }
-//
-//        } catch (SQLException e) {
-//            throw new Exception("Error en Dao getIdRestaurante de " + ob, e);
-//        } finally {
-//            if (oPreparedStatement != null) {
-//                oPreparedStatement.close();
-//            }
-//        }
-//        return iRes;
-//    }
     public RestauranteBean getIdRestaurante() throws Exception {
         String pob = oUsuarioBeanSession.getPoblacion();
         String strSQL_getIdRestaurante = " SELECT * FROM restaurante WHERE restaurante.id = (SELECT restaurante_municipio.id_restaurante FROM restaurante_municipio WHERE restaurante_municipio.id_municipio=(SELECT m.id from municipio m WHERE m.poblacion='" + pob + "'))";
