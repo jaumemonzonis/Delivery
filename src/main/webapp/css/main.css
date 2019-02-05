@@ -498,6 +498,17 @@ select{
     margin-left: auto;
     margin-right: auto;
 }
+.imgcarrito{
+    grid-area: 1/2/2/3;
+    background-image: url("../images/principal_producto.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    margin-left: auto;
+    margin-right: auto;
+}
 /* NAV*/
 .nav1, .logo, .login {
     height:12vh;
@@ -1127,10 +1138,31 @@ div.shadow{
         margin-bottom: 4%;	
 }
 
+.flechas_comprar{	
+	margin-top:-3%;
+}
+/* BOTON CARRITO PLIST CARRITO*/
 .icon_cart{
     position:absolute;
     top:0px;
     right:0px;
-    margin-right: 1%;
+    margin-right: -5%;
         margin-top:1%;
+}
+
+.img_cart{
+    width:50%;
+ max-width: 50%;
+  height: auto;
+    
+}
+/* BOTON VACIAR CARRITO*/
+
+.btn-amarillo{
+
+    background-color: #F9B157 !important;  
+}
+
+.alerta_carrito_vacio{
+    height: 15vh  !important;  
 }
