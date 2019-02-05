@@ -465,12 +465,16 @@ select{
 
 .body2 {
    background-image: linear-gradient(#036C81, #038DA7);
-
     display: grid;
     grid-template-columns: 7vw auto 7vw;
     grid-template-rows:100vh auto minmax( 15vh , auto );
 }
-
+.body_plist {
+   background-image: linear-gradient(#036C81, #038DA7);
+    display: grid;
+    grid-template-columns: 7vw auto 7vw;
+    grid-template-rows:50vh auto 15vh;
+}
 .imgprincipal{
     grid-area: 1/2/2/3;
     background-image: url("../images/imagen_principal3.png");
@@ -524,7 +528,7 @@ select{
     margin-top:22%;
 }
 .label.prod1.top_plistproductos{
-    margin-top:15%;
+    margin-top:5%;
 }
 
 .label.prod1{
@@ -1092,4 +1096,41 @@ div.shadow{
     background: -o-linear-gradient(right,rgba(0,0,0,0.2),rgba(0,0,0,0.1)); 
     background: -moz-linear-gradient(right,rgba(0,0,0,0.2),rgba(0,0,0,0.1)); 
     background: linear-gradient(to right, rgba(0,0,0,0.2), rgba(0,0,0,0.1)); 
+}
+/* BOTON FLECHA PLIST CARRITO*/
+
+.flecha_btn{	
+
+	border:2px solid #fff;
+	color:#fff;
+	font-size:19px;
+	text-align:center;
+	text-transform:uppercase;
+	font-weight:700;
+	padding:10px 0;
+	width:100px;	
+	
+	-webkit-transition: all 200ms ease-out; 
+       -moz-transition: all 200ms ease-out; 
+         -o-transition: all 200ms ease-out; 
+            transition: all 200ms ease-out; 
+}
+
+.flecha_btn:hover{	
+	background:#fff;
+	color:#48cfad;
+	cursor:pointer;
+
+}
+.flechas{	
+        margin-top:4%;
+        margin-bottom: 4%;	
+}
+
+.icon_cart{
+    position:absolute;
+    top:0px;
+    right:0px;
+    margin-right: 1%;
+        margin-top:1%;
 }

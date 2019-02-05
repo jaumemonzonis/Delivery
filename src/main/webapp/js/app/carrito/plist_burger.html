@@ -1,10 +1,9 @@
 <headerclient-component></headerclient-component>
-<div class="body2">
+<div class="body_plist">
     <div class="imgproductos">
         <div class="label prod1 top_plistproductos">HAMBUR</div>
         <div class="label prod1">GUESAS</div>
-        <div class="label prod2">BEBIDAS</div>
-        <div class="label prod3">POSTRES</div>
+        <div class="icon_cart"><img src="images/icon_cart.png" alt="añadir al carrito" height="50" width="50" /></div>
     </div>
     <div class="nav d-flex  justify-content-center">
 
@@ -12,9 +11,9 @@
             <div id="product-card">
                 <div id="product-front">
                     <div class="shadow"></div>
-                    <img src="/delivery/images/clasica.jpg" alt="" height="335" width="500" />
+                    <img src="images/clasica.jpg" alt="" height="335" width="500" />
                     <div class="image_overlay"></div>
-                    <div id="view_details" ng-click="comprar(fila.id)">COMPRAR</div>
+                    <div id="view_details" ng-click="comprar(fila.id)" ng-show="!stock">COMPRAR</div>
                     <div class="stats">        	
                         <div class="stats-container">
                             <span class="product_price">{{fila.precio}}€</span>
@@ -29,8 +28,17 @@
                     </div>
                 </div>
             </div>	
-        </div>	
-    </div>
+
+        </div>
+        <div class="flechas">
+            <div  ng-click="volver()" class="flecha_btn float-left mr-5"><i class="material-icons">
+                    arrow_back_ios
+                </i></div>
+            <div ng-click="avanzar()" class="flecha_btn float-right ml-5"><i class="material-icons">
+                    arrow_forward_ios
+                </i></div>
+        </div>
+    </div>    
     <footer>
         <div class="footer d-flex mt-3">
             <div class="rrss tw"></div>
@@ -41,4 +49,4 @@
         </div>
 
     </footer>
-</div>
+

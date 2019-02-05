@@ -88,7 +88,7 @@ delivery.config(['$routeProvider', function ($routeProvider) {
 
         //HOME
         $routeProvider.when('/', {templateUrl: 'js/app/common/home.html', controller: 'homeController'});
-        
+
 
         //USUARIO
         $routeProvider.when('/usuario/plist/:rpp?/:page?/:order?', {templateUrl: 'js/app/usuario/plist.html', controller: 'usuarioPlistController', resolve: {auth: autenticacionAdministrador}});
@@ -143,9 +143,12 @@ delivery.config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/factura/newxusuario/:id', {templateUrl: 'js/app/factura/newxusuario.html', controller: 'facturanewxusuarioController', resolve: {auth: autenticacionAdministrador}});
 
         //CARRITO
-        $routeProvider.when('/carrito/plist/:rpp?/:page?/:order?', {templateUrl: 'js/app/carrito/plist.html', controller: 'carritoPlistController'});
+        $routeProvider.when('/carrito/plist_burger', {templateUrl: 'js/app/carrito/plist_burger.html', controller: 'carritoPlistBurgerController'});
+        $routeProvider.when('/carrito/plist_varios', {templateUrl: 'js/app/carrito/plist_varios.html', controller: 'carritoPlistVariosController'});
+        $routeProvider.when('/carrito/plist_bebida', {templateUrl: 'js/app/carrito/plist_bebida.html', controller: 'carritoPlistBebidaController'});
+        $routeProvider.when('/carrito/plist_postre', {templateUrl: 'js/app/carrito/plist_postre.html', controller: 'carritoPlistPostreController'});
         $routeProvider.when('/carrito/carrito/:rpp?/:page?/:order?', {templateUrl: 'js/app/carrito/carrito.html', controller: 'carritoCarritoController', resolve: {auth: autenticacionUsuario}});
-        $routeProvider.when('/carrito/facturacarrito/:id?', {templateUrl: 'js/app/carrito/facturacarrito.html', controller: 'facturaCarritoController', resolve: { auth: autenticacionUsuario}});
+        $routeProvider.when('/carrito/facturacarrito/:id?', {templateUrl: 'js/app/carrito/facturacarrito.html', controller: 'facturaCarritoController', resolve: {auth: autenticacionUsuario}});
         $routeProvider.when('/carrito/restaurante/:id?', {templateUrl: 'js/app/carrito/restaurante.html', controller: 'restauranteCarritoController', resolve: {auth: autenticacionUsuario}});
 
         //RESTAURANTE
@@ -176,8 +179,8 @@ delivery.config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/administrador/plist', {templateUrl: 'js/app/administrador/plist.html', controller: 'administradorPlistController', resolve: {auth: autenticacionAdministrador}});
         $routeProvider.when('/administrador/homeadmin', {templateUrl: 'js/app/administrador/homeadmin.html', controller: 'administradorHomeadminController', resolve: {auth: autenticacionAdministrador}});
 
-        
-       
+
+
 
 
         $routeProvider.otherwise({redirectTo: '/'});
