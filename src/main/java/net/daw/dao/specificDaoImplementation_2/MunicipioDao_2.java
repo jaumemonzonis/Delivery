@@ -60,8 +60,6 @@ public class MunicipioDao_2 extends GenericDaoImplementation implements DaoInter
         throw new Exception("Error en Dao getpage de " + ob + ": No autorizado");
 
     }
-    
- 
 
     public RestauranteBean getIdRestaurante() throws Exception {
         String pob = oUsuarioBeanSession.getPoblacion();
@@ -90,7 +88,6 @@ public class MunicipioDao_2 extends GenericDaoImplementation implements DaoInter
         return oRestauranteBean;
     }
 
- 
     public ArrayList<BeanInterface> getIdRestauranteArea(int id) throws Exception {
         ArrayList<BeanInterface> alBean;
         String pob = oUsuarioBeanSession.getPoblacion();
@@ -123,4 +120,41 @@ public class MunicipioDao_2 extends GenericDaoImplementation implements DaoInter
 
     }
 
+    public int getIdRestauranteDomicilio() throws Exception {
+        String pob = oUsuarioBeanSession.getPoblacion();
+        String strSQL_getIdRestaurante = " SELECT restaurante.id FROM restaurante WHERE restaurante.id = (SELECT restaurante_municipio.id_restaurante FROM restaurante_municipio WHERE restaurante_municipio.id_municipio=(SELECT m.id from municipio m WHERE m.poblacion='" + pob + "'))";
+        PreparedStatement oPreparedStatement = null;
+        int iRes = 0;
+        try {
+            oPreparedStatement = oConnection.prepareStatement(strSQL_getIdRestaurante);
+            iRes = oPreparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new Exception("Error en Dao remove de " + ob, e);
+        } finally {
+            if (oPreparedStatement != null) {
+                oPreparedStatement.close();
+            }
+        }
+        return iRes;
+
+    }
+    
+        public int getIdRestauranteAreaDomicilio() throws Exception {
+        String pob = oUsuarioBeanSession.getPoblacion();
+        String strSQL_getIdRestaurante = " SELECT * FROM `restaurante` WHERE restaurante.id IN (SELECT restaurante_municipio.id_restaurante FROM `restaurante_municipio` WHERE restaurante_municipio.id_municipio IN (SELECT municipio.id FROM municipio WHERE municipio.id_area=(SELECT m.id_area from municipio m WHERE m.poblacion='" + pob + "')))";
+        PreparedStatement oPreparedStatement = null;
+        int iRes = 0;
+        try {
+            oPreparedStatement = oConnection.prepareStatement(strSQL_getIdRestaurante);
+            iRes = oPreparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new Exception("Error en Dao getIdRestauranteAreaDomicilio de " + ob, e);
+        } finally {
+            if (oPreparedStatement != null) {
+                oPreparedStatement.close();
+            }
+        }
+        return iRes;
+
+    }
 }

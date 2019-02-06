@@ -40,6 +40,20 @@
                                 IVA obligatorio
                             </div>
                         </div>
+                          <div class="form-group">
+                            <label>DIRECCION PEDIDO</label>
+                            <input type="text" class="form-control" id="direccion_pedido" name="direccion_pedido" ng-model="direccion_pedido" ng-required="true" placeholder="direccion pedido" />
+                            <div ng-show="!userForm.direccion_pedido.$valid && !userForm.direccion_pedido.$pristine" class="alert alert-danger" role="alert">
+                                Dirección de pedido obligatorio
+                            </div>
+                        </div>
+                           <div class="form-group">
+                            <label>POBLACION PEDIDO</label>
+                            <input type="text" class="form-control" id="poblacion_pedido" name="poblacion_pedido" ng-model="poblacion_pedido" ng-required="true" placeholder="poblacion pedido" />
+                            <div ng-show="!userForm.poblacion_pedido.$valid && !userForm.poblacion_pedido.$pristine" class="alert alert-danger" role="alert">
+                                Población de pedido obligatorio
+                            </div>
+                        </div>
                       
                           <label for="obj_restaurante">RESTAURANTE:</label>
                         <div class="form-group row ml-3">

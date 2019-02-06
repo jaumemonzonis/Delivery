@@ -30,22 +30,26 @@ import net.daw.helper.EncodingHelper;
  *
  * @author a044531896d
  */
-public class FacturaBean extends GenericBeanImplementation implements BeanInterface{
+public class FacturaBean extends GenericBeanImplementation implements BeanInterface {
 
-@Expose
-    Date fecha;
     @Expose
-    double iva;
-    @Expose(serialize = false)
-    int id_usuario;
-    @Expose(deserialize = false)
-    UsuarioBean obj_Usuario;
-    @Expose(serialize = false)
-    int id_restaurante;
-    @Expose(deserialize = false)
-    RestauranteBean obj_Restaurante;
+    private Date fecha;
     @Expose
-    int link_linea;
+    private double iva;
+    @Expose
+    String direccion_pedido;
+    @Expose
+    String poblacion_pedido;
+    @Expose(serialize = false)
+    private int id_usuario;
+    @Expose(deserialize = false)
+    private UsuarioBean obj_Usuario;
+    @Expose(serialize = false)
+    private int id_restaurante;
+    @Expose(deserialize = false)
+    private RestauranteBean obj_Restaurante;
+    @Expose
+    private int link_linea;
 
     public Date getFecha() {
         return fecha;
@@ -108,6 +112,8 @@ public class FacturaBean extends GenericBeanImplementation implements BeanInterf
         this.setId(oResultSet.getInt("id"));
         this.setFecha(oResultSet.getDate("fecha"));
         this.setIva(oResultSet.getDouble("iva"));
+        this.setDireccion_pedido(oResultSet.getString("direccion_pedido"));
+        this.setPoblacion_pedido(oResultSet.getString("poblacion_pedido"));
 
         if (expand > 0) {
             DaoInterface oUsuarioDao = DaoFactory.getDao(oConnection, "usuario", oUsuarioBeanSession);
@@ -139,6 +145,8 @@ public class FacturaBean extends GenericBeanImplementation implements BeanInterf
         strPairs += "id=" + id + ",";
         strPairs += "fecha=" + EncodingHelper.quotate(localDate.toString()) + ",";
         strPairs += "iva=" + getIva() + ",";
+        strPairs += "direccion_pedido=" + EncodingHelper.quotate(direccion_pedido) + ",";
+        strPairs += "poblacion_pedido=" + EncodingHelper.quotate(poblacion_pedido) + ",";
         strPairs += "id_usuario=" + getId_usuario() + ",";
         strPairs += "id_restaurante=" + getId_restaurante();
         strPairs += " WHERE id=" + id;
@@ -152,6 +160,8 @@ public class FacturaBean extends GenericBeanImplementation implements BeanInterf
         strColumns += "id,";
         strColumns += "fecha,";
         strColumns += "iva,";
+        strColumns += "direccion_pedido,";
+        strColumns += "poblacion_pedido,";
         strColumns += "id_usuario,";
         strColumns += "id_restaurante";
         return strColumns;
@@ -170,6 +180,8 @@ public class FacturaBean extends GenericBeanImplementation implements BeanInterf
         strColumns += "null,";
         strColumns += EncodingHelper.quotate(localDate.toString()) + ",";
         strColumns += getIva() + ",";
+        strColumns += EncodingHelper.quotate(direccion_pedido) + ",";
+        strColumns += EncodingHelper.quotate(poblacion_pedido) + ",";
         if (getObj_Usuario() != null) {
             strColumns += this.getObj_Usuario().getId() + ",";
         } else {
@@ -183,6 +195,34 @@ public class FacturaBean extends GenericBeanImplementation implements BeanInterf
         }
 
         return strColumns;
+    }
+
+    /**
+     * @return the direccion_pedido
+     */
+    public String getDireccion_pedido() {
+        return direccion_pedido;
+    }
+
+    /**
+     * @param direccion_pedido the direccion_pedido to set
+     */
+    public void setDireccion_pedido(String direccion_pedido) {
+        this.direccion_pedido = direccion_pedido;
+    }
+
+    /**
+     * @return the poblacion_pedido
+     */
+    public String getPoblacion_pedido() {
+        return poblacion_pedido;
+    }
+
+    /**
+     * @param poblacion_pedido the poblacion_pedido to set
+     */
+    public void setPoblacion_pedido(String poblacion_pedido) {
+        this.poblacion_pedido = poblacion_pedido;
     }
 
 }

@@ -75,6 +75,24 @@
                             </div>
 
                         </th>
+                           <th>
+                            <p>DIRECCION PEDIDO</p>
+                            <div class="order" ng-click="ordena('direccion_pedido', 'asc')">
+                                <i class="material-icons">
+                                    swap_vert
+                                </i>
+                            </div>
+
+                        </th>
+                           <th>
+                            <p>POBLACION PEDIDO</p>
+                            <div class="order" ng-click="ordena('poblacion_pedido', 'asc')">
+                                <i class="material-icons">
+                                    swap_vert
+                                </i>
+                            </div>
+
+                        </th>
                         <th>
                             <p>RESTAURANTE</p>
                             <div class="order" ng-click="ordena('id', 'asc')">
@@ -92,6 +110,8 @@
                         <td>{{fila.id}}</td>
                         <td>{{fila.fecha}}</td>
                         <td>{{fila.iva}}</td>
+                        <td>{{fila.direccion_pedido}}</td>
+                        <td>{{fila.poblacion_pedido}}</td>
                         <td><a class="hover-ajena" href="restaurante/view/{{fila.obj_Restaurante.id}}">{{fila.obj_Restaurante.nombre}}</a></td>
                         <td><button type="button" rel="tooltip" class="btn btn-just-icon btn-sm" data-original-title="" title="" ng-click="linea(fila.id)" ng-disabled="{{fila.link_linea}}== 0">{{fila.link_linea}}
                             </button>

@@ -57,12 +57,12 @@ moduleCarrito.controller('restauranteCarritoController', ['$scope', '$http', '$l
             });
 
         };
-
+ $scope.dir_pedido="local";
 
         $scope.comprar = function (id_restaurante) {
             $http({
                 method: 'GET',
-                url: 'json?ob=carrito&op=buy&id_restaurante=' + id_restaurante
+                url: 'json?ob=carrito&op=buy&id_restaurante=0&dir_pedido='+$scope.dir_pedido+'&pob_pedido='+ $scope.dir_pedido
             }).then(function (response) {
                 $scope.status = response.status;
                 $scope.msg_factura = response.data.message;

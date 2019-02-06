@@ -73,7 +73,7 @@ public class CarritoService_2 {
                 Integer id = Integer.parseInt(oRequest.getParameter("prod"));
                 oConnectionPool = ConnectionFactory.getConnection(ConnectionConstants.connectionPool);
                 oConnection = oConnectionPool.newConnection();
-                ProductoDao_2 oProductoDao = new ProductoDao_2(oConnection, "producto",oUsuarioBeanSession);
+                ProductoDao_2 oProductoDao = new ProductoDao_2(oConnection, "producto", oUsuarioBeanSession);
                 ProductoBean oProductoBean = (ProductoBean) oProductoDao.get(id, 1);
 
                 //Para saber si tenemos agregado el producto al carrito de compras
@@ -120,9 +120,7 @@ public class CarritoService_2 {
         }
         return oReplyBean;
 
-
     }
-
 
     public ReplyBean reduce() throws Exception {
 
@@ -220,10 +218,12 @@ public class CarritoService_2 {
         //Obtenemos la sesion actual
         HttpSession sesion = oRequest.getSession();
         Connection oConnection = null;
-        
-        String id_rest= oRequest.getParameter("id_restaurante");
-        int id_restaurante= Integer.parseInt(id_rest);  
-        
+
+        String id_rest = oRequest.getParameter("id_restaurante");
+        String dir_pedido = oRequest.getParameter("dir_pedido");
+        String pob_pedido = oRequest.getParameter("pob_pedido");
+        int id_restaurante = Integer.parseInt(id_rest);
+
         try {
 
             oConnectionPool = ConnectionFactory.getConnection(ConnectionConstants.connectionPool);
@@ -237,15 +237,28 @@ public class CarritoService_2 {
             oFacturaBean.setId_usuario(id);
             oFacturaBean.setFecha(fechaHoraAhora);
             oFacturaBean.setIva(21.0F);
-            oFacturaBean.setId_restaurante(id_restaurante);
-//            //Determinar el id_restaurante
-//            if (id_restaurante !=0 ){
-//             
-//            } else {
-//            String direccion_cliente = ((UsuarioBean) sesion.getAttribute("user")).getPoblacion();
-//            MunicipioDao_2 oMunicipioDao = new  MunicipioDao_2(oConnection, "municipio", oUsuarioBeanSession);
-//            oFacturaBean.setId_restaurante(oMunicipioDao.getIdRestaurante(direccion_cliente));   
-//            }
+//            oFacturaBean.setId_restaurante(id_restaurante);
+            oFacturaBean.setDireccion_pedido(dir_pedido);
+            oFacturaBean.setPoblacion_pedido(pob_pedido);
+
+            //Determinar el id_restaurante
+            if (id_restaurante != 0) {
+                oFacturaBean.setId_restaurante(id_restaurante);
+            } else {
+                MunicipioDao_2 oMunicipioDao = new MunicipioDao_2(oConnection, "municipio", oUsuarioBeanSession);
+                int id_restpredefinido = oMunicipioDao.getIdRestauranteDomicilio();
+                if (id_restpredefinido != 0) {
+                    oFacturaBean.setId_restaurante(id_restpredefinido);
+                } else {
+                    int id_restarea=oMunicipioDao.getIdRestauranteAreaDomicilio();
+                    if (id_restarea != 0){
+                    oFacturaBean.setId_restaurante(id_restarea);
+                    } else {
+                     oFacturaBean.setId_restaurante(0);
+                    }
+                    
+                }
+            }
 
             FacturaDao_2 oFacturaDao = new FacturaDao_2(oConnection, "factura", oUsuarioBeanSession);
             FacturaBean oFacturaBeanCreada = (FacturaBean) oFacturaDao.create(oFacturaBean);
@@ -253,14 +266,14 @@ public class CarritoService_2 {
 
             LineaDao_2 oLineaDao;
             LineaBean oLineaBean;
-            
+
             ProductoDao_2 oProductoDao = new ProductoDao_2(oConnection, "producto", oUsuarioBeanSession);
             oLineaDao = new LineaDao_2(oConnection, "linea", oUsuarioBeanSession);
             ProductoBean oProductoBean;
 
             for (ItemBean ib : carrito) {
 
-              int cant = ib.getCantidad();
+                int cant = ib.getCantidad();
 
                 oLineaBean = new LineaBean();
 
@@ -275,7 +288,7 @@ public class CarritoService_2 {
                 oProductoBean.setId(ib.getObj_producto().getId());
 
                 oProductoBean = ib.getObj_producto();
-                
+
                 oProductoBean.setId_tipoProducto(ib.getObj_producto().getId_tipoProducto());
 
                 oProductoBean.setExistencias(oProductoBean.getExistencias() - cant);

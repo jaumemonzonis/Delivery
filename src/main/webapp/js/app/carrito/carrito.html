@@ -60,7 +60,7 @@
                             <tr ng-repeat="fila in ajaxData track by $index">
                                 <td>{{fila.obj_producto.nombre}}</td>
                                 <td>{{miFormato(fila.obj_producto.precio)}}</td>
-                                <td>{{fila.obj_producto.foto}}</td>
+                                 <td><image style="width:50xp;height:50px" src="http://localhost:8081/images_server/{{fila.obj_producto.foto}}"/></td>
                                 <td>  
                                     <span class="btn btn-just-icon btn-sm" ng-style="fila.obj_producto.existencias === fila.cantidad && {'background-color':'#dc3545'}">{{fila.cantidad}}</span>
                                     <button type="button" ng-click="add(fila.obj_producto.id)" class="btn btn-just-icon btn-sm" ng-disabled="fila.obj_producto.existencias === fila.cantidad"><i class="material-icons">

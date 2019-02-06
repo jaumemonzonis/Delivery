@@ -53,6 +53,8 @@ moduleFactura.controller("facturaEditController", [
             console.log(response);
 //            $scope.id = response.data.message.id;
             $scope.iva = response.data.message.iva;
+            $scope.direccion_pedido = response.data.message.direccion_pedido;
+            $scope.poblacion_pedido = response.data.message.poblacion_pedido;
 
             $scope.obj_Restaurante = {
                 id: response.data.message.obj_Restaurante.id,
@@ -99,6 +101,8 @@ moduleFactura.controller("facturaEditController", [
                 id: $scope.id,
                 fecha: $scope.myDate,
                 iva: $scope.iva,
+                direccion_pedido: $scope.direccion_pedido,
+                poblacion_pedido: $scope.poblacion_pedido,
                 id_usuario: $scope.id_usuario,
                 id_restaurante: $scope.obj_Restaurante.id
 
