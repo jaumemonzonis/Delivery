@@ -27,7 +27,7 @@ moduleFactura.controller('facturaCarritoController', ['$scope', '$http', '$locat
             url: 'json?ob=linea&op=getpagex&rpp=10&page=1&idajena=' + $scope.id
         }).then(function (response) {
             $scope.status = response.status;
-            $scope.ajaxDataUsuarios = response.data.message;
+            $scope.ajaxData = response.data.message;
             var cant = 0;
             var precio = 0;
             var iva = 0;
@@ -46,12 +46,12 @@ moduleFactura.controller('facturaCarritoController', ['$scope', '$http', '$locat
 
         }, function (response) {
             $scope.status = response.status;
-            $scope.ajaxDataUsuarios = response.data.message || 'Request failed';
+            $scope.ajaxData = response.data.message || 'Request failed';
         });
 
 
         $scope.volver = function () {
-            $location.url(`carrito/plist/`);
+            $location.url(`home`);
         }
 
         $scope.pdf = function () {
@@ -64,17 +64,17 @@ moduleFactura.controller('facturaCarritoController', ['$scope', '$http', '$locat
             var lineasTotales;
             var iva;
             var dni;
-            var length = $scope.ajaxDataUsuarios.length;
+            var length = $scope.ajaxData.length;
             console.log(length);
             var doc = new jsPDF();
             for (var i = 0; i < length; i++) {
-                console.log($scope.ajaxDataUsuarios[i]);
+                console.log($scope.ajaxData[i]);
 //                if ($scope.ajaxDataUsuarios[i].id === $scope.id) {
-                usuario = $scope.ajaxDataUsuarios[i].obj_Factura.obj_Usuario.nombre + ' ' + $scope.ajaxDataUsuarios[i].obj_Factura.obj_Usuario.ape1 + ' ' + $scope.ajaxDataUsuarios[i].obj_Factura.obj_Usuario.ape2;
-                fecha = $scope.ajaxDataUsuarios[i].obj_Factura.fecha;
-                lineasTotales = $scope.ajaxDataUsuarios[i].obj_Factura.link_linea;
-                iva = $scope.ajaxDataUsuarios[i].obj_Factura.iva;
-                dni = $scope.ajaxDataUsuarios[i].obj_Factura.obj_Usuario.dni;
+                usuario = $scope.ajaxData[i].obj_Factura.obj_Usuario.nombre + ' ' + $scope.ajaxData[i].obj_Factura.obj_Usuario.ape1 + ' ' + $scope.ajaxData[i].obj_Factura.obj_Usuario.ape2;
+                fecha = $scope.ajaxData[i].obj_Factura.fecha;
+                lineasTotales = $scope.ajaxData[i].obj_Factura.link_linea;
+                iva = $scope.ajaxData[i].obj_Factura.iva;
+                dni = $scope.ajaxData[i].obj_Factura.obj_Usuario.dni;
 //                }
             }
             ;

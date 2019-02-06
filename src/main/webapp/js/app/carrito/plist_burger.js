@@ -31,37 +31,45 @@ moduleCarrito.controller('carritoPlistBurgerController', ['$scope', '$http', '$l
                 $scope.page = 1;
             }
         }
+       function show() {
+        $http({
+            method: 'GET',
+            url: 'json?ob=carrito&op=show'
+        }).then(function (response) {
+            $scope.status = response.status;
+            $scope.ajaxDataShow = response.data.message;
+            if ($scope.ajaxDataShow === "Carrito vacio") {
+                $scope.alert = true;
+            }
+        }, function (response) {
+            $scope.status = response.status;
+            $scope.ajaxDataShow = response.data.message || 'Request failed';
+        });
 
-
+        };
+        
         $scope.idTipousuario = sessionService.getTypeUserID();
         $scope.comprar = function (id) {
 
-            if ($scope.idTipousuario !== 2) {
-                $location.url('/usuario/login');
+            $http({
+                method: 'GET',
+                url: 'json?ob=carrito&op=add&prod=' + id
+            }).then(function (response) {
+                $scope.status = response.status;
+                $scope.ajaxDataAdd = response.data.message;
+                if ($scope.status == 400) {
+                    $scope.stock = true;
+                }
+                show();
+            }, function (response) {
+                $scope.status = response.status;
+                $scope.ajaxDataAdd = response.data.message || 'Request failed';
+            });
 
-            } else {
-                $http({
-                    method: 'GET',
-                    url: 'json?ob=carrito&op=add&prod=' + id
-                }).then(function (response) {
-                    $scope.status = response.status;
-                    $scope.ajaxDataAdd = response.data.message;
-                    $scope.alert = true;
-                    
-                }, function (response) {
-                    $scope.status = response.status;
-                    $scope.ajaxDataAdd = response.data.message || 'Request failed';
-                });
-
-                //animacion
+            //animacion
 
 //            https://css-tricks.com/animations-the-angular-way/
 
-
-
-
-            }
-            ;
         };
 
         $scope.idTipoproducto = 1;

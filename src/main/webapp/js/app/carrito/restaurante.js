@@ -59,7 +59,7 @@ moduleCarrito.controller('restauranteCarritoController', ['$scope', '$http', '$l
         };
 
 
-        $scope.buy = function (id_restaurante) {
+        $scope.comprar = function (id_restaurante) {
             $http({
                 method: 'GET',
                 url: 'json?ob=carrito&op=buy&id_restaurante=' + id_restaurante

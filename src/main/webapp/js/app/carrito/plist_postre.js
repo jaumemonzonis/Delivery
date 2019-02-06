@@ -38,14 +38,14 @@ moduleCarrito.controller('carritoPlistPostreController', ['$scope', '$http', '$l
             url: 'json?ob=carrito&op=show'
         }).then(function (response) {
             $scope.status = response.status;
-            $scope.ajaxData = response.data.message;
-            if ($scope.ajaxData === "Carrito vacio") {
+            $scope.ajaxDataShow = response.data.message;
+            if ($scope.ajaxDataShow === "Carrito vacio") {
                 $scope.alert = true;
                 $scope.flecha = true;
             }
         }, function (response) {
             $scope.status = response.status;
-            $scope.ajaxData = response.data.message || 'Request failed';
+            $scope.ajaxDataShow = response.data.message || 'Request failed';
         });
 
 
@@ -53,17 +53,13 @@ moduleCarrito.controller('carritoPlistPostreController', ['$scope', '$http', '$l
         $scope.idTipousuario = sessionService.getTypeUserID();
         $scope.comprar = function (id) {
 
-            if ($scope.idTipousuario !== 2) {
-                $location.url('/usuario/login');
-
-            } else {
                 $http({
                     method: 'GET',
                     url: 'json?ob=carrito&op=add&prod=' + id
                 }).then(function (response) {
                     $scope.status = response.status;
 
-                    if ($scope.status == 400) {
+                    if ($scope.status === 400) {
 
                         $scope.stock = true;
                     }
@@ -79,11 +75,6 @@ moduleCarrito.controller('carritoPlistPostreController', ['$scope', '$http', '$l
 
 //            https://css-tricks.com/animations-the-angular-way/
 
-
-
-
-            }
-            ;
         };
 
         $scope.idTipoproducto = 4;

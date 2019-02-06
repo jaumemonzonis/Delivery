@@ -1,53 +1,84 @@
-<header-component></header-component>
-<div class="container-fluid">
-    <div class="row">
-        <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4" style="margin-top: 50px">
-            <div class="d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3 mt-3 border-bottom">
-                <h1 class="h2" style="text-align: center; color: #556B2F;"><i class="fas far fa-file fa-1x"></i>  Factura creada correctamente</h1>
-            </div>
-
-
-            <div class="table-responsive" style="text-align: center;">
-                <table class="table table-striped table-sm tabla">
-                    <tr>
-                        <th>
-                            Descripción
-                        </th>
-                        <th>
-                            Precio
-                        <th>
-                            Cantidad
-                        </th>
-                        <th>
-                            IVA
-                        </th>
-                        <th>
-                            Precio Final
-                        </th>
-                    </tr>
-                    <tr ng-repeat="fila in ajaxDataUsuarios">
-                        <td>{{fila.obj_Producto.desc}}</td>
-                        <td>{{miFormato(fila.obj_Producto.precio)}}</td> 
-                        <td>{{fila.cantidad}}</td>  
-                        <td>{{fila.obj_Factura.iva}}</td>
-                        <td>{{miFormato(((fila.obj_Factura.iva / 100) * fila.obj_Producto.precio) + fila.obj_Producto.precio)}} €</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td> 
-                        <td style='font-weight: bold;'>TOTAL</td>
-                        <td>{{miFormato(total)}} €</td>
-                    </tr>
-                </table>
-                </div> 
-           
-                <div class="float-right">
-         <button type="button" class="btn btn-primary mr-1" ng-click="pdf()">Ver PDF</button>
-         <button type="button" class="btn btn-secondary mr-1" ng-click="volver()">Volver</button>
-           
-            </div>
-        </main>
+<headerclient-component></headerclient-component>
+<div class="body_plist">
+    <div class="imgcarrito">
+        <div class="label prod1 top_plistproductos">TU PEDIDO</div>
     </div>
+    <div class="nav d-flex  justify-content-center">
+        <div class="container-fluid">
+            <div class="row">
+                <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4">
+
+                    <div class="col-md-12 ml-sm-auto col-lg-12">
+                        <div class="float-right create_btn_margin">
+
+                            <button class="btn btn-rojo btn-sm  float-left" role="button" aria-pressed="true"   ng-click="pdf()"><i class="material-icons">
+                                    print
+                                </i> IMPRIMIR FACTURA</button>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive container2 mb-5 pl-3 pr-3">
+                        <div class="alert alert-success mx-auto mt-3 text-center" role="alert">
+                            TU PEDIDO SE HA REALIZADO CORRECTAMENTE.
+                            <p> Gracias por realizar tus compras en EAT IT.</p>
+                        </div>
+
+
+                        <table class="table table-sm">
+                            <tr>
+                                <th>
+                                    Nombre
+                                </th>
+                                <th>
+                                    Precio(€)
+                                <th>
+                                    Cantidad
+                                </th>
+                                <th>
+                                    IVA
+                                </th>
+                                <th>
+                                    Precio Final
+                                </th>
+                            <tr ng-repeat="fila in ajaxData">
+                                <td>{{fila.obj_Producto.nombre}}</td>
+                                <td>{{miFormato(fila.obj_Producto.precio)}}</td> 
+                                <td>{{fila.cantidad}}</td>  
+                                <td>{{fila.obj_Factura.iva}}</td>
+                                <td>{{miFormato(((fila.obj_Factura.iva / 100) * fila.obj_Producto.precio) + fila.obj_Producto.precio)}} €</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td> 
+                                <td style='font-weight: bold;'>TOTAL</td>
+                                <td>{{miFormato(total)}} €</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="flechas_comprar">
+                        <div  ng-click="volver()" class="flecha_btn mr-5"><i class="material-icons">
+                                arrow_back_ios
+                            </i></div>
+                    </div> 
+                </main>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer d-flex mt-3">
+            <div class="rrss tw"></div>
+            <div class="rrss fb"></div>
+            <div class="rrss in"></div>
+            <div class="label_footer">PROYECTO FINAL - DAW - JAUME MONZONIS LAZARO</div>
+
+        </div>
+
+    </footer>
+
 </div>
-<footer class="footer" ng-include="'js/app/footer.html'"></footer>

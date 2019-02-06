@@ -133,7 +133,7 @@
                             <td>{{fila.desc}}</td>
                             <td>{{fila.existencias}}</td>
                             <td>{{fila.precio}}</td>
-                            <td>{{fila.foto}}</td>
+                            <td><image style="width:50xp;height:50px" src="http://localhost:8081/images_server/{{fila.foto}}"/></td>
                              <td><a class="hover-ajena" href="tipoproducto/view/{{fila.obj_tipoProducto.id}}">{{fila.obj_tipoProducto.desc}}</a></td>
                             <td><button type="button" rel="tooltip" class="btn btn-just-icon btn-sm" ng-click="view(fila.id)">
                                     <i class="material-icons">visibility</i>
