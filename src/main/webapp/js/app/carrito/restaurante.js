@@ -8,9 +8,10 @@ moduleCarrito.controller('restauranteCarritoController', ['$scope', '$http', '$l
 
 
 // TODOS LOS RESTAURANTES
+  function plistRest () {
         $http({
             method: 'GET',
-            url: 'json?ob=restaurante&op=getpage&rpp=100&page=1'
+            url: 'json?ob=restaurante&op=getpageSinarea'
         }).then(function (response) {
             $scope.status = response.status;
             $scope.plistrest = response.data.message;
@@ -18,6 +19,7 @@ moduleCarrito.controller('restauranteCarritoController', ['$scope', '$http', '$l
             $scope.status = response.status;
             $scope.plistrest = response.data.message || 'Request failed';
         });
+    }
 //SELECT * FROM `restaurante` WHERE restaurante.id IN (SELECT restaurante_municipio.id_restaurante FROM `restaurante_municipio` WHERE restaurante_municipio.id_municipio IN (SELECT municipio.id FROM municipio WHERE municipio.id_area=(SELECT m.id_area from municipio m WHERE m.poblacion='Museros'))) AND restaurante.id <> 0
 
 //        $scope.id_rest_predeterminado= "0";
@@ -34,6 +36,7 @@ moduleCarrito.controller('restauranteCarritoController', ['$scope', '$http', '$l
                 $scope.id_rest_predeterminado = "0";
             }
             areaRest($scope.id_rest_predeterminado);
+            plistRest();
         }, function (response) {
             $scope.status = response.status;
             $scope.prerest = response.data.message || 'Request failed';

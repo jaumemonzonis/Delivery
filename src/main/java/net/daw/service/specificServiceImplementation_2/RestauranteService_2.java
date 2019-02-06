@@ -8,6 +8,7 @@ package net.daw.service.specificServiceImplementation_2;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.sql.Connection;
+import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import net.daw.bean.beanImplementation.ReplyBean;
 import net.daw.bean.publicBeanInterface.BeanInterface;
@@ -41,9 +42,9 @@ public class RestauranteService_2 extends GenericServiceImplementation implement
             oConnectionPool = ConnectionFactory.getConnection(ConnectionConstants.connectionPool);
             oConnection = oConnectionPool.newConnection();
             RestauranteDao_2 oRestauranteDao = new RestauranteDao_2(oConnection, ob, oUsuarioBeanSession);
-            BeanInterface oBean = oRestauranteDao.getpageSinarea();
+            ArrayList<BeanInterface> alBean = oRestauranteDao.getpageSinarea();
             Gson oGson = (new GsonBuilder()).excludeFieldsWithoutExposeAnnotation().create();
-            oReplyBean = new ReplyBean(200, oGson.toJson(oBean));
+            oReplyBean = new ReplyBean(200, oGson.toJson(alBean));
         } catch (Exception ex) {
             throw new Exception("ERROR: Service level: getpageSinarea method: " + ob + " object", ex);
         } finally {

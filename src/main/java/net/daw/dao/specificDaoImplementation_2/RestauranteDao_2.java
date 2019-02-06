@@ -5,7 +5,6 @@
  */
 package net.daw.dao.specificDaoImplementation_2;
 
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,12 +21,14 @@ import net.daw.dao.publicDaoInterface.DaoInterface;
  *
  * @author jaume monzonis
  */
-public class RestauranteDao_2 extends GenericDaoImplementation implements DaoInterface{
-     public RestauranteDao_2(Connection oConnection, String ob,UsuarioBean oUsuarioBeanSession) {
+public class RestauranteDao_2 extends GenericDaoImplementation implements DaoInterface {
+
+    public RestauranteDao_2(Connection oConnection, String ob, UsuarioBean oUsuarioBeanSession) {
         super(oConnection, ob, oUsuarioBeanSession);
 
     }
-     @Override
+
+    @Override
     public int remove(int id) throws Exception {
         throw new Exception("Error en Dao remove de " + ob + ": No autorizado");
     }
@@ -41,21 +42,22 @@ public class RestauranteDao_2 extends GenericDaoImplementation implements DaoInt
     public int update(BeanInterface oBean) throws Exception {
         throw new Exception("Error en Dao update de " + ob + ": No autorizado");
     }
-    
-    
-   public RestauranteBean getpageSinarea() throws Exception {
+
+    public ArrayList<BeanInterface> getpageSinarea() throws Exception {
+        ArrayList<BeanInterface> alBean;
         String pob = oUsuarioBeanSession.getPoblacion();
-        String strSQL_getIdRestaurante = "SELECT * FROM `restaurante` WHERE restaurante.id IN (SELECT restaurante_municipio.id_restaurante FROM `restaurante_municipio` WHERE restaurante_municipio.id_municipio IN (SELECT municipio.id FROM municipio WHERE municipio.id_area <> (SELECT m.id_area from municipio m WHERE m.poblacion='" + pob + "')))";
-        RestauranteBean oRestauranteBean = new RestauranteBean();
-        ResultSet oResultSet = null;
+        int iRes = 0;
+        String strSQL_getIdRestaurante = "SELECT * FROM `restaurante` WHERE restaurante.id IN (SELECT restaurante_municipio.id_restaurante FROM `restaurante_municipio` WHERE restaurante_municipio.id_municipio IN (SELECT municipio.id FROM municipio WHERE municipio.id_area<>(SELECT m.id_area from municipio m WHERE m.poblacion='" + pob + "')))";
         PreparedStatement oPreparedStatement = null;
+        ResultSet oResultSet = null;
         try {
             oPreparedStatement = oConnection.prepareStatement(strSQL_getIdRestaurante);
             oResultSet = oPreparedStatement.executeQuery();
-            if (oResultSet.next()) {
-                oRestauranteBean.fill(oResultSet, oConnection, 2, oUsuarioBeanSession);
-            } else {
-                oRestauranteBean = null;
+            alBean = new ArrayList<BeanInterface>();
+            while (oResultSet.next()) {
+                RestauranteBean oRestauranteBean = new RestauranteBean();
+                oRestauranteBean.fill(oResultSet, oConnection, 1, oUsuarioBeanSession);
+                alBean.add(oRestauranteBean);
             }
         } catch (SQLException e) {
             throw new Exception("Error en Dao getpageSinarea de " + ob, e);
@@ -67,6 +69,8 @@ public class RestauranteDao_2 extends GenericDaoImplementation implements DaoInt
                 oPreparedStatement.close();
             }
         }
-        return oRestauranteBean;
+
+        return alBean;
+
     }
 }

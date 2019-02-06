@@ -6,22 +6,21 @@
         <div class="icon_cart"><img src="images/icon_cart.png" alt="añadir al carrito" class="img_cart"  ng-click="carrito()" ng-show="!alert"/></div>
     </div>
     <div class="nav d-flex  justify-content-center">
-      <div id="make-3D-space" ng-repeat="fila in arearest">
+        <div id="make-3D-space">
             <div id="product-card">
-                <div id="product-front">
+                <div id="product-front-pre">
                     <div class="shadow"></div>
-                    <img src="/delivery/images/clasica.jpg" alt="" height="335" width="500" />
-                    <div class="image_overlay"></div>
-                    <div id="view_details" ng-click="comprar(fila.id)">COMPRAR</div>
+                    <img src="/delivery/images/local.jpg" alt="" height="335" width="500" />
+                    <div class="image_overlay-pre"></div>
+                    <div id="view_details-pre" ng-click="comprar(prerest.id)">SELECCIONAR</div>
                     <div class="stats">        	
-                        <div class="stats-container">
-                            <span class="product_price">{{fila.poblacion}}€</span>
-                            <span class="product_name">{{fila.nombre}}</span>    
-                            <p>{{fila.direccion}}</p>                                            
+                        <div class="stats-container-pre">
+                            <span class="product_name-pre">{{prerest.nombre}}</span>    
+                            <p>{{prerest.poblacion}}</p>                                            
 
-                            <div class="product-options">
+                            <div class="product-options-pre">
 
-                                <span>{{fila.desc}}</span>
+                                <span>{{prerest.direccion}}</span>
                             </div>                       
                         </div>                         
                     </div>
@@ -29,49 +28,68 @@
             </div>	
 
         </div>
-           <div id="make-3D-space" ng-repeat="fila in plistrest">
+        <div id="make-3D-space" ng-repeat="rest in arearest">
             <div id="product-card">
-                <div id="product-front">
+                <div id="product-front-area">
                     <div class="shadow"></div>
-                    <img src="/delivery/images/clasica.jpg" alt="" height="335" width="500" />
-                    <div class="image_overlay"></div>
-                    <div id="view_details" ng-click="comprar(fila.id)">COMPRAR</div>
+                    <img src="/delivery/images/local.jpg" alt="" height="335" width="500" />
+                    <div class="image_overlay-area"></div>
+                    <div id="view_details-area" ng-click="comprar(rest.id)">SELECCIONAR</div>
                     <div class="stats">        	
-                        <div class="stats-container">
-                            <span class="product_price">{{fila.poblacion}}€</span>
-                            <span class="product_name">{{fila.nombre}}</span>    
-                            <p>{{fila.direccion}}</p>                                            
+                        <div class="stats-container-area">
+                   
+                            <span class="product_name-area">{{rest.nombre}}</span>    
+                            <p>{{rest.poblacion}}</p>                                            
 
-                            <div class="product-options">
+                            <div class="product-options-area">
 
-                                <span>{{fila.desc}}</span>
+                                <span>{{rest.direccion}}</span>
                             </div>                       
                         </div>                         
                     </div>
                 </div>
             </div>	
-
         </div>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+    <div id="make-3D-space" ng-repeat="rest in plistrest">
+            <div id="product-card">
+                <div id="product-front-plist">
+                    <div class="shadow"></div>
+                    <img src="/delivery/images/local.jpg" alt="" height="335" width="500" />
+                    <div class="image_overlay-plist"></div>
+                    <div id="view_details-plist" ng-click="comprar(rest.id)">SELECCIONAR</div>
+                    <div class="stats">        	
+                        <div class="stats-container-plist">     
+                            <span class="product_name-plist">{{rest.nombre}}</span>    
+                            <p>{{rest.poblacion}}</p>                                            
+
+                            <div class="product-options-plist">
+
+                                <span>{{rest.direccion}}</span>
+                            </div>                       
+                        </div>                         
+                    </div>
+                </div>
+            </div>	
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div class="flechas">
             <div  ng-click="volver()" class="flecha_btn float-left mr-5"><i class="material-icons">
                     arrow_back_ios
