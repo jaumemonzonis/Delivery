@@ -111,9 +111,9 @@ moduleCarrito.controller('carritoCarritoController', ['$scope', '$http', '$locat
         $scope.volver = function () {
             $window.history.back();
         }
-         $scope.seleccion_rest = function () {
+         $scope.seleccion_op = function () {
             
-             $location.url(`carrito/restaurante`);
+             $location.url(`carrito/opcion`);
         };
 
     }

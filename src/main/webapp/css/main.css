@@ -1526,6 +1526,30 @@ div.shadow{
     transition: all 200ms ease-out; 		
 }
 
+/* OPCION LOCAL O DOMICILIO*/
 
+.label.prod4{
+        color: #F9B157;
+        font-size: 50px;
+}
+.label.prod4.top_domicilio{
+    margin-top:4%;
+}
+/*  DOMICILIO*/
 
+.label_domicilio{
+    font-weight: 900;
+    font-size: 40px;
+    color: #F9B157;
+     margin-top:4%;
+}
 
+.paso_img{
+   width:8%;
+    max-width: 8%;
+    height: auto;  
+}
+
+.nav_domicilio{
+    margin-top:7%;
+}
