@@ -97,9 +97,8 @@ delivery.config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/usuario/new', {templateUrl: 'js/app/usuario/new.html', controller: 'usuarioNewController', resolve: {auth: autenticacionAdministrador}});
         $routeProvider.when('/usuario/edit/:id', {templateUrl: 'js/app/usuario/edit.html', controller: 'usuarioEditController', resolve: {auth: autenticacionAdministrador}});
         $routeProvider.when('/usuario/remove/:id', {templateUrl: 'js/app/usuario/remove.html', controller: 'usuarioRemoveController', resolve: {auth: autenticacionAdministrador}});
-
-        $routeProvider.when('/usuario/editpass/:id', {templateUrl: 'js/app/usuario/editpass.html', controller: 'usuarioEditpassController'});
-
+        $routeProvider.when('/usuario/editpass/:id', {templateUrl: 'js/app/usuario/editpass.html', controller: 'usuarioEditpassController', resolve: {auth: autenticacionAdministrador}});
+        $routeProvider.when('/usuario/cambiarpasscliente/:iduser', {templateUrl: 'js/app/usuario/cambiarpasscliente.html', controller: 'cambiarpassclienteController', resolve: {auth: autenticacionUsuario}});
         $routeProvider.when('/usuario/login', {templateUrl: 'js/app/usuario/login.html', controller: 'usuarioLoginController'});
         $routeProvider.when('/usuario/logout', {templateUrl: 'js/app/usuario/logout.html', controller: 'usuarioLogoutController'});
         $routeProvider.when('/usuario/registrarse', {templateUrl: 'js/app/usuario/registrarse.html', controller: 'usuarioRegistrarseController'});

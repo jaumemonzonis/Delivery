@@ -12,6 +12,9 @@ moduleUsuario.controller('viewusuarioclienteController', ['$scope', '$http', '$l
             $scope.id = $routeParams.id;
         }
 
+       
+        $scope.iduser=sessionService.getId();
+        
         $http({
             method: 'GET',
             url: 'json?ob=' + $scope.ob + '&op=get&id=' + $scope.id
