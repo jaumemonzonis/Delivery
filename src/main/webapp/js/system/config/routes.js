@@ -130,14 +130,15 @@ delivery.config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/linea/remove/:id', {templateUrl: 'js/app/linea/remove.html', controller: 'lineaRemoveController', resolve: {auth: autenticacionAdministrador}});
         $routeProvider.when('/linea/edit/:id', {templateUrl: 'js/app/linea/edit.html', controller: 'lineaEditController', resolve: {auth: autenticacionAdministrador}});
         $routeProvider.when('/linea/new', {templateUrl: 'js/app/linea/new.html', controller: 'lineaNewController', resolve: {auth: autenticacionAdministrador}});
-        $routeProvider.when('/linea/plistxusuario/:rpp?/:page?/:id?/:order?', {templateUrl: 'js/app/linea/plistxusuario.html', controller: 'lineaplistxusuarioController'});
+        $routeProvider.when('/linea/plistxusuario/:rpp?/:page?/:id?/:order?', {templateUrl: 'js/app/linea/plistxusuario.html', controller: 'lineaplistxusuarioController', resolve: {auth: autenticacionAdministrador}});
         $routeProvider.when('/linea/newxusuario/:id', {templateUrl: 'js/app/linea/newxusuario.html', controller: 'lineanewxusuarioController', resolve: {auth: autenticacionAdministrador}});
-
+        $routeProvider.when('/linea/lineacliente/:rpp?/:page?/:id?/:order?', {templateUrl: 'js/app/linea/lineacliente.html', controller: 'lineaclienteController', resolve: {auth: autenticacionUsuario}});
         //FACTURA
         $routeProvider.when('/factura/plist/:rpp?/:page?/:order?', {templateUrl: 'js/app/factura/plist.html', controller: 'facturaPlistController', resolve: {auth: autenticacionAdministrador}});
         $routeProvider.when('/factura/plistxusuario/:rpp?/:page?/:id?/:order?', {templateUrl: 'js/app/factura/plistxusuario.html', controller: 'facturaplistxusuarioController', resolve: {auth: autenticacionAdministrador}});
         $routeProvider.when('/factura/remove/:id', {templateUrl: 'js/app/factura/remove.html', controller: 'facturaRemoveController', resolve: {auth: autenticacionAdministrador}});
         $routeProvider.when('/factura/view/:id?', {templateUrl: 'js/app/factura/view.html', controller: 'facturaViewController'});
+        $routeProvider.when('/factura/facturacliente/:rpp?/:page?/:id?/:order?', {templateUrl: 'js/app/factura/facturacliente.html', controller: 'facturaClienteController', resolve: {auth: autenticacionUsuario}});
         $routeProvider.when('/factura/new', {templateUrl: 'js/app/factura/new.html', controller: 'facturaNewController', resolve: {auth: autenticacionAdministrador}});
         $routeProvider.when('/factura/edit/:id?/:id_usuario?', {templateUrl: 'js/app/factura/edit.html', controller: 'facturaEditController', resolve: {auth: autenticacionAdministrador}});
         $routeProvider.when('/factura/newxusuario/:id', {templateUrl: 'js/app/factura/newxusuario.html', controller: 'facturanewxusuarioController', resolve: {auth: autenticacionAdministrador}});
