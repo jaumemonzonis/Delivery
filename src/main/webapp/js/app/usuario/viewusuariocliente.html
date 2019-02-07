@@ -1,0 +1,67 @@
+<headerclient-component></headerclient-component>
+<div class="body_plist">
+    <div class="imgcarrito">
+        <div class="label prod1 top_plistproductos">TU CUENTA</div>
+    </div>
+    <div class="nav d-flex  justify-content-center">
+        <div class="container-fluid">
+            <div class="row">
+                <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4">
+                    <div class="float-right create_btn_margin">
+                        <a href="{{ob}}/new/" class="btn btn-rojo btn-sm float-right mr-3" role="button" aria-pressed="true"><i class="material-icons">
+                                vpn_key</i> CAMBIAR CONTRASEÑA</a>
+
+                    </div>
+                    <div class="table-responsive container2 mb-5 pl-3 pr-3">
+                        <table class="table table-sm">
+                            <tr>
+                                <th class="ver">Nombre</th><td>{{ajaxDataUsuarios.nombre}}</td>
+                            </tr>
+                            <tr>
+                                <th class="ver">Primer apellido </th><td>{{ajaxDataUsuarios.ape1}}</td>
+                            </tr>
+                            <tr>
+                                <th class="ver">Segundo apellido </th><td>{{ajaxDataUsuarios.ape2}}</td>
+                            </tr>
+                            <tr>
+                                <th class="ver">Telefono</th><td>{{ajaxDataUsuarios.telefono}}</td>
+                            </tr>
+                            <tr>
+                                <th class="ver">Email</th><td>{{ajaxDataUsuarios.email}}</td>
+                            </tr>
+                            <tr>
+                                <th class="ver">Dirección</th><td>{{ajaxDataUsuarios.direccion}}</td>
+                            </tr>
+                            <tr>
+                                <th class="ver">Población</th><td>{{ajaxDataUsuarios.poblacion}}</td>
+                            </tr>
+                        </table>
+                    </div>
+
+
+                    <div class="flechas_comprar">
+                        <div  ng-click="volver()" class="flecha_btn mr-5"><i class="material-icons">
+                                arrow_back_ios
+                            </i></div>
+                    </div> 
+                </main>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer d-flex mt-3">
+            <div class="rrss tw"></div>
+            <div class="rrss fb"></div>
+            <div class="rrss in"></div>
+            <div class="label_footer">PROYECTO FINAL - DAW - JAUME MONZONIS LAZARO</div>
+
+        </div>
+
+    </footer>
+
+</div>

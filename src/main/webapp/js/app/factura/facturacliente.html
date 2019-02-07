@@ -26,34 +26,8 @@
                                 <i class="material-icons">cached</i>
                             </button>
                         </div>
-                         
-                           </div> 
-                                <nav aria-label="paginacion">
-                                    <ul class="pagination">
-                                        <li class="page-item">
-                                            <a class="page-link text-pagination bg-light" ng-show="page > 2" href="{{ob}}/plistxusuario/{{rpp}}/1/{{id}}/{{order}}/{{align}}">First</a>
-                                        </li>
-                                        <li class="page-item">
-                                            <a class="page-link text-pagination bg-light" ng-show="page > 1" href="{{ob}}/plistxusuario/{{rpp}}/{{id}}/{{page - 1}}/{{order}}/{{align}}">Previous</a>
-                                        </li>
-                                        <li class="page-item" ng-class="{'active':(p == page), 'disabled': p === '...'}" ng-repeat="p in list2 track by $index">
-                                            <a class="page-link text-pagination" href="{{ob}}/plistxusuario/{{rpp}}/{{p}}/{{id}}/{{order}}/{{align}}">{{p}}</a>
-                                        </li>
-                                        <li class="page-item">
-                                            <a class="page-link text-pagination bg-light" ng-show="page != totalPages" href="{{ob}}/plistxusuario/{{rpp}}/{{page--1}}/{{id}}/{{order}}/{{align}}">Next</a>
-                                        </li>
-                                        <li class="page-item">
-                                            <a class="page-link text-pagination bg-light" ng-show="page != totalPages - 1 && page != totalPages" href="{{ob}}/plistxusuario/{{rpp}}/{{totalPages}}/{{id}}/{{order}}/{{align}}">Last</a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                          
-                        
-                 
 
-
-
-
+                    </div> 
 
                     <div class="table-responsive container2 mb-5 pl-3 pr-3">
                         <table class="table table-sm">
@@ -85,6 +59,7 @@
                                     </button></td>
 
                             </tr>
+
                         </table>
                     </div>
 
