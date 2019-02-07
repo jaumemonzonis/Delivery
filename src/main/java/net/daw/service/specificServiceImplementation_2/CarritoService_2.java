@@ -245,19 +245,7 @@ public class CarritoService_2 {
             if (id_restaurante != 0) {
                 oFacturaBean.setId_restaurante(id_restaurante);
             } else {
-                MunicipioDao_2 oMunicipioDao = new MunicipioDao_2(oConnection, "municipio", oUsuarioBeanSession);
-                int id_restpredefinido = oMunicipioDao.getIdRestauranteDomicilio();
-                if (id_restpredefinido != 0) {
-                    oFacturaBean.setId_restaurante(id_restpredefinido);
-                } else {
-                    int id_restarea=oMunicipioDao.getIdRestauranteAreaDomicilio();
-                    if (id_restarea != 0){
-                    oFacturaBean.setId_restaurante(id_restarea);
-                    } else {
-                     oFacturaBean.setId_restaurante(0);
-                    }
-                    
-                }
+                oFacturaBean.setId_restaurante(0);  
             }
 
             FacturaDao_2 oFacturaDao = new FacturaDao_2(oConnection, "factura", oUsuarioBeanSession);

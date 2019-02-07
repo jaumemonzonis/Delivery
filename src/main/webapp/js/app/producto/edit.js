@@ -49,10 +49,10 @@ moduleProducto.controller("productoEditController", [
 
         $scope.update = function () {
             var nombreFoto;
-            console.log($scope.foto);
+ 
 
-            if ($scope.foto !== undefined) {
-                nombreFoto = $scope.foto.name;
+            if ($scope.myFile !== undefined) {
+                nombreFoto = $scope.myFile.name;
                 $scope.uploadFile(nombreFoto);
             } else {
                 if ($scope.ajaxDatoProducto.foto != '' || $scope.ajaxDatoProducto.foto != null) {
@@ -116,7 +116,7 @@ moduleProducto.controller("productoEditController", [
         $scope.uploadFile = function (nombreFoto) {
             //Solucion mas cercana
             //https://stackoverflow.com/questions/37039852/send-formdata-with-other-field-in-angular
-            var file = $scope.foto;
+            var file = $scope.myFile;
             //Cambiar el nombre del archivo
             //https://stackoverflow.com/questions/30733904/renaming-a-file-object-in-javascript
             file = new File([file], nombreFoto, {type: file.type});

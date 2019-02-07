@@ -40,7 +40,7 @@ public class MunicipioService_2 extends GenericServiceImplementation implements 
 
     }
 
-       public ReplyBean getIdRestaurante() throws Exception {
+    public ReplyBean getIdRestaurante() throws Exception {
         ReplyBean oReplyBean;
         ConnectionInterface oConnectionPool = null;
         Connection oConnection;
@@ -58,26 +58,24 @@ public class MunicipioService_2 extends GenericServiceImplementation implements 
         }
         return oReplyBean;
     }
-    
 
- 
-        public ReplyBean getIdRestauranteArea() throws Exception {
+    public ReplyBean getIdRestauranteArea() throws Exception {
         ReplyBean oReplyBean;
         ConnectionInterface oConnectionPool = null;
         Connection oConnection;
-            try {
-                Integer id = Integer.parseInt(oRequest.getParameter("id"));
-                oConnectionPool = ConnectionFactory.getConnection(ConnectionConstants.connectionPool);
-                oConnection = oConnectionPool.newConnection();
-                MunicipioDao_2 oMunicipioDao = new MunicipioDao_2(oConnection, ob, oUsuarioBeanSession);
-                ArrayList<BeanInterface> alBean = oMunicipioDao.getIdRestauranteArea(id);
-                Gson oGson = (new GsonBuilder()).excludeFieldsWithoutExposeAnnotation().create();
-                oReplyBean = new ReplyBean(200, oGson.toJson(alBean));
-            } catch (Exception ex) {
-                throw new Exception("ERROR: Service level: getIdRestauranteArea: " + ob + " object", ex);
-            } finally {
-                oConnectionPool.disposeConnection();
-            }
+        try {
+            Integer id = Integer.parseInt(oRequest.getParameter("id"));
+            oConnectionPool = ConnectionFactory.getConnection(ConnectionConstants.connectionPool);
+            oConnection = oConnectionPool.newConnection();
+            MunicipioDao_2 oMunicipioDao = new MunicipioDao_2(oConnection, ob, oUsuarioBeanSession);
+            ArrayList<BeanInterface> alBean = oMunicipioDao.getIdRestauranteArea(id);
+            Gson oGson = (new GsonBuilder()).excludeFieldsWithoutExposeAnnotation().create();
+            oReplyBean = new ReplyBean(200, oGson.toJson(alBean));
+        } catch (Exception ex) {
+            throw new Exception("ERROR: Service level: getIdRestauranteArea: " + ob + " object", ex);
+        } finally {
+            oConnectionPool.disposeConnection();
+        }
         return oReplyBean;
     }
 

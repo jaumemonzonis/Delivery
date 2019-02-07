@@ -59,14 +59,15 @@
                                 precio obligatorio
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label>Foto</label>
-                            <!-- <input type="text" class="form-control" id="foto" name="foto" ng-model="ajaxDatoProducto.foto" ng-required="true" />
-                             <div ng-show="!userForm.foto.$valid" class="alert alert-danger" role="alert">
-                                 Foto obligatoria
-                             </div>-->
-                            <input type="file" file-model="foto"/>
+                           <div class="form-group">
+                            <label>FOTO</label>
+                             <div>
+                            <image id="output" style="width:80xp;height:60px" ng-src="http://localhost:8081/images_server/{{foto}}" />
                         </div>
+              
+                            <input type="file" class="form-control-file mt-2" file-model="myFile" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
+                        </div>
+                       
                         <label for="obj_tipoProducto">TIPO DE PRODUCTO:</label>
                         <div class="form-group row ml-3">
                             <tipoproducto-selection 

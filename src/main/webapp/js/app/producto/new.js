@@ -49,6 +49,8 @@ moduleProducto.controller("productoNewController", [
 
         $scope.isActive = toolService.isActive;
 
+        $scope.foto = "default.jpg";
+
         $scope.update = function () {
             $scope.uploadFile();
             var nombreFoto;
