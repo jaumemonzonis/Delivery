@@ -52,7 +52,7 @@ moduleUsuario.controller("usuarioRegistrarseController", [
                 pass: forge_sha256($scope.pass),
                 email: $scope.email,
                 direccion: $scope.direccion,
-                poblacion: "Valencia",
+                poblacion: $scope.poblacion,
                 id_tipousuario: "0"
             }
             $http({
@@ -78,7 +78,23 @@ moduleUsuario.controller("usuarioRegistrarseController", [
         };
 
 
-
+ $scope.municipioRefresh = function (f, consultar) {
+            var form = f;
+            if (consultar) {
+                $http({
+                    method: 'GET',
+                    url: 'json?ob=municipio&op=get&id=' + $scope.obj_Municipio.id
+                }).then(function (response) {
+                    $scope.obj_Municipio = response.data.message;
+                     //$scope.poblacion= response.data.message.poblacion;
+                    form.userForm.obj_municipio.$setValidity('valid', true);
+                }, function (response) {
+                    form.userForm.obj_municipio.$setValidity('valid', false);
+                });
+            } else {
+                form.userForm.obj_municipio.$setValidity('valid', true);
+            }
+        }
 
     }
 ]);
