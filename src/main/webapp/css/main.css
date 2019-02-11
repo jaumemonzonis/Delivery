@@ -509,6 +509,17 @@ select{
     margin-left: auto;
     margin-right: auto;
 }
+.imgcliente{
+    grid-area: 1/2/2/3;
+    background-image: url("../images/cliente.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    margin-left: auto;
+    margin-right: auto;
+}
 /* NAV*/
 .nav1, .logo, .login {
     height:12vh;
