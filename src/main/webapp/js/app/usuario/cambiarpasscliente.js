@@ -39,7 +39,7 @@ moduleUsuario.controller('cambiarpassclienteController', ['$scope', '$http', '$l
             $scope.direccion = response.data.message.direccion;
             $scope.poblacion = response.data.message.poblacion;
             $scope.token = response.data.message.token;
-            $scope.validado = 1;
+            $scope.validado = "1";
 
             $scope.obj_tipoUsuario = {
                 id: response.data.message.obj_tipoUsuario.id,

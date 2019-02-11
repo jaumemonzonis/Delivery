@@ -8,10 +8,10 @@
 
                 <div class="col-7 mx-auto container2 mt-4">
 
-                    <div class=" mx-auto">
+                    <div class="mx-auto">
                         <form name="userForm" ng-show="result == null">
-                            <div class="form mt-3 d-flex  justify-content-center">
-                                <div class="form-group mr-5">
+                  
+                                <div class="form-group mt-3">
                                     <label>Nueva contraseña</label>
                                     <input type="password" class="form-control" 
                                            ng-class="{ 'is-invalid' : userForm.pass.$invalid && !userForm.pass.$pristine, 'is-valid': userForm.pass.$valid && !userForm.pass.$pristine}" id="pass" name="pass" ng-model="pass" ng-minlength="4" ng-required="true" />
@@ -22,7 +22,7 @@
                                         Contraseña obligatoria
                                     </div>
                                 </div>
-                                <div class="form-group ml-5">
+                                <div class="form-group mt-3">
                                     <label>Repita la contraseña</label>
                                     <input type="password" class="form-control mb-3" 
                                            ng-class="{ 'is-invalid' : userForm.passNew.$invalid && !userForm.passNew.$pristine, 'is-valid': userForm.passNew.$valid && !userForm.passNew.$pristine}" id="passNew" name="passNew" ng-model="passNew" ng-minlength="4" ng-required="true" />
@@ -39,7 +39,7 @@
                             <button ng-click="update()" type="button" class="btn btn-primary btn-block mb-3" ng-disabled="userForm.$invalid">guardar contraseña</button>
                             <button type="button" class="btn btn-primary btn-block mb-3" onclick="window.history.back()">Volver</button>
                         </div>
-                    </div> 
+                 
                 </div>
             </div>
 

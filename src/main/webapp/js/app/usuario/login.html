@@ -1,13 +1,19 @@
-<header-component></header-component>
-<main role="main" class="container-fluid mb-5">
-    <div class="row">
-        <div class="col-4 mx-auto">
+<headerclient-component></headerclient-component>
+<div class="body_plist">
+    <div class="imgproductos">
+        <div class="label prod1 top_plistproductos">LOGIN</div>
 
-    <form name="userForm" ng-show="!logged" class="mx-auto p-5" style="margin-top:90px; margin-bottom: 10px; background-color: azure; width: 70%; border-radius: 2%"> 
-        <h3 class="pb-3"><i class="fas fa-user fa-1x"></i>    Login</h3>
+        <div class="row">
+
+
+                <div class="col-5 mx-auto container2">
+   
+
+    <form name="userForm" ng-show="!logged" class="mx-auto p-5" style="margin-top:5%; margin-bottom: 5%; width:100%; border-radius: 2%"> 
+
 
         <div class="form-group row"> 
-            <label for="login" class="col-form-label">Login</label>
+            <label for="login" class="col-form-label">USUARIO</label>
             <input ng-model="login" class="form-control" name="login" type="text" ng-required="true" placeholder="Login" />
         </div>
 
@@ -16,7 +22,7 @@
             <input type="password" class="form-control" ng-class="{' is-invalid': userForm.pass.$invalid && !userForm.pass.$pristine}"
                    id="pass" name="pass" ng-model="pass" ng-required="true" placeholder="Contraseña"/>
         </div>
-        <button ng-click="logging()" class="btn btn-primary">Login</button>
+        <button ng-click="logging()" class="btn btn-rojo center-block">Login</button>
       
           <div class="alert alert-danger" role="alert" ng-show="failedlogin">
                 Error al logear.
@@ -24,12 +30,9 @@
   </form>
    
      
-</div> 
+ 
+       </div>
     </div>
-      <div class="row">
-        <div class="col-3 mx-auto">
-          <button type="button" class="btn btn-primary btn-block mt-2" ng-click="volver()">Volver</button>  
-          </div> 
-    </div>
-</main>
+</div>
 
+       </div>

@@ -1,8 +1,8 @@
 
 'use strict'
 //http://localhost:8081/json?ob=usuario&op=login&user=ddd&pass=pass
-moduleUsuario.controller('viewusuarioclienteController', ['$scope', '$http', '$location', 'toolService', '$routeParams', 'sessionService',
-    function ($scope, $http, $location, toolService, $routeParams, sessionService) {
+moduleUsuario.controller('viewusuarioclienteController', ['$scope', '$http', '$location', 'toolService', '$routeParams', 'sessionService',"$window",
+    function ($scope, $http, $location, toolService, $routeParams, sessionService,$window) {
 
         $scope.ob = "usuario";
 
