@@ -52,21 +52,22 @@ moduleCarrito.controller('carritoPlistVariosController', ['$scope', '$http', '$l
         $scope.comprar = function (id) {
 
 
-                $http({
-                    method: 'GET',
-                    url: 'json?ob=carrito&op=add&prod=' + id
-                }).then(function (response) {
-                    $scope.status = response.status;
-                    if ($scope.status == 400) {
-                        $scope.stock = true;
-                    }
-                    $scope.ajaxDataAdd = response.data.message;
-                }, function (response) {
-                    $scope.status = response.status;
-                    $scope.ajaxDataAdd = response.data.message || 'Request failed';
-                });
+            $http({
+                method: 'GET',
+                url: 'json?ob=carrito&op=add&prod=' + id
+            }).then(function (response) {
+                $scope.status = response.status;
+                $scope.alert = false;
+                if ($scope.status == 400) {
+                    $scope.stock = true;
+                }
+                $scope.ajaxDataAdd = response.data.message;
+            }, function (response) {
+                $scope.status = response.status;
+                $scope.ajaxDataAdd = response.data.message || 'Request failed';
+            });
 
-                //animacion
+            //animacion
 
 //            https://css-tricks.com/animations-the-angular-way/
 

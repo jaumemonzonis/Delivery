@@ -31,7 +31,7 @@ moduleCarrito.controller('carritoPlistBurgerController', ['$scope', '$http', '$l
                 $scope.page = 1;
             }
         }
-       function show() {
+
         $http({
             method: 'GET',
             url: 'json?ob=carrito&op=show'
@@ -46,8 +46,7 @@ moduleCarrito.controller('carritoPlistBurgerController', ['$scope', '$http', '$l
             $scope.ajaxDataShow = response.data.message || 'Request failed';
         });
 
-        };
-        
+
         $scope.idTipousuario = sessionService.getTypeUserID();
         $scope.comprar = function (id) {
 
@@ -55,12 +54,12 @@ moduleCarrito.controller('carritoPlistBurgerController', ['$scope', '$http', '$l
                 method: 'GET',
                 url: 'json?ob=carrito&op=add&prod=' + id
             }).then(function (response) {
+                $scope.alert = false;
                 $scope.status = response.status;
                 $scope.ajaxDataAdd = response.data.message;
                 if ($scope.status == 400) {
                     $scope.stock = true;
                 }
-                show();
             }, function (response) {
                 $scope.status = response.status;
                 $scope.ajaxDataAdd = response.data.message || 'Request failed';

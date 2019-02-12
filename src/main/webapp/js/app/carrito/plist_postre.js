@@ -58,6 +58,7 @@ moduleCarrito.controller('carritoPlistPostreController', ['$scope', '$http', '$l
                     url: 'json?ob=carrito&op=add&prod=' + id
                 }).then(function (response) {
                     $scope.status = response.status;
+                     $scope.alert = false;
 
                     if ($scope.status === 400) {
 

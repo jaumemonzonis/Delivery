@@ -5,7 +5,7 @@ moduleCarrito.controller('carritoPlistBebidaController', ['$scope', '$http', '$l
 
         $scope.totalPages = 1;
         $scope.conectado = false;
-         $scope.alert = false;
+        $scope.alert = false;
 
 
         if (!$routeParams.order) {
@@ -46,7 +46,7 @@ moduleCarrito.controller('carritoPlistBebidaController', ['$scope', '$http', '$l
             $scope.ajaxDataShow = response.data.message || 'Request failed';
         });
 
-        $scope.idTipousuario = sessionService.getTypeUserID();
+//        $scope.idTipousuario = sessionService.getTypeUserID();
         $scope.comprar = function (id) {
 
                 $http({
@@ -55,6 +55,7 @@ moduleCarrito.controller('carritoPlistBebidaController', ['$scope', '$http', '$l
                 }).then(function (response) {
                     $scope.status = response.status;
                     $scope.ajaxDataAdd = response.data.message;
+                    $scope.alert = false;
     
                 }, function (response) {
                     $scope.status = response.status;
