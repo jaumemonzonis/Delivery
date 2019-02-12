@@ -5,7 +5,7 @@
         <div class="icon_cart"><img src="images/icon_cart.png" alt="añadir al carrito" class="img_cart"  ng-click="carrito()" ng-show="!alert"/></div>
 
     </div>
-    <div class="nav d-flex  justify-content-center">
+    <div class="nav d-flex justify-content-center">
 
         <div id="make-3D-space" ng-repeat="fila in ajaxData track by $index">
             <div id="product-card">
@@ -30,8 +30,8 @@
             </div>	
 
         </div>
-        
-        <div class="flechas">
+         </div>
+        <div class="flechas d-flex justify-content-center">
             <div  ng-click="volver()" class="flecha_btn float-left mr-5"><i class="material-icons">
                     arrow_back_ios
                 </i></div>
@@ -39,7 +39,7 @@
                     arrow_forward_ios
                 </i></div>
         </div>
-     </div>
+    
     <footer>
         <div class="footer d-flex mt-3">
             <div class="rrss tw"></div>
