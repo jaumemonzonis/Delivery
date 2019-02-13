@@ -35,96 +35,161 @@
 
 
             <div class="table-responsive container2 mb-2 pl-3 pr-3 pt-3">
-                <table class="table table-sm">
+                <table class="table table-sm text-center">
                     <tr>
-                        <th>
-                            <p>ID</p>
-                            <div class="order" ng-click="ordena('id', 'asc')">
-                                <i class="material-icons">
-                                    swap_vert
-                                </i>
+                          <th>
+                            <div>
+                                <p class="float-left ml-4">ID</p>
+                                <div class="order float-right" ng-click="ordena('id', 'asc')">
+                                    <i class="material-icons asc">
+                                        keyboard_arrow_up
+                                    </i>
+                                </div>
+                                <div class="order float-right " ng-click="ordena('id', 'desc')">
+                                    <i class="material-icons asc">
+                                        keyboard_arrow_down
+                                    </i>
+                                </div>
                             </div>
-
                         </th>
-                        <th>
-                            <p>NOMBRE</p>
-                            <div class="order" ng-click="ordena('id', 'asc')">
-                                <i class="material-icons">
-                                    swap_vert
-                                </i>
+                          <th>
+                            <div>
+                                <p class="float-left">NOMBRE</p>
+                                <div class="order float-right" ng-click="ordena('nombre', 'asc')">
+                                    <i class="material-icons asc">
+                                        keyboard_arrow_up
+                                    </i>
+                                </div>
+                                <div class="order float-right " ng-click="ordena('nombre', 'desc')">
+                                    <i class="material-icons asc">
+                                        keyboard_arrow_down
+                                    </i>
+                                </div>
                             </div>
-
                         </th>
-                        <th>
-                            <p>PRIMER</p>
-                            <p>APELLIDO</p>
-                            <div class="order" ng-click="ordena('id', 'asc')">
-                                <i class="material-icons">
-                                    swap_vert
-                                </i>
+                              <th>
+                            <div>
+                                <p class="float-left">PRIMER APELLIDO</p>
+                                <div class="order float-right" ng-click="ordena('ape1', 'asc')">
+                                    <i class="material-icons asc">
+                                        keyboard_arrow_up
+                                    </i>
+                                </div>
+                                <div class="order float-right " ng-click="ordena('ape1', 'desc')">
+                                    <i class="material-icons asc">
+                                        keyboard_arrow_down
+                                    </i>
+                                </div>
                             </div>
-
                         </th>
 
-                        <th>
-                            <p>SEGUNDO</p>
-                            <p>APELLIDO</p>
-                            <div class="order" ng-click="ordena('id', 'asc')">
-                                <i class="material-icons">
-                                    swap_vert
-                                </i>
-                            </div> 
-                        </th>
-                        <th>
-                            <p>TELEFONO</p>
-                            <div class="order" ng-click="ordena('id', 'asc')">
-                                <i class="material-icons">
-                                    swap_vert
-                                </i>
-                            </div> 
-                        </th>
-                        <th>
-                            <p>LOGIN</p>
-                            <div class="order" ng-click="ordena('id', 'asc')">
-                                <i class="material-icons">
-                                    swap_vert
-                                </i>
-                            </div> 
-                        </th>
-                        <th>
-                            <p>EMAIL</p>
-                            <div class="order" ng-click="ordena('id', 'asc')">
-                                <i class="material-icons">
-                                    swap_vert
-                                </i>
-                            </div> 
-                        </th>
-                        <th>
-                            <p>DIRECCION</p>
-                            <div class="order" ng-click="ordena('id', 'asc')">
-                                <i class="material-icons">
-                                    swap_vert
-                                </i>
-                            </div> 
-                        </th>
-                        <th>
-                            <p>POBLACION</p>
-                            <div class="order" ng-click="ordena('id', 'asc')">
-                                <i class="material-icons">
-                                    swap_vert
-                                </i>
-                            </div> 
+                            <th>
+                            <div>
+                                <p class="float-left">SEGUNDO APELLIDO</p>
+                                <div class="order float-right" ng-click="ordena('ape2', 'asc')">
+                                    <i class="material-icons asc">
+                                        keyboard_arrow_up
+                                    </i>
+                                </div>
+                                <div class="order float-right " ng-click="ordena('ape2', 'desc')">
+                                    <i class="material-icons asc">
+                                        keyboard_arrow_down
+                                    </i>
+                                </div>
+                            </div>
                         </th>
                            <th>
-                            <p>TIPO USUARIO</p>
-                            <div class="order" ng-click="ordena('id', 'asc')">
-                                <i class="material-icons">
-                                    swap_vert
-                                </i>
-                            </div> 
+                            <div>
+                                <p class="float-left">TELEFONO</p>
+                                <div class="order float-right" ng-click="ordena('telefono', 'asc')">
+                                    <i class="material-icons asc ml-1">
+                                        keyboard_arrow_up
+                                    </i>
+                                </div>
+                                <div class="order float-right" ng-click="ordena('telefono', 'desc')">
+                                    <i class="material-icons asc">
+                                        keyboard_arrow_down
+                                    </i>
+                                </div>
+                            </div>
+                        </th>
+                            <th>
+                            <div>
+                                <p class="float-left">LOGIN</p>
+                                <div class="order float-right" ng-click="ordena('login', 'asc')">
+                                    <i class="material-icons asc">
+                                        keyboard_arrow_up
+                                    </i>
+                                </div>
+                                <div class="order float-right" ng-click="ordena('login', 'desc')">
+                                    <i class="material-icons asc">
+                                        keyboard_arrow_down
+                                    </i>
+                                </div>
+                            </div>
+                        </th>
+                            <th>
+                            <div>
+                                <p class="float-left ml-5">EMAIL</p>
+                                <div class="order float-left" ng-click="ordena('email', 'asc')">
+                                    <i class="material-icons asc">
+                                        keyboard_arrow_up
+                                    </i>
+                                </div>
+                                <div class="order float-left " ng-click="ordena('email', 'desc')">
+                                    <i class="material-icons asc">
+                                        keyboard_arrow_down
+                                    </i>
+                                </div>
+                            </div>
+                        </th>
+                             <th>
+                            <div>
+                                <p class="float-left">DIRECCION</p>
+                                <div class="order float-right" ng-click="ordena('direccion', 'asc')">
+                                    <i class="material-icons asc">
+                                        keyboard_arrow_up
+                                    </i>
+                                </div>
+                                <div class="order float-right " ng-click="ordena('direccion', 'desc')">
+                                    <i class="material-icons asc">
+                                        keyboard_arrow_down
+                                    </i>
+                                </div>
+                            </div>
+                        </th>
+                          <th>
+                            <div>
+                                <p class="float-left">POBLACION</p>
+                                <div class="order float-right" ng-click="ordena('poblacion', 'asc')">
+                                    <i class="material-icons asc">
+                                        keyboard_arrow_up
+                                    </i>
+                                </div>
+                                <div class="order float-right " ng-click="ordena('poblacion', 'desc')">
+                                    <i class="material-icons asc">
+                                        keyboard_arrow_down
+                                    </i>
+                                </div>
+                            </div>
+                        </th>
+                           <th>
+                            <div>
+                                <p class="float-left">TIPO USUARIO</p>
+                                <div class="order float-right" ng-click="ordena('id_tipousuario', 'asc')">
+                                    <i class="material-icons asc">
+                                        keyboard_arrow_up
+                                    </i>
+                                </div>
+                                <div class="order float-right " ng-click="ordena('id_tipousuario', 'desc')">
+                                    <i class="material-icons asc">
+                                        keyboard_arrow_down
+                                    </i>
+                                </div>
+                            </div>
                         </th>
                         <th> 
-                            <p style="margin-left: 5%">ACCIONES</p> 
+                            <p>ACCIONES</p> 
                         </th>
                     </tr>
                     <tr ng-repeat="fila in ajaxDataUsuarios">

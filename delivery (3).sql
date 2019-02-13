@@ -24,26 +24,6 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
---
--- Estructura de tabla para la tabla `area`
---
-
-CREATE TABLE `area` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Volcado de datos para la tabla `area`
---
-
-INSERT INTO `area` (`id`, `nombre`) VALUES
-(1, 'Valencia capital'),
-(2, 'Horta Nord'),
-(3, 'Camp de morvedre'),
-(4, 'Horta Sud'),
-(5, 'Hora Oest');
-
 -- --------------------------------------------------------
 
 --

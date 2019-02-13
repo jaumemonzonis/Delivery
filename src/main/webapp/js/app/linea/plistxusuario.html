@@ -43,35 +43,53 @@
             <div class="table-responsive container2 mb-2 pl-3 pr-3 pt-3">
                 <table class="table table-sm"  ng-show="ajaxDataUsuarios != 0">
                     <tr>
-                        <th>
-                            <p>ID</p>
-                            <div class="order" ng-click="ordena('id', 'asc')">
-                                <i class="material-icons">
-                                    swap_vert
-                                </i>
+                          <th>
+                            <div>
+                                <p class="float-left ml-5">ID</p>
+                                <div class="order float-left" ng-click="ordena('id', 'asc')">
+                                    <i class="material-icons asc ml-1">
+                                        keyboard_arrow_up
+                                    </i>
+                                </div>
+                                <div class="order float-left" ng-click="ordena('id', 'desc')">
+                                    <i class="material-icons asc">
+                                        keyboard_arrow_down
+                                    </i>
+                                </div>
                             </div>
-
                         </th>
-                        <th>
-                            <p>CANTIDAD</p>
-                            <div class="order" ng-click="ordena('id', 'asc')">
-                                <i class="material-icons">
-                                    swap_vert
-                                </i>
+                          <th>
+                            <div>
+                                <p class="float-left ml-5">CANTIDAD</p>
+                                <div class="order float-left" ng-click="ordena('cantidad', 'asc')">
+                                    <i class="material-icons asc ml-1">
+                                        keyboard_arrow_up
+                                    </i>
+                                </div>
+                                <div class="order float-left" ng-click="ordena('cantidad', 'desc')">
+                                    <i class="material-icons asc">
+                                        keyboard_arrow_down
+                                    </i>
+                                </div>
                             </div>
-
                         </th>
-                        <th>
-                            <p>PRODUCTO</p>
-                            <div class="order" ng-click="ordena('id', 'asc')">
-                                <i class="material-icons">
-                                    swap_vert
-                                </i>
+                          <th>
+                            <div>
+                                <p class="float-left ml-5">PRODUCTO</p>
+                                <div class="order float-left" ng-click="ordena('producto', 'asc')">
+                                    <i class="material-icons asc ml-1">
+                                        keyboard_arrow_up
+                                    </i>
+                                </div>
+                                <div class="order float-left" ng-click="ordena('producto', 'desc')">
+                                    <i class="material-icons asc">
+                                        keyboard_arrow_down
+                                    </i>
+                                </div>
                             </div>
-
                         </th>
                         <th> 
-                            <p style="margin-left: 5%">ACCIONES</p> 
+                            <p>ACCIONES</p> 
                         </th>
                     </tr>
                     <tr ng-repeat="fila in ajaxDataUsuarios">
@@ -120,7 +138,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12 ml-sm-auto col-lg-12">
-                     <div class="float-right" style="margin-top:-5%;">
+                     <div class="float-right">
                        <div class="button_edit">
                  <button type="button" class="btn btn-block btn-sm" ng-click="volver()">Volver a factura</button>
     </div> 

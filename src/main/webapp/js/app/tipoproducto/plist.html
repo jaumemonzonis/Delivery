@@ -35,33 +35,41 @@
 
 
                 <div class="table-responsive container2 mb-2 pl-3 pr-3 pt-3">
-                    <table class="table table-sm">
+                    <table class="table table-sm text-center">
                         <tr>
                             <th>
-                                <div>
-                                <p class="float-left">ID</p>
-                                <div class="order float-right " ng-click="ordena('id', 'asc')">
-                                    <i class="material-icons">
-                                        swap_vert
+                            <div>
+                                <p class="float-left ml-5">ID</p>
+                                <div class="order" ng-click="ordena('id', 'asc')">
+                                    <i class="material-icons asc ml-1">
+                                        keyboard_arrow_up
                                     </i>
                                 </div>
-                                </div>
-
-                            </th>
-                            <th>
-                               <div>
-                                <p class="">DESCRIPCION</p>
-                                <div class="order float-right" ng-click="ordena('tipoproducto.desc', 'asc')">
-                                    <i class="material-icons">
-                                        swap_vert
+                                <div class="order" ng-click="ordena('id', 'desc')">
+                                    <i class="material-icons asc">
+                                        keyboard_arrow_down
                                     </i>
                                 </div>
+                            </div>
+                        </th>
+                                 <th>
+                            <div>
+                                <p  class="float-left ml-5">DESCRIPCION</p>
+                                <div class="order" ng-click="ordena('tipousuario.desc', 'asc')">
+                                    <i class="material-icons asc ml-1">
+                                        keyboard_arrow_up
+                                    </i>
                                 </div>
-                              
-                            </th>
-                            
+                                <div class="order" ng-click="ordena('tipousuario.desc', 'desc')">
+                                    <i class="material-icons asc">
+                                        keyboard_arrow_down
+                                    </i>
+                                </div>
+                            </div>
+                        </th>
+                           
                             <th> 
-                                <p style="margin-left: 5%">ACCIONES</p> 
+                                <p>ACCIONES</p> 
                             </th>
                         </tr>
                         <tr ng-repeat="fila in ajaxDataUsuarios">

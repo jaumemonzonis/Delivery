@@ -29,33 +29,6 @@ DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_unicode_ci;
 
 
--- -----------------------------------------------------
--- Table `delivery`.`usuario`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `delivery`.`usuario` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(255) NULL,
-  `ape1` VARCHAR(255) NULL,
-  `ape2` VARCHAR(255) NULL,
-  `telefono` INT NULL,
-  `login` VARCHAR(255) NULL,
-  `pass` VARCHAR(512) NULL,
-  `email` VARCHAR(255) NULL,
-  `direccion` VARCHAR(255) NULL,
-  `poblacion` VARCHAR(255) NULL,
-  `token` VARCHAR(255) NULL,
-  `validado` TINYINT(1) NULL,
-  `id_tipousuario` INT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_usuario_tipoUsuario_idx` (`id_tipousuario` ASC),
-  CONSTRAINT `fk_usuario_tipousuario`
-    FOREIGN KEY (`id_tipousuario`)
-    REFERENCES `delivery`.`tipousuario` (`id`)
-    ON DELETE SET NULL
-    ON UPDATE CASCADE)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_unicode_ci;
 
 
 -- -----------------------------------------------------
