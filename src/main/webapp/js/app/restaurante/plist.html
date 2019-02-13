@@ -7,24 +7,24 @@
 
 
             <div class="col-md-12 ml-sm-auto col-lg-12 mt-3">
-                  <div class="btn-toolbar mb-2 mb-md-0 float-left">
-                        <div class="btn-group" style="width:270px; margin-left: -5%;">
-                            <p class="mt-2" style="width:200px;">Registros por pagina:</p>
-                            <select class="form-control form-size" 
-                                    ng-change="update()" 
-                                    ng-model="rpp">
-                                <option value="5">5</option>
-                                <option value="10">10</option>
-                                <option value="20">20</option>
-                                <option value="50">50</option>
-                            </select>
-                        </div>
-
-                        <button type="button" class="btn btn-just-icon btn-sm mt-3 reseticon" ng-click="resetOrder()">
-                            <i class="material-icons">cached</i>
-                        </button>
+                <div class="btn-toolbar mb-2 mb-md-0 float-left">
+                    <div class="btn-group" style="width:270px; margin-left: -5%;">
+                        <p class="mt-2" style="width:200px;">Registros por pagina:</p>
+                        <select class="form-control form-size" 
+                                ng-change="update()" 
+                                ng-model="rpp">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                        </select>
                     </div>
-                  <div class="float-right create_btn_margin">
+
+                    <button type="button" class="btn btn-just-icon btn-sm mt-3 reseticon" ng-click="resetOrder()">
+                        <i class="material-icons">cached</i>
+                    </button>
+                </div>
+                <div class="float-right create_btn_margin">
                     <a href="{{ob}}/new/" class="btn btn-sm  float-right btn-rojo" role="button" aria-pressed="true"><i class="material-icons">
                             add_circle_outline</i> Crear nuevo restaurante</a>
 
@@ -35,74 +35,25 @@
 
 
             <div class="table-responsive container2 mb-2 pl-3 pr-3 pt-3">
-                <table class="table table-sm">
+                <table class="table table-sm text-center">
                     <tr>
-                          <th>
-                            <div>
-                                <p class="float-left ml-5">ID</p>
-                                <div class="order float-left" ng-click="ordena('id', 'asc')">
-                                    <i class="material-icons asc ml-1">
-                                        keyboard_arrow_up
-                                    </i>
-                                </div>
-                                <div class="order float-left " ng-click="ordena('id', 'desc')">
-                                    <i class="material-icons asc">
-                                        keyboard_arrow_down
-                                    </i>
-                                </div>
-                            </div>
+                        <th>
+                            <p ng-click="sortBy('id')">ID</p>
                         </th>
-                           <th>
-                           <div>
-                                <p class="float-left ml-5">NOMBRE</p>
-                                <div class="order float-left" ng-click="ordena('nombre', 'asc')">
-                                    <i class="material-icons asc ml-1">
-                                        keyboard_arrow_up
-                                    </i>
-                                </div>
-                                <div class="order float-left " ng-click="ordena('nombre', 'desc')">
-                                    <i class="material-icons asc">
-                                        keyboard_arrow_down
-                                    </i>
-                                </div>
-                            </div>
-                           </th>
-                         <th>
-                            <div>
-                                <p class="float-left ml-5">DIRECCION</p>
-                                <div class="order float-left" ng-click="ordena('direccion', 'asc')">
-                                    <i class="material-icons asc ml-1">
-                                        keyboard_arrow_up
-                                    </i>
-                                </div>
-                                <div class="order float-left " ng-click="ordena('direccion', 'desc')">
-                                    <i class="material-icons asc">
-                                        keyboard_arrow_down
-                                    </i>
-                                </div>
-                            </div>
+                        <th>
+                            <p ng-click="sortBy('nombre')">NOMBRE</p>
                         </th>
-                            <th>
-                            <div>
-                                <p class="float-left ml-5">POBLACION</p>
-                                <div class="order float-left" ng-click="ordena('poblacion', 'asc')">
-                                    <i class="material-icons asc ml-1">
-                                        keyboard_arrow_up
-                                    </i>
-                                </div>
-                                <div class="order float-left " ng-click="ordena('poblacion', 'desc')">
-                                    <i class="material-icons asc">
-                                        keyboard_arrow_down
-                                    </i>
-                                </div>
-                            </div>
+                        <th>
+                            <p ng-click="sortBy('direccion')">DIRECCION</p>
                         </th>
-
-                        <th> 
+                        <th>
+                            <p ng-click="sortBy('poblacion')">POBLACION</p>
+                        </th>
+                        <th>
                             <p>ACCIONES</p> 
                         </th>
                     </tr>
-                    <tr ng-repeat="fila in ajaxDataUsuarios">
+                    <tr ng-repeat="fila in ajaxDataUsuarios| orderBy:propertyName:reverse">
                         <td>{{fila.id}}</td>
                         <td>{{fila.nombre}}</td>
                         <td>{{fila.direccion}}</td>

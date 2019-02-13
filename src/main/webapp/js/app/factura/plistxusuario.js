@@ -1,7 +1,7 @@
 'use strict'
 
-moduleFactura.controller('facturaplistxusuarioController', ['$scope','$http', '$location', 'toolService', '$routeParams', 'sessionService','$window',
-    function ($scope, $http, $location, toolService, $routeParams, sessionService,$window) {
+moduleFactura.controller('facturaplistxusuarioController', ['$scope', '$http', '$location', 'toolService', '$routeParams', 'sessionService', '$window',
+    function ($scope, $http, $location, toolService, $routeParams, sessionService, $window) {
 
         $scope.ob = "factura";
         $scope.totalPages = 1;
@@ -52,9 +52,11 @@ moduleFactura.controller('facturaplistxusuarioController', ['$scope','$http', '$
             $location.url(`linea/plistxusuario/10/1/${id}`);
         }
 
-        $scope.resetOrder = function () {
+         $scope.resetOrder = function () {
             $location.url($scope.ob + `/plistxusuario/` + $scope.rpp + `/` + $scope.page + `/` + $scope.id);
-        }
+            $scope.reverse = false;
+            $scope.propertyName = 'id';
+        };
 
         $scope.view = function (id) {
             $location.url($scope.ob + `/view/${id}`);
@@ -68,18 +70,23 @@ moduleFactura.controller('facturaplistxusuarioController', ['$scope','$http', '$
             $location.url($scope.ob + `/edit/${id}/` + $scope.id);
         }
 
-        $scope.ordena = function (order, align) {
-            if ($scope.orderURLServidor == "") {
-                $scope.orderURLServidor = "&order=" + order + "," + align;
-                $scope.orderURLCliente = order + "," + align;
-            } else {
-                $scope.orderURLServidor = $scope.orderURLServidor + "-" + order + "," + align;
-                $scope.orderURLCliente = $scope.orderURLCliente + "-" + order + "," + align;
-            }
-            $location.url($scope.ob + `/plistxusuario/` + $scope.rpp + `/` + $scope.page + `/` + $scope.id + `/` + $scope.orderURLCliente);
-        }
+//        $scope.ordena = function (order, align) {
+//            if ($scope.orderURLServidor == "") {
+//                $scope.orderURLServidor = "&order=" + order + "," + align;
+//                $scope.orderURLCliente = order + "," + align;
+//            } else {
+//                $scope.orderURLServidor = $scope.orderURLServidor + "-" + order + "," + align;
+//                $scope.orderURLCliente = $scope.orderURLCliente + "-" + order + "," + align;
+//            }
+//            $location.url($scope.ob + `/plistxusuario/` + $scope.rpp + `/` + $scope.page + `/` + $scope.id + `/` + $scope.orderURLCliente);
+//        }
 
-
+        $scope.propertyName = 'id';
+        $scope.reverse = true;
+        $scope.sortBy = function (propertyName) {
+            $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
+            $scope.propertyName = propertyName;
+        };
         $scope.vacio = false;
         //getcount
         $http({

@@ -46,103 +46,31 @@
 
 
 
-                <table class="table table-sm" ng-show="ajaxDataUsuarios != 0">
+                <table class="table table-sm text-center" ng-show="ajaxDataUsuarios != 0">
                     <tr>
-                         <th>
-                            <div>
-                                <p class="float-left ml-5">ID</p>
-                                <div class="order float-left" ng-click="ordena('id', 'asc')">
-                                    <i class="material-icons asc ml-1">
-                                        keyboard_arrow_up
-                                    </i>
-                                </div>
-                                <div class="order float-left" ng-click="ordena('id', 'desc')">
-                                    <i class="material-icons asc">
-                                        keyboard_arrow_down
-                                    </i>
-                                </div>
-                            </div>
-                        </th>
-                           <th>
-                            <div>
-                                <p class="float-left ml-5">FECHA</p>
-                                <div class="order float-left" ng-click="ordena('fecha', 'asc')">
-                                    <i class="material-icons asc ml-1">
-                                        keyboard_arrow_up
-                                    </i>
-                                </div>
-                                <div class="order float-left" ng-click="ordena('fecha', 'desc')">
-                                    <i class="material-icons asc">
-                                        keyboard_arrow_down
-                                    </i>
-                                </div>
-                            </div>
-                        </th>
-                       <th>
-                            <div>
-                                <p class="float-left ml-5">IVA</p>
-                                <div class="order float-left" ng-click="ordena('iva', 'asc')">
-                                    <i class="material-icons asc ml-1">
-                                        keyboard_arrow_up
-                                    </i>
-                                </div>
-                                <div class="order float-left" ng-click="ordena('iva', 'desc')">
-                                    <i class="material-icons asc">
-                                        keyboard_arrow_down
-                                    </i>
-                                </div>
-                            </div>
-                        </th>
                       <th>
-                            <div>
-                                <p class="float-left ml-5">DIRECCION PEDIDO</p>
-                                <div class="order float-left" ng-click="ordena('direccion_pedido', 'asc')">
-                                    <i class="material-icons asc ml-1">
-                                        keyboard_arrow_up
-                                    </i>
-                                </div>
-                                <div class="order float-left" ng-click="ordena('direccion_pedido', 'desc')">
-                                    <i class="material-icons asc">
-                                        keyboard_arrow_down
-                                    </i>
-                                </div>
-                            </div>
+                            <p ng-click="sortBy('id')">ID</p>
                         </th>
-                   <th>
-                            <div>
-                                <p class="float-left ml-5">POBLACION PEDIDO</p>
-                                <div class="order float-left" ng-click="ordena('poblacion_pedido', 'asc')">
-                                    <i class="material-icons asc ml-1">
-                                        keyboard_arrow_up
-                                    </i>
-                                </div>
-                                <div class="order float-left" ng-click="ordena('poblacion_pedido', 'desc')">
-                                    <i class="material-icons asc">
-                                        keyboard_arrow_down
-                                    </i>
-                                </div>
-                            </div>
+                         <th>
+                            <p ng-click="sortBy('fecha')">FECHA</p>
                         </th>
-                          <th>
-                            <div>
-                                <p class="float-left ml-5">RESTAURANTE</p>
-                                <div class="order float-left" ng-click="ordena('restaurante', 'asc')">
-                                    <i class="material-icons asc ml-1">
-                                        keyboard_arrow_up
-                                    </i>
-                                </div>
-                                <div class="order float-left" ng-click="ordena('restaurante', 'desc')">
-                                    <i class="material-icons asc">
-                                        keyboard_arrow_down
-                                    </i>
-                                </div>
-                            </div>
+                         <th>
+                            <p ng-click="sortBy('iva')">IVA</p>
+                        </th>
+                         <th>
+                            <p ng-click="sortBy('direccion_pedido')">DIRECCION PEDIDO</p>
+                        </th>
+                         <th>
+                            <p ng-click="sortBy('poblacion_pedido')">POBLACION PEDIDO</p>
+                        </th>
+                        <th>
+                            <p ng-click="sortBy('restaurante')">RESTAURANTE</p>
                         </th>
                         <th> 
                             <p>ACCIONES</p> 
                         </th>
                     </tr>
-                    <tr ng-repeat="fila in ajaxDataUsuarios">
+                    <tr ng-repeat="fila in ajaxDataUsuarios| orderBy:propertyName:reverse">
                         <td>{{fila.id}}</td>
                         <td>{{fila.fecha}}</td>
                         <td>{{fila.iva}}</td>

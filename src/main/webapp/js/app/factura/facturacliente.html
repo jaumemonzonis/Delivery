@@ -30,30 +30,29 @@
                     </div> 
 
                     <div class="table-responsive container2 mb-5 pl-3 pr-3">
-                        <table class="table table-sm">
+                        <table class="table table-sm text-center">
                             <tr>
                                 <th>
-                                    FECHA
+                                    <p ng-click="sortBy('fecha')">FECHA</p>
+                                </th>     <th>
+                                    <p ng-click="sortBy('iva')">IVA</p>
+                                </th>     <th>
+                                    <p ng-click="sortBy('direccion_pedido')">DIRECCION DEL PEDIDO</p>
                                 </th>
                                 <th>
-                                    IVA
-                                <th>
-                                    DIRECCION DEL PEDIDO
+                                    <p ng-click="sortBy('direccion_pedido')">POBLACION DEL PEDIDO</p>
                                 </th>
-                                <th>
-                                    POBLACION DEL PEDIDO
+                                 <th>
+                                    <p ng-click="sortBy('obj_Restaurante.nombre')">RESTAURANTE</p>
                                 </th>
-                                <th>
-                                    RESTAURANTE
+                                 <th>
+                                    <p>PRODUCTOS</p>
                                 </th>
-                                <th> 
-                                    PRODUCTOS
-                                </th>
-                            <tr ng-repeat="fila in ajaxDataFactura">
+                            <tr ng-repeat="fila in ajaxDataFactura| orderBy:propertyName:reverse">
                                 <td>{{fila.fecha}}</td>
                                 <td>{{fila.iva}}</td> 
                                 <td>{{fila.direccion_pedido}}</td>  
-                                <td>{{fila.poblacion_pedido}}</td>
+                                <td>{{fila.direccion_pedido}}</td>
                                 <td>{{fila.obj_Restaurante.nombre}}</td>
                                 <td><button type="button" rel="tooltip" class="btn btn-just-icon btn-sm" data-original-title="" title="" ng-click="linea(fila.id)" ng-disabled="{{fila.link_linea}}== 0">{{fila.link_linea}}
                                     </button></td>

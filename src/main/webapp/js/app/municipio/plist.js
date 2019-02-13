@@ -14,8 +14,8 @@ moduleMunicipio.controller('municipioPlistController', ['$scope', '$http', '$loc
         $scope.miFormato = function (valor) {
             return isNaN(valor) ? valor : parseFloat(valor).toFixed(2);
         };
-        
-        
+
+
         if (!$routeParams.order) {
             $scope.orderURLServidor = "";
             $scope.orderURLCliente = "";
@@ -41,17 +41,22 @@ moduleMunicipio.controller('municipioPlistController', ['$scope', '$http', '$loc
         }
 
 
-        $scope.ordena = function (order, align) {
-            if ($scope.orderURLServidor == "") {
-                $scope.orderURLServidor = "&order=" + order + "," + align;
-                $scope.orderURLCliente = order + "," + align;
-            } else {
-                $scope.orderURLServidor = $scope.orderURLServidor + "-" + order + "," + align;
-                $scope.orderURLCliente = $scope.orderURLCliente + "-" + order + "," + align;
-            }
-            $location.url($scope.ob + `/plist/` + $scope.rpp + `/` + $scope.page + `/` + $scope.orderURLCliente);
-        }
-
+//        $scope.ordena = function (order, align) {
+//            if ($scope.orderURLServidor == "") {
+//                $scope.orderURLServidor = "&order=" + order + "," + align;
+//                $scope.orderURLCliente = order + "," + align;
+//            } else {
+//                $scope.orderURLServidor = $scope.orderURLServidor + "-" + order + "," + align;
+//                $scope.orderURLCliente = $scope.orderURLCliente + "-" + order + "," + align;
+//            }
+//            $location.url($scope.ob + `/plist/` + $scope.rpp + `/` + $scope.page + `/` + $scope.orderURLCliente);
+//        }
+        $scope.propertyName = 'id';
+        $scope.reverse = true;
+        $scope.sortBy = function (propertyName) {
+            $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
+            $scope.propertyName = propertyName;
+        };
         //getcount
         $http({
             method: 'GET',
@@ -106,7 +111,9 @@ moduleMunicipio.controller('municipioPlistController', ['$scope', '$http', '$loc
 
         $scope.resetOrder = function () {
             $location.url($scope.ob + `/plist/` + $scope.rpp + `/` + $scope.page);
-        }
+            $scope.reverse = false;
+            $scope.propertyName = 'id';
+        };
         $scope.view = function (id) {
             $location.url($scope.ob + `/view/${id}`);
         }

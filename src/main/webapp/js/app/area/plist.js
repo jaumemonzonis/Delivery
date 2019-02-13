@@ -36,20 +36,25 @@ moduleArea.controller('areaPlistController', ['$scope', '$http', '$location', 't
                 $scope.page = 1;
             }
         }
-
+        $scope.propertyName = 'id';
+        $scope.reverse = true;
+        $scope.sortBy = function (propertyName) {
+            $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
+            $scope.propertyName = propertyName;
+        };
         $scope.municipio = function (id) {
             $location.url(`municipio/plistxusuario/10/1/${id}`);
         }
-        $scope.ordena = function (order, align) {
-            if ($scope.orderURLServidor == "") {
-                $scope.orderURLServidor = "&order=" + order + "," + align;
-                $scope.orderURLCliente = order + "," + align;
-            } else {
-                $scope.orderURLServidor = $scope.orderURLServidor + "-" + order + "," + align;
-                $scope.orderURLCliente = $scope.orderURLCliente + "-" + order + "," + align;
-            }
-            $location.url($scope.ob + `/plist/` + $scope.rpp + `/` + $scope.page + `/` + $scope.id + `/` + $scope.orderURLCliente);
-        }
+//        $scope.ordena = function (order, align) {
+//            if ($scope.orderURLServidor == "") {
+//                $scope.orderURLServidor = "&order=" + order + "," + align;
+//                $scope.orderURLCliente = order + "," + align;
+//            } else {
+//                $scope.orderURLServidor = $scope.orderURLServidor + "-" + order + "," + align;
+//                $scope.orderURLCliente = $scope.orderURLCliente + "-" + order + "," + align;
+//            }
+//            $location.url($scope.ob + `/plist/` + $scope.rpp + `/` + $scope.page + `/` + $scope.id + `/` + $scope.orderURLCliente);
+//        }
 
         //getcount
         $http({
@@ -109,7 +114,9 @@ moduleArea.controller('areaPlistController', ['$scope', '$http', '$location', 't
 
         $scope.resetOrder = function () {
             $location.url($scope.ob + `/plist/` + $scope.rpp + `/` + $scope.page);
-        }
+            $scope.reverse = false;
+            $scope.propertyName = 'id';
+        };
         $scope.view = function (id) {
             $location.url($scope.ob + `/view/${id}`);
         }

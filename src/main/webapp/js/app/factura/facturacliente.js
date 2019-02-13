@@ -36,20 +36,27 @@ moduleFactura.controller('facturaClienteController', ['$scope', '$http', '$locat
 
             $scope.resetOrder = function () {
                 $location.url($scope.ob + `/facturacliente/` + $scope.rpp + `/` + $scope.page + `/` + $scope.id);
+                $scope.reverse = false;
+                $scope.propertyName = 'fecha';
             }
 
-            $scope.ordena = function (order, align) {
-                if ($scope.orderURLServidor == "") {
-                    $scope.orderURLServidor = "&order=" + order + "," + align;
-                    $scope.orderURLCliente = order + "," + align;
-                } else {
-                    $scope.orderURLServidor = $scope.orderURLServidor + "-" + order + "," + align;
-                    $scope.orderURLCliente = $scope.orderURLCliente + "-" + order + "," + align;
-                }
-                $location.url($scope.ob + `/facturacliente/` + $scope.rpp + `/` + $scope.page + `/` + $scope.id + `/` + $scope.orderURLCliente);
-            }
+//            $scope.ordena = function (order, align) {
+//                if ($scope.orderURLServidor == "") {
+//                    $scope.orderURLServidor = "&order=" + order + "," + align;
+//                    $scope.orderURLCliente = order + "," + align;
+//                } else {
+//                    $scope.orderURLServidor = $scope.orderURLServidor + "-" + order + "," + align;
+//                    $scope.orderURLCliente = $scope.orderURLCliente + "-" + order + "," + align;
+//                }
+//                $location.url($scope.ob + `/facturacliente/` + $scope.rpp + `/` + $scope.page + `/` + $scope.id + `/` + $scope.orderURLCliente);
+//            }
 
-
+            $scope.propertyName = 'fecha';
+            $scope.reverse = true;
+            $scope.sortBy = function (propertyName) {
+                $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
+                $scope.propertyName = propertyName;
+            };
             $http({
                 method: 'GET',
                 url: 'json?ob=factura&op=getcountx&idajena=' + $routeParams.id

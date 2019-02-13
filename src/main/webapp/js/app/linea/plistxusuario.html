@@ -41,58 +41,23 @@
 
 
             <div class="table-responsive container2 mb-2 pl-3 pr-3 pt-3">
-                <table class="table table-sm"  ng-show="ajaxDataUsuarios != 0">
+                <table class="table table-sm text-center"  ng-show="ajaxDataUsuarios != 0">
                     <tr>
-                          <th>
-                            <div>
-                                <p class="float-left ml-5">ID</p>
-                                <div class="order float-left" ng-click="ordena('id', 'asc')">
-                                    <i class="material-icons asc ml-1">
-                                        keyboard_arrow_up
-                                    </i>
-                                </div>
-                                <div class="order float-left" ng-click="ordena('id', 'desc')">
-                                    <i class="material-icons asc">
-                                        keyboard_arrow_down
-                                    </i>
-                                </div>
-                            </div>
+                    <th>
+                            <p ng-click="sortBy('id')">ID</p>
                         </th>
                           <th>
-                            <div>
-                                <p class="float-left ml-5">CANTIDAD</p>
-                                <div class="order float-left" ng-click="ordena('cantidad', 'asc')">
-                                    <i class="material-icons asc ml-1">
-                                        keyboard_arrow_up
-                                    </i>
-                                </div>
-                                <div class="order float-left" ng-click="ordena('cantidad', 'desc')">
-                                    <i class="material-icons asc">
-                                        keyboard_arrow_down
-                                    </i>
-                                </div>
-                            </div>
+                            <p ng-click="sortBy('cantidad')">CANTIDAD</p>
                         </th>
                           <th>
-                            <div>
-                                <p class="float-left ml-5">PRODUCTO</p>
-                                <div class="order float-left" ng-click="ordena('producto', 'asc')">
-                                    <i class="material-icons asc ml-1">
-                                        keyboard_arrow_up
-                                    </i>
-                                </div>
-                                <div class="order float-left" ng-click="ordena('producto', 'desc')">
-                                    <i class="material-icons asc">
-                                        keyboard_arrow_down
-                                    </i>
-                                </div>
-                            </div>
+                            <p ng-click="sortBy('producto')">PRODUCTO</p>
                         </th>
+         
                         <th> 
                             <p>ACCIONES</p> 
                         </th>
                     </tr>
-                    <tr ng-repeat="fila in ajaxDataUsuarios">
+                    <tr ng-repeat="fila in ajaxDataUsuarios| orderBy:propertyName:reverse">
                         <td>{{fila.id}}</td>
                         <td>{{fila.cantidad}}</td>
                         <td><a class="hover-ajena" href="producto/view/{{fila.obj_Producto.id}}">{{fila.obj_Producto.nombre}}</a></td>

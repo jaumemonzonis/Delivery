@@ -11,13 +11,13 @@
                     <div class="table-responsive container2 mb-5 pl-3 pr-3">
                         <table class="table table-sm">
                             <tr>
-                                <th>
-                                    CANTIDAD
-                                </th>
-                                <th>
-                                    PRODUCTO
-                                <th> 
-                            <tr ng-repeat="fila in ajaxDataLinea">
+                                 <th>
+                            <p ng-click="sortBy('cantidad')">CANTIDAD</p>
+                        </th>
+                                  <th>
+                            <p ng-click="sortBy('producto')">PRODUCTO</p>
+                        </th>
+                            <tr ng-repeat="fila in ajaxDataLinea| orderBy:propertyName:reverse">
                                 <td>{{fila.cantidad}}</td>
                                 <td>{{fila.obj_Producto.nombre}}</td> 
 

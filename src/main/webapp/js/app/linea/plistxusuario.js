@@ -1,23 +1,23 @@
 'use strict'
 
-moduleLinea.controller('lineaplistxusuarioController', ['$scope', '$http', '$location', 'toolService', '$routeParams', 'sessionService','$window',
-    function ($scope, $http, $location, toolService, $routeParams, sessionService,$window) {
+moduleLinea.controller('lineaplistxusuarioController', ['$scope', '$http', '$location', 'toolService', '$routeParams', 'sessionService', '$window',
+    function ($scope, $http, $location, toolService, $routeParams, sessionService, $window) {
 
         $scope.ob = "linea";
         $scope.totalPages = 1;
-        
-        
+
+
 //      if (sessionService.getUserName() !== "") {
 //            $scope.loggeduser = sessionService.getUserName();
 //            $scope.loggeduserid = sessionService.getId();
 //            $scope.logged = true;
 //            $scope.tipousuarioID = sessionService.getTypeUserID();
 //        }
-        $scope.tipousuarioID=sessionService.getTypeUserID();
+        $scope.tipousuarioID = sessionService.getTypeUserID();
         if (!$routeParams.id) {
-            $scope.id= 1;  
+            $scope.id = 1;
         } else {
-            $scope.id= $routeParams.id;
+            $scope.id = $routeParams.id;
         }
 
 
@@ -47,7 +47,9 @@ moduleLinea.controller('lineaplistxusuarioController', ['$scope', '$http', '$loc
 
 
         $scope.resetOrder = function () {
-        $location.url($scope.ob + `/plistxusuario/` + $scope.rpp + `/` + $scope.page + `/` + $scope.id);
+            $location.url($scope.ob + `/plistxusuario/` + $scope.rpp + `/` + $scope.page + `/` + $scope.id);
+            $scope.reverse = false;
+            $scope.propertyName = 'id';
         }
 
         $scope.view = function (id) {
@@ -61,18 +63,23 @@ moduleLinea.controller('lineaplistxusuarioController', ['$scope', '$http', '$loc
         $scope.edit = function (id) {
             $location.url($scope.ob + `/edit/${id}`);
         }
-
-        $scope.ordena = function (order, align) {
-            if ($scope.orderURLServidor == "") {
-                $scope.orderURLServidor = "&order=" + order + "," + align;
-                $scope.orderURLCliente = order + "," + align;
-            } else {
-                $scope.orderURLServidor = $scope.orderURLServidor + "-" + order + "," + align;
-                $scope.orderURLCliente = $scope.orderURLCliente + "-" + order + "," + align;
-            }
-           $location.url($scope.ob + `/plistxusuario/` + $scope.rpp + `/` + $scope.page + `/` + $scope.id + `/` + $scope.orderURLCliente);
-        }
-
+//
+//        $scope.ordena = function (order, align) {
+//            if ($scope.orderURLServidor == "") {
+//                $scope.orderURLServidor = "&order=" + order + "," + align;
+//                $scope.orderURLCliente = order + "," + align;
+//            } else {
+//                $scope.orderURLServidor = $scope.orderURLServidor + "-" + order + "," + align;
+//                $scope.orderURLCliente = $scope.orderURLCliente + "-" + order + "," + align;
+//            }
+//           $location.url($scope.ob + `/plistxusuario/` + $scope.rpp + `/` + $scope.page + `/` + $scope.id + `/` + $scope.orderURLCliente);
+//        }
+        $scope.propertyName = 'id';
+        $scope.reverse = true;
+        $scope.sortBy = function (propertyName) {
+            $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
+            $scope.propertyName = propertyName;
+        };
         //getcount
         $http({
             method: 'GET',
@@ -93,12 +100,12 @@ moduleLinea.controller('lineaplistxusuarioController', ['$scope', '$http', '$loc
 
         $http({
             method: 'GET',
-           url: 'json?ob=' + $scope.ob + '&op=getpagex&rpp=' + $scope.rpp + '&page=' + $scope.page + '&idajena=' + $scope.id + $scope.orderURLServidor
+            url: 'json?ob=' + $scope.ob + '&op=getpagex&rpp=' + $scope.rpp + '&page=' + $scope.page + '&idajena=' + $scope.id + $scope.orderURLServidor
         }).then(function (response) {
             $scope.status = response.status;
             $scope.ajaxDataUsuarios = response.data.message;
-           
-            
+
+
         }, function (response) {
             $scope.status = response.status;
             $scope.ajaxDataUsuarios = response.data.message || 'Request failed';
@@ -110,16 +117,16 @@ moduleLinea.controller('lineaplistxusuarioController', ['$scope', '$http', '$loc
         }).then(function (response) {
             $scope.status = response.status;
             $scope.idfactura = response.data.message.id;
-             $scope.nombre= response.data.message.obj_Usuario.nombre;
-            $scope.ape1= response.data.message.obj_Usuario.ape1;
-          
+            $scope.nombre = response.data.message.obj_Usuario.nombre;
+            $scope.ape1 = response.data.message.obj_Usuario.ape1;
+
         }, function (response) {
             $scope.status = response.status;
-            
+
         });
 
         $scope.update = function () {
-           $location.url($scope.ob + `/plistxusuario/` + $scope.rpp + `/` + $scope.page + `/` + $scope.id + `/` + $scope.orderURLCliente);
+            $location.url($scope.ob + `/plistxusuario/` + $scope.rpp + `/` + $scope.page + `/` + $scope.id + `/` + $scope.orderURLCliente);
         }
 
 
@@ -146,7 +153,7 @@ moduleLinea.controller('lineaplistxusuarioController', ['$scope', '$http', '$loc
 
         $scope.isActive = toolService.isActive;
 
- $scope.volver = function () {
+        $scope.volver = function () {
             $window.history.back();
         };
 

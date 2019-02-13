@@ -37,42 +37,20 @@
                 <div class="table-responsive container2 mb-2 pl-3 pr-3 pt-3">
                     <table class="table table-sm text-center">
                         <tr>
-                            <th>
-                            <div>
-                                <p class="float-left ml-5">ID</p>
-                                <div class="order" ng-click="ordena('id', 'asc')">
-                                    <i class="material-icons asc ml-1">
-                                        keyboard_arrow_up
-                                    </i>
-                                </div>
-                                <div class="order" ng-click="ordena('id', 'desc')">
-                                    <i class="material-icons asc">
-                                        keyboard_arrow_down
-                                    </i>
-                                </div>
-                            </div>
+                   <th>
+                            <p ng-click="sortBy('id')">ID</p>
+
                         </th>
-                                 <th>
-                            <div>
-                                <p  class="float-left ml-5">DESCRIPCION</p>
-                                <div class="order" ng-click="ordena('tipousuario.desc', 'asc')">
-                                    <i class="material-icons asc ml-1">
-                                        keyboard_arrow_up
-                                    </i>
-                                </div>
-                                <div class="order" ng-click="ordena('tipousuario.desc', 'desc')">
-                                    <i class="material-icons asc">
-                                        keyboard_arrow_down
-                                    </i>
-                                </div>
-                            </div>
+                      <th>
+                            <p ng-click="sortBy('tipoproducto.desc')">TIPO USUARIO</p>
+
                         </th>
                            
                             <th> 
                                 <p>ACCIONES</p> 
                             </th>
                         </tr>
-                        <tr ng-repeat="fila in ajaxDataUsuarios">
+                        <tr ng-repeat="fila in ajaxDataUsuarios| orderBy:propertyName:reverse">
                             <td>{{fila.id}}</td>
                             <td>{{fila.desc}}</td>
                           

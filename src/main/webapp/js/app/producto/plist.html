@@ -37,132 +37,32 @@
             <div class="table-responsive container2 mb-2 pl-3 pr-3 pt-3">
                 <table class="table table-sm text-center">
                     <tr>
-                        <th>
-                            <div>
-                                <p class="float-left ml-5">ID</p>
-                                <div class="order float-left" ng-click="ordena('id', 'asc')">
-                                    <i class="material-icons asc ml-1">
-                                        keyboard_arrow_up
-                                    </i>
-                                </div>
-                                <div class="order float-left " ng-click="ordena('id', 'desc')">
-                                    <i class="material-icons asc">
-                                        keyboard_arrow_down
-                                    </i>
-                                </div>
-                            </div>
+                       <th>
+                            <p ng-click="sortBy('id')">ID</p>
                         </th>
-                        <th>
-                            <div>
-                                <p class="float-left ml-5">CODIGO</p>
-                                <div class="order float-left" ng-click="ordena('codigo', 'asc')">
-                                    <i class="material-icons asc ml-2">
-                                        keyboard_arrow_up
-                                    </i>
-                                </div>
-                                <div class="order float-left " ng-click="ordena('codigo', 'desc')">
-                                    <i class="material-icons asc">
-                                        keyboard_arrow_down
-                                    </i>
-                                </div>
-                            </div>
+                         <th>
+                            <p ng-click="sortBy('codigo')">CODIGO</p>
                         </th>
-                        <th>
-                            <div>
-                                <p class="float-left ml-5">NOMBRE</p>
-                                <div class="order float-left" ng-click="ordena('nombre', 'asc')">
-                                    <i class="material-icons asc ml-2">
-                                        keyboard_arrow_up
-                                    </i>
-                                </div>
-                                <div class="order float-left " ng-click="ordena('nombre', 'desc')">
-                                    <i class="material-icons asc">
-                                        keyboard_arrow_down
-                                    </i>
-                                </div>
-                            </div>
+                         <th>
+                            <p ng-click="sortBy('nombre')">NOMBRE</p>
                         </th>
-                        <th>
-                            <div>
-                                <p class="float-left ml-5">DESCRIPCION</p>
-                                <div class="order float-left" ng-click="ordena('producto.desc', 'asc')">
-                                    <i class="material-icons asc ml-2">
-                                        keyboard_arrow_up
-                                    </i>
-                                </div>
-                                <div class="order float-left " ng-click="ordena('producto.desc', 'desc')">
-                                    <i class="material-icons asc">
-                                        keyboard_arrow_down
-                                    </i>
-                                </div>
-                            </div>
+                         <th>
+                            <p ng-click="sortBy('producto.desc')">DESCRIPCION</p>
+                        </th> <th>
+                            <p ng-click="sortBy('existencias')">EXISTENCIAS</p>
+                        </th> <th>
+                            <p ng-click="sortBy('precio')">PRECIO</p>
+                        </th> <th>
+                            <p ng-click="sortBy('foto')">FOTO</p>
                         </th>
-                        <th>
-                            <div>
-                                <p class="float-left ml-5">EXISTENCIAS</p>
-                                <div class="order float-left" ng-click="ordena('existencias', 'asc')">
-                                    <i class="material-icons asc ml-2">
-                                        keyboard_arrow_up
-                                    </i>
-                                </div>
-                                <div class="order float-left " ng-click="ordena('existencias', 'desc')">
-                                    <i class="material-icons asc">
-                                        keyboard_arrow_down
-                                    </i>
-                                </div>
-                            </div>
-                        </th>
-      
-                        <th>
-                            <div>
-                                <p class="float-left ml-5">PRECIO</p>
-                                <div class="order float-left" ng-click="ordena('precio', 'asc')">
-                                    <i class="material-icons asc ml-2">
-                                        keyboard_arrow_up
-                                    </i>
-                                </div>
-                                <div class="order float-left " ng-click="ordena('precio', 'desc')">
-                                    <i class="material-icons asc">
-                                        keyboard_arrow_down
-                                    </i>
-                                </div>
-                            </div>
-                        </th>
-                      <th>
-                            <div>
-                                <p class="float-left ml-5">FOTO</p>
-                                <div class="order float-left" ng-click="ordena('foto', 'asc')">
-                                    <i class="material-icons asc ml-2">
-                                        keyboard_arrow_up
-                                    </i>
-                                </div>
-                                <div class="order float-left " ng-click="ordena('foto', 'desc')">
-                                    <i class="material-icons asc">
-                                        keyboard_arrow_down
-                                    </i>
-                                </div>
-                            </div>
-                        </th>
-                        <th>
-                            <div>
-                                <p class="float-left ml-5">TIPO PRODUCTO</p>
-                                <div class="order float-left" ng-click="ordena('id_tipoproducto', 'asc')">
-                                    <i class="material-icons asc ml-2">
-                                        keyboard_arrow_up
-                                    </i>
-                                </div>
-                                <div class="order float-left " ng-click="ordena('id_tipoproducto', 'desc')">
-                                    <i class="material-icons asc">
-                                        keyboard_arrow_down
-                                    </i>
-                                </div>
-                            </div>
+                         <th>
+                            <p ng-click="sortBy('id_tipoproducto')">TIPO PRODUCTO</p>
                         </th>
                         <th> 
                             <p style="margin-left: 5%">ACCIONES</p> 
                         </th>
                     </tr>
-                    <tr ng-repeat="fila in ajaxDataUsuarios">
+                    <tr ng-repeat="fila in ajaxDataUsuarios| orderBy:propertyName:reverse">
                         <td>{{fila.id}}</td>
                         <td>{{fila.codigo}}</td>
                         <td>{{fila.nombre}}</td>

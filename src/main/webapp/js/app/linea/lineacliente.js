@@ -59,7 +59,12 @@ moduleLinea.controller('lineaclienteController', ['$scope', '$http', '$location'
 
             });
 
-
+            $scope.propertyName = 'cantidad';
+            $scope.reverse = true;
+            $scope.sortBy = function (propertyName) {
+                $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
+                $scope.propertyName = propertyName;
+            };
 
             $scope.volver = function () {
                 $location.url(`home`);

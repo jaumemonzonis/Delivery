@@ -1,8 +1,8 @@
 
 'use strict'
 
-moduleTipoproducto.controller('tipoproductoPlistController', ['$scope', '$http', '$location', 'toolService', '$routeParams','sessionService',
-    function ($scope, $http, $location, toolService, $routeParams,sessionService) {
+moduleTipoproducto.controller('tipoproductoPlistController', ['$scope', '$http', '$location', 'toolService', '$routeParams', 'sessionService',
+    function ($scope, $http, $location, toolService, $routeParams, sessionService) {
         $scope.ob = "tipoproducto";
         $scope.totalPages = 1;
 
@@ -36,18 +36,23 @@ moduleTipoproducto.controller('tipoproductoPlistController', ['$scope', '$http',
         }
 
 
-        $scope.ordena = function (order, align) {
-            if ($scope.orderURLServidor == "") {
-                $scope.orderURLServidor = "&order=" + order + "," + align;
-                $scope.orderURLCliente = order + "," + align;
-            } else {
-                $scope.orderURLServidor = $scope.orderURLServidor + "-" + order + "," + align;
-                $scope.orderURLCliente = $scope.orderURLCliente + "-" + order + "," + align;
-            }
-            $location.url($scope.ob + `/plist/` + $scope.rpp + `/` + $scope.page + `/` + $scope.orderURLCliente);
-}
+//        $scope.ordena = function (order, align) {
+//            if ($scope.orderURLServidor == "") {
+//                $scope.orderURLServidor = "&order=" + order + "," + align;
+//                $scope.orderURLCliente = order + "," + align;
+//            } else {
+//                $scope.orderURLServidor = $scope.orderURLServidor + "-" + order + "," + align;
+//                $scope.orderURLCliente = $scope.orderURLCliente + "-" + order + "," + align;
+//            }
+//            $location.url($scope.ob + `/plist/` + $scope.rpp + `/` + $scope.page + `/` + $scope.orderURLCliente);
+//}
 
-
+        $scope.propertyName = 'id';
+        $scope.reverse = true;
+        $scope.sortBy = function (propertyName) {
+            $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
+            $scope.propertyName = propertyName;
+        };
         //getcount
         $http({
             method: 'GET',
@@ -102,7 +107,9 @@ moduleTipoproducto.controller('tipoproductoPlistController', ['$scope', '$http',
 
         $scope.resetOrder = function () {
             $location.url($scope.ob + `/plist/` + $scope.rpp + `/` + $scope.page);
-        }
+            $scope.reverse = false;
+            $scope.propertyName = 'id';
+        };
         $scope.view = function (id) {
             $location.url($scope.ob + `/view/${id}`);
         }
@@ -115,7 +122,7 @@ moduleTipoproducto.controller('tipoproductoPlistController', ['$scope', '$http',
             $location.url($scope.ob + `/edit/${id}`);
         }
         $scope.isActive = toolService.isActive;
-        
+
     }
 
 
