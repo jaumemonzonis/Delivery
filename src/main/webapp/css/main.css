@@ -315,8 +315,8 @@ select{
 .box .icon-cont {
     border: 6px solid rgba(255,255,255,0.3);
     border-radius: 50%;
-    width: 75px;
-    height: 75px;
+    width: 44%;
+    height: 40%;
     margin: 20px auto;
     display: block; 
     text-align: center;
@@ -326,7 +326,6 @@ select{
     left: 0;
     right: 0;
     z-index: 5;
-
     box-shadow: 0 0 0 0px rgba(255,255,255,0.5), 0 0 0 0px rgba(3, 108, 129, 0.5);
 }
 
@@ -366,6 +365,11 @@ select{
     width: 70%;
     left: 15%;
     z-index: 4;
+}
+
+.restaurante{
+     left: 5% !important;
+    
 }
 
 .box_second h3 {
@@ -1618,6 +1622,11 @@ div.shadow{
     margin-top: -17% !important;
 }
 
+.navlogin{
+    margin-top: -10% !important;
+}
+
+
 @media screen and (max-width: 576px) {
     .rrss {
         width: 0%;
@@ -1646,8 +1655,21 @@ div.shadow{
         font-size: 26px;
     }
     .viewusuariocliente{
-    margin-top: -53% !important;
+        margin-top: -53% !important;
+    }
+    .navlogin{
+        margin-top: -17% !important;
+    }
+    .box .icon-cont {
+        width: 94%;
+    }
+     .box h3 {
+        font-size: 7px;
+    }
+        .h3_admin {
+    font-size: 7px !important;
 }
+
 }
 
 @media screen and (min-width: 576px) and (max-width: 768px) {
@@ -1678,7 +1700,23 @@ div.shadow{
         font-size: 34px;
     }
     .viewusuariocliente{
-    margin-top: -48% !important;
+        margin-top: -48% !important;
+    }
+    .navlogin{
+        margin-top: -30% !important;
+    }
+    .box .icon-cont {
+        width: 88%;
+    }
+     .box h3 {
+        font-size: 9px;
+    }
+        .h3_admin {
+    font-size: 9px !important;
+}
+.navbar-collapse {
+  flex-basis: 0% !important;
+  flex-grow: 0 !important;
 }
 
 }
@@ -1707,9 +1745,22 @@ div.shadow{
         height: 65%;   
     }
     .viewusuariocliente{
-    margin-top: -36% !important;
+        margin-top: -36% !important;
+    }
+    .box .icon-cont {
+        width: 80%;
+    }
+     .box h3 {
+        font-size: 12px;
+    }
+    
+        .h3_admin {
+    font-size: 12px !important;
 }
-
+.navbar-collapse {
+  flex-basis: 0% !important;
+  flex-grow: 0 !important;
+}
 }
 
 @media  screen and (min-width: 992px) and  (max-width: 1200px) {
@@ -1745,7 +1796,18 @@ div.shadow{
         font-size: 47px;
     }
     .viewusuariocliente{
-    margin-top: -24% !important;
+        margin-top: -24% !important;
+    }
+    .navlogin{
+        margin-top: -17% !important;
+    }
+    .box .icon-cont {
+        width: 60%;
+    }
+    .box h3 {
+        font-size: 18px;
+    }
+    .h3_admin {
+    font-size: 18px !important;
 }
-
 }
