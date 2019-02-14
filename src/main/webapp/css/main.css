@@ -167,6 +167,8 @@ a:focus {
 .table > tbody > tr > td{
     vertical-align: middle;
     max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .table th{
@@ -678,7 +680,7 @@ input#menu-btn:checked + label::after {
 /* FOOTER CLIENTE*/
 footer {
     grid-area: 4/1/5/4
-  
+
 
 }
 .footer {
@@ -1158,7 +1160,7 @@ div.shadow{
 .flechas{	
     grid-area: 3/2/4/3;
     margin-top:3%;
- 
+
 }
 
 .flechas_comprar{	
@@ -1553,8 +1555,8 @@ div.shadow{
 /* OPCION LOCAL O DOMICILIO*/
 
 .label.prod4{
-        color: #F9B157;
-        font-size: 50px;
+    color: #F9B157;
+    font-size: 50px;
 }
 .label.prod4.top_domicilio{
     margin-top:4%;
@@ -1565,11 +1567,11 @@ div.shadow{
     font-weight: 900;
     font-size: 40px;
     color: #F9B157;
-     margin-top:4%;
+    margin-top:4%;
 }
 
 .paso_img{
-   width:8%;
+    width:8%;
     max-width: 8%;
     height: auto;  
 }
