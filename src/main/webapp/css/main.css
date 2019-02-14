@@ -1586,4 +1586,21 @@ div.shadow{
     padding-top: 5%;
 }
 
-
+@keyframes zoominoutsinglefeatured {
+    0% {
+        transform: scale(1,1);
+        color: #FFC57C;
+    }
+    50% {
+        transform: scale(1.2,1.2);
+        color: #FFC57C;
+    }
+    100% {
+        transform: scale(1,1);
+         color: #FFC57C;
+    }
+}
+.con-clase{
+    color: #F9B157 !important;
+     animation: zoominoutsinglefeatured 2s 1 !important;
+}

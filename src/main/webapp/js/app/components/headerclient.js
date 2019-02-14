@@ -18,5 +18,7 @@ function js(toolService, sessionService, $http, $route) {
     self.isActive = toolService.isActive;
     self.limpiar = sessionService.isSessionActive();
 
-
+        
+        
+        
 }

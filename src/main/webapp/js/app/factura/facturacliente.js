@@ -35,7 +35,7 @@ moduleFactura.controller('facturaClienteController', ['$scope', '$http', '$locat
             }
             
              $scope.update = function () {
-            $location.url($scope.ob + `/facturacliente/` + $scope.rpp + `/` + $scope.page + `/` + $scope.id + `/` + $scope.orderURLCliente);
+            $location.url(`factura/facturacliente/` + $scope.rpp + `/` + $scope.page + `/` + $scope.id);
         }
 
             $scope.resetOrder = function () {
