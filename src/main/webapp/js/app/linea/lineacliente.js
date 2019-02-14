@@ -1,8 +1,8 @@
 
 'use strict'
 //http://localhost:8081/json?ob=usuario&op=login&user=ddd&pass=pass
-moduleLinea.controller('lineaclienteController', ['$scope', '$http', '$location', 'toolService', '$routeParams', 'sessionService',
-    function ($scope, $http, $location, toolService, $routeParams, sessionService) {
+moduleLinea.controller('lineaclienteController', ['$scope', '$http', '$location', 'toolService', '$routeParams', 'sessionService','$window',
+    function ($scope, $http, $location, toolService, $routeParams, sessionService, $window) {
         $scope.totalPages = 1;
         $scope.ob = "linea";
         if (!$routeParams.id) {
@@ -67,8 +67,8 @@ moduleLinea.controller('lineaclienteController', ['$scope', '$http', '$location'
             };
 
             $scope.volver = function () {
-                $location.url(`home`);
-            };
+            $window.history.back();
+        }
             $scope.isActive = toolService.isActive;
         }
 

@@ -33,6 +33,10 @@ moduleFactura.controller('facturaClienteController', ['$scope', '$http', '$locat
             } else {
                 $scope.page = 1;
             }
+            
+             $scope.update = function () {
+            $location.url($scope.ob + `/facturacliente/` + $scope.rpp + `/` + $scope.page + `/` + $scope.id + `/` + $scope.orderURLCliente);
+        }
 
             $scope.resetOrder = function () {
                 $location.url($scope.ob + `/facturacliente/` + $scope.rpp + `/` + $scope.page + `/` + $scope.id);
@@ -57,6 +61,8 @@ moduleFactura.controller('facturaClienteController', ['$scope', '$http', '$locat
                 $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
                 $scope.propertyName = propertyName;
             };
+            
+            
             $http({
                 method: 'GET',
                 url: 'json?ob=factura&op=getcountx&idajena=' + $routeParams.id

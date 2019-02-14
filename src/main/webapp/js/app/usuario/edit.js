@@ -66,7 +66,7 @@ moduleUsuario.controller("usuarioEditController", [
                 ape2: $scope.ape2,
                 telefono: $scope.telefono,
                 login: $scope.login,
-                pass: $scope.pass,
+                pass: forge_sha256($scope.pass),
                 email: $scope.email,
                 direccion: $scope.direccion,
                 poblacion: $scope.obj_Municipio.poblacion,

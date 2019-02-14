@@ -27,35 +27,34 @@ import net.daw.helper.TokenGenerator;
  */
 public class UsuarioBean extends GenericBeanImplementation implements BeanInterface {
 
- 
     @Expose
-     private String nombre;
+    private String nombre;
     @Expose
-     private String ape1;
+    private String ape1;
     @Expose
-     private String ape2;
+    private String ape2;
     @Expose
-     private int telefono;
+    private int telefono;
     @Expose
-     private String login;
+    private String login;
     @Expose(serialize = false)
-     private String pass;
+    private String pass;
     @Expose
-     private String email;
+    private String email;
     @Expose
-     private String direccion;
+    private String direccion;
     @Expose
-     private String poblacion;
+    private String poblacion;
     @Expose
-     private String token;
+    private String token;
     @Expose(serialize = false)
-     private Boolean validado;
+    private Boolean validado;
     @Expose(serialize = false)
-     private int id_tipousuario;
+    private int id_tipousuario;
     @Expose(deserialize = false)
-     private TipousuarioBean obj_tipoUsuario;
+    private TipousuarioBean obj_tipoUsuario;
     @Expose(deserialize = false)
-     private int link_factura;
+    private int link_factura;
 
     public String getNombre() {
         return nombre;
@@ -156,6 +155,7 @@ public class UsuarioBean extends GenericBeanImplementation implements BeanInterf
     public TipousuarioBean getObj_tipousuario() {
         return obj_tipoUsuario;
     }
+
     public void setObj_tipousuario(TipousuarioBean obj_tipousuario) {
         this.obj_tipoUsuario = obj_tipousuario;
     }
@@ -185,7 +185,6 @@ public class UsuarioBean extends GenericBeanImplementation implements BeanInterf
 
         DaoInterface oFacturaDao = DaoFactory.getDao(oConnection, "factura", oUsuarioBeanSession);
         this.setLink_factura(oFacturaDao.getcountX(oResultSet.getInt("id")));
-        
 
         if (expand > 0) {
             DaoInterface otipousuarioDao = DaoFactory.getDao(oConnection, "tipousuario", oUsuarioBeanSession);
@@ -231,11 +230,11 @@ public class UsuarioBean extends GenericBeanImplementation implements BeanInterf
         strColumns += EncodingHelper.quotate(getPoblacion()) + ",";
         strColumns += EncodingHelper.quotate(TokenGenerator.nextToken()) + ",";
         strColumns += 0 + ",";
-        
-        if(this.id_tipousuario!=1 && this.id_tipousuario!=2 && this.id_tipousuario!=3){
-            this.id_tipousuario=0;
+
+        if (this.id_tipousuario != 1 && this.id_tipousuario != 2 && this.id_tipousuario != 3) {
+            this.id_tipousuario = 0;
         }
-        
+
         strColumns += id_tipousuario;
         return strColumns;
     }
@@ -249,6 +248,7 @@ public class UsuarioBean extends GenericBeanImplementation implements BeanInterf
         strPairs += "ape2=" + EncodingHelper.quotate(getApe2()) + ",";
         strPairs += "telefono=" + telefono + ",";
         strPairs += "login=" + EncodingHelper.quotate(getLogin()) + ",";
+        strPairs += "pass=" + EncodingHelper.quotate(getPass()) + ",";
         strPairs += "email=" + EncodingHelper.quotate(getEmail()) + ",";
         strPairs += "direccion=" + EncodingHelper.quotate(getDireccion()) + ",";
         strPairs += "poblacion=" + EncodingHelper.quotate(getPoblacion()) + ",";

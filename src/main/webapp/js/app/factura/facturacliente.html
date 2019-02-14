@@ -11,7 +11,7 @@
                     <div class="col-md-12 ml-sm-auto col-lg-12 mt-3">
                         <div class="btn-toolbar mb-2 mb-md-0 float-left">
                             <div class="btn-group" style="width:270px; margin-left: -5%;">
-                                <p class="mt-2" style="width:200px;">Registros por pagina:</p>
+                                <p class="mt-2" style="width:200px; color: white;">Registros por pagina:</p>
                                 <select class="form-control form-size" 
                                         ng-change="update()" 
                                         ng-model="rpp">
@@ -42,10 +42,10 @@
                                 <th>
                                     <p ng-click="sortBy('direccion_pedido')">POBLACION DEL PEDIDO</p>
                                 </th>
-                                 <th>
+                                <th>
                                     <p ng-click="sortBy('obj_Restaurante.nombre')">RESTAURANTE</p>
                                 </th>
-                                 <th>
+                                <th>
                                     <p>PRODUCTOS</p>
                                 </th>
                             <tr ng-repeat="fila in ajaxDataFactura| orderBy:propertyName:reverse">

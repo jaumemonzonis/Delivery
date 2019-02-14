@@ -1,7 +1,7 @@
 'use strict'
 
-moduleCarrito.controller('carritoPlistBurgerController', ['$scope', '$http', '$location', 'toolService', '$routeParams', 'sessionService', "$window",
-    function ($scope, $http, $location, toolService, $routeParams, sessionService, $window) {
+moduleCarrito.controller('carritoPlistBurgerController', ['$scope', '$http', '$location', 'toolService', '$routeParams', 'sessionService', "$window", '$animate',
+    function ($scope, $http, $location, toolService, $routeParams, sessionService, $window, $animate) {
 
         $scope.totalPages = 1;
         $scope.conectado = false;
@@ -46,15 +46,16 @@ moduleCarrito.controller('carritoPlistBurgerController', ['$scope', '$http', '$l
             $scope.ajaxDataShow = response.data.message || 'Request failed';
         });
 
-
         $scope.idTipousuario = sessionService.getTypeUserID();
         $scope.comprar = function (id) {
+
 
             $http({
                 method: 'GET',
                 url: 'json?ob=carrito&op=add&prod=' + id
             }).then(function (response) {
                 $scope.alert = false;
+
                 $scope.status = response.status;
                 $scope.ajaxDataAdd = response.data.message;
                 if ($scope.status == 400) {
@@ -70,7 +71,10 @@ moduleCarrito.controller('carritoPlistBurgerController', ['$scope', '$http', '$l
 //            https://css-tricks.com/animations-the-angular-way/
 
         };
-
+        $scope.isActive = false;
+        $scope.activeButton = function () {
+            $scope.isActive = !$scope.isActive;
+        }
         $scope.idTipoproducto = 1;
 
 

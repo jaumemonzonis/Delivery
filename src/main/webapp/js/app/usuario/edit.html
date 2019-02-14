@@ -94,48 +94,10 @@
                                 Dirección obligatoria
                             </div>
                         </div>
-                      <label for="obj_municipio">MUNICIPIO:</label>
-                        <div class="form-group row ml-3">
-                            <municipio-selection 
-                                class="modal fade" 
-                                id="cadd-location-modal" 
-                                obj="obj_Municipio"
-                                on-tipousuario-set="municipioRefresh(this,false)">                          
-                            </municipio-selection>
-
-                            <div class="control">
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"
-                                              data-toggle="modal"
-                                              data-target="#cadd-location-modal">
-                                            <span class="material-icons mr-2">youtube_searched_for</span>
-                                        </span>
-                                    </div>
-                                    <input ng-model="obj_Municipio.id"
-                                           ng-change="municipioRefresh(this, true)"
-                                           aria-describedby="basic-addon2"
-                                           class="form-control col-sm-2"
-                                           id="obj_municipio"
-                                           name="obj_municipio"
-                                           type="text"
-                                           ng-required
-
-                                           ng-model-options="{debounce: 1000}"
-                                           maxlength="20" />
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">
-                                            <a href="/delivery/municipio/view/{{obj_Municipio.id}}">
-                                                <span class="p-2 bd-highlight"><i class="material-icons">
-                                                        account_circle
-                                                    </i></span>
-                                                MUNICIPIO: {{obj_Municipio.poblacion}}
-                                            </a>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div ng-show="!userForm.obj_municipio.$valid">Población: no válida</div>
-                            </div>
+                        <div class="form-group">
+                            <label>Municipio</label>
+                            <input type="text" class="form-control" id="obj_Municipio.poblacion" name="obj_Municipio.poblacion" ng-model="obj_Municipio.poblacion" ng-required="true" />
+                            
                         </div>
 
                         <label for="obj_tipousuario"> TIPO DE USUARIO:</label>

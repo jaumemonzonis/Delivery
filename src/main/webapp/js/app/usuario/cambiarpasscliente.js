@@ -31,15 +31,18 @@ moduleUsuario.controller('cambiarpassclienteController', ['$scope', '$http', '$l
         }).then(function (response) {
             $scope.id = response.data.message.id;
             $scope.nombre = response.data.message.nombre;
-            $scope.telefono = response.data.message.telefono;
             $scope.ape1 = response.data.message.ape1;
             $scope.ape2 = response.data.message.ape2;
             $scope.login = response.data.message.login;
-            $scope.email = response.data.message.email;
+            $scope.pass = '';
+            $scope.telefono = response.data.message.telefono;
+            $scope.obj_Municipio = {
+                id: null,
+                poblacion: response.data.message.poblacion
+            }
             $scope.direccion = response.data.message.direccion;
-            $scope.poblacion = response.data.message.poblacion;
-            $scope.token = response.data.message.token;
-            $scope.validado = "1";
+            $scope.email = response.data.message.email;
+
 
             $scope.obj_tipoUsuario = {
                 id: response.data.message.obj_tipoUsuario.id,
@@ -65,9 +68,7 @@ moduleUsuario.controller('cambiarpassclienteController', ['$scope', '$http', '$l
                     pass: forge_sha256($scope.pass),
                     email: $scope.email,
                     direccion: $scope.direccion,
-                    poblacion: $scope.poblacion,
-                    token: $scope.token,
-                    validado: $scope.validado,
+                    poblacion: $scope.obj_Municipio.poblacion,
                     id_tipousuario: $scope.obj_tipoUsuario.id
                 }
                 $http({
