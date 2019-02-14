@@ -1602,5 +1602,8 @@ div.shadow{
 }
 .con-clase{
     color: #F9B157 !important;
-     animation: zoominoutsinglefeatured 2s 1 !important;
+    animation: zoominoutsinglefeatured 2s 1 !important;
+    font-size: 4vw !important;
+     padding-left: 20% !important;
+    padding-top: 15% !important;
 }
