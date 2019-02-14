@@ -20,38 +20,21 @@
 
                     <div class="table-responsive container2 mb-5 pl-3 pr-3" ng-if="ajaxData !== 'Carrito vacio'">
 
-                        <table class="table table-sm">
+                        <table class="table table-sm text-center">
                             <tr>
-                                <th>
-                                    <div>
-                                        <p class="float-left">NOMBRE</p>
-                                        <div class="order float-right " ng-click="ordena('nombre', 'asc')">
-                                            <i class="material-icons">
-                                                swap_vert
-                                            </i>
-                                        </div>
-                                    </div>
-                                </th>
-                                <th>
-                                    <div>
-                                        <p class="float-left">PRECIO</p>
-                                        <div class="order float-right " ng-click="ordena('precio', 'asc')">
-                                            <i class="material-icons">
-                                                swap_vert
-                                            </i>
-                                        </div>
-                                    </div>
-                                </th>
-                                <th>
-                                    <div>
-                                        <p class="float-left">FOTO</p>
-                                        <div class="order float-right " ng-click="ordena('foto', 'asc')">
-                                            <i class="material-icons">
-                                                swap_vert
-                                            </i>
-                                        </div>
-                                    </div>
-                                </th>
+                            <th>
+                            <p ng-click="sortBy('nombre')">NOMBRE</p>
+
+                        </th>
+                         <th>
+                            <p ng-click="sortBy('precio')">PRECIO</p>
+
+                        </th>
+                         <th>
+                            <p ng-click="sortBy('foto')">FOTO</p>
+
+                        </th>
+                    
 
                                 <th> 
                                     <p style="margin-left: 5%">ACCIONES</p> 

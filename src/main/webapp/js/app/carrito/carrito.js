@@ -100,9 +100,12 @@ moduleCarrito.controller('carritoCarritoController', ['$scope', '$http', '$locat
         };
 
 
-//     $scope.buy = function () {
-//            $location.url(`carrito/restaurante`);
-//        }
+        $scope.propertyName = 'nombre';
+        $scope.reverse = false;
+        $scope.sortBy = function (propertyName) {
+            $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
+            $scope.propertyName = propertyName;
+        };
 
 
 
@@ -111,9 +114,9 @@ moduleCarrito.controller('carritoCarritoController', ['$scope', '$http', '$locat
         $scope.volver = function () {
             $window.history.back();
         }
-         $scope.seleccion_op = function () {
-            
-             $location.url(`carrito/opcion`);
+        $scope.seleccion_op = function () {
+
+            $location.url(`carrito/opcion`);
         };
 
     }

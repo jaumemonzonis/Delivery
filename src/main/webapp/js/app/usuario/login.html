@@ -4,7 +4,7 @@
         <div class="label prod1 top_plistproductos">LOGIN</div>
 
   </div>
-    <div class="nav">
+    <div class="nav viewusuariocliente">
 
 
                 <div class="col-5 mx-auto container2">
@@ -23,7 +23,7 @@
             <input type="password" class="form-control" ng-class="{' is-invalid': userForm.pass.$invalid && !userForm.pass.$pristine}"
                    id="pass" name="pass" ng-model="pass" ng-required="true" placeholder="Contraseña"/>
         </div>
-        <button ng-click="logging()" class="btn btn-rojo center-block">Login</button>
+        <button ng-click="logging()" type="button" class="btn btn-rojo">Login</button>
       
           <div class="alert alert-danger" role="alert" ng-show="failedlogin">
                 Error al logear.
