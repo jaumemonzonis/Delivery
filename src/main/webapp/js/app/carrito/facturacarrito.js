@@ -28,6 +28,7 @@ moduleFactura.controller('facturaCarritoController', ['$scope', '$http', '$locat
         }).then(function (response) {
             $scope.status = response.status;
             $scope.ajaxData = response.data.message;
+
             var cant = 0;
             var precio = 0;
             var iva = 0;
@@ -55,34 +56,42 @@ moduleFactura.controller('facturaCarritoController', ['$scope', '$http', '$locat
         }
 
         $scope.pdf = function () {
-            
+
             //en el futuro habrá que hacer una consulta a zona para saber el municipio del restaurante
-            
-            
+
+
             var usuario;
             var fecha;
             var lineasTotales;
             var iva;
-            var dni;
+            var telefono;
+            var direccion;
+            var nombre_rest;
+            var poblacion_rest;
+            var direccion_rest;
             var length = $scope.ajaxData.length;
             console.log(length);
             var doc = new jsPDF();
             for (var i = 0; i < length; i++) {
                 console.log($scope.ajaxData[i]);
-//                if ($scope.ajaxDataUsuarios[i].id === $scope.id) {
+//              
                 usuario = $scope.ajaxData[i].obj_Factura.obj_Usuario.nombre + ' ' + $scope.ajaxData[i].obj_Factura.obj_Usuario.ape1 + ' ' + $scope.ajaxData[i].obj_Factura.obj_Usuario.ape2;
                 fecha = $scope.ajaxData[i].obj_Factura.fecha;
                 lineasTotales = $scope.ajaxData[i].obj_Factura.link_linea;
                 iva = $scope.ajaxData[i].obj_Factura.iva;
-                dni = $scope.ajaxData[i].obj_Factura.obj_Usuario.dni;
-//                }
+                telefono = $scope.ajaxData[i].obj_Factura.obj_Usuario.telefono;
+                direccion = $scope.ajaxData[i].obj_Factura.obj_Usuario.direccion;
+                nombre_rest = $scope.ajaxData[i].obj_Factura.obj_Restaurante.nombre;
+                poblacion_rest = $scope.ajaxData[i].obj_Factura.obj_Restaurante.poblacion;
+                direccion_rest = $scope.ajaxData[i].obj_Factura.obj_Restaurante.direccion;
+
             }
             ;
 
 
             $http({
                 method: 'GET',
-                 url: 'json?ob=linea&op=getpagex&rpp=10000&page=1&idajena=' + $scope.id
+                url: 'json?ob=linea&op=getpagex&rpp=10000&page=1&idajena=' + $scope.id
 
 
             }).then(function (response) {
@@ -95,16 +104,17 @@ moduleFactura.controller('facturaCarritoController', ['$scope', '$http', '$locat
                 doc.setDrawColor(255, 0, 0);
                 doc.rect(8, 10, 195, 70);
                 doc.rect(8, 10, 85, 70);
-                doc.addImage(imgData, 'JPEG', 155, 12, 42, 40);
+                doc.addImage(imgData, 'JPEG', 160, 12, 42, 40);
                 doc.setFontSize(13);
                 doc.setFontType('bold');
-                doc.text(100, 20, 'LIZ CIMIENTOS SL');
-                doc.text(100, 40, 'Tel. 967 08 00 47');
-                doc.text(100, 50, 'Email: liz@gmail.com');
-                doc.text(100, 30, 'CIF. B8541236');
+                doc.text(100, 20, 'Local: ' + nombre_rest);
                 doc.setFontType('normal');
-                doc.text(100, 62, 'Direccion: C/ Juan Martinez n 45 Pta 78 Piso 2');
-                doc.text(100, 72, 'C.P: 64522 Valencia (Valencia)');
+                doc.text(100, 40, 'Tel. 967 08 00 47');
+                doc.text(100, 72, 'Email: ' + nombre_rest + '@gmail.com');
+                doc.text(100, 30, 'CIF. B8541236');
+
+                doc.text(100, 62, 'Direccion: ' + direccion_rest);
+                doc.text(100, 50, 'Poblacion: ' + poblacion_rest);
 
                 doc.setFontSize(30);
                 doc.setFontType('bold');
@@ -112,17 +122,18 @@ moduleFactura.controller('facturaCarritoController', ['$scope', '$http', '$locat
                 doc.setFontSize(14);
                 doc.setFontType('normal');
                 doc.text(10, 40, 'Cliente: ' + usuario);
-                doc.text(10, 50, 'DNI: ' + dni);
-                doc.text(10, 60, 'Fecha: ' + fecha);
+                doc.text(10, 50, 'Telefono: ' + telefono);
+                doc.text(10, 60, 'Direccion: ' + direccion);
+                doc.text(10, 70, 'Fecha: ' + fecha);
 
 
                 doc.rect(8, 80, 195, 210);
                 doc.setFontSize(15);
                 doc.text(12, 90, 'Codigo');
-                doc.text(50, 90, 'Descripcion');
+                doc.text(50, 90, 'Nombre');
                 doc.text(125, 90, 'Cantidad');
                 doc.text(170, 90, 'Precio');
-                doc.setFillColor(10, 26, 244);
+                doc.setFillColor(249, 177, 87);
                 doc.rect(9, 93, 193, 3, 'F');
                 doc.setFontSize(15);
 
@@ -138,14 +149,14 @@ moduleFactura.controller('facturaCarritoController', ['$scope', '$http', '$locat
                         doc.rect(8, 10, 85, 70);
                         doc.addImage(imgData, 'JPEG', 155, 12, 42, 40);
                         doc.setFontSize(13);
-                        doc.setFontType('bold');
-                        doc.text(100, 20, 'LIZ CIMIENTOS SL');
-                        doc.text(100, 40, 'Tel. 967 08 00 47');
-                        doc.text(100, 50, 'Email: liz@gmail.com');
-                        doc.text(100, 30, 'CIF. B8541236');
+                        doc.text(100, 20, 'Local: ' + nombre_rest);
                         doc.setFontType('normal');
-                        doc.text(100, 62, 'Direccion: C/ Juan Martinez n 45 Pta 78 Piso 2');
-                        doc.text(100, 72, 'C.P: 64522 Valencia (Valencia)');
+                        doc.text(100, 40, 'Tel. 967 08 00 47');
+                        doc.text(100, 72, 'Email: ' + nombre_rest + '@gmail.com');
+                        doc.text(100, 30, 'CIF. B8541236');
+
+                        doc.text(100, 62, 'Direccion: ' + direccion_rest);
+                        doc.text(100, 50, 'Poblacion: ' + poblacion_rest);
 
 
                         doc.setFontSize(30);
@@ -153,23 +164,24 @@ moduleFactura.controller('facturaCarritoController', ['$scope', '$http', '$locat
                         doc.text(15, 23, 'Factura N ' + $scope.id);
                         doc.setFontSize(16);
                         doc.setFontType('normal');
-                        doc.text(15, 40, 'Cliente: ' + usuario);
-                        doc.text(15, 50, 'DNI: ');
-                        doc.text(15, 60, 'Fecha: ' + fecha);
+                        doc.text(10, 40, 'Cliente: ' + usuario);
+                        doc.text(10, 50, 'Telefono: ' + telefono);
+                        doc.text(10, 60, 'Direccion: ' + direccion);
+                        doc.text(10, 70, 'Fecha: ' + fecha);
 
                         doc.rect(8, 80, 195, 210);
                         doc.setFontSize(15);
                         doc.text(12, 90, 'Codigo');
-                        doc.text(50, 90, 'Descripcion');
+                        doc.text(50, 90, 'Nombre');
                         doc.text(125, 90, 'Cantidad');
                         doc.text(170, 90, 'Precio');
-                        doc.setFillColor(10, 26, 244);
+                        doc.setFillColor(249, 177, 87);
                         doc.rect(9, 93, 193, 3, 'F');
                         doc.setFontSize(15);
                         linea = 107;
                     }
                     doc.text(12, linea, $scope.ajaxLineasFactura[x].obj_Producto.codigo);
-                    doc.text(50, linea, $scope.ajaxLineasFactura[x].obj_Producto.desc);
+                    doc.text(50, linea, $scope.ajaxLineasFactura[x].obj_Producto.nombre);
                     doc.text(125, linea, ($scope.ajaxLineasFactura[x].cantidad).toString());
                     doc.text(170, linea, (parseFloat(($scope.ajaxLineasFactura[x].obj_Producto.precio)).toFixed(2).toString()));
                     linea = linea + 13;
@@ -178,12 +190,12 @@ moduleFactura.controller('facturaCarritoController', ['$scope', '$http', '$locat
                 }
 
                 //FOOTER DE FACTURA
-                doc.setFillColor(10, 26, 244);
+                doc.setFillColor(249, 177, 87);
                 doc.rect(9, 260, 193, 5, 'F');
                 doc.text(12, 273, 'Cantidad Total');
                 doc.text(70, 273, 'Precio');
                 doc.text(115, 273, 'IVA');
-                doc.text(150, 273, 'Precio Total()');
+                doc.text(150, 273, 'Precio Total(euros)');
 
                 doc.text(23, 285, cantidad.toString());
                 doc.text(70, 285, (precio.toFixed(2).toString()));
