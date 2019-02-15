@@ -368,8 +368,8 @@ select{
 }
 
 .restaurante{
-     left: 5% !important;
-    
+    left: 5% !important;
+
 }
 
 .box_second h3 {
@@ -1590,6 +1590,13 @@ div.shadow{
     padding-top: 5%;
 }
 
+.navbar-brand {
+    width: 55% !important;
+}
+
+
+
+
 @keyframes zoominoutsinglefeatured {
     0% {
         transform: scale(1,1);
@@ -1625,7 +1632,10 @@ div.shadow{
 .navlogin{
     margin-top: -10% !important;
 }
+.rest_homeadm{
+    left: 8%!important;  
 
+}
 
 @media screen and (max-width: 576px) {
     .rrss {
@@ -1661,15 +1671,83 @@ div.shadow{
         margin-top: -17% !important;
     }
     .box .icon-cont {
-        width: 94%;
+        width: 88%;
+        height: 60%;
     }
-     .box h3 {
-        font-size: 7px;
+    .box h3 {
+        font-size: 0px;
     }
-        .h3_admin {
-    font-size: 7px !important;
+    .box {
+        height: 117px;
+    }
+    .box_second h3 {
+        font-size: 5px;
+    }
+    .h3_admin {
+        font-size: 7px !important;
+    }
+    .navbar-collapse {
+        flex-basis: 0% !important;
+        flex-grow: 0 !important;
+    }
+        .nav_home {
+        grid-area: 2/1/3/2;
+        display: grid !important;
+        grid-template-columns: auto;
+        grid-template-rows: 20vh 20vh 20vh 20vh;
+    }
+    figure:first-child{
+        width:100%;
+        height:100%;
+        margin-left:auto;
+        margin-top: auto;
+        grid-area: 1 / 1 / 2 / 2;
+    }
+    figure:nth-child(2n) {
+        width: 100%;
+        height: 100%;
+        margin-top: auto;
+        grid-area: 2 / 1 / 3 / 2;
+    }
+    figure:nth-child(3n) {
+        width: 100%;
+        height: 100%;
+        margin-top: auto;
+        grid-area: 3 / 1 / 4 / 2;
+    }
+    figure:nth-child(4n) {
+        width: 100%;
+        height: 100%;
+        margin-top: auto;
+        grid-area: 4 / 1 / 5 / 2;
+    }
+    figure.menu {
+     margin: 0%;
+     max-width: 100%;
 }
-
+.imgprincipal {
+    background-image: none;
+    height: 84vh;
+}
+.body_home {
+    grid-template-rows: auto 0vh 0vh 15vh;
+}
+figure.menu:before {
+     height:0%;
+     width:0%;
+}
+figure.menu.local img {
+    height: 200%;
+}
+figure.menu.producto img {
+    max-width: 100%;
+}
+figure.menu.contacto img {
+    height: 189%;
+}
+figure.menu.empresa img {
+    height: 216%;
+}
 }
 
 @media screen and (min-width: 576px) and (max-width: 768px) {
@@ -1707,21 +1785,87 @@ div.shadow{
     }
     .box .icon-cont {
         width: 88%;
+        height: 60%;
     }
-     .box h3 {
-        font-size: 9px;
+    .box h3 {
+        font-size: 0px;
     }
-        .h3_admin {
-    font-size: 9px !important;
+
+    .box {
+        height: 117px;
+    }
+    .box_second h3 {
+        font-size: 6px;
+    }
+    .h3_admin {
+        font-size: 9px !important;
+    }
+    .navbar-collapse {
+        flex-basis: 0% !important;
+        flex-grow: 0 !important;
+    }
+
+    .nav_home {
+        grid-area: 2/1/3/2;
+        display: grid !important;
+        grid-template-columns: auto;
+        grid-template-rows: 20vh 20vh 20vh 20vh;
+    }
+    figure:first-child{
+        width:100%;
+        height:100%;
+        margin-left:auto;
+        margin-top: auto;
+        grid-area: 1 / 1 / 2 / 2;
+    }
+    figure:nth-child(2n) {
+        width: 100%;
+        height: 100%;
+        margin-top: auto;
+        grid-area: 2 / 1 / 3 / 2;
+    }
+    figure:nth-child(3n) {
+        width: 100%;
+        height: 100%;
+        margin-top: auto;
+        grid-area: 3 / 1 / 4 / 2;
+    }
+    figure:nth-child(4n) {
+        width: 100%;
+        height: 100%;
+        margin-top: auto;
+        grid-area: 4 / 1 / 5 / 2;
+    }
+    figure.menu {
+     margin: 0%;
+     max-width: 100%;
 }
-.navbar-collapse {
-  flex-basis: 0% !important;
-  flex-grow: 0 !important;
+.imgprincipal {
+    background-image: none;
+    height: 84vh;
+}
+.body_home {
+    grid-template-rows: auto 0vh 0vh 15vh;
+}
+figure.menu:before {
+     height:0%;
+     width:0%;
+}
+figure.menu.local img {
+    height: 200%;
+}
+figure.menu.producto img {
+    max-width: 100%;
+}
+figure.menu.contacto img {
+    height: 189%;
+}
+figure.menu.empresa img {
+    height: 216%;
+}
 }
 
-}
-
-@media screen and (min-width: 768px) and (max-width: 992px) {
+@media screen and (min-width: 769px) and (max-width: 992px) {
     .nav {
         margin-top: -20%;
     }
@@ -1750,16 +1894,32 @@ div.shadow{
     .box .icon-cont {
         width: 80%;
     }
-     .box h3 {
+    .box h3 {
         font-size: 12px;
     }
-    
-        .h3_admin {
-    font-size: 12px !important;
-}
-.navbar-collapse {
-  flex-basis: 0% !important;
-  flex-grow: 0 !important;
+    .box_second h3 {
+        font-size: 8px;
+    }
+
+    .h3_admin {
+        font-size: 12px !important;
+    }
+    .navbar-collapse {
+        flex-basis: 0% !important;
+        flex-grow: 0 !important;
+    }
+    .imgprincipal{
+        height: 69vh;
+    }
+    .nav_home {
+        grid-template-rows: 31vh 38vh;
+    }
+    .body_home {
+        grid-template-rows: auto auto 7vh 15vh;
+    }
+    figure.menu:before {
+     height:0%;
+     width:0%;
 }
 }
 
@@ -1808,6 +1968,16 @@ div.shadow{
         font-size: 18px;
     }
     .h3_admin {
-    font-size: 18px !important;
-}
+        font-size: 14px !important;
+    }
+    .box_second h3 {
+        font-size: 11px;
+    }
+    .imgprincipal{
+        height: 69vh;
+    }
+    .nav_home {
+        grid-template-rows: 34vh 38vh;
+    }
+
 }

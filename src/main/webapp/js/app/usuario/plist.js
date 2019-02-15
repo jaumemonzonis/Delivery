@@ -13,6 +13,7 @@ moduleUsuario.controller('usuarioPlistController', ['$scope', '$http', '$locatio
 //            $scope.tipousuarioID = sessionService.getTypeUserID();
 //        }
 
+        
         $scope.isActive = toolService.isActive;
 
         if (!$routeParams.order) {
@@ -46,7 +47,7 @@ moduleUsuario.controller('usuarioPlistController', ['$scope', '$http', '$locatio
             $scope.propertyName = 'id';
         };
 
-        
+
 
         $scope.view = function (id) {
             $location.url($scope.ob + `/view/${id}`);

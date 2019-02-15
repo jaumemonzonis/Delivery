@@ -15,6 +15,7 @@ moduleProducto.controller('productoPlistController', ['$scope', '$http', '$locat
             return isNaN(valor) ? valor : parseFloat(valor).toFixed(2);
         };
 
+      
 
         if (!$routeParams.order) {
             $scope.orderURLServidor = "";
@@ -114,8 +115,8 @@ moduleProducto.controller('productoPlistController', ['$scope', '$http', '$locat
             $scope.reverse = false;
             $scope.propertyName = 'id';
         };
-        
-        
+
+
         $scope.view = function (id) {
             $location.url($scope.ob + `/view/${id}`);
         }
