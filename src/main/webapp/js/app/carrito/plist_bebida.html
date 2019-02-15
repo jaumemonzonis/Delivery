@@ -1,45 +1,50 @@
 <headerclient-component></headerclient-component>
 <div class="body_plist">
     <div class="imgproductos">
+        <div class="icon_cart shopping-cart" ng-click="carrito()" ng-show="!alert"><img src="images/icon_cart.png" alt="añadir al carrito" class="img_cart"/></div>
         <div class="label prod1 top_plistproductos">BEBIDAS</div>
-        <div class="icon_cart"><img src="images/icon_cart.png" alt="añadir al carrito" class="img_cart"  ng-click="carrito()" ng-show="!alert"/></div>
 
     </div>
-    <div class="nav d-flex justify-content-center">
 
+    <div class="nav d-flex  justify-content-center">
         <div id="make-3D-space" ng-repeat="fila in ajaxData track by $index">
             <div id="product-card">
                 <div id="product-front">
                     <div class="shadow"></div>
-                    <img src="http://localhost:8081/images_server/{{fila.foto}}" alt="{{fila.foto}}" class="bebida_img" />
-                    <div class="image_overlay"></div>
-                    <div id="view_details" ng-click="comprar(fila.id)" ng-show="!stock">COMPRAR</div>
-                    <div class="stats">        	
-                        <div class="stats-container">
-                            <span class="product_price">{{fila.precio}}€</span>
-                            <span class="product_name">{{fila.nombre}}</span>    
-                            <p>{{fila.obj_tipoProducto.desc}}</p>                                            
+                    <div class="item">
+                        <img src="http://localhost:8081/images_server/{{fila.foto}}" alt="" height="335" width="500" />
+                        <div class="image_overlay"></div>
 
-                            <div class="product-options">
+                        <button id="view_details" class="add-to-cart" ng-click="comprar(fila.id); shop()"  ng-show="!stock" type="button">COMPRAR</button>
 
-                                <span>{{fila.desc}}</span>
-                            </div>                       
-                        </div>                         
+                        <div class="stats">        	
+                            <div class="stats-container">
+                                <span class="product_price">{{fila.precio}}€</span>
+                                <span class="product_name">{{fila.nombre}}</span>    
+                                <p>{{fila.obj_tipoProducto.desc}}</p>                                            
+
+                                <div class="product-options">
+
+                                    <span>{{fila.desc}}</span>
+                                </div>                       
+                            </div>                         
+                        </div>
                     </div>
-                </div>
-            </div>	
 
+                </div>
+            </div>
         </div>
-         </div>
-        <div class="flechas d-flex justify-content-center">
-            <div  ng-click="volver()" class="flecha_btn float-left mr-5"><i class="material-icons">
-                    arrow_back_ios
-                </i></div>
-            <div ng-click="avanzar()" class="flecha_btn float-right ml-5"><i class="material-icons">
-                    arrow_forward_ios
-                </i></div>
-        </div>
-    
+
+    </div>
+    <div class="flechas d-flex justify-content-center">
+        <div  ng-click="volver()" class="flecha_btn float-left mr-5"><i class="material-icons">
+                arrow_back_ios
+            </i></div>
+        <div ng-click="avanzar()" class="flecha_btn float-right ml-5"><i class="material-icons">
+                arrow_forward_ios
+            </i></div>
+    </div>
+
     <footer>
         <div class="footer d-flex mt-3">
             <div class="rrss tw"></div>
@@ -50,5 +55,3 @@
         </div>
 
     </footer>
-
- </div>

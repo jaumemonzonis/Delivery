@@ -1,7 +1,7 @@
 'use strict'
 
-moduleCarrito.controller('carritoPlistBurgerController', ['$scope', '$http', '$location', 'toolService', '$routeParams', 'sessionService', "$window", '$animate',
-    function ($scope, $http, $location, toolService, $routeParams, sessionService, $window, $animate) {
+moduleCarrito.controller('carritoPlistBurgerController', ['$scope', '$http', '$location', 'toolService', '$routeParams', 'sessionService', "$window",
+    function ($scope, $http, $location, toolService, $routeParams, sessionService, $window) {
 
         $scope.totalPages = 1;
         $scope.conectado = false;
@@ -45,9 +45,9 @@ moduleCarrito.controller('carritoPlistBurgerController', ['$scope', '$http', '$l
             $scope.status = response.status;
             $scope.ajaxDataShow = response.data.message || 'Request failed';
         });
-        
-        
-       
+
+
+
         $scope.idTipousuario = sessionService.getTypeUserID();
         $scope.comprar = function (id) {
 
@@ -57,7 +57,7 @@ moduleCarrito.controller('carritoPlistBurgerController', ['$scope', '$http', '$l
                 url: 'json?ob=carrito&op=add&prod=' + id
             }).then(function (response) {
                 $scope.alert = false;
-               
+
                 $scope.status = response.status;
                 $scope.ajaxDataAdd = response.data.message;
                 if ($scope.status == 400) {
@@ -105,8 +105,48 @@ moduleCarrito.controller('carritoPlistBurgerController', ['$scope', '$http', '$l
             $window.history.back();
         }
 
+      $scope.shop = function () {
 
 
+            $('.add-to-cart').on('click', function () {
+                var cart = $('.shopping-cart');
+                var imgtodrag = $(this).parent('.item').find("img").eq(0);
+                if (imgtodrag) {
+                    var imgclone = imgtodrag.clone()
+                            .offset({
+                                top: imgtodrag.offset().top,
+                                left: imgtodrag.offset().left
+                            })
+                            .css({
+                                'opacity': '0.5',
+                                'position': 'absolute',
+                                'height': '350px',
+                                'width': '350px',
+                                'z-index': '100'
+                            })
+                            .appendTo($('body'))
+                            .animate({
+                                'top': cart.offset().top + 50,
+                                'left': cart.offset().left + 10,
+                                'width': 75,
+                                'height': 75
+                            }, 1000, 'easeInOutExpo');
+
+                    setTimeout(function () {
+                        cart.effect("shake", {
+                            times: 2
+                        }, 200);
+                    }, 1500);
+
+                    imgclone.animate({
+                        'width': 0,
+                        'height': 0
+                    }, function () {
+                        $(this).detach();
+                    });
+                }
+            });
+        };
     }
 
 

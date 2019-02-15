@@ -1172,17 +1172,17 @@ div.shadow{
 }
 /* BOTON CARRITO PLIST CARRITO*/
 .icon_cart{
-    position:absolute;
+    float: right;
     top:0px;
     right:0px;
-    margin-right: -4%;
+    margin-right: 
+        
+        -3%;
     margin-top:1%;
-
 }
 
 .img_cart{
-    width:100%;
-
+    width:72%;
     height: 100%;
 
 }
@@ -1287,7 +1287,7 @@ div.shadow{
     left:50%;
     margin-left:-85px;	
     border:2px solid #fff;
-    color:white;
+    color:white !important;
     font-size:19px;
     text-align:center;
     text-transform:uppercase;
@@ -1301,8 +1301,8 @@ div.shadow{
     transition: all 200ms ease-out; 
 }
 #view_details-pre:hover{	
-    background:#fff;
-    color:#E9776E;
+    background:#fff !important;
+    color:#E9776E !important;
     cursor:pointer;
 
 }
@@ -1873,6 +1873,13 @@ figure.menu.empresa img {
     top: -56% !important;
     font-size: 11px;
 }
+.img_cart {
+    width: 51%;
+    height: 100%;
+}
+.icon_cart {
+    margin-right: -11%;
+}
 }
 
 @media screen and (min-width: 769px) and (max-width: 992px) {
@@ -1998,4 +2005,12 @@ figure.menu.empresa img {
     font-size: 11px;
 }
 
+}
+
+@media  screen and (min-width: 1400px) {
+
+.icon_cart {
+    margin-right: -2%;
+
+}
 }
