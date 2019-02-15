@@ -1748,6 +1748,11 @@ figure.menu.contacto img {
 figure.menu.empresa img {
     height: 216%;
 }
+.dropdown-menu.show, .dropdown-menu {
+    left: -145% !important;
+    top: -56% !important;
+    font-size: 11px;
+}
 }
 
 @media screen and (min-width: 576px) and (max-width: 768px) {
@@ -1863,6 +1868,11 @@ figure.menu.contacto img {
 figure.menu.empresa img {
     height: 216%;
 }
+.dropdown-menu.show, .dropdown-menu {
+    left: -145% !important;
+    top: -56% !important;
+    font-size: 11px;
+}
 }
 
 @media screen and (min-width: 769px) and (max-width: 992px) {
@@ -1920,6 +1930,11 @@ figure.menu.empresa img {
     figure.menu:before {
      height:0%;
      width:0%;
+}
+.dropdown-menu.show, .dropdown-menu {
+    left: -60% !important;
+    top: -43% !important;
+    font-size: 11px;
 }
 }
 
@@ -1979,5 +1994,8 @@ figure.menu.empresa img {
     .nav_home {
         grid-template-rows: 34vh 38vh;
     }
+    .dropdown-menu.show, .dropdown-menu {
+    font-size: 11px;
+}
 
 }
