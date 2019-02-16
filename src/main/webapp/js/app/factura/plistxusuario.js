@@ -165,9 +165,7 @@ moduleFactura.controller('facturaplistxusuarioController', ['$scope', '$http', '
         }
 
         $scope.isActive = toolService.isActive;
-        $scope.openModal = function () {
-
-        }
+    
         $scope.volver = function () {
             $window.history.back();
         };

@@ -16,9 +16,9 @@ function cController($http) {
     self.totalPages = 1;
     self.orderURLServidor = "";
     self.rpp = "5";
-    
-    
-self.update = function (p) {
+
+
+    self.update = function (p) {
         self.page = p;
         $http({
             method: 'GET',
@@ -52,8 +52,8 @@ self.update = function (p) {
 
 
 
-    self.save = function (id,nombre) {
-        self.obj={id : id,nombre : nombre};
+    self.save = function (id, nombre) {
+        self.obj = {id: id, nombre: nombre};
     };
 
 
@@ -66,6 +66,15 @@ self.update = function (p) {
             self.orderURLCliente += "-" + order + "," + align;
         }
         self.update(1);
+    };
+
+
+    self.propertyName = 'id';
+    self.reverse = false;
+    self.sortBy = function (propertyName) {
+        self.reverse = (self.propertyName === propertyName) ? !self.reverse : false;
+        self.propertyName = propertyName;
+    
     };
 
     self.resetOrder = function () {

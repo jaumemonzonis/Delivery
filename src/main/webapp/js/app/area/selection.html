@@ -29,24 +29,14 @@
            <div class="table-responsive container2 pl-3 pr-3">
                     <table class="table table-sm">
                     <tr>
-                         <th>
-                                <p>ID</p>
-                                <div class="order" ng-click="c.ordena('id', 'asc')">
-                                    <i class="material-icons">
-                                        swap_vert
-                                    </i>
-                                </div>
-
-                            </th>
                           <th>
-                                <p>NOMBRE</p>
-                                <div class="order" ng-click="c.ordena('nombre', 'asc')">
-                                    <i class="material-icons">
-                                        swap_vert
-                                    </i>
-                                </div>
+                            <p ng-click="sortBy('id')">ID</p>
 
-                            </th>
+                        </th>
+                       <th>
+                            <p ng-click="sortBy('nombre')">NOMBRE</p>
+
+                        </th>
                 
                          <th>
                                 <p>SELECCION</p>
@@ -54,7 +44,7 @@
 
                             </th>
                     </tr>
-                    <tr ng-repeat="fila in c.data">
+                    <tr ng-repeat="fila in c.data | orderBy:c.propertyName:c.reverse">
                         <td>{{fila.id}}</td>    
                         <td>{{fila.nombre}}</td>
                         <td>

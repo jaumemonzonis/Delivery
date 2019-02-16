@@ -12,31 +12,23 @@
     </div>
     <div class="logo">
         <a href="/delivery/home">
-        <img src="images/logo.png" class="logo_img" alt="Responsive image">
+            <img src="images/logo.png" class="logo_img" alt="Responsive image">
         </a>
     </div>
     <div class="vacio flex-grow-1"></div>
     <div class="login">
-        <div class="dropdown">
-            <div class="icono_usuario" id="dropdownMenuButton" data-toggle="dropdown">
+        <div class="dropleft">
+            <div  class="icono_usuario dropdown-toggle" data-toggle="dropdown">
                 <i class="material-icons md-48" ng-class="{'con-clase': c.logged}">
                     account_circle
                 </i> 
             </div>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <ul class="navbar-nav ml-auto nav-flex-icons">
-                    <li  ng-show="!c.logged">     
-                        <a class="dropdown-item label_white label_registrarse" href="usuario/registrarse"><i class="fas fa-user"> </i>    REGISTRARSE</a>  
-                        <a class="dropdown-item label_white" href="usuario/login"><i class="fas fa-user"> </i>    LOGIN</a>
-                    </li>
-
-                    <li ng-show="c.logged">
-                        <a class="dropdown-item label_white" href="usuario/viewusuariocliente/{{c.loggeduserid}}"><i class="fas fa-user"> </i>  PERFIL</a>
-
-                        <a class="dropdown-item label_white" href="factura/facturacliente/10/1/{{c.loggeduserid}}"><i class="fas far fa-file"></i>  VER FACTURAS</a>
-                        <a class="dropdown-item label_white" href="usuario/logout"><i class="fas fa-sign-out-alt"></i>  LOGOUT</a>
-                    </li>
-                </ul>
+            <div class="dropdown-menu">
+                <a class="dropdown-item label_white"  ng-show="!c.logged" href="usuario/registrarse"><i class="fas fa-user"> </i>    REGISTRARSE</a>  
+                <a class="dropdown-item label_white" ng-show="!c.logged" href="usuario/login"><i class="fas fa-user"> </i>    LOGIN</a>
+                <a class="dropdown-item label_white" ng-show="c.logged" href="usuario/viewusuariocliente/{{c.loggeduserid}}"><i class="fas fa-user"> </i>  PERFIL</a>
+                <a class="dropdown-item label_white" ng-show="c.logged" href="factura/facturacliente/10/1/{{c.loggeduserid}}"><i class="fas far fa-file"></i>  VER FACTURAS</a>
+                <a class="dropdown-item label_white" ng-show="c.logged" href="usuario/logout"><i class="fas fa-sign-out-alt"></i>  LOGOUT</a>
             </div>
         </div>
     </div>

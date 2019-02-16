@@ -579,8 +579,9 @@ select{
 }
 
 .dropdown-menu.show, .dropdown-menu{
-    left:-60% !important;
-    top:-24% !important;
+/*    left:-60% !important;
+    top:-24% !important;*/
+    transform: translate3d(-100%, 0px, 0px)!important;
     color: white !important;
     font-weight: 900;
     background-color: #F9B157;
@@ -598,8 +599,8 @@ select{
     color: white;
 }
 
-.label_registrarse{
-    padding-right:16% !important;
+.dropleft .dropdown-toggle::before{
+    content: none !important;
 }
 
 /* desplegable*/
@@ -1752,8 +1753,8 @@ div.shadow{
         height: 216%;
     }
     .dropdown-menu.show, .dropdown-menu {
-        left: -145% !important;
-        top: -56% !important;
+/*        left: -145% !important;
+        top: -56% !important;*/
         font-size: 11px;
     }
     .nav_domicilio{
@@ -1879,8 +1880,8 @@ div.shadow{
         height: 216%;
     }
     .dropdown-menu.show, .dropdown-menu {
-        left: -145% !important;
-        top: -56% !important;
+/*        left: -145% !important;
+        top: -56% !important;*/
         font-size: 11px;
     }
     .img_cart {
@@ -1955,8 +1956,8 @@ div.shadow{
         width:0%;
     }
     .dropdown-menu.show, .dropdown-menu {
-        left: -60% !important;
-        top: -43% !important;
+/*        left: -60% !important;
+        top: -43% !important;*/
         font-size: 11px;
     }
     .nav_domicilio{
