@@ -16,25 +16,26 @@
                                     shopping_cart
                                 </i> COMPRAR</button>
                         </div>
-                    </div><div class="alert alert-success alerta_carrito_vacio" role="alert" ng-show="(alert)"> Carrito vacio</div>
+                    </div>
 
-                    <div class="table-responsive container2 mb-5 pl-3 pr-3" ng-if="ajaxData !== 'Carrito vacio'">
 
-                        <table class="table table-sm text-center">
+                    <div class="table-responsive container2 mb-5 pl-3 pr-3">
+                        <div class="alert alert-success alerta_carrito_vacio mt-3" role="alert" ng-show="(alert)"> Carrito vacio</div>
+                        <table class="table table-sm text-center" ng-if="ajaxData !== 'Carrito vacio'">
                             <tr>
-                            <th>
-                            <p ng-click="sortBy('nombre')">NOMBRE</p>
+                                <th>
+                                    <p ng-click="sortBy('nombre')">NOMBRE</p>
 
-                        </th>
-                         <th>
-                            <p ng-click="sortBy('precio')">PRECIO</p>
+                                </th>
+                                <th>
+                                    <p ng-click="sortBy('precio')">PRECIO</p>
 
-                        </th>
-                         <th>
-                            <p ng-click="sortBy('foto')">FOTO</p>
+                                </th>
+                                <th>
+                                    <p ng-click="sortBy('foto')">FOTO</p>
 
-                        </th>
-                    
+                                </th>
+
 
                                 <th> 
                                     <p style="margin-left: 5%">ACCIONES</p> 
@@ -43,7 +44,7 @@
                             <tr ng-repeat="fila in ajaxData track by $index">
                                 <td>{{fila.obj_producto.nombre}}</td>
                                 <td>{{miFormato(fila.obj_producto.precio)}}</td>
-                                 <td><image style="width:50xp;height:50px" src="http://localhost:8081/images_server/{{fila.obj_producto.foto}}"/></td>
+                                <td><image style="width:50xp;height:50px" ng-src="http://localhost:8081/images_server/{{fila.obj_producto.foto}}"/></td>
                                 <td>  
                                     <span class="btn btn-just-icon btn-sm" ng-style="fila.obj_producto.existencias === fila.cantidad && {'background-color':'#dc3545'}">{{fila.cantidad}}</span>
                                     <button type="button" ng-click="add(fila.obj_producto.id)" class="btn btn-just-icon btn-sm" ng-disabled="fila.obj_producto.existencias === fila.cantidad"><i class="material-icons">
@@ -60,7 +61,7 @@
                             </tr>
                         </table>
                     </div>
- 
+
                 </main>
 
             </div>
@@ -69,12 +70,12 @@
         </div>
 
     </div>
-  <div class="flechas d-flex justify-content-center">
-            <div  ng-click="volver()" class="flecha_btn"><i class="material-icons">
-                    arrow_back_ios
-                </i></div>
+    <div class="flechas d-flex justify-content-center">
+        <div  ng-click="volver()" class="flecha_btn"><i class="material-icons">
+                arrow_back_ios
+            </i></div>
 
-        </div>
+    </div>
     <footer>
         <div class="footer d-flex mt-3">
             <div class="rrss tw"></div>

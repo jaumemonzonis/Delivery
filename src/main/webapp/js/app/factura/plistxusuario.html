@@ -93,26 +93,26 @@
 
             </div>
             <div class="col-md-12 ml-sm-auto col-lg-12 mb-5">  
-                <div class="row d-flex justify-content-center flex-wrap align-items-center">
-                    <nav aria-label="paginacion">
+            <div class="row d-flex justify-content-center flex-wrap align-items-center">
+                    <div aria-label="paginacion">
                         <ul class="pagination">
                             <li class="page-item">
-                                <a class="page-link text-pagination bg-light" ng-show="page > 2" href="{{ob}}/plistxusuario/{{rpp}}/1/{{id}}/{{order}}/{{align}}">First</a>
+                                <a class="page-link text-pagination bg-light" ng-show="page > 2" href="{{ob}}/plistxusuario/{{rpp}}/1/{{id}}/{{order}}/{{align}}"><span aria-hidden="true">&laquo;</span></a>
                             </li>
                             <li class="page-item">
-                                <a class="page-link text-pagination bg-light" ng-show="page > 1" href="{{ob}}/plistxusuario/{{rpp}}/{{id}}/{{page - 1}}/{{order}}/{{align}}">Previous</a>
+                                <a class="page-link text-pagination bg-light" ng-show="page > 1" href="{{ob}}/plistxusuario/{{rpp}}/{{page - 1}}/{{id}}/{{order}}/{{align}}"> <span aria-hidden="true">&lsaquo;</span></a>
                             </li>
                             <li class="page-item" ng-class="{'active':(p == page), 'disabled': p === '...'}" ng-repeat="p in list2 track by $index">
                                 <a class="page-link text-pagination" href="{{ob}}/plistxusuario/{{rpp}}/{{p}}/{{id}}/{{order}}/{{align}}">{{p}}</a>
                             </li>
                             <li class="page-item">
-                                <a class="page-link text-pagination bg-light" ng-show="page != totalPages" href="{{ob}}/plistxusuario/{{rpp}}/{{page--1}}/{{id}}/{{order}}/{{align}}">Next</a>
+                                <a class="page-link text-pagination bg-light" ng-show="page != totalPages" href="{{ob}}/plistxusuario/{{rpp}}/{{page--1}}/{{id}}/{{order}}/{{align}}"><span aria-hidden="true">&rsaquo;</span></a>
                             </li>
                             <li class="page-item">
-                                <a class="page-link text-pagination bg-light" ng-show="page != totalPages - 1 && page != totalPages" href="{{ob}}/plistxusuario/{{rpp}}/{{totalPages}}/{{id}}/{{order}}/{{align}}">Last</a>
+                                <a class="page-link text-pagination bg-light" ng-show="page != totalPages - 1 && page != totalPages" href="{{ob}}/plistxusuario/{{rpp}}/{{totalPages}}/{{id}}/{{order}}/{{align}}"><span aria-hidden="true">&raquo;</span></a>
                             </li>
                         </ul>
-                    </nav>
+                    </div>
                 </div>
 
 

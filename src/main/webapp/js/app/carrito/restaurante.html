@@ -1,16 +1,17 @@
 <headerclient-component></headerclient-component>
 <div class="body_plist">
     <div class="imgproductos">
+
+        
         <div class="label prod1 top_plistproductos">SELECCIONA</div>
         <div class="label prod1">TU RESTAURANTE</div>
-        <div class="icon_cart"><img src="images/icon_cart.png" alt="añadir al carrito" class="img_cart"  ng-click="carrito()" ng-show="!alert"/></div>
     </div>
     <div class="nav d-flex  justify-content-center">
         <div id="make-3D-space">
             <div id="product-card">
                 <div id="product-front-pre">
                     <div class="shadow"></div>
-                    <img src="/delivery/images/local.jpg" alt="" height="335" width="500" />
+                    <img ng-src="/delivery/images/local.jpg" alt="" height="335" width="500" />
                     <div class="image_overlay-pre"></div>
                     <div id="view_details-pre" ng-click="comprar(prerest.id)">SELECCIONAR</div>
                     <div class="stats">        	
@@ -32,12 +33,12 @@
             <div id="product-card">
                 <div id="product-front-area">
                     <div class="shadow"></div>
-                    <img src="/delivery/images/local.jpg" alt="" height="335" width="500" />
+                    <img ng-src="/delivery/images/local.jpg" alt="" height="335" width="500" />
                     <div class="image_overlay-area"></div>
                     <div id="view_details-area" ng-click="comprar(rest.id)">SELECCIONAR</div>
                     <div class="stats">        	
                         <div class="stats-container-area">
-                   
+
                             <span class="product_name-area">{{rest.nombre}}</span>    
                             <p>{{rest.poblacion}}</p>                                            
 
@@ -51,11 +52,11 @@
             </div>	
         </div>
 
-    <div id="make-3D-space" ng-repeat="rest in plistrest">
+        <div id="make-3D-space" ng-repeat="rest in plistrest">
             <div id="product-card">
                 <div id="product-front-plist">
                     <div class="shadow"></div>
-                    <img src="/delivery/images/local.jpg" alt="" height="335" width="500" />
+                    <img ng-src="/delivery/images/local.jpg" alt="" height="335" width="500" />
                     <div class="image_overlay-plist"></div>
                     <div id="view_details-plist" ng-click="comprar(rest.id)">SELECCIONAR</div>
                     <div class="stats">        	
@@ -87,16 +88,16 @@
 
 
 
-  </div> 
+    </div> 
 
 
-        <div class="flechas d-flex justify-content-center">
-            <div  ng-click="volver()" class="flecha_btn"><i class="material-icons">
-                    arrow_back_ios
-                </i></div>
+    <div class="flechas d-flex justify-content-center">
+        <div  ng-click="volver()" class="flecha_btn"><i class="material-icons">
+                arrow_back_ios
+            </i></div>
 
-        </div>
-     
+    </div>
+
     <footer>
         <div class="footer d-flex mt-3">
             <div class="rrss tw"></div>
