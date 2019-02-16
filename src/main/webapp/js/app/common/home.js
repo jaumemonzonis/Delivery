@@ -15,5 +15,13 @@ moduleCommon.controller('homeController', ['$scope', '$location', 'toolService',
             $location.url(`usuario/login`);
         }
         };
+        
+          $scope.locales = function () {
+           if (logged === true){
+            $location.url(`carrito/locales`);
+        } else {
+            $location.url(`usuario/login`);
+        }
+        };
 
     }]);

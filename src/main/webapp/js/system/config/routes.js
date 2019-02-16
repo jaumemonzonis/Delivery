@@ -153,6 +153,7 @@ delivery.config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/carrito/carrito/:rpp?/:page?/:order?', {templateUrl: 'js/app/carrito/carrito.html', controller: 'carritoCarritoController', resolve: {auth: autenticacionUsuario}});
         $routeProvider.when('/carrito/facturacarrito/:id?', {templateUrl: 'js/app/carrito/facturacarrito.html', controller: 'facturaCarritoController', resolve: {auth: autenticacionUsuario}});
         $routeProvider.when('/carrito/restaurante/:id?', {templateUrl: 'js/app/carrito/restaurante.html', controller: 'restauranteCarritoController', resolve: {auth: autenticacionUsuario}});
+        $routeProvider.when('/carrito/locales', {templateUrl: 'js/app/carrito/locales.html', controller: 'localesCarritoController', resolve: {auth: autenticacionUsuario}});
 
         //RESTAURANTE
         $routeProvider.when('/restaurante/new', {templateUrl: 'js/app/restaurante/new.html', controller: 'restauranteNewController', resolve: {auth: autenticacionAdministrador}});

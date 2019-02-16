@@ -1,0 +1,113 @@
+<headerclient-component></headerclient-component>
+<div class="body_plist">
+    <div class="imgproductos">
+
+        
+        <div class="label prod1 top_plistproductos">NUESTROS</div>
+        <div class="label prod1">RESTAURANTES</div>
+    </div>
+    <div class="nav d-flex  justify-content-center">
+        <div id="make-3D-space">
+            <div id="product-card">
+                <div id="product-front-pre">
+                    <div class="shadow"></div>
+                    <img ng-src="/delivery/images/local.jpg" alt="" height="335" width="500" />
+                    <div class="image_overlay-pre"></div>
+                    <div id="view_details-pre" ng-click="comprar(prerest.id)">SELECCIONAR</div>
+                    <div class="stats">        	
+                        <div class="stats-container-pre">
+                            <span class="product_name-pre">{{prerest.nombre}}</span>    
+                            <p>{{prerest.poblacion}}</p>                                            
+
+                            <div class="product-options-pre">
+
+                                <span>{{prerest.direccion}}</span>
+                            </div>                       
+                        </div>                         
+                    </div>
+                </div>
+            </div>	
+
+        </div>
+        <div id="make-3D-space" ng-repeat="rest in arearest">
+            <div id="product-card">
+                <div id="product-front-area">
+                    <div class="shadow"></div>
+                    <img ng-src="/delivery/images/local.jpg" alt="" height="335" width="500" />
+                    <div class="image_overlay-area"></div>
+                    <div id="view_details-area" ng-click="comprar(rest.id)">SELECCIONAR</div>
+                    <div class="stats">        	
+                        <div class="stats-container-area">
+
+                            <span class="product_name-area">{{rest.nombre}}</span>    
+                            <p>{{rest.poblacion}}</p>                                            
+
+                            <div class="product-options-area">
+
+                                <span>{{rest.direccion}}</span>
+                            </div>                       
+                        </div>                         
+                    </div>
+                </div>
+            </div>	
+        </div>
+
+        <div id="make-3D-space" ng-repeat="rest in plistrest">
+            <div id="product-card">
+                <div id="product-front-plist">
+                    <div class="shadow"></div>
+                    <img ng-src="/delivery/images/local.jpg" alt="" height="335" width="500" />
+                    <div class="image_overlay-plist"></div>
+                    <div id="view_details-plist" ng-click="comprar(rest.id)">SELECCIONAR</div>
+                    <div class="stats">        	
+                        <div class="stats-container-plist">     
+                            <span class="product_name-plist">{{rest.nombre}}</span>    
+                            <p>{{rest.poblacion}}</p>                                            
+
+                            <div class="product-options-plist">
+
+                                <span>{{rest.direccion}}</span>
+                            </div>                       
+                        </div>                         
+                    </div>
+                </div>
+            </div>	
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div> 
+
+
+    <div class="flechas d-flex justify-content-center">
+        <div  ng-click="volver()" class="flecha_btn"><i class="material-icons">
+                arrow_back_ios
+            </i></div>
+
+    </div>
+
+    <footer>
+        <div class="footer d-flex mt-3">
+            <div class="rrss tw"></div>
+            <div class="rrss fb"></div>
+            <div class="rrss in"></div>
+            <div class="label_footer">PROYECTO FINAL - DAW - JAUME MONZONIS LAZARO</div>
+
+        </div>
+
+    </footer>
+
+
+
