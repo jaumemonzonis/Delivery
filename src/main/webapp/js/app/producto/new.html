@@ -18,7 +18,7 @@
 
 
                 <div class=" mx-auto">
-                    <div class="alert alert-success" role="alert" ng-show="(visualizar)">
+                    <div class="alert alert-success text-center" role="alert" ng-show="(visualizar)">
                         Producto editado correctamente.
                     </div>
                     <form name="userForm" ng-show="(!visualizar)">
@@ -123,7 +123,7 @@
                         <button ng-click="update()" type="button" class="btn btn-primary btn-block" ng-disabled="userForm.$invalid">Crear producto</button>
 
                     </form> 
-                    <div class="alert alert-success" role="alert" ng-show="(error)">
+                    <div class="alert alert-success text-center" role="alert" ng-show="(error)">
                         Error al crear el producto.
                     </div>
                     <button type="button" class="btn btn-primary btn-block mt-2 mb-3" ng-click="back()">Volver</button>

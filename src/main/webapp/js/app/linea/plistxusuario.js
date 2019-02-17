@@ -75,7 +75,7 @@ moduleLinea.controller('lineaplistxusuarioController', ['$scope', '$http', '$loc
 //           $location.url($scope.ob + `/plistxusuario/` + $scope.rpp + `/` + $scope.page + `/` + $scope.id + `/` + $scope.orderURLCliente);
 //        }
         $scope.propertyName = 'id';
-        $scope.reverse = true;
+        $scope.reverse = false;
         $scope.sortBy = function (propertyName) {
             $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
             $scope.propertyName = propertyName;

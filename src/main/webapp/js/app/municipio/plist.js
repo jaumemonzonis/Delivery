@@ -51,8 +51,8 @@ moduleMunicipio.controller('municipioPlistController', ['$scope', '$http', '$loc
 //            }
 //            $location.url($scope.ob + `/plist/` + $scope.rpp + `/` + $scope.page + `/` + $scope.orderURLCliente);
 //        }
-        $scope.propertyName = 'id';
-        $scope.reverse = true;
+         $scope.propertyName = 'id';
+        $scope.reverse = false;
         $scope.sortBy = function (propertyName) {
             $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
             $scope.propertyName = propertyName;

@@ -12,9 +12,6 @@ function js(toolService, sessionService, $http, $route) {
 
   
     self.loggeduser = sessionService.getUserName();
-    
-    
-    
     self.loggeduserid = sessionService.getId();
     self.logged = sessionService.isSessionActive();
     self.tipousuarioID = sessionService.getTypeUserID();

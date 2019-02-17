@@ -18,7 +18,7 @@
         
      
         <div class=" mx-auto">
-               <div class="alert alert-success" role="alert" ng-show="(visualizar)">
+               <div class="alert  text-center alert-success" role="alert" ng-show="(visualizar)">
                 Area creada correctamente.
             </div>
           <form name="userForm" ng-show="(!visualizar)">
@@ -34,7 +34,7 @@
             <button ng-click="update()" type="button" class="btn btn-primary btn-block" ng-disabled="userForm.$invalid">Crear area</button>
          
           </form> 
-             <div class="alert alert-success" role="alert" ng-show="(error)">
+             <div class="alert alert-success text-center" role="alert" ng-show="(error)">
                 Error al crear el area.
             </div>
             <button type="button" class="btn btn-primary btn-block mt-2 mb-3" ng-click="volver()">Volver</button>

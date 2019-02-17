@@ -9,7 +9,7 @@
       </div>
     <div class="row">
         <div class="col-3 mx-auto">
-               <div class="alert alert-success" role="alert" ng-show="(visualizar)">
+               <div class="alert alert-success text-center" role="alert" ng-show="(visualizar)">
                 Linea creada correctamente.
             </div>
            <form name="userForm" ng-show="(!visualizar)">
@@ -32,7 +32,7 @@
    
             <button ng-click="update()" type="button" class="btn btn-primary btn-block" ng-disabled="userForm.$invalid">Crear linea</button>
           </form>  
-              <div class="alert alert-danger" role="alert" ng-show="(error)">
+              <div class="alert alert-danger text-center" role="alert" ng-show="(error)">
                 Error al crear la linea.
             </div>
             <button type="button" class="btn btn-primary btn-block mt-2 mb-3" ng-click="volver()">Volver</button>

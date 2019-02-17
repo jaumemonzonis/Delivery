@@ -42,7 +42,7 @@ moduleRestaurante.controller('restaurantePlistController', ['$scope', '$http', '
 //            $location.url($scope.ob + `/plist/` + $scope.rpp + `/` + $scope.page + `/` + $scope.orderURLCliente);
 //        }
         $scope.propertyName = 'id';
-        $scope.reverse = true;
+        $scope.reverse = false;
         $scope.sortBy = function (propertyName) {
             $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
             $scope.propertyName = propertyName;
@@ -102,7 +102,7 @@ moduleRestaurante.controller('restaurantePlistController', ['$scope', '$http', '
         $scope.zona = function (id) {
             $location.url(`zona/plist/10/1/${id}`);
         }
-         $scope.resetOrder = function () {
+        $scope.resetOrder = function () {
             $location.url($scope.ob + `/plist/` + $scope.rpp + `/` + $scope.page);
             $scope.reverse = false;
             $scope.propertyName = 'id';
