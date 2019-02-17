@@ -182,7 +182,39 @@ public class CarritoService_2 {
             if (sesion.getAttribute("carrito") == null) {
                 oReplyBean = new ReplyBean(200, EncodingHelper.quotate("Carrito vacio"));
             } else {
+                carrito = (ArrayList<ItemBean>) sesion.getAttribute("carrito");
+
                 oReplyBean = new ReplyBean(200, oGson.toJson(sesion.getAttribute("carrito")));
+            }
+
+        } else {
+            oReplyBean = new ReplyBean(401, "Unauthorized");
+        }
+        return oReplyBean;
+
+    }
+
+    public ReplyBean count() throws Exception {
+        ReplyBean oReplyBean;
+        if (checkPermission("count")) {
+            HttpSession sesion = oRequest.getSession();
+
+            if (sesion.getAttribute("carrito") == null) {
+                oReplyBean = new ReplyBean(200, EncodingHelper.quotate("0"));
+            } else {
+
+                carrito = (ArrayList<ItemBean>) sesion.getAttribute("carrito");
+
+                int count = 0;
+                int countproduct = 0;
+
+                for (int i = 0; i < carrito.size(); i++) {
+                        countproduct = carrito.get(i).getCantidad();
+                        count += countproduct;
+                }
+
+                oReplyBean = new ReplyBean(200, oGson.toJson(count));
+
             }
 
         } else {
@@ -245,7 +277,7 @@ public class CarritoService_2 {
             if (id_restaurante != 0) {
                 oFacturaBean.setId_restaurante(id_restaurante);
             } else {
-                oFacturaBean.setId_restaurante(0);  
+                oFacturaBean.setId_restaurante(0);
             }
 
             FacturaDao_2 oFacturaDao = new FacturaDao_2(oConnection, "factura", oUsuarioBeanSession);

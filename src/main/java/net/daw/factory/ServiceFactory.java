@@ -531,6 +531,9 @@ public class ServiceFactory {
                             case "buy":
                                 oReplyBean = oCarritoService.buy();
                                 break;
+                            case "count":
+                                oReplyBean = oCarritoService.count();
+                                break;
                             default:
                                 oReplyBean = new ReplyBean(500, "Operation doesn't exist");
                                 break;

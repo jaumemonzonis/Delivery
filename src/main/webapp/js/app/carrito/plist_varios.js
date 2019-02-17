@@ -48,7 +48,7 @@ moduleCarrito.controller('carritoPlistVariosController', ['$scope', '$http', '$l
 
 
 
-//        $scope.idTipousuario = sessionService.getTypeUserID();
+        count();
         $scope.comprar = function (id) {
 
 
@@ -62,14 +62,13 @@ moduleCarrito.controller('carritoPlistVariosController', ['$scope', '$http', '$l
                     $scope.stock = true;
                 }
                 $scope.ajaxDataAdd = response.data.message;
+                count();
             }, function (response) {
                 $scope.status = response.status;
                 $scope.ajaxDataAdd = response.data.message || 'Request failed';
             });
 
-            //animacion
 
-//            https://css-tricks.com/animations-the-angular-way/
 
         };
 
@@ -102,7 +101,20 @@ moduleCarrito.controller('carritoPlistVariosController', ['$scope', '$http', '$l
             $window.history.back();
         }
 
+        function count() {
+            $http({
+                method: 'GET',
+                url: 'json?ob=carrito&op=count'
+            }).then(function (response) {
+                $scope.status = response.status;
+                $scope.ajaxDataCount = response.data.message;
 
+            }, function (response) {
+                $scope.status = response.status;
+                $scope.ajaxDataCount = response.data.message || 'Request failed';
+            });
+        };
+        
         $scope.shop = function () {
 
 
@@ -132,9 +144,9 @@ moduleCarrito.controller('carritoPlistVariosController', ['$scope', '$http', '$l
 
                     setTimeout(function () {
                         cart.effect("shake", {
-                            times: 2
+                            times: 1
                         }, 200);
-                    }, 1500);
+                    }, 500);
 
                     imgclone.animate({
                         'width': 0,

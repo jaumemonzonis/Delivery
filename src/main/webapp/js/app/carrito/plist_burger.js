@@ -46,8 +46,21 @@ moduleCarrito.controller('carritoPlistBurgerController', ['$scope', '$http', '$l
             $scope.ajaxDataShow = response.data.message || 'Request failed';
         });
 
+        function count() {
+            $http({
+                method: 'GET',
+                url: 'json?ob=carrito&op=count'
+            }).then(function (response) {
+                $scope.status = response.status;
+                $scope.ajaxDataCount = response.data.message;
 
-
+            }, function (response) {
+                $scope.status = response.status;
+                $scope.ajaxDataCount = response.data.message || 'Request failed';
+            });
+        }
+        ;
+        count();
         $scope.idTipousuario = sessionService.getTypeUserID();
         $scope.comprar = function (id) {
 
@@ -63,6 +76,7 @@ moduleCarrito.controller('carritoPlistBurgerController', ['$scope', '$http', '$l
                 if ($scope.status == 400) {
                     $scope.stock = true;
                 }
+                count();
             }, function (response) {
                 $scope.status = response.status;
                 $scope.ajaxDataAdd = response.data.message || 'Request failed';
@@ -105,10 +119,10 @@ moduleCarrito.controller('carritoPlistBurgerController', ['$scope', '$http', '$l
             $window.history.back();
         }
 
-      $scope.shop = function () {
-
+        $scope.shop = function () {
 
             $('.add-to-cart').on('click', function () {
+
                 var cart = $('.shopping-cart');
                 var imgtodrag = $(this).parent('.item').find("img").eq(0);
                 if (imgtodrag) {
@@ -134,9 +148,9 @@ moduleCarrito.controller('carritoPlistBurgerController', ['$scope', '$http', '$l
 
                     setTimeout(function () {
                         cart.effect("shake", {
-                            times: 2
+                            times: 1
                         }, 200);
-                    }, 1500);
+                    }, 500);
 
                     imgclone.animate({
                         'width': 0,

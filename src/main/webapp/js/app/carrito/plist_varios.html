@@ -1,7 +1,12 @@
 <headerclient-component></headerclient-component>
 <div class="body_plist">
     <div class="imgproductos">
-        <div class="icon_cart shopping-cart" ng-click="carrito()" ng-show="!alert"><img src="images/icon_cart.png" alt="añadir al carrito" class="img_cart"/></div>
+           <div class="icon_cart shopping-cart" ng-click="carrito()" ng-show="!alert">
+            <div id="badge">{{ajaxDataCount}}</div>
+            <i class="material-icons md img_cart">
+                shopping_cart
+            </i>
+        </div>
         <div class="label prod1 top_plistproductos">ENSALADAS</div>
         <div class="label prod1">SANDWHICES</div>
 

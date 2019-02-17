@@ -264,7 +264,7 @@ INSERT INTO `producto` (`id`, `codigo`, `nombre`, `desc`, `existencias`, `precio
 (26, 'C001', 'Bacon', 'Pan de centeno, hamburguesa de vacuno, bacon y queso.\r\n', 99, 4.5, 'bacon.jpg', 1),
 (27, 'C002', 'Queso manchego\r\n', 'Pan de centeno, hamburguesa de vacuno,  queso manchego, lechuga y tomate.\r\n', 84, 4.5, 'queso_manchego.jpg', 1),
 (28, 'C003', 'Queso de cabra\r\n', 'Pan de centeno, hamburguesa de vacuno,  queso de cabra, lechuga,tomate y pepinillos.\r\n', 89, 4.5, 'queso_cabra.jpg', 1),
-(29, 'C004', 'Doble con queso\r\n', 'Pan de centeno,doble hamburguesa de vacuno,  queso, lechuga y tomate.\r\n', 0, 4.5, 'doble_queso.jpg', 1),
+(29, 'C004', 'Doble con queso\r\n', 'Pan de centeno,doble hamburguesa de vacuno,  queso, lechuga y tomate.\r\n', 100, 4.5, 'doble_queso.jpg', 1),
 (30, 'C005', 'Vegana\r\n', 'Pan de centeno, hamburguesa de quinoa,  cebolla, lechuga y tomate.\r\n', 100, 4.5, 'vegana.jpg', 1),
 (31, 'C006', 'Ternera\r\n', 'Pan de centeno, hamburguesa de ternera,  queso manchego, lechuga y tomate.\r\n', 100, 4.5, 'ternera.jpg', 1),
 (32, 'C007', 'Clásica\r\n', 'Pan de centeno, hamburguesa de vacuno,  queso , lechuga y tomate.\r\n', 100, 4.5, 'clasica.jpg', 1),
