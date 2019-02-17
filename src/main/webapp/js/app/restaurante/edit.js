@@ -36,7 +36,7 @@ moduleRestaurante.controller("restauranteEditController", [
            
           
             $scope.obj_Municipio = {
-                id: null,
+                id: response.data.message.id,
                 poblacion: response.data.message.poblacion
             }
 
@@ -87,7 +87,7 @@ moduleRestaurante.controller("restauranteEditController", [
             } else {
                 form.userForm.obj_municipio.$setValidity('valid', true);
             }
-        }
+        };
 
         $scope.volver = function () {
             $window.history.back();

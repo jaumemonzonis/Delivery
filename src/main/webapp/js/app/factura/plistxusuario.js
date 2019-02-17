@@ -167,7 +167,7 @@ moduleFactura.controller('facturaplistxusuarioController', ['$scope', '$http', '
         $scope.isActive = toolService.isActive;
     
         $scope.volver = function () {
-            $window.history.back();
+              $location.url(`administrador/plist`);
         };
 
     }

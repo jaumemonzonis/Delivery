@@ -3,57 +3,65 @@
 
 
 <div class="container-fluid">
-    
-      <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3">
+
+    <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3">
 
 
-                </div>
+    </div>
     <div class="row">
         <div class="col-12">
-           
+
             <div class="row" ng-show="edited">
-                       <div class="mx-auto col-md-8 col-sm-10 col-12 col-lg-5 col-xl-5 container2">
-  <div class="row mt-5">
-                <div class="col-8 mx-auto">
-                    <h4 class="text-center mb-3"><i class="material-icons">create</i> Cambiar contraseña</h4>
-                </div>
-            </div>
-               <ng-form name="userForm" class="form" ng-show="result == null">
-           <label>Nueva contraseña</label>
-                     <input type="password" class="form-control" 
-                 ng-class="{ 'is-invalid' : userForm.pass.$invalid && !userForm.pass.$pristine, 'is-valid': userForm.pass.$valid && !userForm.pass.$pristine}" id="pass" name="pass" ng-model="pass" ng-minlength="4" ng-required="true" />
-                <div ng-show="userForm.pass.$error.minlength" class="alert alert-danger" role="alert">
-                    La longitud de la constraseña es demasiado corta
-                </div>
-                <div ng-show="!userForm.pass.$valid && !userForm.pass.$pristine && !userForm.pass.$error.minlength" class="alert alert-danger" role="alert">
-                    Contraseña obligatoria
-                </div>
-                        
-           <label>Repita la contraseña</label>
-                     <input type="password" class="form-control mb-3" 
-                 ng-class="{ 'is-invalid' : userForm.passNew.$invalid && !userForm.passNew.$pristine, 'is-valid': userForm.passNew.$valid && !userForm.passNew.$pristine}" id="passNew" name="passNew" ng-model="passNew" ng-minlength="4" ng-required="true" />
-                <div ng-show="userForm.passNew.$error.minlength" class="alert alert-danger" role="alert">
-                    La longitud de la constraseña es demasiado corta
-                </div>
-                <div ng-show="!userForm.passNew.$valid && !userForm.passNew.$pristine && !userForm.passNew.$error.minlength" class="alert alert-danger" role="alert">
-                    Contraseña obligatoria
-                </div>
-   <div class="d-flex justify-content-between flex-wrap">
-                            <button ng-click="update()" type="button" class="btn btn-primary btn-block mb-3" ng-disabled="userForm.$invalid">guardar contraseña</button>
-                            <button type="button" class="btn btn-primary btn-block mb-3" onclick="window.history.back()">Volver</button>
+                <div class="mx-auto col-md-8 col-sm-10 col-12 col-lg-5 col-xl-5 container2">
+                    <div class="row mt-5">
+                        <div class="col-8 mx-auto">
+                            <h4 class="text-center mb-3"><i class="material-icons">create</i> Cambiar contraseña</h4>
+                        </div>
+                    </div>
+                    <ng-form name="userForm" class="form" ng-show="result == null">
+                        <label>Nueva contraseña</label>
+                        <input type="password" class="form-control" 
+                               ng-class="{ 'is-invalid' : userForm.pass.$invalid && !userForm.pass.$pristine, 'is-valid': userForm.pass.$valid && !userForm.pass.$pristine}" id="pass" name="pass" ng-model="pass" ng-minlength="4" ng-required="true" />
+                        <div ng-show="userForm.pass.$error.minlength" class="alert alert-danger" role="alert">
+                            La longitud de la constraseña es demasiado corta
+                        </div>
+                        <div ng-show="!userForm.pass.$valid && !userForm.pass.$pristine && !userForm.pass.$error.minlength" class="alert alert-danger" role="alert">
+                            Contraseña obligatoria
+                        </div>
+
+                        <label>Repita la contraseña</label>
+                        <input type="password" class="form-control mb-3" 
+                               ng-class="{ 'is-invalid' : userForm.passNew.$invalid && !userForm.passNew.$pristine, 'is-valid': userForm.passNew.$valid && !userForm.passNew.$pristine}" id="passNew" name="passNew" ng-model="passNew" ng-minlength="4" ng-required="true" />
+                        <div ng-show="userForm.passNew.$error.minlength" class="alert alert-danger" role="alert">
+                            La longitud de la constraseña es demasiado corta
+                        </div>
+                        <div ng-show="!userForm.passNew.$valid && !userForm.passNew.$pristine && !userForm.passNew.$error.minlength" class="alert alert-danger" role="alert">
+                            Contraseña obligatoria
+                        </div>
+                        <div class="row" ng-show="!edited">
+                            <div class="col-12 mx-auto">
+                                <div class="alert alert-success text-center" role="alert">
+                                    <p class="text-center mt-2"> Contraseña modificada correctamente.<p> 
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row" ng-show="!error && edited">
+                            <div class="col-auto mx-auto">
+                                <div class="alert alert-danger" role="alert">
+                                    <p class="text-center mt-2"> Las contraseñas no coinciden.<p> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between flex-wrap">
+
+                            <button ng-click="update()" type="button" class="btn btn-rojo btn-block mb-3" ng-disabled="userForm.$invalid">guardar contraseña</button>
+                            <button type="button" class="btn btn-primary btn-block mb-3" ng-click="volver()">Volver</button>
                         </div>
 
                 </div>
             </div>
-            <div class="row" ng-show="!edited">
-                <div class="col-5 mx-auto">
-                    <div class="alert alert-success text-center" role="alert">
-                        <p class="text-center mt-2"> Contraseña modificada correctamente.<p> 
-                    </div>
-                    <button type="button" class="btn btn-primary btn-block mt-2 mb-3" onclick="window.history.back()">Volver</button>
-                </div>
-            </div>
+
         </div>
     </div>
 </div>
-                    

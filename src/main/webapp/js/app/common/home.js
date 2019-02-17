@@ -23,5 +23,21 @@ moduleCommon.controller('homeController', ['$scope', '$location', 'toolService',
             $location.url(`usuario/login`);
         }
         };
+        
+             $scope.empresa = function () {
+           if (logged === true){
+            $location.url(`carrito/empresa`);
+        } else {
+            $location.url(`usuario/login`);
+        }
+        };
+        
+               $scope.contacto = function () {
+           if (logged === true){
+            $location.url(`carrito/contacto`);
+        } else {
+            $location.url(`usuario/login`);
+        }
+        };
 
     }]);

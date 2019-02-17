@@ -6,16 +6,17 @@ moduleUsuario.controller("usuarioEditpassController", [
     "$routeParams",
     "toolService",
     "sessionService",
-    function ($scope, $http, $routeParams, toolService, sessionService) {
+    '$location',
+    function ($scope, $http, $routeParams, toolService, sessionService, $location) {
         $scope.edited = true;
         $scope.error = true;
         $scope.logged = false;
 
-       if (!$routeParams.id) {
+        if (!$routeParams.id) {
             $scope.id = 1;
         } else {
             $scope.id = $routeParams.id;
-} 
+        }
 
         $scope.mostrar = false;
         $scope.activar = true;
@@ -30,8 +31,9 @@ moduleUsuario.controller("usuarioEditpassController", [
 
         $http({
             method: "GET",
-            url: 'json?ob='+$scope.ob+'&op=get&id=' + $scope.id
+            url: 'json?ob=' + $scope.ob + '&op=get&id=' + $scope.id
         }).then(function (response) {
+         
             $scope.id = response.data.message.id;
             $scope.dni = response.data.message.dni;
             $scope.nombre = response.data.message.nombre;
@@ -47,39 +49,41 @@ moduleUsuario.controller("usuarioEditpassController", [
         };
 
         $scope.isActive = toolService.isActive;
-       
+
 
         $scope.update = function () {
-            
-            if ($scope.pass===$scope.passNew){
 
-            var json = {
-                id: $scope.id,
-                dni: $scope.dni,
-                nombre: $scope.nombre,
-              ape1: $scope.ape1,
-                ape2: $scope.ape2,
-                login: $scope.login,
-                pass: forge_sha256($scope.pass),
-              id_tipoUsuario: $scope.obj_tipoUsuario.id
+            if ($scope.pass === $scope.passNew) {
+
+                var json = {
+                    id: $scope.id,
+                    dni: $scope.dni,
+                    nombre: $scope.nombre,
+                    ape1: $scope.ape1,
+                    ape2: $scope.ape2,
+                    login: $scope.login,
+                    pass: forge_sha256($scope.pass),
+                    id_tipoUsuario: $scope.obj_tipoUsuario.id
+                }
+                $http({
+                    method: 'GET',
+                    header: {
+                        'Content-Type': 'application/json;charset=utf-8'
+                    },
+                    url: 'json?ob=usuario&op=update',
+                    params: {json: JSON.stringify(json)}
+                }).then(function () {
+                    $scope.edited = false;
+                })
+            } else {
+                $scope.edited = true;
+                $scope.error = false;
+
             }
-            $http({
-                method: 'GET',
-                header: {
-                    'Content-Type': 'application/json;charset=utf-8'
-                },
-                url: 'json?ob=usuario&op=update',
-                params: {json: JSON.stringify(json)}
-            }).then(function () {
-                $scope.edited = false;
-            })
-        } else {
-            $scope.edited = true;
-            $scope.error = false;
-            
         }
-        }
-
+        $scope.volver = function () {
+            $location.path('administrador/plist');
+        };
         $scope.tipoUsuarioRefresh = function (f, consultar) {
             var form = f;
             if (consultar) {
@@ -97,7 +101,7 @@ moduleUsuario.controller("usuarioEditpassController", [
                 form.userForm.obj_tipousuario.$setValidity('valid', true);
             }
         }
-        
+
         $scope.back = function () {
             window.history.back();
         };
@@ -105,7 +109,7 @@ moduleUsuario.controller("usuarioEditpassController", [
             $location.path('/home');
         };
         $scope.plist = function () {
-            $location.path('/'+$scope.ob+'/plist');
+            $location.path('/' + $scope.ob + '/plist');
         };
 
 //        if (sessionService.getUserName() !== "") {

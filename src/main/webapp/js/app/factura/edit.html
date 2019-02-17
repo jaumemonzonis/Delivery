@@ -6,23 +6,26 @@
   <div class="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3">
 
 
-    </div>
-
+                </div>
     <div class="row">
         <div class="col-12">
 
             <div class="row">
-                       <div class="mx-auto col-md-8 col-sm-10 col-12 col-lg-5 col-xl-5 container2">
+                 <div class="mx-auto col-md-8 col-sm-10 col-12 col-lg-5 col-xl-5 container2 pl-3 pr-3">
                     <div class="row mt-5">
                         <div class="col-12 mx-auto">
                             <h4 class="text-center mb-3"><i class="material-icons">
-                                    add_circle_outline</i> 
-                                Nueva factura de {{nombre2}} {{ape1}}</h4>
+                                    create</i> 
+                                Edición de factura de {{nombre2}} {{ape1}}</h4>
                         </div>
                     </div>
                     <form name="userForm" ng-show="!visualizar">
-
+                        <div class="form-group">
+                            <label>ID</label>
+                            <input type="text" class="form-control" id="id" name="id" ng-disabled="true" ng-model="id" />
+                        </div>
                         <div class="form-group" ng-class="{ 'has-error' : userForm.fecha.$invalid && !userForm.fecha.$pristine }">
+                          <div class="form-group" ng-class="{ 'has-error' : userForm.fecha.$invalid && !userForm.fecha.$pristine }">
                             <div class="row">
                                 <div class="col-12">
                                     <label>FECHA</label>
@@ -32,6 +35,7 @@
                                 </div>
                             </div>
                         </div>
+                        </div>
                         <div class="form-group">
                             <label>IVA</label>
                             <input type="text" class="form-control" id="iva" name="iva" ng-model="iva" ng-required="true" placeholder="IVA" />
@@ -39,21 +43,22 @@
                                 IVA obligatorio
                             </div>
                         </div>
-                        <div class="form-group">
+                          <div class="form-group">
                             <label>DIRECCION PEDIDO</label>
                             <input type="text" class="form-control" id="direccion_pedido" name="direccion_pedido" ng-model="direccion_pedido" ng-required="true" placeholder="direccion pedido" />
                             <div ng-show="!userForm.direccion_pedido.$valid && !userForm.direccion_pedido.$pristine" class="alert alert-danger" role="alert">
                                 Dirección de pedido obligatorio
                             </div>
                         </div>
-                        <div class="form-group">
+                           <div class="form-group">
                             <label>POBLACION PEDIDO</label>
                             <input type="text" class="form-control" id="poblacion_pedido" name="poblacion_pedido" ng-model="poblacion_pedido" ng-required="true" placeholder="poblacion pedido" />
                             <div ng-show="!userForm.poblacion_pedido.$valid && !userForm.poblacion_pedido.$pristine" class="alert alert-danger" role="alert">
                                 Población de pedido obligatorio
                             </div>
                         </div>
-                        <label for="obj_restaurante">RESTAURANTE:</label>
+                      
+                          <label for="obj_restaurante">RESTAURANTE:</label>
                         <div class="form-group row ml-3">
                             <restaurante-selection 
                                 class="modal fade" 
@@ -84,8 +89,8 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text">
                                             <a href="/delivery/restaurante/view/{{obj_Restaurante.id}}">
-                                                <span class="p-2 bd-highlight"><i class="material-icons">
-                                                        account_circle
+                                               <span class="p-2 bd-highlight"><i class="material-icons">
+                                                       account_circle
                                                     </i></span>
                                                 RESTAURANTE: {{obj_Restaurante.nombre}}
                                             </a>
@@ -95,10 +100,15 @@
                                 <div ng-show="!userForm.obj_restaurante.$valid">Restaurante no válido</div>
                             </div>
                         </div>
+                        
+                        
+                        
+                        
+
 
 
                         <div class="d-flex justify-content-between flex-wrap">
-                            <button ng-click="update()" type="button" class="btn btn-rojo btn-block mb-3" ng-disabled="userForm.$invalid">Crear factura</button>
+                            <button ng-click="update()" type="button" class="btn btn-rojo btn-block mb-3" ng-disabled="userForm.$invalid">guardar</button>
                             <button type="button" class="btn btn-primary btn-block mb-3" onclick="window.history.back()">Volver</button>
                         </div>
 
@@ -107,7 +117,7 @@
                     <div class="row" ng-show="visualizar">
                         <div class="col-5 mx-auto">
                             <div class="alert alert-success" role="alert">
-                                <p class="text-center mt-2"> Factura creada correctamente.<p> 
+                                <p class="text-center mt-2"> Factura modificada correctamente.<p> 
                             </div>
                             <button type="button" class="btn btn-primary btn-block mt-2 mb-3" onclick="window.history.back()">Volver</button>
                         </div>
