@@ -84,14 +84,24 @@ moduleCarrito.controller('carritoCarritoController', ['$scope', '$http', '$locat
 
 
         $scope.empty = function () {
+            swal({
+                title: "VACIO",
+                text: "Tu pedido ha sido eliminado correctamente",
+                icon: "success",
+                button: "Volver!",
+            }).then(function () {
+                window.location = "/delivery/carrito/plist_burger";
+            });
+
             $http({
                 method: 'GET',
                 url: 'json?ob=carrito&op=empty'
             }).then(function (response) {
                 $scope.status = response.status;
                 $scope.ajaxDataEmpty = response.data.message;
-                show();
+          
                 $scope.alert = true;
+
             }, function (response) {
                 $scope.status = response.status;
                 $scope.ajaxDataEmpty = response.data.message || 'Request failed';
