@@ -45,8 +45,14 @@ moduleMunicipio.controller('municipionewxusuarioController', ['$scope', '$http',
                 url: 'json?ob=' + $scope.ob + '&op=create',
                 params: {json: JSON.stringify(json)}
             }).then(function (response) {
-                console.log(response);
-                $scope.visualizar = true;
+                swal({
+                    title: "GUARDADO",
+                    text: "El municipio " + $scope.poblacion + " ha sido guardado correctamente",
+                    icon: "success",
+                    button: "Volver!",
+                }).then(function () {
+                    window.location = "/delivery/municipio/plist";
+                });
             }), function (response) {
                 console.log(response);
                 $scope.error = true;

@@ -15,7 +15,7 @@ moduleTipousuario.controller('tipousuarioNewController', ['$scope', '$http', '$l
         $scope.isActive = toolService.isActive;
 
         $scope.update = function () {
-            $scope.visualizar = false;
+         
             var json = {
                 id: null,
                 desc: $scope.desc
@@ -28,8 +28,14 @@ moduleTipousuario.controller('tipousuarioNewController', ['$scope', '$http', '$l
                 url: 'json?ob=' + $scope.ob + '&op=create',
                 params: {json: JSON.stringify(json)}
             }).then(function (response) {
-                console.log(response);
-                $scope.visualizar = true;
+                   swal({
+                    title: "GUARDADO",
+                    text: "El tipo de usuario "+$scope.desc+" ha sido guardado correctamente",
+                    icon: "success",
+                    button: "Volver!",
+                }).then(function () {
+                    window.location = "/delivery/tipousuario/plist";
+                });
             }), function (response) {
                 console.log(response);
                 $scope.error = true;

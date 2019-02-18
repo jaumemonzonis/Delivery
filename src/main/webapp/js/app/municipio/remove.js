@@ -26,28 +26,45 @@ moduleMunicipio.controller("municipioRemoveController", ['$scope', '$http', '$ro
         });
 
 
-        $scope.eliminar = function (accion) {
-            if (accion === "eliminar") {
-                $http({
-                    method: 'GET',
-                    url: 'json?ob=' + $scope.ob + '&op=remove&id=' + $scope.id
-                }).then(function (response) {
-                    $scope.eliminarok = true;
-                    $scope.msgopcioneliminar = false;
-                    $scope.eliminarerror = false;
-                    $scope.tabla = false;
-                    $scope.status = response.status;
-                    $scope.ajaxDatoTipousuario = response.data.message;
-                }, function (response) {
-                    $scope.ajaxDatoTipousuario = response.data.message || 'Request failed';
-                    $scope.status = response.status;
-                });
-            } else {
-                $scope.eliminarerror = true;
-                $scope.msgopcioneliminar = false;
-                $scope.eliminarok = false;
-                $scope.tabla = true;
-            }
+       $scope.eliminar = function () {
+
+            swal({
+                title: "Estas seguro?",
+                text: "Una vez eliminado, no podras recuperar la información!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            $http({
+                                method: 'GET',
+                                url: 'json?ob=' + $scope.ob + '&op=remove&id=' + $scope.id
+                            }).then(function (response) {
+                                $scope.eliminarok = true;
+                                $scope.msgopcioneliminar = false;
+                                $scope.eliminarerror = false;
+                                $scope.tabla = false;
+                                $scope.status = response.status;
+                                $scope.ajaxDatoTipousuario = response.data.message;
+                            }, function (response) {
+                                $scope.ajaxDatoTipousuario = response.data.message || 'Request failed';
+                                $scope.status = response.status;
+                            });
+
+                            swal("El campo ha sido eliminado correctamente!", {
+                                icon: "success",
+                                 timer: 5000
+                            });
+                        } else {
+                             swal("El campo no se ha borrado!", {
+                               
+                                 timer: 5000
+                            });
+                        }
+                    });
+
 
         };
 

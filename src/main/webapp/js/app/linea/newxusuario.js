@@ -24,7 +24,7 @@ moduleLinea.controller('lineanewxusuarioController', ['$scope', '$http', '$locat
         $scope.obj_Producto = {
             id: null,
             nombre: null
-           
+
         }
 
         $http({
@@ -56,10 +56,17 @@ moduleLinea.controller('lineanewxusuarioController', ['$scope', '$http', '$locat
                 url: 'json?ob=' + $scope.ob + '&op=create',
                 params: {json: JSON.stringify(json)}
             }).then(function () {
-                $scope.visualizar = true;
+                swal({
+                    title: "GUARDADO",
+                    text: "Linea " + $scope.id + " ha sido guardada correctamente",
+                    icon: "success",
+                    button: "Volver!",
+                }).then(function () {
+                    window.location = "/delivery/usuario/plist";
+                });
             })
         }
-        
+
         $scope.productoRefresh = function (f, consultar) {
             var form = f;
             if (consultar) {
@@ -76,7 +83,7 @@ moduleLinea.controller('lineanewxusuarioController', ['$scope', '$http', '$locat
                 form.userForm.obj_Producto.$setValidity('valid', true);
             }
         };
-        
+
         $scope.volver = function () {
             $window.history.back();
         };

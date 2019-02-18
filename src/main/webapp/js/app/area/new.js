@@ -35,19 +35,16 @@ moduleArea.controller("areaNewController", [
                 url: 'json?ob=area&op=create',
                 params: {json: JSON.stringify(json)}
             }).then(function () {
-                $scope.visualizar = true;
+                          swal({
+                    title: "GUARDADO",
+                    text: "El area "+$scope.nombre+" ha sido guardada correctamente",
+                    icon: "success",
+                    button: "Volver!",
+                }).then(function () {
+                    window.location = "/delivery/area/plist";
+                });
             })
         }
 
-        $scope.volver = function () {
-            $window.history.back();
-        }
-
-        $scope.close = function () {
-            $location.path('/home');
-        };
-        $scope.plist = function () {
-            $location.path('/' + $scope.ob + '/plist');
-        };
 
     }]);

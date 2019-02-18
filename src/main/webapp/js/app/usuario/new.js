@@ -63,7 +63,14 @@ moduleUsuario.controller("usuarioNewController", [
                 url: 'json?ob=usuario&op=create',
                 params: {json: JSON.stringify(json)}
             }).then(function () {
-                $scope.visualizar = true;
+                    swal({
+                    title: "GUARDADO",
+                    text: "El usuario "+$scope.login+" ha sido guardado correctamente",
+                    icon: "success",
+                    button: "Volver!",
+                }).then(function () {
+                    window.location = "/delivery/usuario/plist";
+                });
             })
         }
 

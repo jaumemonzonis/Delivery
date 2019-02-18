@@ -85,8 +85,17 @@ moduleUsuario.controller("usuarioEditpassController", [
                     params: {json: JSON.stringify(json)}
                 }).then(function () {
                     $scope.edited = false;
-                    $location.path('administrador/plist');
-                })
+                         }).then(function () {
+                 swal({
+                    title: "GUARDADO",
+                    text: "Contraseña del usuario "+$scope.login+" ha sido cambiada correctamente",
+                    icon: "success",
+                    button: "Volver!",
+                }).then(function () {
+                    window.location = "/delivery/administrador/plist";
+                });
+            })
+                 
             } else {
                 $scope.edited = true;
                 $scope.error = false;

@@ -80,7 +80,14 @@ moduleProducto.controller("productoNewController", [
                 url: 'json?ob=producto&op=create',
                 params: {json: JSON.stringify(json)}
             }).then(function () {
-               $scope.visualizar = true;
+               swal({
+                    title: "GUARDADO",
+                    text: "El producto "+$scope.nombre+" ha sido guardado correctamente",
+                    icon: "success",
+                    button: "Volver!",
+                }).then(function () {
+                    window.location = "/delivery/producto/plist";
+                });
             })
         }
 

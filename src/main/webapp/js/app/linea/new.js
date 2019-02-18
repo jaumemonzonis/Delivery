@@ -61,7 +61,14 @@ moduleLinea.controller("lineaNewController", [
                 url: 'json?ob=' + $scope.ob + '&op=create',
                 params: {json: JSON.stringify(json)}
             }).then(function () {
-                $scope.visualizar = true;
+                swal({
+                    title: "GUARDADO",
+                    text: "Linea "+$scope.id+" ha sido guardada correctamente",
+                    icon: "success",
+                    button: "Volver!",
+                }).then(function () {
+                    window.location = "/delivery/usuario/plist";
+                });
             })
         }
         

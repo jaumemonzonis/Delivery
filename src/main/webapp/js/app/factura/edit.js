@@ -115,7 +115,14 @@ moduleFactura.controller("facturaEditController", [
                 url: 'json?ob=' + $scope.ob + '&op=update',
                 params: {json: JSON.stringify(json)}
             }).then(function () {
-                $scope.visualizar = true;
+                 swal({
+                    title: "GUARDADO",
+                    text: "Factura  "+$scope.id+" ha sido editada correctamente",
+                    icon: "success",
+                    button: "Volver!",
+                }).then(function () {
+                    window.location = "/delivery/usuario/plist";
+                });
             })
         }
 

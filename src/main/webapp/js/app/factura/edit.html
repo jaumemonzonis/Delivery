@@ -19,7 +19,7 @@
                                 Edición de factura de {{nombre2}} {{ape1}}</h4>
                         </div>
                     </div>
-                    <form name="userForm" ng-show="!visualizar">
+                    <form name="userForm">
                         <div class="form-group">
                             <label>ID</label>
                             <input type="text" class="form-control" id="id" name="id" ng-disabled="true" ng-model="id" />
@@ -114,14 +114,6 @@
 
                     </form>
 
-                    <div class="row" ng-show="visualizar">
-                        <div class="col-5 mx-auto">
-                            <div class="alert alert-success" role="alert">
-                                <p class="text-center mt-2"> Factura modificada correctamente.<p> 
-                            </div>
-                            <button type="button" class="btn btn-primary btn-block mt-2 mb-3" onclick="window.history.back()">Volver</button>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

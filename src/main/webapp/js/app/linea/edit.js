@@ -74,15 +74,17 @@ moduleFactura.controller("lineaEditController", [
                 url: 'json?ob=' + $scope.ob + '&op=update',
                 params: {json: JSON.stringify(json)}
             }).then(function () {
-                swal({
+                  }).then(function () {
+                 swal({
                     title: "GUARDADO",
-                    text: "La linea "+$scope.id+" ha sido editada correctamente",
+                    text: "Linea "+$scope.id+" ha sido editada correctamente",
                     icon: "success",
                     button: "Volver!",
                 }).then(function () {
-                    window.location = "/delivery/linea/plistxusuario/10/1/"+$scope.id;
+                    window.location = "/delivery/usuario/plist";
                 });
             })
+          
         }
 
         $scope.productoRefresh = function (f, consultar) {

@@ -64,7 +64,14 @@ moduleUsuario.controller("usuarioRegistrarseController", [
                 url: 'json?ob=usuario&op=create',
                 params: {json: JSON.stringify(json)}
             }).then(function () {
-                $scope.visualizar = true;
+                swal({
+                    title: "REGISTRADO",
+                    text: "Hola! "+$scope.login+" te has registrado correctamente. En breve recibirás un correo para confirmar tu cuenta.",
+                    icon: "success",
+                    button: "Volver!",
+                }).then(function () {
+                    window.location = "/delivery/home";
+                });
             })
         }
 

@@ -80,7 +80,15 @@ moduleUsuario.controller('cambiarpassclienteController', ['$scope', '$http', '$l
                     params: {json: JSON.stringify(json)}
                 }).then(function () {
                     $scope.edited = false;
-                    $location.path('usuario/viewusuariocliente/'+ $scope.id );
+                      swal({
+                    title: "GUARDADO",
+                    text: "Contraseña del usuario "+$scope.login+" ha sido cambiada correctamente",
+                    icon: "success",
+                    button: "Volver!",
+                }).then(function () {
+                    window.location = 'usuario/viewusuariocliente/'+ $scope.id ;
+                });
+          
                 })
             } else {
                 $scope.edited = true;

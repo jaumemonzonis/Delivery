@@ -43,7 +43,14 @@ moduleRestaurante.controller("restauranteNewController", [
                 url: 'json?ob=restaurante&op=create',
                 params: {json: JSON.stringify(json)}
             }).then(function () {
-                $scope.visualizar = true;
+                         swal({
+                    title: "GUARDADO",
+                    text: "El restaurante "+$scope.nombre+" ha sido guardado correctamente",
+                    icon: "success",
+                    button: "Volver!",
+                }).then(function () {
+                    window.location = "/delivery/restaurante/plist";
+                });
             })
         }
 
