@@ -33,14 +33,22 @@ moduleUsuario.controller("usuarioEditpassController", [
             method: "GET",
             url: 'json?ob=' + $scope.ob + '&op=get&id=' + $scope.id
         }).then(function (response) {
-         
+
             $scope.id = response.data.message.id;
-            $scope.dni = response.data.message.dni;
             $scope.nombre = response.data.message.nombre;
             $scope.ape1 = response.data.message.ape1;
             $scope.ape2 = response.data.message.ape2;
             $scope.login = response.data.message.login;
-            //$scope.pass = 'passss';
+            $scope.pass = '';
+            $scope.telefono = response.data.message.telefono;
+            $scope.obj_Municipio = {
+                id: null,
+                poblacion: response.data.message.poblacion
+            }
+            $scope.direccion = response.data.message.direccion;
+            $scope.email = response.data.message.email;
+
+
             $scope.obj_tipoUsuario = {
                 id: response.data.message.obj_tipoUsuario.id,
                 desc: response.data.message.obj_tipoUsuario.desc
@@ -57,13 +65,16 @@ moduleUsuario.controller("usuarioEditpassController", [
 
                 var json = {
                     id: $scope.id,
-                    dni: $scope.dni,
                     nombre: $scope.nombre,
                     ape1: $scope.ape1,
                     ape2: $scope.ape2,
+                    telefono: $scope.telefono,
                     login: $scope.login,
                     pass: forge_sha256($scope.pass),
-                    id_tipoUsuario: $scope.obj_tipoUsuario.id
+                    email: $scope.email,
+                    direccion: $scope.direccion,
+                    poblacion: $scope.obj_Municipio.poblacion,
+                    id_tipousuario: $scope.obj_tipoUsuario.id
                 }
                 $http({
                     method: 'GET',
@@ -74,6 +85,7 @@ moduleUsuario.controller("usuarioEditpassController", [
                     params: {json: JSON.stringify(json)}
                 }).then(function () {
                     $scope.edited = false;
+                    $location.path('administrador/plist');
                 })
             } else {
                 $scope.edited = true;

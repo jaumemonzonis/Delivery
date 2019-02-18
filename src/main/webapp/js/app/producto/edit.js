@@ -8,7 +8,7 @@ moduleProducto.controller("productoEditController", [
     'sessionService',
     function ($scope, $http, $routeParams, toolService, sessionService) {
 
-        $scope.visualizar = false;
+
         $scope.logged = false;
 
         if (!$routeParams.id) {
@@ -55,8 +55,8 @@ moduleProducto.controller("productoEditController", [
                 nombreFoto = $scope.myFile.name;
                 $scope.uploadFile(nombreFoto);
             } else {
-                if ($scope.ajaxDatoProducto.foto != '' || $scope.ajaxDatoProducto.foto != null) {
-                    nombreFoto = $scope.ajaxDatoProducto.foto;
+                if ($scope.foto != '' || $scope.foto != null) {
+                    nombreFoto = $scope.foto;
                 } else {
                     nombreFoto = "default.jpg";
                 }
@@ -81,7 +81,14 @@ moduleProducto.controller("productoEditController", [
                 url: 'json?ob=producto&op=update',
                 params: {json: JSON.stringify(json)}
             }).then(function () {
-                $scope.visualizar = true;
+                 swal({
+                    title: "GUARDADO",
+                    text: "El producto "+$scope.nombre+" ha sido editado correctamente",
+                    icon: "success",
+                    button: "Volver!",
+                }).then(function () {
+                    window.location = "/delivery/producto/plist";
+                });
             })
         }
 

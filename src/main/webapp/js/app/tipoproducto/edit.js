@@ -38,7 +38,7 @@ moduleTipoproducto.controller("tipoproductoEditController", [
         $scope.isActive = toolService.isActive;
 
         $scope.update = function () {
-            $scope.visualizar = false;
+   
             $scope.error = false;
             var json = {
                 id: $scope.id,
@@ -55,7 +55,14 @@ moduleTipoproducto.controller("tipoproductoEditController", [
                 params: {json: JSON.stringify(json)}
             }).then(function (response) {
                 console.log(response);
-                $scope.visualizar = true;
+             swal({
+                    title: "GUARDADO",
+                    text: "El tipo producto "+$scope.desc+" ha sido editado correctamente",
+                    icon: "success",
+                    button: "Volver!",
+                }).then(function () {
+                    window.location = "/delivery/tipoproducto/plist";
+                });
             }), function (response) {
                 console.log(response);
                 $scope.error = true;

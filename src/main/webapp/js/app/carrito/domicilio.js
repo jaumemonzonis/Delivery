@@ -8,18 +8,18 @@ moduleCarrito.controller('carritoDomicilioController', ['$scope', '$http', '$loc
 
 
 // TODOS LOS RESTAURANTES
-  function plistRest () {
-        $http({
-            method: 'GET',
-            url: 'json?ob=restaurante&op=getpageSinarea'
-        }).then(function (response) {
-            $scope.status = response.status;
-            $scope.plistrest = response.data.message;
-        }, function (response) {
-            $scope.status = response.status;
-            $scope.plistrest = response.data.message || 'Request failed';
-        });
-    }
+        function plistRest() {
+            $http({
+                method: 'GET',
+                url: 'json?ob=restaurante&op=getpageSinarea'
+            }).then(function (response) {
+                $scope.status = response.status;
+                $scope.plistrest = response.data.message;
+            }, function (response) {
+                $scope.status = response.status;
+                $scope.plistrest = response.data.message || 'Request failed';
+            });
+        }
 //SELECT * FROM `restaurante` WHERE restaurante.id IN (SELECT restaurante_municipio.id_restaurante FROM `restaurante_municipio` WHERE restaurante_municipio.id_municipio IN (SELECT municipio.id FROM municipio WHERE municipio.id_area=(SELECT m.id_area from municipio m WHERE m.poblacion='Museros'))) AND restaurante.id <> 0
 
 //        $scope.id_rest_predeterminado= "0";
@@ -44,7 +44,7 @@ moduleCarrito.controller('carritoDomicilioController', ['$scope', '$http', '$loc
 
 
 //RESTAURANTES DE LA MISMA AREA.
-        function areaRest (id_rest_predeterminado) {
+        function areaRest(id_rest_predeterminado) {
             $http({
                 method: 'GET',
                 url: 'json?ob=municipio&op=getIdRestauranteArea&id=' + id_rest_predeterminado
@@ -56,19 +56,27 @@ moduleCarrito.controller('carritoDomicilioController', ['$scope', '$http', '$loc
                 $scope.arearest = response.data.message || 'Request failed';
             });
 
-        };
- $scope.dir_pedido="";
- $scope.pob_pedido="";
+        }
+        ;
+        $scope.dir_pedido = "";
+        $scope.pob_pedido = "";
 
-        $scope.comprar = function (id_restaurante,dir_pedido,pob_pedido) {
+        $scope.comprar = function (id_restaurante, dir_pedido, pob_pedido) {
             $http({
                 method: 'GET',
-                url: 'json?ob=carrito&op=buy&id_restaurante='+id_restaurante+'&dir_pedido='+dir_pedido+'&pob_pedido='+ pob_pedido
+                url: 'json?ob=carrito&op=buy&id_restaurante=' + id_restaurante + '&dir_pedido=' + dir_pedido + '&pob_pedido=' + pob_pedido
             }).then(function (response) {
                 $scope.status = response.status;
                 $scope.msg_factura = response.data.message;
                 $scope.factura = true;
-                $location.url(`carrito/facturacarrito/` + $scope.msg_factura);
+                swal({
+                    title: "COMPRADO!",
+                    text: "Tu pedido se ha realizado correctamente.",
+                    icon: "success",
+                    button: "Consulta tu pedido",
+                }).then(function () {
+                    window.location = "/delivery/carrito/facturacarrito/" + $scope.msg_factura;
+                });
             }, function (response) {
                 $scope.status = response.status;
                 $scope.msg_factura = response.data.message || 'Request failed';

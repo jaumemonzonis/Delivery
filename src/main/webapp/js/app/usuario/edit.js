@@ -6,7 +6,9 @@ moduleUsuario.controller("usuarioEditController", [
     "$routeParams",
     "toolService",
     "sessionService",
-    function ($scope, $http, $routeParams, toolService, sessionService) {
+    '$location',
+
+    function ($scope, $http, $routeParams, toolService, sessionService, $location) {
         $scope.visualizar = false;
         $scope.logged = false;
 
@@ -81,8 +83,17 @@ moduleUsuario.controller("usuarioEditController", [
                 params: {json: JSON.stringify(json)}
             }).then(function () {
                 $scope.visualizar = true;
-            })
-        }
+
+                swal({
+                    title: "GUARDADO",
+                    text: "El usuario "+$scope.login+" ha sido editado correctamente",
+                    icon: "success",
+                    button: "Volver!",
+                }).then(function () {
+                    window.location = "/delivery/usuario/plist";
+                });
+            });
+        };
 
         $scope.tipoUsuarioRefresh = function (f, consultar) {
             var form = f;
@@ -121,15 +132,7 @@ moduleUsuario.controller("usuarioEditController", [
             }
         };
 
-        $scope.back = function () {
-            window.history.back();
-        };
-        $scope.close = function () {
-            $location.path('/home');
-        };
-        $scope.plist = function () {
-            $location.path('/' + $scope.ob + '/plist');
-        };
+
 
 
 //             if (sessionService.getUserName() !== "") {

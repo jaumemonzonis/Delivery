@@ -67,7 +67,14 @@ moduleRestaurante.controller("restauranteEditController", [
                 url: 'json?ob=restaurante&op=update',
                 params: {json: JSON.stringify(json)}
             }).then(function () {
-                $scope.visualizar = true;
+                swal({
+                    title: "GUARDADO",
+                    text: "El restaurante "+$scope.nombre+" ha sido editado correctamente",
+                    icon: "success",
+                    button: "Volver!",
+                }).then(function () {
+                    window.location = "/delivery/restaurante/plist";
+                });
             })
         }
 

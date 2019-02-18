@@ -8,8 +8,8 @@
 
 
             <div class="mx-auto col-md-8 col-sm-10 col-12 col-lg-5 col-xl-5 container2">
-                <div class="alert alert-success" role="alert" ng-show="(visualizar)">
-                    Usuario creado correctamente.
+                <div class="alert alert-success text-center alerta_carrito_vacio mt-2" role="alert" ng-show="(visualizar)">
+                    Usuario creado correctamente. Consulta tu correo para verificar la cuenta. Muchas gracias.
                 </div>
 
                 <form name="userForm" ng-show="(!visualizar)" style="margin-top:5%; margin-bottom: 5%; width:100%; border-radius: 2%"> 
@@ -100,6 +100,12 @@
 
             </div>
       
+    </div>
+        <div class="flechas d-flex justify-content-center">
+        <div  ng-click="volver()" class="flecha_btn float-left mr-5"><i class="material-icons">
+                arrow_back_ios
+            </i></div>
+   
     </div>
         <footer>
         <div class="footer d-flex">

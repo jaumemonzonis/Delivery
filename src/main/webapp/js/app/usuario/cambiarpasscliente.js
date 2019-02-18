@@ -80,6 +80,7 @@ moduleUsuario.controller('cambiarpassclienteController', ['$scope', '$http', '$l
                     params: {json: JSON.stringify(json)}
                 }).then(function () {
                     $scope.edited = false;
+                    $location.path('usuario/viewusuariocliente/'+ $scope.id );
                 })
             } else {
                 $scope.edited = true;

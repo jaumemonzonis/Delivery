@@ -6,7 +6,8 @@ moduleUsuario.controller("usuarioRegistrarseController", [
     "$routeParams",
     "toolService",
     "sessionService",
-    function ($scope, $http, $routeParams, toolService, sessionService) {
+    '$location',
+    function ($scope, $http, $routeParams, toolService, sessionService,$location) {
         $scope.visualizar = false;
         $scope.logged = false;
 
@@ -67,34 +68,12 @@ moduleUsuario.controller("usuarioRegistrarseController", [
             })
         }
 
-        $scope.back = function () {
-            window.history.back();
-        };
-        $scope.close = function () {
-            $location.path('/home');
-        };
-        $scope.plist = function () {
-            $location.path('/' + $scope.ob + '/plist');
+      $scope.volver = function () {
+            $location.url(`/home`);
         };
 
 
- $scope.municipioRefresh = function (f, consultar) {
-            var form = f;
-            if (consultar) {
-                $http({
-                    method: 'GET',
-                    url: 'json?ob=municipio&op=get&id=' + $scope.obj_Municipio.id
-                }).then(function (response) {
-                    $scope.obj_Municipio = response.data.message;
-                     //$scope.poblacion= response.data.message.poblacion;
-                    form.userForm.obj_municipio.$setValidity('valid', true);
-                }, function (response) {
-                    form.userForm.obj_municipio.$setValidity('valid', false);
-                });
-            } else {
-                form.userForm.obj_municipio.$setValidity('valid', true);
-            }
-        }
+
 
     }
 ]);

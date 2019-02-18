@@ -61,7 +61,14 @@ moduleMunicipio.controller("municipioEditController", [
                 url: 'json?ob=municipio&op=update',
                 params: {json: JSON.stringify(json)}
             }).then(function () {
-                  $scope.visualizar = true;
+                  swal({
+                    title: "GUARDADO",
+                    text: "El municipio "+$scope.poblacion+" ha sido editado correctamente",
+                    icon: "success",
+                    button: "Volver!",
+                }).then(function () {
+                    window.location = "/delivery/municipio/plist";
+                });
             })
         }
 

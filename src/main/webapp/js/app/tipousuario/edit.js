@@ -36,7 +36,7 @@ moduleTipousuario.controller("tipousuarioEditController", [
         };
 
         $scope.isActive = toolService.isActive;
-        $scope.visualizar = false;
+    
         $scope.error = false;
 
         $scope.update = function () {
@@ -54,7 +54,15 @@ moduleTipousuario.controller("tipousuarioEditController", [
                 params: {json: JSON.stringify(json)}
             }).then(function (response) {
                 console.log(response);
-                $scope.visualizar = true;
+             
+                 swal({
+                    title: "GUARDADO",
+                    text: "El tipo de usuario "+$scope.desc+" ha sido editado correctamente",
+                    icon: "success",
+                    button: "Volver!",
+                }).then(function () {
+                    window.location = "/delivery/tipousuario/plist";
+                });
             }), function (response) {
                 console.log(response);
                 $scope.error = true;

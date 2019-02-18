@@ -13,12 +13,8 @@ moduleFactura.controller('facturaCarritoController', ['$scope', '$http', '$locat
         $scope.miFormato = function (valor) {
             return isNaN(valor) ? valor : parseFloat(valor).toFixed(2);
         }
-//       if (sessionService.getUserName() !== "") {
-//            $scope.loggeduser = sessionService.getUserName();
-//            $scope.loggeduserid = sessionService.getId();
-//            $scope.logged = true;
-//            $scope.tipousuarioID = sessionService.getTypeUserID();
-//        }
+        
+  
 
         $scope.isActive = toolService.isActive;
 
@@ -44,6 +40,9 @@ moduleFactura.controller('facturaCarritoController', ['$scope', '$http', '$locat
                     $scope.total = acum;
                 }
             }
+
+
+
 
         }, function (response) {
             $scope.status = response.status;

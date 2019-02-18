@@ -67,7 +67,15 @@ moduleCarrito.controller('restauranteCarritoController', ['$scope', '$http', '$l
                 $scope.status = response.status;
                 $scope.msg_factura = response.data.message;
                 $scope.factura = true;
-                $location.url(`carrito/facturacarrito/` + $scope.msg_factura);
+//                $location.url(`carrito/facturacarrito/` + $scope.msg_factura);
+                     swal({
+            title: "COMPRADO!",
+            text: "Tu pedido se ha realizado correctamente.",
+            icon: "success",
+            button: "Consulta tu pedido",
+        }).then(function () {
+            window.location = "/delivery/carrito/facturacarrito/"+ $scope.msg_factura;
+        });
             }, function (response) {
                 $scope.status = response.status;
                 $scope.msg_factura = response.data.message || 'Request failed';
