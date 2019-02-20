@@ -120,9 +120,7 @@ moduleCarrito.controller('carritoPlistBurgerController', ['$scope', '$http', '$l
         }
 
         $scope.shop = function () {
-
             $('.add-to-cart').on('click', function () {
-
                 var cart = $('.shopping-cart');
                 var imgtodrag = $(this).parent('.item').find("img").eq(0);
                 if (imgtodrag) {
@@ -146,11 +144,11 @@ moduleCarrito.controller('carritoPlistBurgerController', ['$scope', '$http', '$l
                                 'height': 75
                             }, 1000, 'easeInOutExpo');
 
-                    setTimeout(function () {
-                        cart.effect("shake", {
-                            times: 1
-                        }, 200);
-                    }, 500);
+//                    setTimeout(function () {
+//                        cart.effect("shake", {
+//                            times: 1
+//                        }, 200);
+//                    }, 500);
 
                     imgclone.animate({
                         'width': 0,

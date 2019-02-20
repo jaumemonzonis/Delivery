@@ -27,11 +27,11 @@ moduleCarrito.controller('carritoPlistPostreController', ['$scope', '$http', '$l
                                 'height': 75
                             }, 1000, 'easeInOutExpo');
 
-                    setTimeout(function () {
-                        cart.effect("shake", {
-                            times: 1
-                        }, 200);
-                    }, 500);
+//                    setTimeout(function () {
+//                        cart.effect("shake", {
+//                            times: 1
+//                        }, 200);
+//                    }, 500);
 
                     imgclone.animate({
                         'width': 0,

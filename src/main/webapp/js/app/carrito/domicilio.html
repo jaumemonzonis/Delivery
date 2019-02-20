@@ -1,5 +1,41 @@
-<headerclient-component></headerclient-component>
 <div class="body_plist">
+
+    <div class="header d-flex">
+        <div class="nav1">
+
+            <input type="checkbox" id="menu-btn" name="Menu">
+            <label id="menu-lbl" for="menu-btn"></label>
+            <nav itemscope itemtype="http://schema.org/SiteNavigationElement" >
+                <a class="label_white" ng-click="c.productos()">PRODUCTOS</a>
+                <a class="label_white"  ng-click="c.locales()">LOCALES</a>
+                <a class="label_white" ng-click="c.empresa()">EMPRESA</a>
+                <a class="label_white" ng-click="c.contacto()">CONTACTO</a>
+            </nav>
+        </div>
+        <div class="logo">
+            <a href="/delivery/home">
+                <img src="images/logo.png" class="logo_img" alt="Responsive image">
+            </a>
+        </div>
+        <div class="vacio flex-grow-1">
+        </div>
+        <div class="login">
+            <div class="dropleft">
+                <div  class="icono_usuario dropdown-toggle" data-toggle="dropdown">
+                    <i class="material-icons md-48" ng-class="{'con-clase': c.logged}">
+                        account_circle
+                    </i> 
+                </div>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item label_white"  ng-show="!c.logged" href="usuario/registrarse"><i class="fas fa-user"> </i>    REGISTRARSE</a>  
+                    <a class="dropdown-item label_white" ng-show="!c.logged" href="usuario/login"><i class="fas fa-user"> </i>    LOGIN</a>
+                    <a class="dropdown-item label_white" ng-show="c.logged" href="usuario/viewusuariocliente/{{c.loggeduserid}}"><i class="fas fa-user"> </i>  PERFIL</a>
+                    <a class="dropdown-item label_white" ng-show="c.logged" href="factura/facturacliente/10/1/{{c.loggeduserid}}"><i class="fas far fa-file"></i>  VER FACTURAS</a>
+                    <a class="dropdown-item label_white" ng-show="c.logged" href="usuario/logout"><i class="fas fa-sign-out-alt"></i>  LOGOUT</a>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="imgproductos">
         <div class="label_domicilio prod4"><img src="images/paso1.png" alt="paso 1" class="paso_img"/>¿DONDE TE LO ENVIAMOS?</div>
         <div class="row">
@@ -132,25 +168,17 @@
 
 
 </div> 
-
     <div class="flechas d-flex justify-content-center">
-        <div  ng-click="volver()" class="flecha_btn"><i class="material-icons">
+        <div  ng-click="volver()" class="flecha_btn float-left mr-5"><i class="material-icons">
                 arrow_back_ios
             </i></div>
-        
     </div>
-  
-<footer>
-    <div class="footer d-flex mt-3">
+    <div class="footerplist d-flex mt-3">
         <div class="rrss tw"></div>
         <div class="rrss fb"></div>
         <div class="rrss in"></div>
         <div class="label_footer">PROYECTO FINAL - DAW - JAUME MONZONIS LAZARO</div>
-
     </div>
-
-</footer>
-
 
 
 </div>

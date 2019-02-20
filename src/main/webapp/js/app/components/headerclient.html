@@ -4,10 +4,10 @@
         <input type="checkbox" id="menu-btn" name="Menu">
         <label id="menu-lbl" for="menu-btn"></label>
         <nav itemscope itemtype="http://schema.org/SiteNavigationElement" >
-            <a class="label_white" href="/delivery/carrito/plist_burger">PRODUCTOS</a>
-            <a class="label_white"  href="/delivery/carrito/locales">LOCALES</a>
-            <a class="label_white" href="#">EMPRESA</a>
-            <a class="label_white" href="#">CONTACTO</a>
+            <a class="label_white" ng-click="c.productos()">PRODUCTOS</a>
+            <a class="label_white"  ng-click="c.locales()">LOCALES</a>
+            <a class="label_white" ng-click="c.empresa()">EMPRESA</a>
+            <a class="label_white" ng-click="c.contacto()">CONTACTO</a>
         </nav>
     </div>
     <div class="logo">

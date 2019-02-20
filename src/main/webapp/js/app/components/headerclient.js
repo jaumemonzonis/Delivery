@@ -7,7 +7,7 @@ moduloDirectivas.component('headerclientComponent', {
 });
 
 
-function js(toolService, sessionService, $http, $route) {
+function js(toolService, sessionService, $http, $route,$location) {
     var self = this;
 
 
@@ -19,6 +19,36 @@ function js(toolService, sessionService, $http, $route) {
     self.limpiar = sessionService.isSessionActive();
 
         
+        self.productos = function () {
+           if (self.logged === true){
+            $location.url(`carrito/plist_burger`);
+        } else {
+            $location.url(`usuario/login`);
+        }
+        };
         
+          self.locales = function () {
+           if (self.logged === true){
+            $location.url(`carrito/locales`);
+        } else {
+            $location.url(`usuario/login`);
+        }
+        };
+        
+             self.empresa = function () {
+           if (self.logged === true){
+            $location.url(`carrito/empresa`);
+        } else {
+            $location.url(`usuario/login`);
+        }
+        };
+        
+               self.contacto = function () {
+           if (self.logged === true){
+            $location.url(`carrito/contacto`);
+        } else {
+            $location.url(`usuario/login`);
+        }
+        };
         
 }

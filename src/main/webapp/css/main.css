@@ -8,6 +8,7 @@ html *{
 body {
     background-color: white;
     max-width:100vw;
+
 }
 
 .contain{
@@ -456,53 +457,73 @@ select{
 ---------------CLIENTE------------------------------*/
 
 .body {
-    background-color: #036C81;
-    /*  display: grid;*/
-    /*  grid-template-columns: 10vw auto;
-      grid-template-rows:15vh;*/
-}
-.body_home {
-    background-image: linear-gradient(#036C81, #038DA7);
     display: grid;
     grid-template-columns: 7vw auto 7vw;
-    grid-template-rows:auto auto 15vh 15vh;
-}
-
-.body_plist {
-    background-image: linear-gradient(#036C81, #038DA7);
-    display: grid;
-    grid-template-columns: 7vw auto 7vw;
-    grid-template-rows:auto auto 15vh 15vh;
-}
-.imgprincipal{
-    grid-area: 1/1/5/4;
-    background-image: url("../images/principal2.png");
+    grid-template-rows: 12vh auto 11vh;
+    background-image: url("../images/principal.png");
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size:cover;
     position: relative;
     width: 100%;
-    height: 88vh;
+    min-height: 100%;
     margin-left: auto;
     margin-right: auto;
-
 }
 
-
-
-.vacio{
-    background-image: url("../images/header.png");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-
+/*.body_home {
+    background-image: linear-gradient(#036C81, #038DA7);
+    display: grid;
+    grid-template-columns: 7vw auto 7vw;
+    grid-template-rows:auto auto 15vh 15vh;
 }
-.imgproductos{
-     grid-area: 1/1/3/4;
-    background-image: url("../images/principal2.png");
+
+*/
+.body_plist {
+    display: grid;
+    grid-template-columns: 7vw auto 7vw;
+    grid-template-rows: 12vh auto auto 11vh;
+    background-image: url("../images/principal_producto.jpg");
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size:cover;
     position: relative;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.bodylogin {
+    display: grid;
+    grid-template-columns: 7vw auto 7vw;
+    grid-template-rows: 56vh 1vh 15vh 15vh;
+}
+.bodyfacturacarrito {
+    display: grid;
+    grid-template-columns: 7vw auto 7vw;
+    grid-template-rows: auto auto 15vh 15vh;
+     background-image: linear-gradient(#036C81, #038DA7);
+}
+.bodyperfil {
+    display: grid;
+    grid-template-columns: 7vw auto 7vw;
+    grid-template-rows: 48vh 13vh 13vh 14vh;
+}
+.imgprincipal{
+    grid-area: 2/1/3/4;
+    position: relative;
+    width: 100%;
+    height: 77vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.imgproductos{
+    grid-area: 2/2/3/3;
+    position: relative;
+    width: 100%;
+    height: auto;
     margin-left: auto;
     margin-right: auto;
 }
@@ -518,7 +539,7 @@ select{
     margin-right: auto
 }
 .imgcliente{
-   grid-area: 1/1/3/4;
+    grid-area: 1/1/5/4;
     background-image: url("../images/principal2.png");
     background-repeat: no-repeat;
     background-size: 100%;
@@ -560,7 +581,6 @@ select{
 /* boton usuario*/
 .label {
     font-size: 350%;
-    margin-left: 6%;
     margin-bottom: -1%;
     font-weight: 900;
     opacity: 0.7;
@@ -572,6 +592,13 @@ select{
     margin-top:5%;
 }
 
+.top_ensaladas{
+   font-size: 300% !important;
+   margin-top: 1%;
+}
+.sandwiches{
+     font-size: 300% !important;
+}
 .label.prod1{
     color: #F9B157;
 }
@@ -692,21 +719,27 @@ input#menu-btn:checked + label::after {
 
 /* FOOTER CLIENTE*/
 footer {
-    grid-area: 4/1/5/4;
-        z-index:2;
+    grid-area: 3/1/4/4;
+    z-index:2;
 
 
 }
 .footer {
     background-color:#3b56a3;
-    height: 40%;
+    height: 50%;
     margin-left: 5%;
     margin-right: 5%;
-    margin-top: 3%;
 }
+.footerplist {
+    background-color:#3b56a3;
+    height: 50%;
+    margin-left: 5%;
+    margin-right: 5%;
+    grid-area: 4/1/5/4 !important;
 
+}
 .rrss{
-    width: 4%;
+    width: 3%;
     background-repeat: no-repeat;
 }
 
@@ -733,14 +766,14 @@ footer {
 /* MENU PRODUCTOS CLIENTE*/
 .nav{
     grid-area: 2/2/3/3;
-    margin-top:24%;
+    margin-top:15%;
 }
 
 .nav_home{
     grid-area: 2/1/3/2;
     display: grid !important;
     grid-template-columns: auto auto;
-    grid-template-rows:44vh 44vh;
+    grid-template-rows:38vh 38vh;
     z-index: 2;
 }
 figure.menu {
@@ -1184,8 +1217,8 @@ div.shadow{
 /* BOTON CARRITO PLIST CARRITO*/
 .icon_cart{
     float: right;
-    margin-right: -1%;
-    margin-top:1%;
+    height: 12vh;
+    width: 7vh;
 }
 
 
@@ -1643,11 +1676,26 @@ div.shadow{
 }
 
 .navlogin{
-    margin-top: 12% !important;
+    grid-area: 2/2/3/3;
+    margin-top: 10%;
+    min-height: 46vh;
+}
+
+.navperfil{
+    grid-area: 1/2/2/3;
+    margin-top: 4%;
+}
+.navpass{
+    grid-area: 1/2/2/3;
+    margin-top: 9%;
 }
 .rest_homeadm{
     left: 8%!important;  
 
+}
+
+.top_plistperfil{
+    margin-top: 0%;
 }
 
 @media screen and (max-width: 576px) {
@@ -1769,7 +1817,7 @@ div.shadow{
     .nav_domicilio{
         margin-top:35%;
     }
-           .icon_cart {
+    .icon_cart {
         margin-right: 1%;
     }
 }
@@ -1913,7 +1961,7 @@ div.shadow{
         width: 100px;
         height: 76px;
     }
-           .icon_cart {
+    .icon_cart {
         margin-right: 1%;
     }
 }
@@ -1986,7 +2034,7 @@ div.shadow{
         width:100px;
         height: 46px;
     }
-          .icon_cart {
+    .icon_cart {
         margin-right: 1%;
     }
 }
@@ -2050,7 +2098,7 @@ div.shadow{
     .nav_domicilio{
         margin-top:11%;
     }
-        .icon_cart {
+    .icon_cart {
         margin-right: 1%;
     }
 
@@ -2059,7 +2107,7 @@ div.shadow{
 @media  screen and (min-width: 1200px) {
 
     .icon_cart {
-        margin-right: 10%;
+        margin-right: 3%;
     }
 
 }
@@ -2095,17 +2143,17 @@ div.shadow{
 
     background-color:#21c999;
     color:white;
-    font-size: 150%;
+    font-size: 100%;
     position:relative;
     transform: rotate(-50deg);
     border-radius:10px;
     padding:10%;
     z-index:0;
     text-align:center;
-    width:50px;
-    height: 50px;
-    top:16px;
-    left:20px;
+    width:30px;
+    height: 30px;
+    top:10px;
+    left:12px;
 }
 
 
@@ -2114,13 +2162,23 @@ div.shadow{
     height: 100% !important;
     z-index: 3 !important;
     color:#A62B21;
-     position:relative;
+    position:relative;
 }
 
 .material-icons.md { 
-    font-size: 500%;
+    font-size: 300%;
 }
 
 .registrarseok{
     height: 200% !important;
+}
+
+.header{
+    grid-area: 1 / 1 / 2 / 4;  
+
+}
+
+.titulo{
+/*    grid-area: 2 / 2 / 3 / 3;  */
+
 }
