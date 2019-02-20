@@ -1,10 +1,43 @@
-<headerclient-component></headerclient-component>
-<div class="bodylogin">
-    <div class="imgcliente">
-        <div class="label prod1 top_plistproductos">LOGIN</div>
+<div class="body">
+     <div class="header d-flex">
+    <div class="nav1">
 
+        <input type="checkbox" id="menu-btn" name="Menu">
+        <label id="menu-lbl" for="menu-btn"></label>
+        <nav itemscope itemtype="http://schema.org/SiteNavigationElement" >
+            <a class="label_white" ng-click="c.productos()">PRODUCTOS</a>
+            <a class="label_white"  ng-click="c.locales()">LOCALES</a>
+            <a class="label_white" ng-click="c.empresa()">EMPRESA</a>
+            <a class="label_white" ng-click="c.contacto()">CONTACTO</a>
+        </nav>
     </div>
-    <div class="navlogin">
+    <div class="logo">
+        <a href="/delivery/home">
+            <img src="images/logo.png" class="logo_img" alt="Responsive image">
+        </a>
+    </div>
+    <div class="vacio flex-grow-1"></div>
+    <div class="login">
+        <div class="dropleft">
+            <div  class="icono_usuario dropdown-toggle" data-toggle="dropdown">
+                <i class="material-icons md-48" ng-class="{'con-clase': c.logged}">
+                    account_circle
+                </i> 
+            </div>
+            <div class="dropdown-menu">
+                <a class="dropdown-item label_white"  ng-show="!c.logged" href="usuario/registrarse"><i class="fas fa-user"> </i>    REGISTRARSE</a>  
+                <a class="dropdown-item label_white" ng-show="!c.logged" href="usuario/login"><i class="fas fa-user"> </i>    LOGIN</a>
+                <a class="dropdown-item label_white" ng-show="c.logged" href="usuario/viewusuariocliente/{{c.loggeduserid}}"><i class="fas fa-user"> </i>  PERFIL</a>
+                <a class="dropdown-item label_white" ng-show="c.logged" href="factura/facturacliente/10/1/{{c.loggeduserid}}"><i class="fas far fa-file"></i>  VER FACTURAS</a>
+                <a class="dropdown-item label_white" ng-show="c.logged" href="usuario/logout"><i class="fas fa-sign-out-alt"></i>  LOGOUT</a>
+            </div>
+        </div>
+    </div>
+
+  </div>
+    <div class="imgprincipal">
+  
+<div class="navlogin2">
 
 
         <div class="mx-auto col-md-8 col-sm-10 col-12 col-lg-5 col-xl-5 container2">
@@ -31,12 +64,20 @@
                 </div>
             </form>
 
-
-
         </div>
     </div>
 
 
+
+
+
+
+
+
+
+
+
+    </div>
     <footer>
         <div class="footer d-flex">
             <div class="rrss tw"></div>

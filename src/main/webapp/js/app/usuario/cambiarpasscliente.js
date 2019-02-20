@@ -4,9 +4,54 @@
 moduleUsuario.controller('cambiarpassclienteController', ['$scope', '$http', '$location', 'toolService', '$routeParams', 'sessionService',
     function ($scope, $http, $location, toolService, $routeParams, sessionService) {
 
+// HEADER //
+
+        $scope.loggeduser = sessionService.getUserName();
+        $scope.loggeduserid = sessionService.getId();
+        $scope.logged = sessionService.isSessionActive();
+        $scope.tipousuarioID = sessionService.getTypeUserID();
+        $scope.isActive = toolService.isActive;
+        $scope.limpiar = sessionService.isSessionActive();
+
+
+        $scope.productos = function () {
+            if ($scope.logged === true) {
+                $location.url(`carrito/plist_burger`);
+            } else {
+                $location.url(`usuario/login`);
+            }
+        };
+
+        $scope.locales = function () {
+            if ($scope.logged === true) {
+                $location.url(`carrito/locales`);
+            } else {
+                $location.url(`usuario/login`);
+            }
+        };
+
+        $scope.empresa = function () {
+            if ($scope.logged === true) {
+                $location.url(`carrito/empresa`);
+            } else {
+                $location.url(`usuario/login`);
+            }
+        };
+
+        $scope.contacto = function () {
+            if ($scope.logged === true) {
+                $location.url(`carrito/contacto`);
+            } else {
+                $location.url(`usuario/login`);
+            }
+        };
+
+        // HEADER//
+
+
         $scope.edited = true;
         $scope.error = true;
-        $scope.logged = false;
+
 
         if (!$routeParams.id) {
             $scope.id = 1;
@@ -80,15 +125,15 @@ moduleUsuario.controller('cambiarpassclienteController', ['$scope', '$http', '$l
                     params: {json: JSON.stringify(json)}
                 }).then(function () {
                     $scope.edited = false;
-                      swal({
-                    title: "GUARDADO",
-                    text: "Contraseña del usuario "+$scope.login+" ha sido cambiada correctamente",
-                    icon: "success",
-                    button: "Volver!",
-                }).then(function () {
-                    window.location = 'usuario/viewusuariocliente/'+ $scope.id ;
-                });
-          
+                    swal({
+                        title: "GUARDADO",
+                        text: "Contraseña del usuario " + $scope.login + " ha sido cambiada correctamente",
+                        icon: "success",
+                        button: "Volver!",
+                    }).then(function () {
+                        window.location = 'usuario/viewusuariocliente/' + $scope.id;
+                    });
+
                 })
             } else {
                 $scope.edited = true;

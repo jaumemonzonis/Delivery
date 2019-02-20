@@ -1680,6 +1680,31 @@ div.shadow{
     margin-top: 10%;
     min-height: 46vh;
 }
+.navlogin2{
+    grid-area: 2/2/3/3;
+    margin-top: 6%;
+    min-height: 46vh;
+}
+
+.navcontrasena {
+    grid-area: 2/2/3/3;
+    margin-top: 14%;
+    min-height: 46vh;
+}
+
+.navlinea {
+    grid-area: 2/2/3/3;
+    margin-top: 10%;
+    min-height: 60vh;
+}
+
+.top_perfil{
+    margin-top: 1%;
+}
+
+.nav_registrarse{
+     margin-top: 8% !important;  
+}
 
 .navperfil{
     grid-area: 1/2/2/3;

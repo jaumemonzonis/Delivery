@@ -5,10 +5,10 @@
         <input type="checkbox" id="menu-btn" name="Menu">
         <label id="menu-lbl" for="menu-btn"></label>
         <nav itemscope itemtype="http://schema.org/SiteNavigationElement" >
-            <a class="label_white" ng-click="c.productos()">PRODUCTOS</a>
-            <a class="label_white"  ng-click="c.locales()">LOCALES</a>
-            <a class="label_white" ng-click="c.empresa()">EMPRESA</a>
-            <a class="label_white" ng-click="c.contacto()">CONTACTO</a>
+            <a class="label_white" ng-click="productos()">PRODUCTOS</a>
+            <a class="label_white"  ng-click="locales()">LOCALES</a>
+            <a class="label_white" ng-click="empresa()">EMPRESA</a>
+            <a class="label_white" ng-click="contacto()">CONTACTO</a>
         </nav>
     </div>
     <div class="logo">
@@ -20,16 +20,16 @@
     <div class="login">
         <div class="dropleft">
             <div  class="icono_usuario dropdown-toggle" data-toggle="dropdown">
-                <i class="material-icons md-48" ng-class="{'con-clase': c.logged}">
+                <i class="material-icons md-48" ng-class="{'con-clase': logged}">
                     account_circle
                 </i> 
             </div>
             <div class="dropdown-menu">
-                <a class="dropdown-item label_white"  ng-show="!c.logged" href="usuario/registrarse"><i class="fas fa-user"> </i>    REGISTRARSE</a>  
-                <a class="dropdown-item label_white" ng-show="!c.logged" href="usuario/login"><i class="fas fa-user"> </i>    LOGIN</a>
-                <a class="dropdown-item label_white" ng-show="c.logged" href="usuario/viewusuariocliente/{{c.loggeduserid}}"><i class="fas fa-user"> </i>  PERFIL</a>
-                <a class="dropdown-item label_white" ng-show="c.logged" href="factura/facturacliente/10/1/{{c.loggeduserid}}"><i class="fas far fa-file"></i>  VER FACTURAS</a>
-                <a class="dropdown-item label_white" ng-show="c.logged" href="usuario/logout"><i class="fas fa-sign-out-alt"></i>  LOGOUT</a>
+                <a class="dropdown-item label_white"  ng-show="!logged" href="usuario/registrarse"><i class="fas fa-user"> </i>    REGISTRARSE</a>  
+                <a class="dropdown-item label_white" ng-show="!logged" href="usuario/login"><i class="fas fa-user"> </i>    LOGIN</a>
+                <a class="dropdown-item label_white" ng-show="logged" href="usuario/viewusuariocliente/{{loggeduserid}}"><i class="fas fa-user"> </i>  PERFIL</a>
+                <a class="dropdown-item label_white" ng-show="logged" href="factura/facturacliente/10/1/{{loggeduserid}}"><i class="fas far fa-file"></i>  VER FACTURAS</a>
+                <a class="dropdown-item label_white" ng-show="logged" href="usuario/logout"><i class="fas fa-sign-out-alt"></i>  LOGOUT</a>
             </div>
         </div>
     </div>
