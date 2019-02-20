@@ -470,14 +470,9 @@ select{
     margin-right: auto;
 }
 
-/*.body_home {
-    background-image: linear-gradient(#036C81, #038DA7);
-    display: grid;
-    grid-template-columns: 7vw auto 7vw;
-    grid-template-rows:auto auto 15vh 15vh;
+.body_cliente {
+    background-image: url("../images/cliente.png") !important;
 }
-
-*/
 .body_plist {
     display: grid;
     grid-template-columns: 7vw auto 7vw;
