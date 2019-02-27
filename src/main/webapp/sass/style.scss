@@ -10,6 +10,9 @@
     transition: $property $duration $ease;
 }
 
+$rojo: #A62B21;
+$amarillo: #F9B157;
+$azulclaro: #48cfad;
 
 html *{
     font-family: 'Convergence', sans-serif;
@@ -48,7 +51,7 @@ a {
 
 .container2 {
     background-color: white !important;
-    border: 10px #F9B157 solid;
+    border: 10px $amarillo solid;
     height: auto;
 
 }
@@ -57,7 +60,7 @@ a {
 /* botones acciones */
 
 .order{
-    color: #F9B157;
+    color: $amarillo;
     background-color: white !important;
     border: none;
     height: 10px; 
@@ -152,18 +155,18 @@ a {
 }
 
 .btn-outline-secondary {
-    border-color: #A62B21 !important;
-    color: #A62B21 !important;
+    border-color: $rojo !important;
+    color: $rojo !important;
 }
 
 .btn-rojo{
 
-    background-color: #A62B21 !important;  
+    background-color: $rojo !important;  
 }
 
 
 .hover-ajena:hover {
-    color: #F9B157 !important;
+    color: $amarillo !important;
 }
 
 .create_btn_margin{
@@ -201,7 +204,7 @@ a {
 
 th {
     font-size: 14px;
-    color:  #A62B21;
+    color:  $rojo;
     text-align: center !important;
 }
 
@@ -209,7 +212,7 @@ th {
 
 td{
     vertical-align: middle;
-    border-color: #F9B157;
+    border-color: $amarillo;
     font-weight: 100;
     font-size:14px;
     color: #3c4858;
@@ -230,7 +233,7 @@ h4, h3{
 
 select{
     width: 21% !important;
-    color: #F9B157 !important;
+    color: $amarillo !important;
 }
 
 .selectMunicipio{
@@ -242,8 +245,8 @@ select{
 .form-size{
     font-size: 70% !important; 
     width: 25% !important;  
-    color: #A62B21 !important;
-    border: 1px solid #F9B157 !important;
+    color: $rojo !important;
+    border: 1px solid $amarillo !important;
     margin-right: 12% !important;
 }
 
@@ -252,14 +255,14 @@ select{
 }
 
 .pagination{
-    color: #F9B157 !important;
+    color: $amarillo !important;
     padding-top: 4%;
 
 }
 
 .page-link{
-    background-color: #F9B157 !important;
-    color: #A62B21 !important;
+    background-color: $amarillo !important;
+    color: $rojo !important;
 
 }
 .active{
@@ -275,7 +278,7 @@ select{
     color: #21778F !important;
 }
 .text-pagination:hover {
-    color: #A62B21 !important;
+    color: $rojo !important;
 }
 
 .menu_selection{
@@ -442,13 +445,13 @@ select{
 }
 
 .navegador{
-    background-color: #F9B157;
+    background-color: $amarillo;
 }
 
 
 .btn-primary {
     color:white !important;
-    background-color:#A62B21 !important;
+    background-color:$rojo !important;
 }
 
 /* ventana emergente */
@@ -516,11 +519,11 @@ select{
     @include size (12vh,7vw);
 }
 .nav1 {
-    background-color:#A62B21;
+    background-color:$rojo;
 
 }
 .logo {
-    background-color:#F9B157;
+    background-color:$amarillo;
 
 }
 .logo_img{
@@ -532,7 +535,7 @@ select{
     @include size (12%);
 }
 .login {
-    background-color:#A62B21;
+    background-color:$rojo;
     float: right !important;
 }
 /* boton usuario*/
@@ -557,10 +560,10 @@ select{
     font-size: 300% !important;
 }
 .label.prod1{
-    color: #F9B157;
+    color: $amarillo;
 }
 .label.prod2{
-    color: #A62B21;
+    color: $rojo;
 }
 .label.prod3{
     color: #055969;
@@ -578,13 +581,13 @@ select{
     transform: translate3d(-100%, 0px, 0px)!important;
     color: white !important;
     font-weight: 900;
-    background-color: #F9B157;
+    background-color: $amarillo;
     font-size: 20px;
     border-radius: 0px !important;
 }
 .dropdown-item.label_white:hover{
-    background-color: #F9B157 !important;
-    color: #A62B21 !important;
+    background-color: $amarillo !important;
+    color: $rojo !important;
 }
 .material-icons.md-48{
     font-size:3vw;
@@ -603,7 +606,7 @@ nav {
     padding: 0;
     display: block;
     @include size (20%,0px);
-    background: #F9B157;
+    background: $amarillo;
     transition: all 0.1s ease;
     overflow-y: hidden;
 }
@@ -618,7 +621,7 @@ nav>a {
 }
 
 nav>a:hover {
-    color: #A62B21 !important;
+    color: $rojo !important;
 }
 
 input#menu-btn {
@@ -1001,7 +1004,7 @@ figure.menu.hover:before {
 }
 .stats-container .product_price{
     float:right;
-    color:#48cfad;
+    color:$azulclaro;
     font-size:22px;
     font-weight:600;
 }
@@ -1049,7 +1052,7 @@ figure.menu.hover:before {
 }
 #view_details:hover{	
     background:#fff;
-    color:#48cfad;
+    color:$azulclaro;
     cursor:pointer;
 
 }
@@ -1103,7 +1106,7 @@ div.shadow{
 
 .flecha_btn:hover{	
     background:#fff;
-    color:#48cfad;
+    color:$azulclaro;
     cursor:pointer;
 
 }
@@ -1127,7 +1130,7 @@ div.shadow{
 
 .btn-amarillo{
 
-    background-color: #F9B157 !important;  
+    background-color: $amarillo !important;  
 }
 
 .alerta_carrito_vacio{
@@ -1141,7 +1144,7 @@ div.shadow{
 /* Restaurante pre-seleccionado*/
 #product-front-pre, #product-back{
     @include size (110%);
-    background:#A62B21;
+    background:$rojo;
     position:absolute;
     left:-5px;
     top:-5px;
@@ -1154,7 +1157,7 @@ div.shadow{
 }
 
 .stats-container-pre{
-    background:#A62B21;	
+    background:$rojo;	
     position:absolute;
     top:386px;
     left:0;
@@ -1429,7 +1432,7 @@ div.shadow{
 /* OPCION LOCAL O DOMICILIO*/
 
 .label.prod4{
-    color: #F9B157;
+    color: $amarillo;
     font-size: 50px;
 }
 .label.prod4.top_domicilio{
@@ -1440,7 +1443,7 @@ div.shadow{
 .label_domicilio{
     font-weight: 900;
     font-size: 40px;
-    color: #F9B157;
+    color: $amarillo;
     margin-top:4%;
 }
 
@@ -1487,7 +1490,7 @@ div.shadow{
 
 /*  usuario logeado*/
 .con-clase{
-    color: #F9B157 !important;
+    color: $amarillo !important;
     animation: zoominoutsinglefeatured 2s 1 !important;
     font-size: 4vw !important;
     padding-left: 20% !important;
@@ -2005,7 +2008,7 @@ div.shadow{
     width:72% !important;
     height: 100% !important;
     z-index: 3 !important;
-    color:#A62B21;
+    color:$rojo;
     position:relative;
 }
 
