@@ -363,8 +363,10 @@ select{
 
 .box h3 {
     color: #fff;
-    font-weight: 300;
-    font-size: 18px;
+    font: {
+        weight: 300;
+        size: 18px;
+    }
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -384,8 +386,10 @@ select{
 
 .box_second h3 {
     color: #fff;
-    font-weight: 100;
-    font-size: 80%;
+     font: {
+        weight: 300;
+        size: 80%;
+    }
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -540,6 +544,9 @@ select{
 }
 /* boton usuario*/
 .label {
+    
+    
+    
     font-size: 350%;
     margin-bottom: -1%;
     font-weight: 900;
