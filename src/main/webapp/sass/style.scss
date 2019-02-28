@@ -104,16 +104,17 @@ a {
     box-shadow: 0 2px 2px 0 hsla(0,0%,60%,.14), 0 3px 1px -2px hsla(0,0%,60%,.2), 0 1px 5px 0 hsla(0,0%,60%,.12);
     background-color: #21778F !important;
     color: white !important;
+    & .material-icons{
+        position: relative;
+        display: inline-block;
+        top: 0;
+        margin-top: -1.2em;
+        margin-bottom: -1em;
+        font-size: 1.1rem;
+        vertical-align: middle;
+    }
 }
-.btn .material-icons{
-    position: relative;
-    display: inline-block;
-    top: 0;
-    margin-top: -1.2em;
-    margin-bottom: -1em;
-    font-size: 1.1rem;
-    vertical-align: middle;
-}
+
 .btn.btn-sm{
     border-radius:3px !important;
 }
@@ -190,9 +191,7 @@ a {
     text-transform: uppercase; 
 }
 
-.table .ver{
-    border-top: 1px solid #dee2e6 !important;
-}
+
 
 .table {
     width: 100%;
@@ -200,6 +199,9 @@ a {
     text-align: center;
     background-color: transparent;
     vertical-align: middle;
+    & .ver{
+        border-top: 1px solid #dee2e6 !important;
+    }
 }
 
 th {
@@ -276,9 +278,9 @@ select{
 
 .text-pagination {
     color: #21778F !important;
-}
-.text-pagination:hover {
-    color: $rojo !important;
+    &:hover {
+        color: $rojo !important;
+    }
 }
 
 .menu_selection{
@@ -296,6 +298,46 @@ select{
     overflow: hidden;
     box-shadow: 0 0 5px rgba(0,0,0,0.4);
     cursor: pointer;
+    & h3 {
+        color: #fff;
+        font: {
+            weight: 300;
+            size: 18px;
+        }
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border-bottom: 1px solid rgba(255,255,255,0);
+
+        position: absolute;
+        top: 125px;
+        width: 70%;
+        left: 15%;
+        z-index: 4;
+    }
+
+    & .icon-cont {
+        border: 6px solid rgba(255,255,255,0.3);
+        border-radius: 50%;
+        @include size (44%,40%);
+        margin: 20px auto;
+        display: block; 
+        text-align: center;
+        background: #036C81;
+        position: absolute;
+        top: 10px;
+        left: 0;
+        right: 0;
+        z-index: 5;
+        box-shadow: 0 0 0 0px rgba(255,255,255,0.5), 0 0 0 0px rgba(3, 108, 129, 0.5);
+        & i {
+            color: #fff;
+            opacity: 0.6;
+            font-size: 2.5em;
+            line-height: 75px;
+            margin-top: -10%;
+        }
+    }
 }
 
 .box_second {
@@ -321,32 +363,6 @@ select{
 
 }
 
-
-
-.box .icon-cont {
-    border: 6px solid rgba(255,255,255,0.3);
-    border-radius: 50%;
-    @include size (44%,40%);
-    margin: 20px auto;
-    display: block; 
-    text-align: center;
-    background: #036C81;
-    position: absolute;
-    top: 10px;
-    left: 0;
-    right: 0;
-    z-index: 5;
-    box-shadow: 0 0 0 0px rgba(255,255,255,0.5), 0 0 0 0px rgba(3, 108, 129, 0.5);
-}
-
-
-.box .icon-cont i {
-    color: #fff;
-    opacity: 0.6;
-    font-size: 2.5em;
-    line-height: 75px;
-    margin-top: -10%;
-}
 .box:hover .icon-cont {
     animation: shady 4s linear infinite;
 }
@@ -361,23 +377,6 @@ select{
     100% {box-shadow: 0 0 0 0px rgba(255,255,255,0.5), 0 0 0 0px rgba(3, 108, 129, 0.5);}
 }
 
-.box h3 {
-    color: #fff;
-    font: {
-        weight: 300;
-        size: 18px;
-    }
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border-bottom: 1px solid rgba(255,255,255,0);
-
-    position: absolute;
-    top: 125px;
-    width: 70%;
-    left: 15%;
-    z-index: 4;
-}
 
 .restaurante{
     left: 5% !important;
@@ -386,7 +385,7 @@ select{
 
 .box_second h3 {
     color: #fff;
-     font: {
+    font: {
         weight: 300;
         size: 80%;
     }
@@ -544,12 +543,11 @@ select{
 }
 /* boton usuario*/
 .label {
-    
-    
-    
-    font-size: 350%;
+    font: {
+        weight: 900;
+        size: 350%;
+    }
     margin-bottom: -1%;
-    font-weight: 900;
     opacity: 0.7;
 }
 .label.prod1.top{
@@ -583,13 +581,12 @@ select{
 }
 
 .dropdown-menu.show, .dropdown-menu{
-    /*    left:-60% !important;
-        top:-24% !important;*/
+    font: {
+        weight: 900;
+        size: 20px;
+    }
     transform: translate3d(-100%, 0px, 0px)!important;
-    color: white !important;
-    font-weight: 900;
     background-color: $amarillo;
-    font-size: 20px;
     border-radius: 0px !important;
 }
 .dropdown-item.label_white:hover{
@@ -625,11 +622,11 @@ nav>a {
     text-decoration: none;
     font-size: 25px;
     transition: all 0.3s ease;
+    &:hover {
+        color: $rojo !important;
+    }
 }
 
-nav>a:hover {
-    color: $rojo !important;
-}
 
 input#menu-btn {
     opacity: 0;
@@ -643,10 +640,11 @@ label#menu-lbl {
     @include size (38px);
     cursor: pointer;
     transition: opacity 0.2s ease-in;
+    &:hover {
+        opacity: 0.7;
+    }
 }
-label#menu-lbl:hover {
-    opacity: 0.7;
-}
+
 input#menu-btn + label::before,
 input#menu-btn + label::after {
     z-index: 100;
@@ -978,15 +976,16 @@ figure.menu.hover:before {
     overflow:hidden;
     transform-style: preserve-3d;
     @include transition(all,200ms,ease-out);
+    &:hover{
+        top:5px;
+        left:5px;
+        @include size (335px,500px);
+        box-shadow:0px 13px 21px -5px rgba(0, 0, 0, 0.3);
+        @include transition(all,200ms,ease-out);
+    }
 }
 
-#product-card:hover{
-    top:5px;
-    left:5px;
-    @include size (335px,500px);
-    box-shadow:0px 13px 21px -5px rgba(0, 0, 0, 0.3);
-    @include transition(all,200ms,ease-out);
-}
+
 .stats-container{
     background:#fff;	
     position:absolute;
@@ -995,26 +994,30 @@ figure.menu.hover:before {
     @include size (95%,90%);
     padding:27px 35px 35px;	
     @include transition(all,200ms,ease-out);
+    & .product_name{
+        font-size:22px;
+        color:#393c45;	
+    }
+    & p{
+        font-size:16px;
+        color:#b1b1b3;	
+        padding:2px 0 20px 0;
+    }
+    & .product_price{
+        float:right;
+        color:$azulclaro;
+        font: {
+            weight: 600;
+            size: 22px;
+        }
+
+    }
 }
 #product-card:hover .stats-container{
     top:272px;
     @include transition(all,200ms,ease-out); 
 }
-.stats-container .product_name{
-    font-size:22px;
-    color:#393c45;	
-}
-.stats-container p{
-    font-size:16px;
-    color:#b1b1b3;	
-    padding:2px 0 20px 0;
-}
-.stats-container .product_price{
-    float:right;
-    color:$azulclaro;
-    font-size:22px;
-    font-weight:600;
-}
+
 .image_overlay{
     position:absolute;
     top:0;
@@ -1029,18 +1032,21 @@ figure.menu.hover:before {
 }
 .product-options{
     padding:2px 0 0;
+    & strong{
+        font: {
+            weight:700;
+            size: 14px;
+        }
+        color:#393c45;
+    }
+    & span{	
+        color:#969699;
+        font-size:14px;
+        display:block;
+        margin-bottom:8px;
+    }
 }
-.product-options strong{
-    font-weight:700;
-    color:#393c45;
-    font-size:14px;
-}
-.product-options span{	
-    color:#969699;
-    font-size:14px;
-    display:block;
-    margin-bottom:8px;
-}
+
 #view_details{	
     position:absolute;
     top:112px;
@@ -1048,21 +1054,24 @@ figure.menu.hover:before {
     margin-left:-85px;	
     border:2px solid #fff;
     color:#fff;
-    font-size:19px;
+    font: {
+        weight: 700;
+        size: 19px;
+    }
     text-align:center;
     text-transform:uppercase;
-    font-weight:700;
     padding:10px 0;
     width:172px;	
     opacity:0;
     @include transition(all,200ms,ease-out);
-}
-#view_details:hover{	
-    background:#fff;
-    color:$azulclaro;
-    cursor:pointer;
+    &:hover{	
+        background:#fff;
+        color:$azulclaro;
+        cursor:pointer;
 
+    }
 }
+
 #product-card:hover #view_details{
     opacity:1;
     width:152px;
@@ -1101,22 +1110,24 @@ div.shadow{
 
     border:2px solid #fff;
     color:#fff;
-    font-size:19px;
+    font: {
+        weight: 700;
+        size: 19px;
+    }
     text-align:center;
     text-transform:uppercase;
-    font-weight:700;
     padding:10px 0;
     width:8%;
     height: 90%;
     @include transition(all,200ms,ease-out);
+    &:hover{	
+        background:#fff;
+        color:$azulclaro;
+        cursor:pointer;
+    }
 }
 
-.flecha_btn:hover{	
-    background:#fff;
-    color:$azulclaro;
-    cursor:pointer;
 
-}
 .flechas{	
     grid-area: 3/2/4/3;
     margin-top:3%;
@@ -1190,9 +1201,11 @@ div.shadow{
     padding:2px 0 0;
 }
 .product-options-pre strong{
-    font-weight:700;
+    font: {
+        weight: 700;
+        size: 14px;
+    }
     color:#393c45;
-    font-size:14px;
 }
 .product-options-pre span{	
     color:white;
@@ -1220,21 +1233,24 @@ div.shadow{
     margin-left:-85px;	
     border:2px solid #fff;
     color:white !important;
-    font-size:19px;
+    font: {
+        weight: 700;
+        size: 19px;
+    }
     text-align:center;
     text-transform:uppercase;
-    font-weight:700;
     padding:10px 0;
     width:172px;	
     opacity:0;
-    @include transition(all,200ms,ease-out);; 
-}
-#view_details-pre:hover{	
-    background:#fff !important;
-    color:#E9776E !important;
-    cursor:pointer;
+    @include transition(all,200ms,ease-out);
+    &:hover{	
+        background:#fff !important;
+        color:#E9776E !important;
+        cursor:pointer;
 
+    }
 }
+
 #product-card:hover #view_details-pre{
     opacity:1;
     width:152px;
@@ -1286,9 +1302,11 @@ div.shadow{
     padding:2px 0 0;
 }
 .product-options-area strong{
-    font-weight:700;
+    font: {
+        weight: 700;
+        size: 14px;
+    }
     color:#393c45;
-    font-size:14px;
 }
 .product-options-area span{	
     color:white;
@@ -1316,21 +1334,24 @@ div.shadow{
     margin-left:-85px;	
     border:2px solid #fff;
     color:white;
-    font-size:19px;
+    font: {
+        weight: 700;
+        size: 19px;
+    }
     text-align:center;
     text-transform:uppercase;
-    font-weight:700;
     padding:10px 0;
     width:172px;	
     opacity:0;
     @include transition(all,200ms,ease-out); 
-}
-#view_details-area:hover{	
-    background:#fff;
-    color:#FFE8CB;
-    cursor:pointer;
+    &:hover{	
+        background:#fff;
+        color:#FFE8CB;
+        cursor:pointer;
 
+    }
 }
+
 #product-card:hover #view_details-area{
     opacity:1;
     width:152px;
@@ -1382,9 +1403,11 @@ div.shadow{
     padding:2px 0 0;
 }
 .product-options-plist strong{
-    font-weight:700;
+    font: {
+        weight: 700;
+        size: 14px;
+    }
     color:#393c45;
-    font-size:14px;
 }
 .product-options-plist span{	
     color:white;
@@ -1412,21 +1435,24 @@ div.shadow{
     margin-left:-85px;	
     border:2px solid #fff;
     color:white;
-    font-size:19px;
+    font: {
+        weight: 700;
+        size: 19px;
+    }
     text-align:center;
     text-transform:uppercase;
-    font-weight:700;
     padding:10px 0;
     width:172px;	
     opacity:0;
     @include transition(all,200ms,ease-out);
-}
-#view_details-plist:hover{	
-    background:#fff;
-    color:#FFE8CB;
-    cursor:pointer;
+    &:hover{	
+        background:#fff;
+        color:#FFE8CB;
+        cursor:pointer;
 
+    }
 }
+
 #product-card:hover #view_details-plist{
     opacity:1;
     width:152px;
@@ -1448,8 +1474,11 @@ div.shadow{
 /*  DOMICILIO*/
 
 .label_domicilio{
-    font-weight: 900;
-    font-size: 40px;
+    font: {
+        weight: 900;
+        size: 40px;
+    }
+
     color: $amarillo;
     margin-top:4%;
 }
@@ -1502,11 +1531,12 @@ div.shadow{
     font-size: 4vw !important;
     padding-left: 20% !important;
     padding-top: 15% !important;
-}
-.con-clase:hover{
-    color: white !important;
 
+    &:hover{
+        color: white !important;
+    }
 }
+
 
 .viewusuariocliente{
     margin-top: 13% !important;
