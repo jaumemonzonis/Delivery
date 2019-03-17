@@ -1,0 +1,56 @@
+
+/**************** SCSS CLIENTE FOOTER *******************/
+
+
+/* FOOTER CLIENTE*/
+footer {
+    grid-area: 3/1/4/4;
+    z-index:2;
+
+
+}
+.footer {
+    background-color:#3b56a3;
+    height: 50%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.footerplist {
+    background-color:#3b56a3;
+    height: 50%;
+    margin-left: 5%;
+    margin-right: 5%;
+    grid-area: 4/1/5/4 !important;
+
+}
+.rrss{
+    width: 3%;
+    background-repeat: no-repeat;
+    @media (max-width: $smartphoneL) {
+        width: 0%;
+    }
+}
+
+
+
+
+
+.fb {
+    background: url("../images/fb.png"); 
+    background-size: 100% 100%;
+}
+.tw {
+    background: url("../images/tw.png"); 
+    background-size: 100% 100%;
+}
+.in {
+    background: url("../images/inst.png");
+    background-size: 100% 100%;
+}
+.label_footer{
+    color: white;
+    display: block;
+    margin: auto;
+
+}
+

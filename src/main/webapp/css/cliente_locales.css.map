@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACA,2DAA2D",
+"sources": ["../sass/cliente_locales.scss"],
+"names": [],
+"file": "cliente_locales.css"
+}

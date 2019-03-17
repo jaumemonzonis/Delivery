@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACA,iEAAiE;AAEjE,aAAc;EACV,gBAAgB,EAAE,uCAAuC",
+"sources": ["../sass/cliente_adm.scss"],
+"names": [],
+"file": "cliente_adm.css"
+}

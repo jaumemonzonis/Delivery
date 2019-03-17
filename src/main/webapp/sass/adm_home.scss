@@ -1,0 +1,254 @@
+
+/**************** SCSS ADMINISTADOR HOME *******************/
+
+
+/* HEADER COMPONENT*/
+
+.logo_adm {
+    height: 12%;
+    width: 12%;
+}
+.navegador{
+    background-color: #F9B157;
+}
+.nav_logosecundary{
+    padding-top: 28% !important;
+}
+.collapse{
+    color: white !important;
+}
+
+.navbar{
+    height: 70px !important;
+}
+.order{
+    color: #F9B157;
+    background-color: white !important;
+    border: none;
+    height: 10px; 
+
+}
+
+.hover-ajena:hover {
+    color: #F9B157 !important;
+}
+
+.material-icons.md-36 { font-size: 36px; }
+
+.nav_user{
+    margin-top: 4% !important;
+}
+
+.modal-footer{
+
+    border-top: none !important;
+}
+
+/* HOMEADM COMPONENT*/
+
+.box {
+    width: 20%;
+    height: 180px;
+    margin: 0.2%;
+    padding: 5px;
+    box-sizing: border-box;
+    display: inline-block;
+    background: #036C81;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 5px rgba(0,0,0,0.4);
+    cursor: pointer;
+}
+
+a {
+    color: #3e3947 !important;
+    text-decoration: none;
+}
+
+.box {
+    width: 20%;
+    height: 180px;
+    margin: 0.2%;
+    padding: 5px;
+    box-sizing: border-box;
+    display: inline-block;
+    background: #036C81;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 5px rgba(0,0,0,0.4);
+    cursor: pointer;
+}
+
+.box_second {
+    width: 20%;
+    height:85px;
+    margin: 0.2%;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 5px rgba(0,0,0,0.4);
+    cursor: pointer;
+}
+
+
+.box_transparent {
+    width: 20%;
+    height:85px;
+    margin: 0.2%;
+    padding: 5px;
+    box-sizing: border-box;
+    display: inline-block;
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+
+}
+
+
+
+.box .icon-cont {
+    border: 6px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    width: 44%;
+    height: 40%;
+    margin: 20px auto;
+    display: block; 
+    text-align: center;
+    background: #036C81;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    box-shadow: 0 0 0 0px rgba(255,255,255,0.5), 0 0 0 0px rgba(3, 108, 129, 0.5);
+}
+
+
+.box .icon-cont i {
+    color: #fff;
+    opacity: 0.6;
+    font-size: 2.5em;
+    line-height: 75px;
+    margin-top: -10%;
+}
+.box:hover .icon-cont {
+    animation: shady 4s linear infinite;
+}
+
+@keyframes shady {
+    0% {box-shadow: 0 0 0 0px rgba(255,255,255,0.5), 0 0 0 0px rgba(3, 108, 129, 0.5);}
+    20% {box-shadow: 0 0 0 100px rgba(255,255,255,0), 0 0 0 0px rgba(3, 108, 129, 0);}
+    20.1% {box-shadow: 0 0 0 0px rgba(255,255,255,0.5), 0 0 0 0px rgba(3, 108, 129, 0.5);}
+    50% {box-shadow: 0 0 0 0px rgba(255,255,255,0.5), 0 0 0 0px rgba(3, 108, 129, 0.5);}
+    70% {box-shadow: 0 0 0 100px rgba(255,255,255,0), 0 0 0 0px rgba(3, 108, 129, 0);}
+    70.1% {box-shadow: 0 0 0 0px rgba(255,255,255,0.5), 0 0 0 0px rgba(3, 108, 129, 0.5);}
+    100% {box-shadow: 0 0 0 0px rgba(255,255,255,0.5), 0 0 0 0px rgba(3, 108, 129, 0.5);}
+}
+
+.box h3 {
+    color: #fff;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 1px solid rgba(255,255,255,0);
+
+    position: absolute;
+    top: 125px;
+    width: 70%;
+    left: 15%;
+    z-index: 4;
+}
+
+.restaurante{
+    left: 5% !important;
+
+}
+
+.box_second h3 {
+    color: #fff;
+    font-weight: 100;
+    font-size: 80%;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 1px solid rgba(255,255,255,0);
+
+    position: absolute;
+    top: 37%;
+    width: 70%;
+    left: 15%;
+    z-index: 4;
+}
+
+.color_second{
+    background: #1E7787;
+}
+
+.color_third{
+    background: #398998;
+}
+.color_four{
+    background: #6199A4;
+}
+.color_five{
+    background: #FFBC68;
+}
+.box h3 .label_restaurante{
+    left: 12%;    
+}
+.h3_admin{
+    font-size: 15px !important;
+    left: 15% !important;
+}
+
+.h3_admin2{
+    font-size: 15px !important;
+    left: 10% !important;
+}
+
+
+
+/* GENERAL*/
+
+html *{
+    font-family: 'Convergence', sans-serif;
+    box-sizing: border-box;
+    max-width:100vw;
+}
+body {
+    background-color: white;
+    max-width:100vw;
+
+}
+
+.contain{
+    margin-bottom: 5%;
+}
+
+
+a {
+    color: #3e3947 !important;
+    text-decoration: none;
+}
+
+a:hover{
+    color: #89229b !important;
+    text-decoration: none !important;
+}
+a:focus {
+    color: #89229b !important;
+    text-decoration: none !important;
+}
+
+.container-fluid{
+    margin-bottom: 1%;
+}
+
+.container2 {
+    background-color: white !important;
+    border: 10px #F9B157 solid;
+    height: auto;
+
+}
