@@ -1,6 +1,28 @@
 
 /**************** SCSS ADMINISTADOR HOME *******************/
 
+@mixin size($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+
+@mixin transition($property, $duration, $ease){
+    -webkit-transition: $property $duration $ease;
+    -moz-transition: $property $duration $ease;
+    -o-transition: $property $duration $ease;
+    transition: $property $duration $ease;
+}
+
+$rojo: #A62B21;
+$amarillo: #F9B157;
+$azulclaro: #48cfad;
+
+$laptop: 1440px;
+$notebook: 1024px;
+$tablet: 769px;
+$smartphoneL: 576px;
+$smartphoneS: 480px;
+
 
 /* HEADER COMPONENT*/
 
@@ -65,19 +87,7 @@ a {
     text-decoration: none;
 }
 
-.box {
-    width: 20%;
-    height: 180px;
-    margin: 0.2%;
-    padding: 5px;
-    box-sizing: border-box;
-    display: inline-block;
-    background: #036C81;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 0 5px rgba(0,0,0,0.4);
-    cursor: pointer;
-}
+
 
 .box_second {
     width: 20%;
@@ -159,6 +169,10 @@ a {
     width: 70%;
     left: 15%;
     z-index: 4;
+    @media (max-width: $smartphoneL) {
+     left: 14%;
+      
+}
 }
 
 .restaurante{

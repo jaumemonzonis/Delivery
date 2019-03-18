@@ -52,19 +52,6 @@ a {
   color: #3e3947 !important;
   text-decoration: none; }
 
-.box {
-  width: 20%;
-  height: 180px;
-  margin: 0.2%;
-  padding: 5px;
-  box-sizing: border-box;
-  display: inline-block;
-  background: #036C81;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
-  cursor: pointer; }
-
 .box_second {
   width: 20%;
   height: 85px;
@@ -140,6 +127,9 @@ a {
   width: 70%;
   left: 15%;
   z-index: 4; }
+  @media (max-width: 576px) {
+    .box h3 {
+      left: 14%; } }
 
 .restaurante {
   left: 5% !important; }

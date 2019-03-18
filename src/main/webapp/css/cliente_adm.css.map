@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AACA,iEAAiE;AAEjE,aAAc;EACV,gBAAgB,EAAE,uCAAuC",
+"mappings": "AACA,iEAAiE;AAwBjE,aAAc;EACV,gBAAgB,EAAE,uCAAuC",
 "sources": ["../sass/cliente_adm.scss"],
 "names": [],
 "file": "cliente_adm.css"

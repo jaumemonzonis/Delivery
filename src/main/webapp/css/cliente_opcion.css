@@ -1,76 +1,408 @@
-/*
-Error: Undefined variable: "$notebook".
-        on line 372 of sass/cliente_opcion.scss
+/**************** SCSS CLIENTE OPCIONES *******************/
+/* PLIST SELECCIONAR RESTAURANTE*/
+/* Restaurante pre-seleccionado*/
+#product-front-pre, #product-back {
+  width: 110%;
+  height: 110%;
+  background: #A62B21;
+  position: absolute;
+  left: -5px;
+  top: -5px;
+  -webkit-transition: all 100ms ease-out;
+  -moz-transition: all 100ms ease-out;
+  -o-transition: all 100ms ease-out;
+  transition: all 100ms ease-out; }
 
-367: 
-368: .label.prod4{
-369:     color: #F9B157;
-370:     font-size: 50px;
-371: 
-372: @media (min-width: $notebook) {
-373:      font-size: 43px;
-374: }
-375: @media (min-width: $tablet) {
-376:     font-size: 34px;
-377: }
+#product-card.animate #product-front-pre {
+  top: 0px;
+  left: 0px;
+  -webkit-transition: all 100ms ease-out;
+  -moz-transition: all 100ms ease-out;
+  -o-transition: all 100ms ease-out;
+  transition: all 100ms ease-out; }
 
-Backtrace:
-sass/cliente_opcion.scss:372
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/script/tree/variable.rb:49:in `_perform'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/script/tree/node.rb:50:in `perform'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/tree/visitors/perform.rb:551:in `block in run_interp_no_strip'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/tree/visitors/perform.rb:549:in `map'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/tree/visitors/perform.rb:549:in `run_interp_no_strip'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/tree/visitors/perform.rb:556:in `run_interp'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/tree/visitors/perform.rb:521:in `visit_media'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/stack.rb:79:in `block in with_base'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/stack.rb:135:in `with_frame'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/stack.rb:79:in `with_base'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/tree/visitors/perform.rb:158:in `visit'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/tree/visitors/perform.rb:440:in `block (2 levels) in visit_rule'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/tree/visitors/perform.rb:440:in `map'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/tree/visitors/perform.rb:440:in `block in visit_rule'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/tree/visitors/perform.rb:438:in `visit_rule'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/stack.rb:79:in `block in with_base'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/stack.rb:135:in `with_frame'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/stack.rb:79:in `with_base'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/tree/visitors/perform.rb:158:in `visit'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/tree/visitors/base.rb:52:in `map'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/tree/visitors/perform.rb:157:in `visit'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/tree/visitors/perform.rb:10:in `visit'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/tree/root_node.rb:36:in `css_tree'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/engine.rb:389:in `_render_with_sourcemap'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/engine.rb:307:in `render_with_sourcemap'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/plugin/compiler.rb:462:in `update_stylesheet'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/plugin/compiler.rb:209:in `each'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/plugin/compiler.rb:443:in `on_file_changed'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.7.3/lib/sass/plugin/compiler.rb:320:in `block in watch'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-listen-4.0.0/lib/sass-listen/event/config.rb:23:in `call'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:115:in `_process_changes'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:19:in `block in loop_for'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop_for'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:84:in `_wait_for_changes'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:42:in `block in setup'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-listen-4.0.0/lib/sass-listen/internals/thread_pool.rb:6:in `block in add'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Undefined variable: \"$notebook\".\A         on line 372 of sass/cliente_opcion.scss\A \A 367: \A 368: .label.prod4{\A 369:     color: #F9B157;\A 370:     font-size: 50px;\A 371: \A 372: @media (min-width: $notebook) {\A 373:      font-size: 43px;\A 374: }\A 375: @media (min-width: $tablet) {\A 376:     font-size: 34px;\A 377: }"; }
+.stats-container-pre {
+  background: #A62B21;
+  position: absolute;
+  top: 386px;
+  left: 0;
+  width: 95%;
+  height: 90%;
+  padding: 27px 35px 35px;
+  -webkit-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  transition: all 200ms ease-out; }
+
+#product-card:hover .stats-container-pre {
+  top: 272px;
+  -webkit-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  transition: all 200ms ease-out; }
+
+.stats-container-pre .product_name-pre {
+  font-size: 22px;
+  color: white;
+  text-transform: uppercase; }
+
+.stats-container-pre p {
+  font-size: 16px;
+  color: white;
+  padding: 2px 0 20px 0; }
+
+.product-options-pre {
+  padding: 2px 0 0; }
+
+.product-options-pre strong {
+  font-weight: 700;
+  color: #393c45;
+  font-size: 14px; }
+
+.product-options-pre span {
+  color: white;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 8px; }
+
+.image_overlay-pre {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #CE8B85;
+  opacity: 0; }
+
+#product-card:hover .image_overlay-pre {
+  opacity: 0.7;
+  -webkit-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  transition: all 200ms ease-out; }
+
+#view_details-pre {
+  position: absolute;
+  top: 112px;
+  left: 50%;
+  margin-left: -85px;
+  border: 2px solid #fff;
+  color: white !important;
+  font-size: 19px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 10px 0;
+  width: 172px;
+  opacity: 0;
+  -webkit-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  transition: all 200ms ease-out; }
+
+#view_details-pre:hover {
+  background: #fff !important;
+  color: #E9776E !important;
+  cursor: pointer; }
+
+#product-card:hover #view_details-pre {
+  opacity: 1;
+  width: 152px;
+  font-size: 15px;
+  margin-left: -85px;
+  top: 115px;
+  -webkit-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  transition: all 200ms ease-out; }
+
+/* Restaurante area*/
+#product-front-area, #product-back {
+  width: 110%;
+  height: 110%;
+  background: #FE8961;
+  position: absolute;
+  left: -5px;
+  top: -5px;
+  -webkit-transition: all 100ms ease-out;
+  -moz-transition: all 100ms ease-out;
+  -o-transition: all 100ms ease-out;
+  transition: all 100ms ease-out; }
+
+#product-card.animate #product-front-area {
+  top: 0px;
+  left: 0px;
+  -webkit-transition: all 100ms ease-out;
+  -moz-transition: all 100ms ease-out;
+  -o-transition: all 100ms ease-out;
+  transition: all 100ms ease-out; }
+
+.stats-container-area {
+  background: #FE8961;
+  position: absolute;
+  top: 386px;
+  left: 0;
+  width: 95%;
+  height: 90%;
+  padding: 27px 35px 35px;
+  -webkit-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  transition: all 200ms ease-out; }
+
+#product-card:hover .stats-container-area {
+  top: 272px;
+  -webkit-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  transition: all 200ms ease-out; }
+
+.stats-container-area .product_name-area {
+  font-size: 22px;
+  color: white;
+  text-transform: uppercase; }
+
+.stats-container-area p {
+  font-size: 16px;
+  color: white;
+  padding: 2px 0 20px 0; }
+
+.product-options-area {
+  padding: 2px 0 0; }
+
+.product-options-area strong {
+  font-weight: 700;
+  color: #393c45;
+  font-size: 14px; }
+
+.product-options-area span {
+  color: white;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 8px; }
+
+.image_overlay-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #FEB59C;
+  opacity: 0; }
+
+#product-card:hover .image_overlay-area {
+  opacity: 0.7;
+  -webkit-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  transition: all 200ms ease-out; }
+
+#view_details-area {
+  position: absolute;
+  top: 112px;
+  left: 50%;
+  margin-left: -85px;
+  border: 2px solid #fff;
+  color: white;
+  font-size: 19px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 10px 0;
+  width: 172px;
+  opacity: 0;
+  -webkit-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  transition: all 200ms ease-out; }
+
+#view_details-area:hover {
+  background: #fff;
+  color: #FFE8CB;
+  cursor: pointer; }
+
+#product-card:hover #view_details-area {
+  opacity: 1;
+  width: 152px;
+  font-size: 15px;
+  margin-left: -85px;
+  top: 115px;
+  -webkit-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  transition: all 200ms ease-out; }
+
+/* Restaurante plist*/
+#product-front-plist, #product-back {
+  width: 110%;
+  height: 110%;
+  background: #F99339;
+  position: absolute;
+  left: -5px;
+  top: -5px;
+  -webkit-transition: all 100ms ease-out;
+  -moz-transition: all 100ms ease-out;
+  -o-transition: all 100ms ease-out;
+  transition: all 100ms ease-out; }
+
+#product-card.animate #product-front-plist {
+  top: 0px;
+  left: 0px;
+  -webkit-transition: all 100ms ease-out;
+  -moz-transition: all 100ms ease-out;
+  -o-transition: all 100ms ease-out;
+  transition: all 100ms ease-out; }
+
+.stats-container-plist {
+  background: #F99339;
+  position: absolute;
+  top: 386px;
+  left: 0;
+  width: 95%;
+  height: 90%;
+  padding: 27px 35px 35px;
+  -webkit-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  transition: all 200ms ease-out; }
+
+#product-card:hover .stats-container-plist {
+  top: 272px;
+  -webkit-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  transition: all 200ms ease-out; }
+
+.stats-container-plist .product_name-plist {
+  font-size: 22px;
+  color: white;
+  text-transform: uppercase; }
+
+.stats-container-plist p {
+  font-size: 16px;
+  color: white;
+  padding: 2px 0 20px 0; }
+
+.product-options-plist {
+  padding: 2px 0 0; }
+
+.product-options-plist strong {
+  font-weight: 700;
+  color: #393c45;
+  font-size: 14px; }
+
+.product-options-plist span {
+  color: white;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 8px; }
+
+.image_overlay-plist {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #FCD9B6;
+  opacity: 0; }
+
+#product-card:hover .image_overlay-plist {
+  opacity: 0.7;
+  -webkit-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  transition: all 200ms ease-out; }
+
+#view_details-plist {
+  position: absolute;
+  top: 112px;
+  left: 50%;
+  margin-left: -85px;
+  border: 2px solid #fff;
+  color: white;
+  font-size: 19px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 10px 0;
+  width: 172px;
+  opacity: 0;
+  -webkit-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  transition: all 200ms ease-out; }
+
+#view_details-plist:hover {
+  background: #fff;
+  color: #FFE8CB;
+  cursor: pointer; }
+
+#product-card:hover #view_details-plist {
+  opacity: 1;
+  width: 152px;
+  font-size: 15px;
+  margin-left: -85px;
+  top: 115px;
+  -webkit-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  transition: all 200ms ease-out; }
+
+/* OPCION LOCAL O DOMICILIO*/
+.label.prod4 {
+  color: #F9B157;
+  font-size: 50px; }
+  @media (min-width: 1024px) {
+    .label.prod4 {
+      font-size: 43px; } }
+  @media (min-width: 769px) {
+    .label.prod4 {
+      font-size: 34px; } }
+  @media (min-width: 576px) {
+    .label.prod4 {
+      font-size: 26px; } }
+
+.label.prod4.top_domicilio {
+  margin-top: 4%; }
+
+/*  DOMICILIO*/
+.label_domicilio {
+  font-weight: 900;
+  font-size: 40px;
+  color: #F9B157;
+  margin-top: 4%; }
+
+.paso_img {
+  width: 8%;
+  max-width: 8%;
+  height: auto; }
+
+.nav_domicilio {
+  margin-top: 39%; }
+
+.nav_carrito {
+  margin-top: 10%; }
+
+.bebida_img {
+  height: 110%;
+  width: 110%;
+  padding-top: 5%; }
+
+.navbar-brand {
+  width: 55% !important; }
+
+.link_registrarse {
+  font-size: 72%; }
+
+@keyframes zoominoutsinglefeatured {
+  0% {
+    transform: scale(1, 1);
+    color: #FFC57C; }
+  50% {
+    transform: scale(1.2, 1.2);
+    color: #FFC57C; }
+  100% {
+    transform: scale(1, 1);
+    color: #FFC57C; } }
+
+/*# sourceMappingURL=cliente_opcion.css.map */
