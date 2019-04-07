@@ -895,7 +895,6 @@ footer {
   @media (max-width: 320px) {
     .label_footer {
       padding-top: 0px;
-      padding: 25px;
       font-size: 10px; } }
 
 /* MENU PRODUCTOS CLIENTE*/
@@ -1310,30 +1309,42 @@ div.shadow {
     background: #fff;
     color: #48cfad;
     cursor: pointer; }
+  @media (max-width: 769px) {
+    .flecha_btn {
+      width: 15%; } }
+  @media (max-width: 480px) {
+    .flecha_btn {
+      width: 20%; } }
+  @media (max-width: 320px) {
+    .flecha_btn {
+      width: 25%; } }
 
 .flechas {
   grid-area: 3/2/4/3;
   margin-top: 3%; }
+  @media (max-width: 320px) {
+    .flechas {
+      margin-top: 5%; } }
 
-.flechas_comprar, .flechas {
+.flechas_comprar {
   margin-top: -3%; }
   @media (max-width: 769px) {
-    .flechas_comprar, .flechas {
+    .flechas_comprar {
       margin-top: -7%; } }
   @media (max-width: 769px) {
-    .flechas_comprar .flecha_btn, .flechas .flecha_btn {
+    .flechas_comprar .flecha_btn {
       font-weight: 700;
       font-size: 13px;
       padding: 9px 8px;
       width: 6%;
       height: 38px; }
-      .flechas_comprar .flecha_btn .material-icons, .flechas .flecha_btn .material-icons {
+      .flechas_comprar .flecha_btn .material-icons {
         font-size: 16px !important; } }
   @media (max-width: 480px) {
-    .flechas_comprar .flecha_btn, .flechas .flecha_btn {
+    .flechas_comprar .flecha_btn {
       width: 9%; } }
   @media (max-width: 320px) {
-    .flechas_comprar .flecha_btn, .flechas .flecha_btn {
+    .flechas_comprar .flecha_btn {
       width: 14%; } }
 
 @media (max-width: 480px) {
@@ -1364,8 +1375,6 @@ div.shadow {
     #facturacarrito .navlogin {
       grid-area: 2/1/3/4;
       min-height: 67vh; } }
-#facturacarrito .flechas {
-  margin-top: 0%; }
 @media (max-width: 480px) {
   #facturacarrito .label.prod1.top_plistproductos {
     margin-top: 4%; } }
@@ -1379,8 +1388,6 @@ div.shadow {
   #facturacarrito .create_btn_margin {
     margin-right: 20px !important; } }
 
-#plist .flechas {
-  margin-top: 1%; }
 @media (max-width: 769px) {
   #plist .label.prod1.top_plistproductos, #plist .top_ensaladas, #plist .sandwiches {
     margin-top: 0%;
@@ -1392,7 +1399,10 @@ div.shadow {
     font-size: 225% !important; } }
 @media (max-width: 320px) {
   #plist .label.prod1.top_plistproductos, #plist .top_ensaladas, #plist .sandwiches {
-    margin-top: 10%; } }
+    margin-top: 10%;
+    padding-left: 9px;
+    text-align: initial;
+    font-size: 184% !important; } }
 @media (max-width: 480px) {
   #plist .top_ensaladas, #plist .sandwiches {
     margin-top: 1%; } }
@@ -1402,6 +1412,9 @@ div.shadow {
 @media (max-width: 769px) {
   #plist .nav {
     margin-top: 140px; } }
+@media (max-width: 320px) {
+  #plist .nav {
+    margin-top: 100px; } }
 
 #opcion .flechas {
   margin-top: 1%; }
@@ -1429,8 +1442,6 @@ div.shadow {
   #opcion .imgproductos {
     text-align: center; } }
 
-#restaurante .flechas {
-  margin-top: 1%; }
 #restaurante .top_ensaladas {
   margin-top: 4%; }
   @media (max-width: 768px) {
@@ -1448,11 +1459,140 @@ div.shadow {
   #restaurante .nav {
     margin-top: 30%; } }
 
+@media (max-width: 1024px) {
+  #domicilio .nav_domicilio {
+    margin-top: 52%; } }
+@media (max-width: 480px) {
+  #domicilio .nav_domicilio {
+    margin-top: 130%; } }
+@media (max-width: 320px) {
+  #domicilio .nav_domicilio {
+    margin-top: 138%; } }
+@media (max-width: 480px) {
+  #domicilio .imgproductos .row {
+    margin-right: 0px;
+    margin-left: 0px; } }
+@media (max-width: 480px) {
+  #domicilio .imgproductos .form-group {
+    margin-right: 0px !important;
+    margin-left: 0px !important; } }
+@media (max-width: 320px) {
+  #domicilio .imgproductos .label_domicilio {
+    font-size: 29px; } }
+
+@media (max-width: 320px) {
+  #login form {
+    display: flex;
+    flex-direction: column;
+    text-align: center; } }
+
+#registrarse .nav_registrarse {
+  margin-top: 8% !important; }
+  @media (max-width: 1024px) {
+    #registrarse .nav_registrarse {
+      margin-top: 12% !important; } }
+  @media (max-width: 768px) {
+    #registrarse .nav_registrarse {
+      margin-top: 16% !important; } }
+  @media (max-width: 480px) {
+    #registrarse .nav_registrarse {
+      margin-top: 26% !important; } }
+  @media (max-width: 320px) {
+    #registrarse .nav_registrarse {
+      margin-top: 36% !important; } }
+@media (max-width: 768px) {
+  #registrarse .label.prod1.top_ensaladas {
+    text-align: center; } }
+@media (max-width: 480px) {
+  #registrarse .label.prod1.top_ensaladas {
+    margin-top: 4%; } }
+@media (max-width: 320px) {
+  #registrarse .label.prod1.top_ensaladas {
+    margin-top: 8%; } }
+@media (max-width: 480px) {
+  #registrarse .flecha_btn {
+    width: 20%; } }
+
+#locales .top_ensaladas {
+  font-size: 300% !important;
+  margin-top: 5%; }
+  @media (max-width: 320px) {
+    #locales .top_ensaladas {
+      font-size: 200% !important;
+      margin-top: 10%; } }
+@media (max-width: 480px) {
+  #locales .nav {
+    margin-top: 46%; } }
+@media (max-width: 480px) {
+  #locales .flecha_btn {
+    width: 20%; } }
+
+#contacto .navcontrasena {
+  grid-area: 2/2/3/3;
+  margin-top: 100px;
+  min-height: 57vh; }
+#contacto .container2 {
+  margin-bottom: 0px !important; }
+#contacto .container-fluid {
+  margin-bottom: 0%; }
+#contacto .flechas {
+  margin-top: 1%; }
+#contacto .align {
+  text-align: justify; }
+  @media (max-width: 768px) {
+    #contacto .align {
+      text-align: center; } }
+@media (max-width: 480px) {
+  #contacto .top_ensaladas {
+    margin-top: 3%; } }
+@media (max-width: 480px) {
+  #contacto .flecha_btn {
+    width: 20%; } }
+@media (max-width: 480px) {
+  #contacto .navcontrasena {
+    grid-area: 2/1/3/4; } }
+
+#empresa .top_plistproductos {
+  margin-top: 4%; }
+  @media (max-width: 768px) {
+    #empresa .top_plistproductos {
+      font-size: 220% !important;
+      text-align: center; } }
+  @media (max-width: 480px) {
+    #empresa .top_plistproductos {
+      margin-top: 5%;
+      font-size: 160% !important; } }
+  @media (max-width: 320px) {
+    #empresa .top_plistproductos {
+      margin-top: 9%; } }
+@media (max-width: 480px) {
+  #empresa .nav {
+    margin-top: 18%; } }
+@media (max-width: 320px) {
+  #empresa .nav {
+    margin-top: 30%; } }
+
 /* BOTON CARRITO PLIST CARRITO*/
 .icon_cart {
   float: right;
   width: 12vh;
   height: 7vh; }
+  @media (min-width: 1440px) {
+    .icon_cart {
+      margin-top: -77px;
+      padding-left: 29px; } }
+  @media (min-width: 1024px) and (max-width: 1439px) {
+    .icon_cart {
+      margin-top: -75px;
+      padding-left: 13px; } }
+  @media (max-width: 769px) {
+    .icon_cart {
+      margin-top: -3px;
+      padding-left: 63px; } }
+  @media (max-width: 480px) {
+    .icon_cart {
+      margin-top: 11px;
+      padding-left: 0px; } }
 
 /* BOTON VACIAR CARRITO*/
 .btn-amarillo {
@@ -1982,6 +2122,9 @@ div.shadow {
 
 .nav_registrarse {
   margin-top: 8% !important; }
+  @media (max-width: 1024px) {
+    .nav_registrarse {
+      margin-top: 12% !important; } }
 
 .navperfil {
   grid-area: 1/2/2/3;

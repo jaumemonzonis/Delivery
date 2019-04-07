@@ -1050,7 +1050,6 @@ footer {
     }
            @media (max-width: $smartphoneS) {
     padding-top: 0px;
-    padding: 25px;
     font-size: 10px;
     }
 
@@ -1478,16 +1477,29 @@ div.shadow{
         color:$azulclaro;
         cursor:pointer;
     }
+    
+    @media (max-width: 769px) {
+          width:15%; 
+    }
+       @media (max-width: 480px) {
+          width:20%; 
+    }
+       @media (max-width: 320px) {
+          width:25%; 
+    }
 }
 
 
 .flechas{	
     grid-area: 3/2/4/3;
     margin-top:3%;
+     @media (max-width: 320px) {
+        margin-top:5%;
+    }
 
 }
 
-.flechas_comprar, .flechas{	
+.flechas_comprar {	
     margin-top:-3%;
     @media (max-width: 769px) {
         margin-top:-7%;
@@ -1552,9 +1564,6 @@ div.shadow{
     min-height: 67vh;
     }
 }
-.flechas {
-    margin-top: 0%;
-}
 .label.prod1.top_plistproductos {
     @media (max-width: 480px){
     margin-top: 4%;
@@ -1577,9 +1586,7 @@ main{
 }
 }
 #plist{
-    .flechas {
-    margin-top: 1%;
-}
+
 .label.prod1.top_plistproductos, .top_ensaladas, .sandwiches{
     @media (max-width: 769px) {
         margin-top: 0%;
@@ -1592,6 +1599,9 @@ main{
     }
        @media (max-width: 320px) {
         margin-top: 10%;   
+            padding-left: 9px;
+            text-align: initial;
+            font-size: 184% !important;
     }
 }
 .top_ensaladas,.sandwiches {
@@ -1607,6 +1617,9 @@ main{
 .nav{
     @media (max-width: 769px) {
       margin-top: 140px;
+    }
+               @media (max-width: 320px) {
+        margin-top: 100px; 
     }
 }
 }
@@ -1650,9 +1663,6 @@ main{
 }
 }
 #restaurante{
-      .flechas {
-    margin-top: 1%;
-}
 .top_ensaladas {
     margin-top: 4%;
     @media (max-width: 768px) {
@@ -1674,10 +1684,191 @@ main{
     } 
 }
 }
+#domicilio{
+.nav_domicilio {
+     @media (max-width: 1024px) {
+    margin-top: 52%;
+}
+     @media (max-width: 480px) {
+    margin-top: 130%;
+}
+     @media (max-width: 320px) {
+      margin-top: 138%;
+}
+}
+.imgproductos{
+    .row{
+         @media (max-width: 480px) {
+       margin-right: 0px;
+    margin-left: 0px;
+}
+    }
+    .form-group{
+         @media (max-width: 480px) {
+       margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+    }
+    .label_domicilio{
+        @media (max-width: 320px) {
+ font-size: 29px;
+}
+    }
+}
+}
+#login{
+    form{
+       @media (max-width: 320px) {
+           display: flex;
+    flex-direction: column;
+    text-align: center;
+        } 
+    }
+}
+#registrarse{
+    .nav_registrarse{
+    margin-top: 8% !important;  
+     @media (max-width: 1024px) {
+        margin-top: 12% !important;
+ } 
+      @media (max-width: 768px) {
+        margin-top: 16% !important;
+ } 
+       @media (max-width: 480px) {
+        margin-top: 26% !important;
+ } 
+        @media (max-width: 320px) {
+        margin-top: 36% !important;
+ }
+}
+.label.prod1.top_ensaladas{
+     @media (max-width: 768px) {
+            text-align: center;
+ } 
+      @media (max-width: 480px) {
+                margin-top: 4%;
+ } 
+       @media (max-width: 320px) {
+                margin-top: 8%;
+ } 
+}
+.flecha_btn{
+     @media (max-width: 480px) {
+           width: 20%;
+ }
+}
+}
+#locales{
+    .top_ensaladas {
+    font-size: 300% !important;
+    margin-top: 5%;
+     @media (max-width: 320px) {
+      font-size: 200% !important;
+    margin-top: 10%;
+  }
+}
+.nav {
+  @media (max-width: 480px) {
+    margin-top: 46%;
+  }
+}
+.flecha_btn{
+     @media (max-width: 480px) {
+           width: 20%;
+ }
+}
+}
+#contacto{
+    .navcontrasena {
+    grid-area: 2/2/3/3;
+    margin-top: 100px;
+    min-height: 57vh;
+}
+.container2{
+    margin-bottom: 0px !important;
+}
+.container-fluid {
+    margin-bottom: 0%;
+}
+.flechas {
+    margin-top: 1%;
+}
+.align{
+    text-align: justify;
+       @media (max-width: 768px) {
+      text-align: center;
+}
+}
+.top_ensaladas {
+   @media (max-width: 480px) {
+      margin-top: 3%;
+}
+
+}
+.flecha_btn{
+     @media (max-width: 480px) {
+           width: 20%;
+ }
+}
+.navcontrasena {
+   
+    @media (max-width: 480px) {
+         grid-area: 2/1/3/4;
+ }
+}
+}
+#empresa{
+   .top_plistproductos {
+    margin-top: 4%;
+    @media (max-width: 768px) {
+            font-size: 220% !important;  
+           text-align: center;
+    }
+           @media (max-width: 480px) {
+          margin-top: 5%;
+    font-size: 160% !important;
+    }
+               @media (max-width: 320px) {
+          margin-top: 9%;
+    }
+
+}
+.nav {
+      @media (max-width: 480px) {
+    margin-top: 18%;
+    }       
+    @media (max-width: 320px) {
+    margin-top: 30%;
+    } 
+}
+}
+
 /* BOTON CARRITO PLIST CARRITO*/
 .icon_cart{
     float: right;
     @include size (12vh,7vh);
+     @media (min-width: 1440px) {
+     margin-top: -77px;
+    padding-left: 29px;
+     }
+     @media (min-width: 1024px) and (max-width: 1439px) {
+    margin-top: -75px;
+    padding-left: 13px;
+     }
+   
+       @media (max-width: 769px) {
+     margin-top: -3px;
+    padding-left: 63px;
+    } 
+       @media (max-width: 480px) {
+  margin-top: 11px;
+    padding-left: 0px;
+  
+    } 
+       @media (max-width: 320px) {
+     
+  
+    } 
 }
 
 
@@ -2212,6 +2403,9 @@ margin-top: 28%;
 
 .nav_registrarse{
     margin-top: 8% !important;  
+     @media (max-width: 1024px) {
+        margin-top: 12% !important;
+ } 
 }
 
 .navperfil{

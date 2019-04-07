@@ -1,4 +1,4 @@
-<div class="body_plist">
+<div id="locales" class="body_plist">
   <div class="header d-flex">
     <div class="nav1">
 
@@ -37,8 +37,7 @@
   </div>
     <div class="imgproductos">
 
-        <div class="label prod1 top_ensaladas">NUESTROS</div>
-        <div class="label prod1 sandwiches">RESTAURANTES</div>
+        <div class="label prod1 top_ensaladas">NUESTROS RESTAURANTES</div>
 
     </div>
 
@@ -49,7 +48,7 @@
                     <div class="shadow"></div>
                     <img ng-src="/delivery/images/local.jpg" alt="" height="335" width="500" />
                     <div class="image_overlay-pre"></div>
-                    <div id="view_details-pre" ng-click="comprar(prerest.id)">SELECCIONAR</div>
+             
                     <div class="stats">        	
                         <div class="stats-container-pre">
                             <span class="product_name-pre">{{prerest.nombre}}</span>    
@@ -71,7 +70,7 @@
                     <div class="shadow"></div>
                     <img ng-src="/delivery/images/local.jpg" alt="" height="335" width="500" />
                     <div class="image_overlay-area"></div>
-                    <div id="view_details-area" ng-click="comprar(rest.id)">SELECCIONAR</div>
+                 
                     <div class="stats">        	
                         <div class="stats-container-area">
 
@@ -94,7 +93,7 @@
                     <div class="shadow"></div>
                     <img ng-src="/delivery/images/local.jpg" alt="" height="335" width="500" />
                     <div class="image_overlay-plist"></div>
-                    <div id="view_details-plist" ng-click="comprar(rest.id)">SELECCIONAR</div>
+             
                     <div class="stats">        	
                         <div class="stats-container-plist">     
                             <span class="product_name-plist">{{rest.nombre}}</span>    
@@ -112,11 +111,8 @@
 
     </div> 
     <div class="flechas d-flex justify-content-center">
-        <div  ng-click="volver()" class="flecha_btn float-left mr-5"><i class="material-icons">
+        <div  ng-click="volver()" class="flecha_btn float-left"><i class="material-icons">
                 arrow_back_ios
-            </i></div>
-        <div ng-click="avanzar()" class="flecha_btn float-right ml-5"><i class="material-icons">
-                arrow_forward_ios
             </i></div>
     </div>
     <div class="footerplist d-flex mt-3">
