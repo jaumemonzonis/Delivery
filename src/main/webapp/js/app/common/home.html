@@ -24,13 +24,14 @@
                     account_circle
                 </i> 
             </div>
-            <div class="dropdown-menu">
-                <a class="dropdown-item label_white"  ng-show="!logged" href="usuario/registrarse"><i class="fas fa-user"> </i>    REGISTRARSE</a>  
-                <a class="dropdown-item label_white" ng-show="!logged" href="usuario/login"><i class="fas fa-user"> </i>    LOGIN</a>
+            <div class="dropdown-menu" ng-class="{'dropdown-nologged': !logged}" >
                 <a class="dropdown-item label_white" ng-show="logged" href="usuario/viewusuariocliente/{{loggeduserid}}"><i class="fas fa-user"> </i>  PERFIL</a>
                 <a class="dropdown-item label_white" ng-show="logged" href="factura/facturacliente/10/1/{{loggeduserid}}"><i class="fas far fa-file"></i>  VER FACTURAS</a>
                 <a class="dropdown-item label_white" ng-show="logged" href="usuario/logout"><i class="fas fa-sign-out-alt"></i>  LOGOUT</a>
+                <a class="dropdown-item label_white"  ng-show="!logged" href="usuario/registrarse"><i class="fas fa-user"> </i>    REGISTRARSE</a>  
+                <a class="dropdown-item label_white" ng-show="!logged" href="usuario/login"><i class="fas fa-user"> </i>    LOGIN</a>
             </div>
+            
         </div>
     </div>
 

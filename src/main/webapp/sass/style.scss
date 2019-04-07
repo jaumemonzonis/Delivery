@@ -53,6 +53,9 @@ a {
 
 .container-fluid{
     margin-bottom: 1%;
+    @media (max-width: 769px) {
+        margin-bottom: 0%;
+    }
 }
 
 .container2 {
@@ -178,8 +181,15 @@ a {
 
 .create_btn_margin{
     margin-right:-17px !important;
+    @media (max-width: 480px) {
+        padding-left: 73px;
+    padding-top: 38px;
+    }
+       @media (max-width: 320px) {
+        padding-left: 0px;
+      margin-right:0px !important;
+    }
 }
-
 /* tabla */
 .table > tbody > tr > td{
     vertical-align: middle;
@@ -632,6 +642,9 @@ select{
     min-height: 100%;
     margin-left: auto;
     margin-right: auto;
+    @media (max-width: 769px) {
+         grid-template-rows: 9vh auto auto 9vh;
+    }
 }
 
 .imgprincipal{
@@ -649,6 +662,10 @@ select{
     @include size (100%,auto);
     margin-left: auto;
     margin-right: auto;
+    @media (max-width: 480px) {
+            grid-area: 2/1/3/4;
+            text-align: center;
+    }
 }
 
 /* NAV*/
@@ -731,12 +748,28 @@ select{
     }
     margin-bottom: -1%;
     opacity: 0.7;
+    @media (max-width: 769px) {
+        font-size: 220%;
+    }
+      @media (max-width: 320px) {
+        font-size: 138%;
+    }
 }
 .label.prod1.top{
     margin-top:12%;
 }
 .label.prod1.top_plistproductos{
     margin-top:5%;
+       @media (max-width: $tablet) {
+        margin-top:0%;
+        text-align: center;
+    }
+      @media (max-width: $smartphoneL) {
+       font-size: 300%;
+    }
+       @media (max-width: $smartphoneS) {
+       font-size: 200%;
+    }
 }
 
 .top_ensaladas{
@@ -756,17 +789,41 @@ select{
     color: #055969;
 }
 
+.dropdown-nologged{
+      top: 39px !important;
+    left: 5px !important;
+    
+      @media (max-width: $laptop) {
+        top: 24px !important;
+    left: 5px !important;
+}
+    
+     @media (max-width: $notebook) {
+        top: 18px !important;    }
+    @media (max-width: $tablet) {
+       top: 13px !important;
+        left: 3px !important;
+    }
+    @media (max-width: $smartphoneL) {
+      top: 16px !important;
+        left: -1px !important;
+    }
+    @media (max-width: $smartphoneS) {
+ 
+    }
+}
 
 .dropdown-menu.show, .dropdown-menu{
+    top:21px;
     font: {
         weight: 900;
         size: 20px;
     }
-        transform: translate3d(-64%, 64%, 0px) !important;
+    transform: translate3d(-64%, 61%, 0px) !important;
     background-color: $amarillo;
     border-radius: 0px !important;
        @media (max-width: $notebook) {
-      transform: translate3d(-64%, 45%, 0px) !important;
+      transform: translate3d(-69%, 45%, 0px) !important;
     }
     @media (max-width: $tablet) {
           transform: translate3d(-68%, 34%, 0px) !important;
@@ -795,6 +852,16 @@ select{
     padding-left: 30%;
     padding-top: 19%;
     color: white;
+      @media (max-width: $smartphoneL) {
+     font-size: 11vw;
+    padding-left: 22%;
+    padding-top: 2%;
+    }
+      @media (max-width: $smartphoneS) {
+     font-size: 14vw;
+    padding-left: 16%;
+    padding-top: 11%;
+    }
 }
 
 .dropleft .dropdown-toggle::before{
@@ -943,7 +1010,11 @@ footer {
     margin-left: 5%;
     margin-right: 5%;
     grid-area: 4/1/5/4 !important;
-
+    @media (max-width: $smartphoneL) {
+   margin-left:0%;
+    margin-right: 0%;
+    height: 100%;
+    }
 }
 .rrss{
     width: 3%;
@@ -977,6 +1048,11 @@ footer {
       text-align: center;
     padding-top: 7px;
     }
+           @media (max-width: $smartphoneS) {
+    padding-top: 0px;
+    padding: 25px;
+    font-size: 10px;
+    }
 
 }
 
@@ -984,6 +1060,9 @@ footer {
 .nav{
     grid-area: 2/2/3/3;
     margin-top:15%;
+    @media (max-width: $smartphoneS) {
+    grid-area: 2/1/3/4;
+    }
 }
 
 .nav_home{
@@ -1204,6 +1283,9 @@ figure.menu.hover:before {
     top:80px;
 
 }
+
+
+
 #product-front, #product-back{
     @include size (110%);
     background:#fff;
@@ -1229,12 +1311,20 @@ figure.menu.hover:before {
     overflow:hidden;
     transform-style: preserve-3d;
     @include transition(all,200ms,ease-out);
+      @media (max-width: $smartphoneS) {
+    left:3px;
+    @include size (316px,490px);
+    }
     &:hover{
         top:5px;
         left:5px;
         @include size (335px,500px);
         box-shadow:0px 13px 21px -5px rgba(0, 0, 0, 0.3);
         @include transition(all,200ms,ease-out);
+        @media (max-width: 320px) {
+           @include size (314px,500px); 
+           left:3px;
+        }
     }
 }
 
@@ -1247,9 +1337,17 @@ figure.menu.hover:before {
     @include size (95%,90%);
     padding:27px 35px 35px;	
     @include transition(all,200ms,ease-out);
+    @media (max-width: 320px) {
+         @include size (100%,90%);
+    }
+    
+    
     & .product_name{
         font-size:22px;
-        color:#393c45;	
+        color:#393c45;
+        @media (max-width: 320px) {
+               font-size: 20px; 
+        }     
     }
     & p{
         font-size:16px;
@@ -1277,11 +1375,13 @@ figure.menu.hover:before {
     left:0; 
     @include size (100%);
     background:#48daa1;
-    opacity:0;	
+    opacity:0;
+
 }
 #product-card:hover .image_overlay{
     opacity:0.7;	
     @include transition(all,200ms,ease-out); 
+ 
 }
 .product-options{
     padding:2px 0 0;
@@ -1387,8 +1487,192 @@ div.shadow{
 
 }
 
-.flechas_comprar{	
+.flechas_comprar, .flechas{	
     margin-top:-3%;
+    @media (max-width: 769px) {
+        margin-top:-7%;
+    }
+    .flecha_btn{
+        @media (max-width: 769px) {
+                font-weight: 700;
+    font-size: 13px;
+    padding: 9px 8px;
+    width: 6%;
+    height: 38px;
+    .material-icons{
+        font-size: 16px !important;
+    }
+        }
+        @media (max-width: 480px) {
+            width: 9%;
+        }
+          @media (max-width: 320px) {
+            width:14%;
+        }
+    }
+   
+}
+
+#carrito{
+    .label.prod1.top_plistproductos{
+        @media (max-width: 480px) {
+                margin-top: 3%;
+        }
+    }
+    .create_btn_margin{
+         @media (max-width: 480px) {
+                padding-left: 0px;
+                margin-right: 0px !important;
+        }
+            @media (max-width: 320px) {
+                padding-left: 37px;
+                margin-right: 0px !important;
+        }
+    }
+    button.btn.btn-rojo.btn-sm.float-left{
+        @media (max-width: 320px) {
+               margin-left: 21px;
+        }
+    }
+    .imgproductos{
+    min-height: 74vh;
+    }
+    
+}
+#facturacarrito{
+    .navlogin {
+    grid-area: 2/2/3/3;
+    margin-top: 10%;
+    min-height: 51vh;
+    @media (max-width: 769px) {
+         min-height: 64vh;
+    }
+    @media (max-width: 480px){
+    grid-area: 2/1/3/4;
+    min-height: 67vh;
+    }
+}
+.flechas {
+    margin-top: 0%;
+}
+.label.prod1.top_plistproductos {
+    @media (max-width: 480px){
+    margin-top: 4%;
+    }
+     @media (max-width: 480px){
+    margin-top: 10%;
+    }
+}
+main{
+     @media (max-width: 480px){
+       margin-top: 30px;
+    }
+}
+.create_btn_margin {
+     @media (max-width: 320px){
+      margin-right: 20px !important;
+    }
+ 
+    
+}
+}
+#plist{
+    .flechas {
+    margin-top: 1%;
+}
+.label.prod1.top_plistproductos, .top_ensaladas, .sandwiches{
+    @media (max-width: 769px) {
+        margin-top: 0%;
+            font-size: 307% !important;
+            text-align:center;
+    }
+     @media (max-width: 480px) {
+        margin-top: 10%;
+              font-size: 225% !important;
+    }
+       @media (max-width: 320px) {
+        margin-top: 10%;   
+    }
+}
+.top_ensaladas,.sandwiches {
+    @media (max-width: 480px) {
+        margin-top: 1%;
+          
+    }
+           @media (max-width: 320px) {
+        margin-top: 4%;   
+    }
+}
+
+.nav{
+    @media (max-width: 769px) {
+      margin-top: 140px;
+    }
+}
+}
+#opcion{
+    .flechas {
+    margin-top: 1%;
+}
+.nav{
+    @media (max-width: 1024px) {
+      margin-top: 240px;
+    }
+     @media (max-width: 769px) {
+      margin-top: 160px;
+    }
+}
+.top_ensaladas,.sandwiches {
+    @media (max-width: 768px) {
+            font-size: 220% !important;  
+    }
+           @media (max-width: 480px) {
+        margin-top: 7%;   
+           font-size: 160% !important;
+    }
+     @media (max-width: 480px) {
+           margin-top: 10%;
+    font-size: 143% !important;
+    }
+
+}
+.sandwiches {
+           @media (max-width: 480px) {
+        margin-top: 1%;   
+    }
+
+}
+.imgproductos{
+     @media (max-width: 768px) {
+          text-align: center;
+          
+    } 
+}
+}
+#restaurante{
+      .flechas {
+    margin-top: 1%;
+}
+.top_ensaladas {
+    margin-top: 4%;
+    @media (max-width: 768px) {
+            font-size: 220% !important;  
+           text-align: center;
+    }
+           @media (max-width: 480px) {
+          margin-top: 5%;
+    font-size: 160% !important;
+    }
+
+}
+.nav {
+      @media (max-width: 480px) {
+    margin-top: 18%;
+    }       
+    @media (max-width: 320px) {
+    margin-top: 30%;
+    } 
+}
 }
 /* BOTON CARRITO PLIST CARRITO*/
 .icon_cart{
@@ -1435,6 +1719,9 @@ div.shadow{
     @include size (90%,95%);
     padding:27px 35px 35px;	
     @include transition(all,200ms,ease-out);
+      @media (max-width: 320px) {
+         @include size (100%,90%);
+    }
 }
 #product-card:hover .stats-container-pre{
     top:272px;
@@ -1536,6 +1823,9 @@ div.shadow{
     @include size (95%,90%);
     padding:27px 35px 35px;	
     @include transition(all,200ms,ease-out);
+      @media (max-width: 320px) {
+         @include size (100%,90%);
+    }
 }
 #product-card:hover .stats-container-area{
     top:272px;
@@ -1637,6 +1927,9 @@ div.shadow{
     @include size (95%,90%);
     padding:27px 35px 35px;	
     @include transition(all,200ms,ease-out);
+      @media (max-width: 320px) {
+         @include size (100%,90%);
+    }
 }
 #product-card:hover .stats-container-plist{
     top:272px;
@@ -1819,20 +2112,102 @@ div.shadow{
     min-height: 46vh;
 }
 
+#viewusuariocliente{
+    main{
+          @media (max-width: 320px) {
+       padding-left: 0px !important;
+       padding-right: 0px !important; 
+    }
+    }
+   .navlogin2{
+    grid-area: 2/2/3/3;
+    margin-top: 56px;
+    min-height: 46vh;
+    @media (max-width: 769px) {
+       margin-top: 48px;  
+    }
+} 
+}
+
+
 .navcontrasena {
     grid-area: 2/2/3/3;
-    margin-top: 14%;
-    min-height: 46vh;
+    margin-top: 131px;
+    min-height: 57vh;
+    @media (max-width: 769px) {
+         min-height: 70vh;
+          margin-top: 67px;
+    }
+        @media (max-width: 480px) {
+             grid-area: 2/1/3/4;
+           margin-top: 19%;
+           min-height: 63vh;
+}
+        @media (max-width: 320px) {
+margin-top: 28%;
+}
 }
 
 .navlinea {
     grid-area: 2/2/3/3;
     margin-top: 10%;
     min-height: 60vh;
+    @media (max-width: 769px) {
+            margin-top: 17%;
+    min-height: 62vh;
+    }
+        @media (max-width: 480px) {
+    margin-top: 24%;
+    }
+        @media (max-width: 320px) {
+       margin-top: 35%;
+    }
 }
 
 .top_perfil{
     margin-top: 1%;
+    @media (max-width: 769px) {
+       margin-top: 0%; 
+    }
+       @media (max-width: 480px) {
+       margin-top: 5%; 
+    }
+         @media (max-width: 320px) {
+       margin-top: 10%; 
+    }
+}
+
+#facturacliente{
+       main{
+          @media (max-width: 480px) {
+       padding-left: 0px !important;
+       padding-right: 0px !important; 
+    }
+       }
+    .top_perfil{
+        @media (max-width: 769px) {
+       margin-top: 4%; 
+    }
+  
+    }
+    .nav {
+      @media (max-width: 480px) {
+      grid-area: 2/1/3/4;
+    }
+   .flechas_comprar .flecha_btn {
+ @media (max-width: 480px) {
+    margin-left: 43%;
+ }
+}
+.btn-group{
+    @media (max-width: 480px) {
+        margin-left: 0% !important;
+ } 
+ @media (max-width: 320px) {
+        margin-left: -1% !important;
+ } 
+}
+}
 }
 
 .nav_registrarse{

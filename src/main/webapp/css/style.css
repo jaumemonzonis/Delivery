@@ -22,6 +22,9 @@ a {
 
 .container-fluid {
   margin-bottom: 1%; }
+  @media (max-width: 769px) {
+    .container-fluid {
+      margin-bottom: 0%; } }
 
 .container2 {
   background-color: white !important;
@@ -125,6 +128,14 @@ a {
 
 .create_btn_margin {
   margin-right: -17px !important; }
+  @media (max-width: 480px) {
+    .create_btn_margin {
+      padding-left: 73px;
+      padding-top: 38px; } }
+  @media (max-width: 320px) {
+    .create_btn_margin {
+      padding-left: 0px;
+      margin-right: 0px !important; } }
 
 /* tabla */
 .table > tbody > tr > td {
@@ -504,6 +515,9 @@ select {
   min-height: 100%;
   margin-left: auto;
   margin-right: auto; }
+  @media (max-width: 769px) {
+    .body_plist {
+      grid-template-rows: 9vh auto auto 9vh; } }
 
 .imgprincipal {
   grid-area: 2/1/3/4;
@@ -520,6 +534,10 @@ select {
   height: auto;
   margin-left: auto;
   margin-right: auto; }
+  @media (max-width: 480px) {
+    .imgproductos {
+      grid-area: 2/1/3/4;
+      text-align: center; } }
 
 /* NAV*/
 .nav1, .logo, .login {
@@ -595,12 +613,28 @@ select {
   font-size: 350%;
   margin-bottom: -1%;
   opacity: 0.7; }
+  @media (max-width: 769px) {
+    .label {
+      font-size: 220%; } }
+  @media (max-width: 320px) {
+    .label {
+      font-size: 138%; } }
 
 .label.prod1.top {
   margin-top: 12%; }
 
 .label.prod1.top_plistproductos {
   margin-top: 5%; }
+  @media (max-width: 769px) {
+    .label.prod1.top_plistproductos {
+      margin-top: 0%;
+      text-align: center; } }
+  @media (max-width: 480px) {
+    .label.prod1.top_plistproductos {
+      font-size: 300%; } }
+  @media (max-width: 320px) {
+    .label.prod1.top_plistproductos {
+      font-size: 200%; } }
 
 .top_ensaladas {
   font-size: 300% !important;
@@ -618,15 +652,35 @@ select {
 .label.prod3 {
   color: #055969; }
 
+.dropdown-nologged {
+  top: 39px !important;
+  left: 5px !important; }
+  @media (max-width: 1440px) {
+    .dropdown-nologged {
+      top: 24px !important;
+      left: 5px !important; } }
+  @media (max-width: 1024px) {
+    .dropdown-nologged {
+      top: 18px !important; } }
+  @media (max-width: 769px) {
+    .dropdown-nologged {
+      top: 13px !important;
+      left: 3px !important; } }
+  @media (max-width: 480px) {
+    .dropdown-nologged {
+      top: 16px !important;
+      left: -1px !important; } }
+
 .dropdown-menu.show, .dropdown-menu {
+  top: 21px;
   font-weight: 900;
   font-size: 20px;
-  transform: translate3d(-64%, 64%, 0px) !important;
+  transform: translate3d(-64%, 61%, 0px) !important;
   background-color: #F9B157;
   border-radius: 0px !important; }
   @media (max-width: 1024px) {
     .dropdown-menu.show, .dropdown-menu {
-      transform: translate3d(-64%, 45%, 0px) !important; } }
+      transform: translate3d(-69%, 45%, 0px) !important; } }
   @media (max-width: 769px) {
     .dropdown-menu.show, .dropdown-menu {
       transform: translate3d(-68%, 34%, 0px) !important; } }
@@ -651,6 +705,16 @@ select {
   padding-left: 30%;
   padding-top: 19%;
   color: white; }
+  @media (max-width: 480px) {
+    .material-icons.md-48 {
+      font-size: 11vw;
+      padding-left: 22%;
+      padding-top: 2%; } }
+  @media (max-width: 320px) {
+    .material-icons.md-48 {
+      font-size: 14vw;
+      padding-left: 16%;
+      padding-top: 11%; } }
 
 .dropleft .dropdown-toggle::before {
   content: none !important; }
@@ -792,6 +856,11 @@ footer {
   margin-left: 5%;
   margin-right: 5%;
   grid-area: 4/1/5/4 !important; }
+  @media (max-width: 480px) {
+    .footerplist {
+      margin-left: 0%;
+      margin-right: 0%;
+      height: 100%; } }
 
 .rrss {
   width: 3%;
@@ -823,11 +892,19 @@ footer {
     .label_footer {
       text-align: center;
       padding-top: 7px; } }
+  @media (max-width: 320px) {
+    .label_footer {
+      padding-top: 0px;
+      padding: 25px;
+      font-size: 10px; } }
 
 /* MENU PRODUCTOS CLIENTE*/
 .nav {
   grid-area: 2/2/3/3;
   margin-top: 15%; }
+  @media (max-width: 320px) {
+    .nav {
+      grid-area: 2/1/3/4; } }
 
 .nav_home {
   grid-area: 2/1/3/2;
@@ -1070,6 +1147,11 @@ figure.menu.hover:before {
   -moz-transition: all 200ms ease-out;
   -o-transition: all 200ms ease-out;
   transition: all 200ms ease-out; }
+  @media (max-width: 320px) {
+    #product-card {
+      left: 3px;
+      width: 316px;
+      height: 490px; } }
   #product-card:hover {
     top: 5px;
     left: 5px;
@@ -1080,6 +1162,11 @@ figure.menu.hover:before {
     -moz-transition: all 200ms ease-out;
     -o-transition: all 200ms ease-out;
     transition: all 200ms ease-out; }
+    @media (max-width: 320px) {
+      #product-card:hover {
+        width: 314px;
+        height: 500px;
+        left: 3px; } }
 
 .stats-container {
   background: #fff;
@@ -1093,9 +1180,16 @@ figure.menu.hover:before {
   -moz-transition: all 200ms ease-out;
   -o-transition: all 200ms ease-out;
   transition: all 200ms ease-out; }
+  @media (max-width: 320px) {
+    .stats-container {
+      width: 100%;
+      height: 90%; } }
   .stats-container .product_name {
     font-size: 22px;
     color: #393c45; }
+    @media (max-width: 320px) {
+      .stats-container .product_name {
+        font-size: 20px; } }
   .stats-container p {
     font-size: 16px;
     color: #b1b1b3;
@@ -1221,8 +1315,138 @@ div.shadow {
   grid-area: 3/2/4/3;
   margin-top: 3%; }
 
-.flechas_comprar {
+.flechas_comprar, .flechas {
   margin-top: -3%; }
+  @media (max-width: 769px) {
+    .flechas_comprar, .flechas {
+      margin-top: -7%; } }
+  @media (max-width: 769px) {
+    .flechas_comprar .flecha_btn, .flechas .flecha_btn {
+      font-weight: 700;
+      font-size: 13px;
+      padding: 9px 8px;
+      width: 6%;
+      height: 38px; }
+      .flechas_comprar .flecha_btn .material-icons, .flechas .flecha_btn .material-icons {
+        font-size: 16px !important; } }
+  @media (max-width: 480px) {
+    .flechas_comprar .flecha_btn, .flechas .flecha_btn {
+      width: 9%; } }
+  @media (max-width: 320px) {
+    .flechas_comprar .flecha_btn, .flechas .flecha_btn {
+      width: 14%; } }
+
+@media (max-width: 480px) {
+  #carrito .label.prod1.top_plistproductos {
+    margin-top: 3%; } }
+@media (max-width: 480px) {
+  #carrito .create_btn_margin {
+    padding-left: 0px;
+    margin-right: 0px !important; } }
+@media (max-width: 320px) {
+  #carrito .create_btn_margin {
+    padding-left: 37px;
+    margin-right: 0px !important; } }
+@media (max-width: 320px) {
+  #carrito button.btn.btn-rojo.btn-sm.float-left {
+    margin-left: 21px; } }
+#carrito .imgproductos {
+  min-height: 74vh; }
+
+#facturacarrito .navlogin {
+  grid-area: 2/2/3/3;
+  margin-top: 10%;
+  min-height: 51vh; }
+  @media (max-width: 769px) {
+    #facturacarrito .navlogin {
+      min-height: 64vh; } }
+  @media (max-width: 480px) {
+    #facturacarrito .navlogin {
+      grid-area: 2/1/3/4;
+      min-height: 67vh; } }
+#facturacarrito .flechas {
+  margin-top: 0%; }
+@media (max-width: 480px) {
+  #facturacarrito .label.prod1.top_plistproductos {
+    margin-top: 4%; } }
+@media (max-width: 480px) {
+  #facturacarrito .label.prod1.top_plistproductos {
+    margin-top: 10%; } }
+@media (max-width: 480px) {
+  #facturacarrito main {
+    margin-top: 30px; } }
+@media (max-width: 320px) {
+  #facturacarrito .create_btn_margin {
+    margin-right: 20px !important; } }
+
+#plist .flechas {
+  margin-top: 1%; }
+@media (max-width: 769px) {
+  #plist .label.prod1.top_plistproductos, #plist .top_ensaladas, #plist .sandwiches {
+    margin-top: 0%;
+    font-size: 307% !important;
+    text-align: center; } }
+@media (max-width: 480px) {
+  #plist .label.prod1.top_plistproductos, #plist .top_ensaladas, #plist .sandwiches {
+    margin-top: 10%;
+    font-size: 225% !important; } }
+@media (max-width: 320px) {
+  #plist .label.prod1.top_plistproductos, #plist .top_ensaladas, #plist .sandwiches {
+    margin-top: 10%; } }
+@media (max-width: 480px) {
+  #plist .top_ensaladas, #plist .sandwiches {
+    margin-top: 1%; } }
+@media (max-width: 320px) {
+  #plist .top_ensaladas, #plist .sandwiches {
+    margin-top: 4%; } }
+@media (max-width: 769px) {
+  #plist .nav {
+    margin-top: 140px; } }
+
+#opcion .flechas {
+  margin-top: 1%; }
+@media (max-width: 1024px) {
+  #opcion .nav {
+    margin-top: 240px; } }
+@media (max-width: 769px) {
+  #opcion .nav {
+    margin-top: 160px; } }
+@media (max-width: 768px) {
+  #opcion .top_ensaladas, #opcion .sandwiches {
+    font-size: 220% !important; } }
+@media (max-width: 480px) {
+  #opcion .top_ensaladas, #opcion .sandwiches {
+    margin-top: 7%;
+    font-size: 160% !important; } }
+@media (max-width: 480px) {
+  #opcion .top_ensaladas, #opcion .sandwiches {
+    margin-top: 10%;
+    font-size: 143% !important; } }
+@media (max-width: 480px) {
+  #opcion .sandwiches {
+    margin-top: 1%; } }
+@media (max-width: 768px) {
+  #opcion .imgproductos {
+    text-align: center; } }
+
+#restaurante .flechas {
+  margin-top: 1%; }
+#restaurante .top_ensaladas {
+  margin-top: 4%; }
+  @media (max-width: 768px) {
+    #restaurante .top_ensaladas {
+      font-size: 220% !important;
+      text-align: center; } }
+  @media (max-width: 480px) {
+    #restaurante .top_ensaladas {
+      margin-top: 5%;
+      font-size: 160% !important; } }
+@media (max-width: 480px) {
+  #restaurante .nav {
+    margin-top: 18%; } }
+@media (max-width: 320px) {
+  #restaurante .nav {
+    margin-top: 30%; } }
 
 /* BOTON CARRITO PLIST CARRITO*/
 .icon_cart {
@@ -1273,6 +1497,10 @@ div.shadow {
   -moz-transition: all 200ms ease-out;
   -o-transition: all 200ms ease-out;
   transition: all 200ms ease-out; }
+  @media (max-width: 320px) {
+    .stats-container-pre {
+      width: 100%;
+      height: 90%; } }
 
 #product-card:hover .stats-container-pre {
   top: 272px;
@@ -1388,6 +1616,10 @@ div.shadow {
   -moz-transition: all 200ms ease-out;
   -o-transition: all 200ms ease-out;
   transition: all 200ms ease-out; }
+  @media (max-width: 320px) {
+    .stats-container-area {
+      width: 100%;
+      height: 90%; } }
 
 #product-card:hover .stats-container-area {
   top: 272px;
@@ -1503,6 +1735,10 @@ div.shadow {
   -moz-transition: all 200ms ease-out;
   -o-transition: all 200ms ease-out;
   transition: all 200ms ease-out; }
+  @media (max-width: 320px) {
+    .stats-container-plist {
+      width: 100%;
+      height: 90%; } }
 
 #product-card:hover .stats-container-plist {
   top: 272px;
@@ -1668,18 +1904,81 @@ div.shadow {
   margin-top: 6%;
   min-height: 46vh; }
 
+@media (max-width: 320px) {
+  #viewusuariocliente main {
+    padding-left: 0px !important;
+    padding-right: 0px !important; } }
+#viewusuariocliente .navlogin2 {
+  grid-area: 2/2/3/3;
+  margin-top: 56px;
+  min-height: 46vh; }
+  @media (max-width: 769px) {
+    #viewusuariocliente .navlogin2 {
+      margin-top: 48px; } }
+
 .navcontrasena {
   grid-area: 2/2/3/3;
-  margin-top: 14%;
-  min-height: 46vh; }
+  margin-top: 131px;
+  min-height: 57vh; }
+  @media (max-width: 769px) {
+    .navcontrasena {
+      min-height: 70vh;
+      margin-top: 67px; } }
+  @media (max-width: 480px) {
+    .navcontrasena {
+      grid-area: 2/1/3/4;
+      margin-top: 19%;
+      min-height: 63vh; } }
+  @media (max-width: 320px) {
+    .navcontrasena {
+      margin-top: 28%; } }
 
 .navlinea {
   grid-area: 2/2/3/3;
   margin-top: 10%;
   min-height: 60vh; }
+  @media (max-width: 769px) {
+    .navlinea {
+      margin-top: 17%;
+      min-height: 62vh; } }
+  @media (max-width: 480px) {
+    .navlinea {
+      margin-top: 24%; } }
+  @media (max-width: 320px) {
+    .navlinea {
+      margin-top: 35%; } }
 
 .top_perfil {
   margin-top: 1%; }
+  @media (max-width: 769px) {
+    .top_perfil {
+      margin-top: 0%; } }
+  @media (max-width: 480px) {
+    .top_perfil {
+      margin-top: 5%; } }
+  @media (max-width: 320px) {
+    .top_perfil {
+      margin-top: 10%; } }
+
+@media (max-width: 480px) {
+  #facturacliente main {
+    padding-left: 0px !important;
+    padding-right: 0px !important; } }
+@media (max-width: 769px) {
+  #facturacliente .top_perfil {
+    margin-top: 4%; } }
+@media (max-width: 480px) {
+  #facturacliente .nav {
+    grid-area: 2/1/3/4; } }
+@media (max-width: 480px) {
+  #facturacliente .nav .flechas_comprar .flecha_btn {
+    margin-left: 43%; } }
+@media (max-width: 480px) {
+  #facturacliente .nav .btn-group {
+    margin-left: 0% !important; } }
+@media (max-width: 320px) {
+  #facturacliente .nav .btn-group {
+    margin-left: -1% !important; } }
 
 .nav_registrarse {
   margin-top: 8% !important; }
