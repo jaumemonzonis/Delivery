@@ -1,8 +1,8 @@
 
 'use strict'
 
-moduleCarrito.controller('contactoCarritoController', ['$scope', "$window",
-    function ($scope, $window) {
+moduleCarrito.controller('contactoCarritoController',  ['$scope', '$http', '$location', 'toolService', '$routeParams', 'sessionService', "$window",
+    function ($scope, $http, $location, toolService, $routeParams, sessionService, $window) {
         
 // HEADER //
 

@@ -499,6 +499,10 @@ select {
   min-height: 100%;
   margin-left: auto;
   margin-right: auto; }
+  @media (max-width: 480px) {
+    .body {
+      grid-template-columns: 100%;
+      grid-template-rows: 10vh auto 11vh; } }
 
 .body_cliente {
   background-image: url("../images/cliente.png") !important; }
@@ -526,6 +530,10 @@ select {
   height: 77vh;
   margin-left: auto;
   margin-right: auto; }
+  @media (max-width: 480px) {
+    .imgprincipal {
+      width: 100%;
+      height: 100%; } }
 
 .imgproductos {
   grid-area: 2/2/3/3;
@@ -911,6 +919,9 @@ footer {
   grid-template-columns: auto auto;
   grid-template-rows: 38vh 38vh;
   z-index: 2; }
+  @media (max-width: 480px) {
+    .nav_home {
+      display: block !important; } }
 
 figure.menu {
   font-family: "Raleway", Arial, sans-serif;
@@ -924,6 +935,11 @@ figure.menu {
   color: #ffffff;
   text-align: center;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); }
+  @media (max-width: 480px) {
+    figure.menu {
+      max-width: none;
+      max-height: none;
+      margin: 0%; } }
 
 figure.menu * {
   -webkit-box-sizing: border-box;
@@ -938,25 +954,78 @@ figure:first-child {
   height: 100%;
   margin-left: auto;
   margin-top: auto;
-  grid-area: 1/1/1/1; }
+  grid-area: 1 / 1 / 1 / 1; }
+  @media (max-width: 480px) {
+    figure:first-child {
+      width: 480px;
+      height: 300px; } }
+  @media (max-width: 320px) {
+    figure:first-child {
+      width: 320px;
+      height: 250px; } }
 
 figure:nth-child(2n) {
-  width: 40%;
-  height: 60%;
+  width: 42%;
+  height: 66%;
   margin-top: auto;
-  grid-area: 1/2/2/3; }
+  grid-area: 1 / 2 / 2 / 3; }
+  @media (max-width: 769px) {
+    figure:nth-child(2n) {
+      width: 69%;
+      height: 84%; } }
+  @media (max-width: 480px) {
+    figure:nth-child(2n) {
+      width: 480px;
+      height: 300px; } }
+  @media (max-width: 320px) {
+    figure:nth-child(2n) {
+      width: 320px;
+      height: 250px; } }
 
 figure:nth-child(3n) {
-  width: 35%;
-  height: 46%;
+  width: 32%;
+  height: 65%;
   margin-left: auto;
-  grid-area: 2/1/2/2; }
+  grid-area: 2 / 1 / 2 / 2; }
+  @media (max-width: 1024px) {
+    figure:nth-child(3n) {
+      width: 43%;
+      height: 65%; } }
+  @media (max-width: 769px) {
+    figure:nth-child(3n) {
+      width: 57%;
+      height: 65%; } }
+  @media (max-width: 480px) {
+    figure:nth-child(3n) {
+      width: 480px;
+      height: 300px; } }
+  @media (max-width: 320px) {
+    figure:nth-child(3n) {
+      width: 320px;
+      height: 250px; } }
 
 figure:nth-child(4n) {
-  width: 37%;
-  height: 40%;
+  width: 36%;
+  height: 56%;
   margin-top: 2%;
-  grid-area: 2/2/3/3; }
+  grid-area: 2 / 2 / 3 / 3; }
+  @media (max-width: 1024px) {
+    figure:nth-child(4n) {
+      width: 51%;
+      height: 79%; } }
+  @media (max-width: 769px) {
+    figure:nth-child(4n) {
+      width: 64%;
+      height: 65%; } }
+  @media (max-width: 480px) {
+    figure:nth-child(4n) {
+      width: 480px;
+      height: 300px;
+      margin-top: 0%; } }
+  @media (max-width: 320px) {
+    figure:nth-child(4n) {
+      width: 320px;
+      height: 250px; } }
 
 figure.menu.producto img {
   max-width: 120%;
@@ -974,6 +1043,10 @@ figure.menu.contacto img {
   height: 100%;
   position: relative;
   opacity: 0.4; }
+  @media (max-width: 480px) {
+    figure.menu.contacto img {
+      width: 100%;
+      height: 163%; } }
 
 figure.menu.empresa img {
   width: 100%;
@@ -1015,6 +1088,9 @@ figure.menu:before {
   position: absolute;
   transition: all 0.3s ease-in-out;
   transform: rotate(110deg) translateY(-50%); }
+  @media (max-width: 480px) {
+    figure.menu:before {
+      content: none; } }
 
 figure.menu:nth-child(2n):before {
   transform: rotate(110deg) translateY(-35%);
@@ -2043,6 +2119,10 @@ div.shadow {
   grid-area: 2/2/3/3;
   margin-top: 6%;
   min-height: 46vh; }
+  @media (max-width: 320px) {
+    .navlogin2 {
+      margin-top: 12%;
+      min-height: 73vh; } }
 
 @media (max-width: 320px) {
   #viewusuariocliente main {
@@ -2055,6 +2135,10 @@ div.shadow {
   @media (max-width: 769px) {
     #viewusuariocliente .navlogin2 {
       margin-top: 48px; } }
+  @media (max-width: 320px) {
+    #viewusuariocliente .navlogin2 {
+      margin-top: 12%;
+      min-height: 73vh; } }
 
 .navcontrasena {
   grid-area: 2/2/3/3;
